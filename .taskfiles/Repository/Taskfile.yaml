@@ -41,3 +41,18 @@ tasks:
       - git reset --hard HEAD
       - git clean -f -d
       - git pull origin main
+
+  update-template:
+    desc: Update from the upstream cluster-template repository
+    cmds:
+      - mkdir -p $(dirname {{.shafile}})
+      - touch {{.shafile}}
+      - git remote get-url template >/dev/null 2>&1 || git remote add template git@github.com:onedr0p/cluster-template.git
+      - git fetch --all
+      - git cherry-pick --no-commit --allow-empty $(cat {{.shafile}})..template/main
+      - git ls-remote template HEAD | awk '{ print $1}' > {{.shafile}}
+    vars:
+      shafile: "{{.ROOT_DIR}}/.task/.latest-template.sha"
+    preconditions:
+      - { msg: "Git repository not up-to-date", sh: "git diff --exit-code" }
+      - { msg: "Git repository not up-to-date", sh: "git diff --cached --exit-code" }

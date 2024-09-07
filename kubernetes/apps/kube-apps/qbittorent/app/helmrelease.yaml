@@ -88,7 +88,7 @@ spec:
         type: persistentVolumeClaim
         storageClass: openebs
         volumeName: qbittorent-config
-        accessMode: ReadWriteMany
+        accessMode: ReadWriteOnce
         size: 200Mi
         labels:
           app.kubernetes.io/managed-by: Helm

@@ -68,7 +68,7 @@ spec:
         type: persistentVolumeClaim
         storageClass: openebs
         volumeName: prowlarr-config
-        accessMode: ReadWriteMany
+        accessMode: ReadWriteOnce
         size: 200Mi
         labels:
           app.kubernetes.io/managed-by: Helm

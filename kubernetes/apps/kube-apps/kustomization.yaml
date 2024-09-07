@@ -5,3 +5,4 @@ resources:
   - ./namespace.yaml
   - ./sonarr/ks.yaml
   - ./qbittorent/ks.yaml
+  - ./prowlarr/ks.yaml

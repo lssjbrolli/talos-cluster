@@ -86,8 +86,15 @@ spec:
       config:
         enabled: true
         type: persistentVolumeClaim
+        storageClass: openebs
+        volumeName: qbittorent-config
         accessMode: ReadWriteMany
         size: 200Mi
+        labels:
+          app.kubernetes.io/managed-by: Helm
+        annotations:
+          meta.helm.sh/release-name: qbittorent
+          meta.helm.sh/release-namespace: kube-apps
       # Configure an emptyDir to share the port-forwarding location between containers
       gluetun-data:
         type: emptyDir

@@ -1,9 +1,10 @@
 ---
 # yaml-language-server: $schema=https://raw.githubusercontent.com/bernd-schorgers/helm-charts/main/charts/other/app-template/schemas/helmrelease-helm-v2.schema.json
+# yaml-language-server: $schema=https://raw.githubusercontent.com/bjw-s/helm-charts/common-3.4.0/charts/library/common/schemas/persistence.json
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: sonarr
+  name: prowlarr
   namespace: flux-system
 spec:
   interval: 60m
@@ -42,8 +43,9 @@ spec:
         containers:
           main:
             image:
-              repository: ghcr.io/onedr0p/sonarr
-              tag: 4.0.9@sha256:a3e0123ea3a50380de801a1157110ac630b2100aff590519740c2cf23e9bf65a
+              repository: ghcr.io/onedr0p/prowlarr
+              tag: 1.23.1@sha256:68b27f658b850e41e6d67fe8f3bf630bef8dc468495c1d9abf5d96647f30cd2c
+              pullPolicy: IfNotPresent
             securityContext:
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: true
@@ -59,17 +61,17 @@ spec:
         type: ClusterIP
         ports:
           http:
-            port: 8989
+            port: 9696
     persistence:
       config:
         enabled: true
         type: persistentVolumeClaim
         storageClass: openebs
-        volumeName: sonarr-config
+        volumeName: prowlarr-config
         accessMode: ReadWriteMany
         size: 200Mi
         labels:
           app.kubernetes.io/managed-by: Helm
         annotations:
-          meta.helm.sh/release-name: sonarr
+          meta.helm.sh/release-name: prowlarr
           meta.helm.sh/release-namespace: kube-apps

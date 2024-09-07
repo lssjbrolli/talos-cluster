@@ -7,3 +7,6 @@ spec:
   #Change this name if you are using a custom StorageClass
   storageClassName: openebs-hostpath
   accessModes: ["ReadWriteMany"]
+  resources:
+    requests:
+      storage: 15Gi

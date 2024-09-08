@@ -5,9 +5,8 @@ apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: prowlarr
-  namespace: flux-system
 spec:
-  interval: 60m
+  interval: 30m
   chart:
     spec:
       chart: app-template
@@ -16,12 +15,9 @@ spec:
         kind: HelmRepository
         name: bjw-s
         namespace: flux-system
-  driftDetection:
-    mode: enabled
   install:
     remediation:
       retries: 3
-    createNamespace: true
   upgrade:
     cleanupOnFail: true
     remediation:
@@ -35,9 +31,9 @@ spec:
         runAsGroup: 568
         fsGroup: 568
         fsGroupChangePolicy: OnRootMismatch
+        seccompProfile: { type: RuntimeDefault }
     controllers:
       main:
-        strategy: Recreate
         annotations:
           reloader.stakater.com/auto: "true"
         containers:
@@ -54,7 +50,7 @@ spec:
               requests:
                 cpu: 100m
               limits:
-                memory: 4Gi
+                memory: 1Gi
     service:
       main:
         controller: main
@@ -62,16 +58,22 @@ spec:
         ports:
           http:
             port: 9696
+
+    ingress:
+  # Configure an Ingress for the main application
+      main:
+        className: "external"
+        annotations:
+          external-dns.alpha.kubernetes.io/target: "external.${SECRET_DOMAIN}"
+        hosts:
+          - host: "{{ .Release.Name }}.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
+                service:
+                  identifier: main
+                  port: http
+
     persistence:
       config:
-        enabled: true
-        type: persistentVolumeClaim
-        storageClass: openebs
-        volumeName: prowlarr-config
-        accessMode: ReadWriteOnce
-        size: 200Mi
-        labels:
-          app.kubernetes.io/managed-by: Helm
-        annotations:
-          meta.helm.sh/release-name: prowlarr
-          meta.helm.sh/release-namespace: kube-apps
+        type: emptyDir

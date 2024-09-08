@@ -10,6 +10,6 @@ machine:
           - rw
 
   disks:
-      - device: /dev/vdb1 # The name of the disk to use.
+      - device: /dev/vdb # The name of the disk to use.
         partitions:
           - mountpoint: /var/mnt/storage # Where to mount the partition.

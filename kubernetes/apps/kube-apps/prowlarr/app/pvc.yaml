@@ -1,0 +1,11 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: prowlarr-config
+spec:
+  storageClassName: openebs
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 200M

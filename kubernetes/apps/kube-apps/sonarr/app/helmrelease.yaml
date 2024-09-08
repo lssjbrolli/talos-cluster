@@ -52,7 +52,7 @@ spec:
               requests:
                 cpu: 100m
               limits:
-                memory: 4Gi
+                memory: 1Gi
     service:
       main:
         controller: main
@@ -60,16 +60,19 @@ spec:
         ports:
           http:
             port: 8989
+    ingress:
+      # Configure an Ingress for the main application
+      main:
+        className: "internal"
+        hosts:
+          - host: sonarr.seganet.org
+            paths:
+              - path: /
+                pathType: Prefix
+                service:
+                  identifier: main
+                  port: http
     persistence:
       config:
-        enabled: true
         type: persistentVolumeClaim
-        storageClass: openebs
-        volumeName: sonarr-config
-        accessMode: ReadWriteOnce
-        size: 200Mi
-        labels:
-          app.kubernetes.io/managed-by: Helm
-        annotations:
-          meta.helm.sh/release-name: sonarr
-          meta.helm.sh/release-namespace: kube-apps
+        existingClaim: sonarr-config

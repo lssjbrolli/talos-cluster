@@ -52,10 +52,7 @@ spec:
               limits:
                 memory: 1Gi
     service:
-
       main:
-        annotations:
-          "lbipam.cilium.io/ips": "192.168.1.105"
         controller: main
         type: ClusterIP
         ports:
@@ -63,11 +60,11 @@ spec:
             port: 9696
 
     ingress:
-  # Configure an Ingress for the main application
+      # Configure an Ingress for the main application
       main:
         className: "internal"
         hosts:
-          - host: "{{ .Release.Name }}.${SECRET_DOMAIN}"
+          - host: prowlarr.seganet.org
             paths:
               - path: /
                 pathType: Prefix
@@ -77,9 +74,5 @@ spec:
 
     persistence:
       config:
-        type: emptyDir
-        # type: persistentVolumeClaim
-        # storageClass: openebs
-        # volumeName: prowlarr-config
-        # accessMode: ReadWriteOnce
-        # size: 200Mi
+        type: persistentVolumeClaim
+        existingClaim: prowlarr-config

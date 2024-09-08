@@ -82,6 +82,19 @@ spec:
         ports:
           http:
             port: 8080
+
+    ingress:
+      # Configure an Ingress for the main application
+      main:
+        className: "internal"
+        hosts:
+          - host: prowlarr.seganet.org
+            paths:
+              - path: /
+                pathType: Prefix
+                service:
+                  identifier: main
+                  port: http
     persistence:
       config:
         enabled: true
@@ -90,11 +103,7 @@ spec:
         volumeName: qbittorent-config
         accessMode: ReadWriteOnce
         size: 200Mi
-        labels:
-          app.kubernetes.io/managed-by: Helm
-        annotations:
-          meta.helm.sh/release-name: qbittorent
-          meta.helm.sh/release-namespace: kube-apps
+        retain: true
       # Configure an emptyDir to share the port-forwarding location between containers
       gluetun-data:
         type: emptyDir

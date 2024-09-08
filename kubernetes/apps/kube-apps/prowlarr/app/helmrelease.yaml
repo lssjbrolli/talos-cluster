@@ -52,7 +52,10 @@ spec:
               limits:
                 memory: 1Gi
     service:
+
       main:
+        annotations:
+          "lbipam.cilium.io/ips": "192.168.1.105"
         controller: main
         type: ClusterIP
         ports:
@@ -61,16 +64,16 @@ spec:
 
     ingress:
   # Configure an Ingress for the main application
-      main:
-        className: "internal"
-        hosts:
-          - host: "{{ .Release.Name }}.${SECRET_DOMAIN}"
-            paths:
-              - path: /
-                pathType: Prefix
-                service:
-                  identifier: main
-                  port: http
+      # main:
+      #   className: "internal"
+      #   hosts:
+      #     - host: "{{ .Release.Name }}.${SECRET_DOMAIN}"
+      #       paths:
+      #         - path: /
+      #           pathType: Prefix
+      #           service:
+      #             identifier: main
+      #             port: http
 
     persistence:
       config:

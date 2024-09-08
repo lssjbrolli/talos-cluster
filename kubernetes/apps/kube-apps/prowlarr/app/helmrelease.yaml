@@ -4,7 +4,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: &name prowlarr
+  name: prowlarr
 spec:
   interval: 30m
   chart:
@@ -59,29 +59,18 @@ spec:
           http:
             port: 9696
 
-    route:
+    ingress:
+  # Configure an Ingress for the main application
       main:
-        enabled: true
-        parentRefs:
-          - name: envoy-internal
-            namespace: networking
-        hostnames:
-          - "prowlarr.seganet.org"
-        rules:
-          - backendRefs:
-              - port: *port
-                name: *name
-      cilium:
-        enabled: true
-        parentRefs:
-          - name: cilium-internal
-            namespace: networking
-        hostnames:
-          - "prowlarr-cilium.seganet.org"
-        rules:
-          - backendRefs:
-              - port: *port
-                name: *name
+        className: "internal"
+        hosts:
+          - host: "{{ .Release.Name }}.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
+                service:
+                  identifier: main
+                  port: http
 
     persistence:
       config:

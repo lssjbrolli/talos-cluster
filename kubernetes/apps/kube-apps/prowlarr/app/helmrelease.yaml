@@ -62,9 +62,7 @@ spec:
     ingress:
   # Configure an Ingress for the main application
       main:
-        className: "external"
-        annotations:
-          external-dns.alpha.kubernetes.io/target: "external.${SECRET_DOMAIN}"
+        className: "internal"
         hosts:
           - host: "{{ .Release.Name }}.${SECRET_DOMAIN}"
             paths:
@@ -76,8 +74,9 @@ spec:
 
     persistence:
       config:
-        type: persistentVolumeClaim
-        storageClass: openebs
-        volumeName: prowlarr-config
-        accessMode: ReadWriteOnce
-        size: 200Mi
+        type: emptyDir
+        # type: persistentVolumeClaim
+        # storageClass: openebs
+        # volumeName: prowlarr-config
+        # accessMode: ReadWriteOnce
+        # size: 200Mi

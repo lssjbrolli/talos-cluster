@@ -76,4 +76,8 @@ spec:
 
     persistence:
       config:
-        type: emptyDir
+        type: persistentVolumeClaim
+        storageClass: openebs
+        volumeName: prowlarr-config
+        accessMode: ReadWriteOnce
+        size: 200Mi

@@ -57,7 +57,7 @@ spec:
         type: ClusterIP
         ports:
           http:
-            port: 9696
+            port: &port 9696
 
     route:
       main:

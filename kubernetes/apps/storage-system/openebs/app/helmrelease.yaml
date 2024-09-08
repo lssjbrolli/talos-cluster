@@ -44,6 +44,6 @@ spec:
       hostpathClass:
         enabled: true
         name: openebs
-        isDefaultClass: false
+        isDefaultClass: true
         reclaimPolicy: Retain
         basePath: /var/mnt/storage

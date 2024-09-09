@@ -1,16 +1,15 @@
 ---
-# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/kustomize.toolkit.fluxcd.io/kustomization_v1.json
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: &app prowlarr
+  name: &app democratic-csi
   namespace: flux-system
 spec:
-  targetNamespace: kube-apps
+  targetNamespace: storage-system
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
-  path: ./kubernetes/apps/kube-apps/prowlarr/app
+  path: ./kubernetes/apps/storage-system/democratic-csi/app
   prune: true
   sourceRef:
     kind: GitRepository
@@ -18,7 +17,4 @@ spec:
   wait: false
   interval: 30m
   retryInterval: 1m
-  timeout: 1m
-  postBuild:
-    substitute:
-      APP: *app
+  timeout: 5m

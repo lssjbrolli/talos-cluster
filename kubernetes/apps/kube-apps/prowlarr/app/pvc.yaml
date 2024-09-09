@@ -3,7 +3,7 @@ apiVersion: v1
 metadata:
   name: prowlarr-config
 spec:
-  storageClassName: openebs
+  storageClassName: democratic-csi
   accessModes:
     - ReadWriteOnce
   resources:

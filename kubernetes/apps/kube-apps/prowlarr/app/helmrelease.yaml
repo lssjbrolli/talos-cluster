@@ -50,7 +50,7 @@ spec:
               requests:
                 cpu: 150m
               limits:
-                memory: 1Gi
+                memory: 256Mi
     service:
       main:
         controller: main
@@ -75,8 +75,4 @@ spec:
     persistence:
       config:
         type: persistentVolumeClaim
-        accessMode: ReadWriteOnce
-        size: 200Mi
-        retain: true
-        storageClass: democratic-csi
-        volumeName: prowlarr-config
+        existingClaim: prowlarr-config

@@ -3,9 +3,11 @@ apiVersion: v1
 metadata:
   name: sonarr-config
 spec:
-  storageClassName: openebs
+  storageClassName: democratic-csi
   accessModes:
     - ReadWriteOnce
+  volumeName: sonarr-config
+  volumeMode: Filesystem
   resources:
     requests:
       storage: 200M

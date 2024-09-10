@@ -10,4 +10,4 @@ spec:
   volumeMode: Filesystem
   resources:
     requests:
-      storage: 200M
+      storage: 200Mi

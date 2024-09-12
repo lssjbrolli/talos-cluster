@@ -60,7 +60,10 @@ spec:
     persistence:
       config:
         type: persistentVolumeClaim
-        existingClaim: prowlarr-config
+        accessMode: ReadWriteOnce
+        retain: true
+        volumeName: sonarr-config
+        size: 200Mi
 
 
 

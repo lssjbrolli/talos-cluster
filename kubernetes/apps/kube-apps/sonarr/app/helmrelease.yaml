@@ -1,6 +1,4 @@
 ---
-# yaml-language-server: $schema=https://raw.githubusercontent.com/bjw-s/helm-charts/common-3.4.0/charts/library/common/values.schema.json
-# yaml-language-server: $schema=https://raw.githubusercontent.com/bernd-schorgers/helm-charts/main/charts/other/app-template/schemas/helmrelease-helm-v2.schema.json
 # yaml-language-server: $schema=https://raw.githubusercontent.com/bjw-s/helm-charts/common-3.4.0/charts/library/common/schemas/persistence.json
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
@@ -32,15 +30,6 @@ spec:
         runAsGroup: 568
         fsGroup: 568
         fsGroupChangePolicy: OnRootMismatch
-      affinity:
-        nodeAffinity:
-          required:
-            nodeSelectorTerms:
-            - matchExpressions:
-              - key: kubernetes.io/hostname
-                operator: In
-                values:
-                - control-node
     controllers:
       main:
         strategy: Recreate
@@ -57,7 +46,7 @@ spec:
               capabilities: { drop: ["ALL"] }
             resources:
               requests:
-                cpu: 100m
+                cpu: 150m
               limits:
                 memory: 1Gi
     service:
@@ -67,20 +56,11 @@ spec:
         ports:
           http:
             port: 8989
-    ingress:
-      # Configure an Ingress for the main application
-      main:
-        className: "internal"
-        hosts:
-          - host: sonarr.seganet.org
-            paths:
-              - path: /
-                pathType: Prefix
-                service:
-                  identifier: main
-                  port: http
+
     persistence:
       config:
-        storageClass: openebs-hostpath
-        existingClaim: sonarr-config
-        size: 200Mi
+        type: persistentVolumeClaim
+        existingClaim: prowlarr-config
+
+
+

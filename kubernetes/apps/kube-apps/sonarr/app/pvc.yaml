@@ -6,8 +6,6 @@ spec:
   storageClassName: democratic-csi
   accessModes:
     - ReadWriteOnce
-  volumeName: sonarr-config
-  volumeMode: Filesystem
   resources:
     requests:
       storage: 200Mi

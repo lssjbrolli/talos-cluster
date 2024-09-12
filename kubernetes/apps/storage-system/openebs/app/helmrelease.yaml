@@ -23,35 +23,29 @@ spec:
       strategy: rollback
       retries: 3
   values:
-    localpv-provisioner:
+    analytics:
+      enabled: false
+    helperPod:
+      registry: quay.io
+    hostpathClass:
+      basePath: /var/mnt/storage/
+      isDefaultClass: true
+      nodeAffinityLabels:
+        required:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: kubernetes.io/hostname
+            operator: In
+            values:
+            - control-node
+      reclaimPolicy: Retain
       localpv:
-        image:
-          registry: quay.io/
-      hostpathClass:
-        name: openebs-hostpath
-        isDefaultClass: true
-        reclaimPolicy: Retain
-        basePath: /var/mnt/storage
-      helperPod:
-        image:
-          registry: quay.io/
-    openebs-crds:
-      csi:
-        volumeSnapshots:
-          enabled: false
-          keep: false
-    zfs-localpv:
-      enabled: false
-    lvm-localpv:
-      enabled: false
-    mayastor:
-      enabled: false
-    engines:
-      local:
-        lvm:
-          enabled: false
-        zfs:
-          enabled: false
-      replicated:
-        mayastor:
-          enabled: false
+        registry: quay.io
+      affinity:
+        required:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: kubernetes.io/hostname
+            operator: In
+            values:
+            - control-node

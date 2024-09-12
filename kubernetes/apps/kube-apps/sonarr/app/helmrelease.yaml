@@ -81,8 +81,6 @@ spec:
                   port: http
     persistence:
       config:
-        type: persistentVolumeClaim
-        storageClass: democratic-csi
+        storageClass: openebs-hostpath
         existingClaim: sonarr-config
         size: 200Mi
-        retain: true

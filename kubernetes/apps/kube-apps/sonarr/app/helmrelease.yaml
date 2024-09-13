@@ -70,9 +70,6 @@ spec:
                   port: http
     persistence:
       config:
-        type: persistentVolumeClaim
-        accessMode: ReadWriteOnce
-        size: 200Mi
-        retain: true
-        storageClass: democratic-csi
-        volumeName: sonarr-config
+        type: emptyDir
+        # type: persistentVolumeClaim
+        # existingClaim: sonarr-config

@@ -69,18 +69,30 @@ spec:
               - name: VPN_SERVICE_PROVIDER
                 value: "private internet access"
               - name: OPENVPN_USER
-                value: p4604206
+                valueFrom:
+                  secretKeyRef:
+                    name: vpnconfig
+                    key: username
               - name: OPENVPN_PASSWORD
-                value: vZVh72idxa
+                valueFrom:
+                  secretKeyRef:
+                    name: vpnconfig
+                    key: password
               #optional
               - name: PORT_FORWARD_ONLY
                 value: true
               - name: VPN_PORT_FORWARDING
                 value: on
               - name: SERVER_REGIONS
-                value: Romania
+                valueFrom:
+                  secretKeyRef:
+                    name: vpnconfig
+                    key: region
               - name: SERVER_NAMES
-                value: romania401
+                valueFrom:
+                  secretKeyRef:
+                    name: vpnconfig
+                    key: server
               - name: UPDATER_PERIOD
                 value: 24h
               - name: TZ

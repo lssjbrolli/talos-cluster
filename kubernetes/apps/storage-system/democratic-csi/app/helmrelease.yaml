@@ -91,3 +91,17 @@ spec:
         # distributed support is not yet ready for expansion
         allowVolumeExpansion: false
 
+    # this is a temporary measure until all the k8s components are proper
+    # grpc clients and send valid :authority headers
+    # required to remove the deprecated/custom `grpc-uds` package with
+    #`@grpc/grpc-js` and subsequently pave the way for updating `nodejs` to current
+    # versions
+    #
+    # https://github.com/democratic-csi/csi-grpc-proxy
+    csiProxy:
+      enabled: true
+      image: docker.io/democraticcsi/csi-grpc-proxy:v0.5.6
+      resources:
+
+    # Configure a pod security policy to allow privileged pods
+    enablePSP: true

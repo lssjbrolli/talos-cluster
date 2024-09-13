@@ -5,7 +5,6 @@ resources:
   - ./bjw-s.yaml
   - ./cilium.yaml
   - ./coredns.yaml
-  - ./democratic-csi.yaml
   - ./jetstack.yaml
   - ./metrics-server.yaml
   - ./openebs.yaml

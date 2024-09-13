@@ -76,8 +76,8 @@ spec:
         driver: local-hostpath
         instance_id:
         local-hostpath:
-          shareBasePath: "/var/mnt/storage/"
-          controllerBasePath: "/var/mnt/storage/"
+          shareBasePath: "/var/lib/local-hostpath/"
+          controllerBasePath: "/var/lib/local-hostpath/"
           dirPermissionsMode: "0770"
           dirPermissionsUser: 0
           dirPermissionsGroup: 0

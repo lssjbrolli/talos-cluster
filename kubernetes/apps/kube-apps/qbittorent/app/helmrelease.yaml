@@ -52,7 +52,7 @@ spec:
               repository: ghcr.io/qdm12/gluetun
               # -- image tag
               # this example is not automatically updated, so be sure to use the latest image
-              tag: pr-2434@sha256:291dc11564df1d70797e3544f3e84d55758b54ba3cf3bf0aedec05fe5177cba9
+              tag: pr-2434@sha256:0280e24e031405e5181d4d2dda0251aa48286f6c56e0fe5c2c51683aeb0f7d9e
             # -- environment variables.
             # See [image docs](https://github.com/qdm12/gluetun-wiki) for more details on how to configure
             # your VPN and how to set up port-forwarding.

@@ -52,7 +52,7 @@ spec:
               PROWLARR__SERVER__PORT: &port 8080
             securityContext:
               allowPrivilegeEscalation: false
-              readOnlyRootFilesystem: true
+              readOnlyRootFilesystem: false
               capabilities: { drop: ["ALL"] }
             resources:
               requests:
@@ -86,8 +86,5 @@ spec:
         type: persistentVolumeClaim
         accessMode: ReadWriteOnce
         retain: true
-        volumeName: prowlarr-config
         storageClass: openebs-hostpath
-        size: 200M
-
-
+        size: 200Mi

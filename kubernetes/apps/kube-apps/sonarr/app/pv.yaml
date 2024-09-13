@@ -10,7 +10,7 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   storageClassName: democratic-csi
   local:
-    path: /var/mnt/storage/sonarr-config
+    path: /var/mnt/storage/
   nodeAffinity:
     required:
       nodeSelectorTerms:

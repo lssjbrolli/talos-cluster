@@ -97,13 +97,11 @@ spec:
                   port: http
     persistence:
       config:
-        enabled: true
         type: persistentVolumeClaim
-        storageClass: openebs
-        volumeName: qbittorent-config
         accessMode: ReadWriteOnce
-        size: 200Mi
         retain: true
+        storageClass: openebs-hostpath
+        size: 200Mi
       # Configure an emptyDir to share the port-forwarding location between containers
       gluetun-data:
         type: emptyDir

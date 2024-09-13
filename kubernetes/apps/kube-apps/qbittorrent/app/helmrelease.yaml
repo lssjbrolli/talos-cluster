@@ -102,7 +102,7 @@ spec:
               capabilities:
                 add:
                   - NET_ADMIN
-                allowPrivilegeEscalation: false
+                allowPrivilegeEscalation: true
           port-forward:
             dependsOn: gluetun
             image:
@@ -113,6 +113,12 @@ spec:
                 value: localhost
               - name: QBITTORRENT_PORT
                 value: "8080"
+              - name: QBITTORRENT_USER
+                value: admin
+              - name: QBITTORRENT_PASS
+                value: adminadmin
+              - name: HTTP_S
+                value: http
               - name: PORT_FORWARDED
                 value: "/tmp/gluetun/forwarded_port"
     service:

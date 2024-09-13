@@ -42,7 +42,7 @@ spec:
         containers:
           main:
             image:
-              repository: ghcr.io/onedr0p/qbittorent
+              repository: ghcr.io/onedr0p/qbittorrent
               tag: 4.6.6@sha256:5634593d1594ae6899b11ff6e9e9311e1aab0ed60170679150f175183e3a9364
           # Configure the gluetun sidecar
           gluetun:

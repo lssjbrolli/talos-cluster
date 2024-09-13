@@ -42,7 +42,7 @@ spec:
               tag: 4.0.9@sha256:a3e0123ea3a50380de801a1157110ac630b2100aff590519740c2cf23e9bf65a
             securityContext:
               allowPrivilegeEscalation: false
-              readOnlyRootFilesystem: true
+              readOnlyRootFilesystem: false
               capabilities: { drop: ["ALL"] }
             resources:
               requests:
@@ -70,6 +70,8 @@ spec:
                   port: http
     persistence:
       config:
-        type: emptyDir
-        # type: persistentVolumeClaim
-        # existingClaim: sonarr-config
+        type: persistentVolumeClaim
+        accessMode: ReadWriteOnce
+        retain: true
+        storageClass: openebs-hostpath
+        size: 200Mi

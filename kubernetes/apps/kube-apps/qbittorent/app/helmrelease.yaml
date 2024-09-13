@@ -51,8 +51,41 @@ spec:
               repository: ghcr.io/qdm12/gluetun
               tag: pr-2479@sha256:1c3db6c83ab0f52646656d11383710ccfe498afce95c68b38a377de91c7dd30f
             env:
-              VPN_TYPE: wireguard    # Configure the gluetun sidecar
+              - name: VPN_SERVICE_PROVIDER
+                value: private internet access
+              - name: PORT_FORWARD_ONLY
+                value: true
+              - name: VPN_PORT_FORWARDING
+                value: on
+              - name: OPENVPN_USER
+                valueFrom:
+                  secretKeyRef:
+                    name: vpnconfig
+                    key: user
+              - name: OPENVPN_PASSWORD
+                valueFrom:
+                  secretKeyRef:
+                    name: vpnconfig
+                    key: password
+              - name: SERVER_REGIONS
+                value: SE Stockholm
+              - name: SERVER_NAMES
+                valueFrom:
+                  secretKeyRef:
+                    name: vpnconfig
+                    key: server
+              # Allow access to k8s subnets
+              - name: FIREWALL_OUTBOUND_SUBNETS
+                value: "172.16.0.0/16,172.17.0.0/16"
+              - name: FIREWALL_INPUT_PORTS
+                value: "8080"
+              - name: TZ
+                value: ${TIMEZONE}
+            envFrom:
+              - secretRef:
+                  name: vpnconfig
             securityContext:
+              runAsNonRoot: false
               capabilities:
                 add:
                   - NET_ADMIN
@@ -81,14 +114,33 @@ spec:
       # Configure an Ingress for the main application
       main:
         className: "internal"
+        annotations:
+          cert-manager.io/cluster-issuer: ${CLUSTER_CERT}
+          hajimari.io/enable: "true"
+          hajimari.io/group: "Downloads"
+          hajimari.io/icon: "cloud-download"
+          nginx.ingress.kubernetes.io/configuration-snippet: |
+            proxy_hide_header "x-webkit-csp";
+            proxy_hide_header "content-security-policy";
+            proxy_hide_header "X-Frame-Options";
+            proxy_set_header Accept-Encoding "";
+            sub_filter
+            '</head>'
+            '<link rel="stylesheet" type="text/css" href="https://theme-park.dev/css/base/qbittorrent/nord.css">
+            </head>';
+            sub_filter_once on;
         hosts:
-          - host: prowlarr.seganet.org
+          - host: &host "{{ .Release.Name }}.${SECRET_DOMAIN}"
             paths:
               - path: /
                 pathType: Prefix
                 service:
-                  identifier: main
-                  port: http
+                  name: main
+                  port: 8080
+        tls:
+          - secretName: "{{ .Release.Name }}-tls"
+            hosts:
+              - *host
     persistence:
       config:
         type: persistentVolumeClaim

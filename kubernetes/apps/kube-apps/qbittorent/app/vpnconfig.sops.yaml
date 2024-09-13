@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Secret
+metadata:
+    name: vpnconfig
+stringData:
+    username: ENC[AES256_GCM,data:TqWTj8nFmQ0=,iv:tuxZ2/+S+BYrSNrgziaJr1s3q9Lraz+u/JxyY4yv67Y=,tag:9TEMNodfYaKZA1OBnbnPHw==,type:str]
+    password: ENC[AES256_GCM,data:5u1KkEafD5CUBw==,iv:7RK5d8qtYtOtUJW2dXMT6VQ+8RkwMZBYaE5hsdbPT+Y=,tag:mbwEgJR4YwLpRlVnQ3lkew==,type:str]
+    server: ENC[AES256_GCM,data:shdJDTnFLB7qGI4W,iv:aA9LiNbxiD0V/oKTOsgcrTz4JdjTPbsg5/Jvo/cWv3s=,tag:GNuBU78x5psu/fWp/wX7cw==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age1k5cr4cvs4atdm3gse77vq4glnv9q49gq5wl49p9806gfyfld7p3setz3tw
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBTSHpxaDhHRHMxY3ZTVit2
+            YVl6Vk5ySkkxTTd5YXM5ZVR0cXhxNWZuZUc0CjhtTUJJQWZJb1MwVldGaElzWllr
+            cUVvdFNqNmRMZEloaXdFcDJpQWxBakEKLS0tIGV0NmM0WTZuSU13OC9zVStMdFl4
+            MVIwNCs0SlpKQ2JhaktjSm50anFxVlEK3HmAKnNB8GfqPcA2QUGC63qsyTak+s65
+            i1qg5fIr56dgCkmBffi8xtgqMzhMWnlLO4ECCcxVUdbTR6ARebZ6nA==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2024-09-13T14:46:00Z"
+    mac: ENC[AES256_GCM,data:nLuB0p/u816PK32HfHKeDyQtPwNISmymAVzB9B8atHVpydU7vBxn+9UhcoyE0INyh3KiZ3xs1SuzSRUYFY64p7Ua8Iu70sfaNjqif3TPp55Wd1kWG3TsW+Bx1dJNVshR3/bkN0sGpAeI/lDQhADrm+Q+02tFvvBcfuktt8MHOsk=,iv:bsFm81WOF0FDEOMShWV9XghYAkcVF3DxGhILBloE+b0=,tag:hGD4CSLBWMlFyvQwEROlXg==,type:str]
+    pgp: []
+    encrypted_regex: ^(data|stringData)$
+    version: 3.9.0

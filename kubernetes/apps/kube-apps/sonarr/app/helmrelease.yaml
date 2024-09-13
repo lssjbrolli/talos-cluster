@@ -73,3 +73,7 @@ spec:
       config:
         type: persistentVolumeClaim
         existingClaim: sonarr-config
+        advancedMounts:
+          - subPath: sonarr-config
+        globalMounts:
+          - path: /config

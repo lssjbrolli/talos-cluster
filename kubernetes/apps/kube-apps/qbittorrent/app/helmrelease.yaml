@@ -61,7 +61,7 @@ spec:
                 valueFrom:
                   secretKeyRef:
                     name: vpnconfig
-                    key: user
+                    key: username
               - name: OPENVPN_PASSWORD
                 valueFrom:
                   secretKeyRef:

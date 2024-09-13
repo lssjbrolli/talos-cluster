@@ -48,14 +48,8 @@ spec:
           gluetun:
             dependsOn: main
             image:
-              # -- image repository
               repository: ghcr.io/qdm12/gluetun
-              # -- image tag
-              # this example is not automatically updated, so be sure to use the latest image
-              tag: pr-2434@sha256:0280e24e031405e5181d4d2dda0251aa48286f6c56e0fe5c2c51683aeb0f7d9e
-            # -- environment variables.
-            # See [image docs](https://github.com/qdm12/gluetun-wiki) for more details on how to configure
-            # your VPN and how to set up port-forwarding.
+              tag: pr-2479@sha256:1c3db6c83ab0f52646656d11383710ccfe498afce95c68b38a377de91c7dd30f
             env:
               VPN_TYPE: wireguard    # Configure the gluetun sidecar
             securityContext:

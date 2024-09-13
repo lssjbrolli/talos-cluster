@@ -86,7 +86,7 @@ spec:
     storageClasses:
       - name: democratic-csi
         defaultClass: false
-        reclaimPolicy: Retain
+        reclaimPolicy: Reclaim
         volumeBindingMode: WaitForFirstConsumer
         # distributed support is not yet ready for expansion
         allowVolumeExpansion: false

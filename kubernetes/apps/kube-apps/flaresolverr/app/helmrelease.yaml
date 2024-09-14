@@ -79,3 +79,5 @@ spec:
         retain: true
         storageClass: openebs-hostpath
         size: 200Mi
+      tmp:
+        type: emptyDir

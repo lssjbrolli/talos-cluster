@@ -134,7 +134,7 @@ spec:
 
     ingress:
       # Configure an Ingress for the main application
-      qbt:
+      main:
         className: "internal"
         annotations:
           cert-manager.io/cluster-issuer: ${CLUSTER_CERT}

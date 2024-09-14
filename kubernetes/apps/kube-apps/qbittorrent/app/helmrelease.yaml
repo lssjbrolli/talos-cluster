@@ -58,16 +58,9 @@ spec:
               limits:
                 cpu: 500m
                 memory: 2Gi
-
-            env:
-              - name: sega
-                secretKeyRef:
-                  name: vpnconfig
-                  key: server
           # Configure the gluetun sidecar
           gluetun:
             dependsOn: qbt
-            enabled: false
             image:
               repository: ghcr.io/qdm12/gluetun
               tag: v3.39.0@sha256:2f011a9aca767af62008d879eefcbc80a8645bd4fd4466ab312cc941cb658ad1
@@ -88,14 +81,14 @@ spec:
                 value: true
               - name: VPN_PORT_FORWARDING
                 value: on
-              - name: TEST_ENV
+              - name: SERVER_REGIONS
                 secretKeyRef:
                   name: vpnconfig
                   key: region
-              # - name: SERVER_NAMES
-              #   secretKeyRef:
-              #     name: vpnconfig
-              #     key: server
+              - name: SERVER_NAMES
+                secretKeyRef:
+                  name: vpnconfig
+                  key: server
               - name: UPDATER_PERIOD
                 value: 24h
               - name: TZ
@@ -114,7 +107,6 @@ spec:
                 allowPrivilegeEscalation: false
                 readOnlyRootFilesystem: false
           port-forward:
-            enabled: false
             dependsOn: gluetun
             image:
               repository: docker.io/snoringdragon/gluetun-qbittorrent-port-manager

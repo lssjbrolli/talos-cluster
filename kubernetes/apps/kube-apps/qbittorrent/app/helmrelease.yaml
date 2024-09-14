@@ -114,6 +114,7 @@ spec:
                 allowPrivilegeEscalation: false
                 readOnlyRootFilesystem: false
           port-forward:
+            enabled: false
             dependsOn: gluetun
             image:
               repository: docker.io/snoringdragon/gluetun-qbittorrent-port-manager

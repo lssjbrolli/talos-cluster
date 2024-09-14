@@ -1,10 +1,9 @@
 ---
 # yaml-language-server: $schema=https://raw.githubusercontent.com/bernd-schorgers/helm-charts/main/charts/other/app-template/schemas/helmrelease-helm-v2.schema.json
-# yaml-language-server: $schema=https://raw.githubusercontent.com/bjw-s/helm-charts/common-3.4.0/charts/library/common/schemas/persistence.json
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: prowlarr
+  name: audiobookshelf
 spec:
   interval: 30m
   chart:
@@ -15,14 +14,14 @@ spec:
         kind: HelmRepository
         name: bjw-s
         namespace: flux-system
-  # install:
-  #   remediation:
-  #     retries: 3
-  # upgrade:
-  #   cleanupOnFail: true
-  #   remediation:
-  #     strategy: rollback
-  #     retries: 3
+  install:
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      strategy: rollback
+      retries: 3
   values:
     defaultPodOptions:
       securityContext:
@@ -31,56 +30,57 @@ spec:
         runAsGroup: 568
         fsGroup: 568
         fsGroupChangePolicy: OnRootMismatch
-        seccompProfile: { type: RuntimeDefault }
     controllers:
       main:
+        strategy: Recreate
         annotations:
           reloader.stakater.com/auto: "true"
         containers:
           main:
             image:
-              repository: ghcr.io/onedr0p/prowlarr
-              tag: 1.23.1@sha256:68b27f658b850e41e6d67fe8f3bf630bef8dc468495c1d9abf5d96647f30cd2c
-              pullPolicy: IfNotPresent
-            env:
-              TZ: "${TIMEZONE}"
-              PROWLARR__APP__INSTANCENAME: Prowlarr
-              PROWLARR__LOG__DBENABLED: "False"
-              PROWLARR__LOG__LEVEL: info
-              PROWLARR__AUTH__METHOD: External
-              PROWLARR__AUTH__REQUIRED: DisabledForLocalAddresses
-              PROWLARR__SERVER__PORT: &port 80
+              repository: ghcr.io/advplyr/audiobookshelf
+              tag: 2.13.4@sha256:be7977352e38fdbc2cfd6961f93d546636f2017b2f5cc03212436f127c37db20
             securityContext:
               allowPrivilegeEscalation: false
-              readOnlyRootFilesystem: false
+              readOnlyRootFilesystem: true
               capabilities: { drop: ["ALL"] }
             resources:
               requests:
-                cpu: 100m
-                memory: 100Mi
+                cpu: 150m
+                memory: 512Mi
               limits:
-                memory: 500Mi
+                cpu: 250m
+                memory: 1Gi
+            env:
+              AUDIOBOOKSHELF_GID: 568
+              AUDIOBOOKSHELF_UID: 568
+              TZ: ${CONFIG_TIMEZONE}
+              PORT: &port 80
     service:
       main:
         controller: main
+        type: ClusterIP
         ports:
           http:
             port: *port
-
     ingress:
       # Configure an Ingress for the main application
       main:
-        className: "internal"
+        className: external
         annotations:
-          external-dns.alpha.kubernetes.io/target: internal.seganet.org
+          external-dns.alpha.kubernetes.io/target: "external.${SECRET_DOMAIN}"
         hosts:
-          - host: prowlarr.seganet.org
+          - host: &host "abs.${SECRET_DOMAIN}"
             paths:
               - path: /
                 pathType: Prefix
                 service:
-                  identifier: main
+                  identifier: app
                   port: http
+        tls:
+          - secretName: seganet-org-production-tls
+            hosts:
+              - *host
     persistence:
       config:
         type: persistentVolumeClaim
@@ -88,3 +88,13 @@ spec:
         retain: true
         storageClass: openebs-hostpath
         size: 200Mi
+      metadata:
+        type: persistentVolumeClaim
+        accessMode: ReadWriteOnce
+        retain: true
+        storageClass: openebs-hostpath
+        size: 2Gi
+      audiobooks:
+        type: nfs
+        server: 192.168.1.150
+        path: /mnt/storage/media/library/books

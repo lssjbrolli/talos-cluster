@@ -136,8 +136,6 @@ spec:
       # Configure an Ingress for the main application
       main:
         className: "internal"
-        annotations:
-          cert-manager.io/cluster-issuer: ${CLUSTER_CERT}
         hosts:
           - host: &host "{{ .Release.Name }}.${SECRET_DOMAIN}"
             paths:
@@ -147,7 +145,7 @@ spec:
                   identifier: main
                   port: http
         tls:
-          - secretName: "{{ .Release.Name }}-tls"
+          - secretName: seganet-org-production-tls
             hosts:
               - *host
 

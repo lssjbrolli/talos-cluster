@@ -42,7 +42,7 @@ spec:
               tag: v3.3.21@sha256:f104ee51e5124d83cf3be9b37480649355d223f7d8f9e453d0d5ef06c6e3b31b
             securityContext:
               allowPrivilegeEscalation: false
-              readOnlyRootFilesystem: true
+              readOnlyRootFilesystem: false
               capabilities: { drop: ["ALL"] }
             resources:
               requests:
@@ -53,13 +53,14 @@ spec:
                 memory: 512Mi
             env:
               TZ: ${CONFIG_TIMEZONE}
+              PORT: &port 80
     service:
       main:
         controller: main
         type: ClusterIP
         ports:
           http:
-            port: 80
+            port: *port
     ingress:
       # Configure an Ingress for the main application
       main:

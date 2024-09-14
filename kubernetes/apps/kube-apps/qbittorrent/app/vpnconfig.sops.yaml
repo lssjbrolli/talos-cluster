@@ -4,9 +4,10 @@ metadata:
     name: vpnconfig
 stringData:
     username: ENC[AES256_GCM,data:TqWTj8nFmQ0=,iv:tuxZ2/+S+BYrSNrgziaJr1s3q9Lraz+u/JxyY4yv67Y=,tag:9TEMNodfYaKZA1OBnbnPHw==,type:str]
-    password: ENC[AES256_GCM,data:5u1KkEafD5CUBw==,iv:7RK5d8qtYtOtUJW2dXMT6VQ+8RkwMZBYaE5hsdbPT+Y=,tag:mbwEgJR4YwLpRlVnQ3lkew==,type:str]
-    server: ENC[AES256_GCM,data:shdJDTnFLB7qGI4W,iv:aA9LiNbxiD0V/oKTOsgcrTz4JdjTPbsg5/Jvo/cWv3s=,tag:GNuBU78x5psu/fWp/wX7cw==,type:str]
+    password: ENC[AES256_GCM,data:6YD103baLMaUTfyi,iv:F7RVLjX+fXCYYfCOmu+aoAvKeRap1A95XzpY4j9VKpY=,tag:dlX/d1wOiMVkJN1NaaS1vw==,type:str]
+    server: ENC[AES256_GCM,data:SuG4i7vE+18azw==,iv:J9ntSzFp5+2q1eVduA29f3YsDEIuOhjPk47s8To+Jbw=,tag:nizT+JvdM73jXn9vSWSPXQ==,type:str]
     region: ENC[AES256_GCM,data:88QU9mMmiQ==,iv:X+i9moObZNLJVaucn0Hn3FCxqbLTfUomcy9iRMwrA3g=,tag:ezXbKbPYQTlrCiM4LiPwdg==,type:str]
+    qbituser: ENC[AES256_GCM,data:0VpJqHY=,iv:LuOOVB7gMOrlNw0AZZDpcbCfrQQQQCtUiDKNkZLtjQY=,tag:x7RLoYvvl6ofwKRYXIngVQ==,type:str]
 sops:
     kms: []
     gcp_kms: []
@@ -22,8 +23,8 @@ sops:
             MVIwNCs0SlpKQ2JhaktjSm50anFxVlEK3HmAKnNB8GfqPcA2QUGC63qsyTak+s65
             i1qg5fIr56dgCkmBffi8xtgqMzhMWnlLO4ECCcxVUdbTR6ARebZ6nA==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-09-13T23:00:20Z"
-    mac: ENC[AES256_GCM,data:Fa99u3vDTiHI4EDUNSIXg8Qn12qDPN7eo4NuSJbo+QC2bfMF86cmZQAZLUb0a095caAZlLiJLCOoO1I/Mcto+jPoJBGSSK3YJNeU50CRV+z/tNaXiGnAMpD8o+56IOYEnTpQjKgyzqfnif/sOS7ndPjnXGVNv8+MnkWUdsgP2XE=,iv:5KWYWQvjClZuDeg66a79Iye5653gZ0TpSJzVBiL3zxA=,tag:rBwYZ8X9BO3TtxbfNzLrOQ==,type:str]
+    lastmodified: "2024-09-14T00:41:40Z"
+    mac: ENC[AES256_GCM,data:LSO1i4odQXmIQiiEGc6Slg1Inh+34AzIIdwLKv3s7qKTIaZn+/oWqaDwxQ6x01/GqcQaEmohQ/9fNOEM2apFOp9AJh9E/dzvN0DwY6XpeCJUREWb7xIGR1Xu5AtjmfO5IeYB+VvK5GP4kOwOtLjSUYjK7ye1iBvxpHq9g4j7ihk=,iv:aJfFMrWWjc52+RJ1YNIrmSRN1LSussuwyhwIOQZ66Io=,tag:rk/SfXAxizUMFOYCt4hL4w==,type:str]
     pgp: []
     encrypted_regex: ^(data|stringData)$
     version: 3.9.0

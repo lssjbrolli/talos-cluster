@@ -3,7 +3,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: sonarr
+  name: readarr
 spec:
   interval: 30m
   chart:
@@ -38,8 +38,8 @@ spec:
         containers:
           main:
             image:
-              repository: ghcr.io/onedr0p/sonarr
-              tag: 4.0.9@sha256:a3e0123ea3a50380de801a1157110ac630b2100aff590519740c2cf23e9bf65a
+              repository: ghcr.io/onedr0p/readarr-develop
+              tag: 0.3.32@sha256:3ae920c56261b120ec6e7fce038cd700cc691b74d6326ac074b0a8985af5f8b6
             securityContext:
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: false
@@ -47,23 +47,30 @@ spec:
             resources:
               requests:
                 cpu: 100m
+                memory: 512Mi
               limits:
+                cpu: 250m
                 memory: 1Gi
             env:
-                TZ: ${CONFIG_TIMEZONE}
+              READARR__APP__INSTANCENAME: Readarr
+              READARR__AUTH__REQUIRED: DisabledForLocalAddresses
+              READARR__LOG__DBENABLED: "False"
+              READARR__LOG__LEVEL: info
+              READARR__SERVER__PORT: &port 80
+              TZ: ${CONFIG_TIMEZONE}
     service:
       main:
         controller: main
         type: ClusterIP
         ports:
           http:
-            port: 8989
+            port: *port
     ingress:
       # Configure an Ingress for the main application
       main:
         className: "internal"
         hosts:
-          - host: sonarr.seganet.org
+          - host: "readarr.${SECRET_DOMAIN}"
             paths:
               - path: /
                 pathType: Prefix
@@ -76,4 +83,8 @@ spec:
         accessMode: ReadWriteOnce
         retain: true
         storageClass: openebs-hostpath
-        size: 5Gi
+        size: 1Gi
+      media:
+        type: nfs
+        server: 192.168.1.150
+        path: /mnt/storage/media

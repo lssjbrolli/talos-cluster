@@ -3,7 +3,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: sonarr
+  name: radarr
 spec:
   interval: 30m
   chart:
@@ -38,8 +38,8 @@ spec:
         containers:
           main:
             image:
-              repository: ghcr.io/onedr0p/sonarr
-              tag: 4.0.9@sha256:a3e0123ea3a50380de801a1157110ac630b2100aff590519740c2cf23e9bf65a
+              repository: ghcr.io/onedr0p/radarr
+              tag: 5.9.1@sha256:466719f350a5eba787f185378ec529dd7c05045f7de54d2f6a3d8bcd0e3d1ff1
             securityContext:
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: false
@@ -47,23 +47,29 @@ spec:
             resources:
               requests:
                 cpu: 100m
+                memory: 512Mi
               limits:
+                cpu: 250m
                 memory: 1Gi
             env:
-                TZ: ${CONFIG_TIMEZONE}
+              RADARR__APP__INSTANCENAME: Radarr
+              RADARR__AUTH__REQUIRED: DisabledForLocalAddresses
+              RADARR__LOG__DBENABLED: "False"
+              RADARR__LOG__LEVEL: info
+              RADARR__SERVER__PORT: &port 80
     service:
       main:
         controller: main
         type: ClusterIP
         ports:
           http:
-            port: 8989
+            port: *port
     ingress:
       # Configure an Ingress for the main application
       main:
         className: "internal"
         hosts:
-          - host: sonarr.seganet.org
+          - host: radarr.seganet.org
             paths:
               - path: /
                 pathType: Prefix
@@ -77,3 +83,7 @@ spec:
         retain: true
         storageClass: openebs-hostpath
         size: 5Gi
+      media:
+        type: nfs
+        server: 192.168.1.150
+        path: /mnt/storage/media

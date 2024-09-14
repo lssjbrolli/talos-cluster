@@ -58,6 +58,8 @@ spec:
               limits:
                 cpu: 500m
                 memory: 2Gi
+            env:
+              TZ: ${CONFIG_TIMEZONE}
           # Configure the gluetun sidecar
           gluetun:
             dependsOn: qbt

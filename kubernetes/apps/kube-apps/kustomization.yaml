@@ -4,7 +4,13 @@ kind: Kustomization
 resources:
   - ./namespace.yaml
   - ./audiobookshelf/ks.yaml
-  - ./sonarr/ks.yaml
+  - ./filebrowser/ks.yaml
+  - ./flaresolverr/ks.yaml
   - ./overseerr/ks.yaml
-  - ./qbittorrent/ks.yaml
+  - ./plex/ks.yaml
   - ./prowlarr/ks.yaml
+  - ./qbittorrent/ks.yaml
+  - ./radarr/ks.yaml
+  - ./readarr/ks.yaml
+  - ./sonarr/ks.yaml
+  - ./tautulli/ks.yaml

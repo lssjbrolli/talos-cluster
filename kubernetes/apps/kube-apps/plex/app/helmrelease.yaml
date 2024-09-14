@@ -3,7 +3,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: sonarr
+  name: plex
 spec:
   interval: 30m
   chart:
@@ -38,8 +38,8 @@ spec:
         containers:
           main:
             image:
-              repository: ghcr.io/onedr0p/sonarr
-              tag: 4.0.9@sha256:a3e0123ea3a50380de801a1157110ac630b2100aff590519740c2cf23e9bf65a
+              repository: ghcr.io/onedr0p/plex
+              tag: 1.41.0.8992-8463ad060@sha256:d4c31adff5f2ed92152de7c2fb73464e71bea72c28fc7b4ebe74eefab2d9d048
             securityContext:
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: false
@@ -47,33 +47,56 @@ spec:
             resources:
               requests:
                 cpu: 100m
+                memory: 2Gi
               limits:
-                memory: 1Gi
+                cpu: 3000m
+                memory: 8Gi
             env:
-                TZ: ${CONFIG_TIMEZONE}
+              - name: TZ
+                value: ${CONFIG_TIMEZONE}
+              - name: PLEX_NO_AUTH_NETWORKS
+                value: 192.168.1.0/24,10.0.10.0/24
+              - name: ADVERTISE_IP
+                value: http://192.168.1.150:32400
+              - name: PLEX_CLAIM
+                secretKeyRef:
+                  name: plexconfig
+                  key: claim
+
     service:
       main:
         controller: main
-        type: ClusterIP
+        type: LoadBalancer
+        annotations:
+          io.cilium/lb-ipam-ips: 192.168.1.125
         ports:
           http:
-            port: 8989
-    ingress:
-      # Configure an Ingress for the main application
-      main:
-        className: "internal"
-        hosts:
-          - host: sonarr.seganet.org
-            paths:
-              - path: /
-                pathType: Prefix
-                service:
-                  identifier: main
-                  port: http
+            port: 32400
     persistence:
       config:
         type: persistentVolumeClaim
         accessMode: ReadWriteOnce
         retain: true
         storageClass: openebs-hostpath
-        size: 5Gi
+        size: 50Gi
+      # Separate PVC for cache to avoid backing up cache files
+      cache:
+        type: persistentVolumeClaim
+        accessMode: ReadWriteOnce
+        retain: true
+        storageClass: openebs-hostpath
+        size: 10Gi
+        globalMounts:
+          - path: /config/Library/Application Support/Plex Media Server/Cache
+      logs:
+        type: emptyDir
+        globalMounts:
+          - path: /config/Library/Application Support/Plex Media Server/Logs
+      tmp:
+        type: emptyDir
+      transcode:
+        type: emptyDir
+      data:
+        type: nfs
+        server: 192.168.1.150
+        path: /mnt/storage/media/library

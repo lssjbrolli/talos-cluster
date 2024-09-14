@@ -3,7 +3,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: sonarr
+  name: tautulli
 spec:
   interval: 30m
   chart:
@@ -38,8 +38,14 @@ spec:
         containers:
           main:
             image:
-              repository: ghcr.io/onedr0p/sonarr
-              tag: 4.0.9@sha256:a3e0123ea3a50380de801a1157110ac630b2100aff590519740c2cf23e9bf65a
+              repository: ghcr.io/tautulli/tautulli
+              tag: v2.14.4@sha256:4316ed82bd1334852c56460d0dc2c3ff4fc84ac55e71944bcb0f27838ed7a53e
+            command: ["/usr/local/bin/python", "Tautulli.py"]
+            args: [
+              "--config", "/config/config.ini",
+              "--datadir", "/config",
+              "--port", "80"
+            ]
             securityContext:
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: false
@@ -47,23 +53,26 @@ spec:
             resources:
               requests:
                 cpu: 100m
+                memory: 512Mi
               limits:
+                cpu: 150m
                 memory: 1Gi
             env:
-                TZ: ${CONFIG_TIMEZONE}
+              TZ: ${CONFIG_TIMEZONE}
+
     service:
       main:
         controller: main
         type: ClusterIP
         ports:
           http:
-            port: 8989
+            port: *port
     ingress:
       # Configure an Ingress for the main application
       main:
         className: "internal"
         hosts:
-          - host: sonarr.seganet.org
+          - host: "tautulli.${SECRET_DOMAIN}"
             paths:
               - path: /
                 pathType: Prefix
@@ -76,4 +85,4 @@ spec:
         accessMode: ReadWriteOnce
         retain: true
         storageClass: openebs-hostpath
-        size: 5Gi
+        size: 1Gi

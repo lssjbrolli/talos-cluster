@@ -3,7 +3,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: sonarr
+  name: flaresolverr
 spec:
   interval: 30m
   chart:
@@ -38,32 +38,34 @@ spec:
         containers:
           main:
             image:
-              repository: ghcr.io/onedr0p/sonarr
-              tag: 4.0.9@sha256:a3e0123ea3a50380de801a1157110ac630b2100aff590519740c2cf23e9bf65a
+              repository: ghcr.io/flaresolverr/flaresolverr
+              tag: v3.3.21@sha256:f104ee51e5124d83cf3be9b37480649355d223f7d8f9e453d0d5ef06c6e3b31b
             securityContext:
               allowPrivilegeEscalation: false
-              readOnlyRootFilesystem: false
+              readOnlyRootFilesystem: true
               capabilities: { drop: ["ALL"] }
             resources:
               requests:
-                cpu: 100m
+                cpu: 50m
+                memory: 256Mi
               limits:
-                memory: 1Gi
+                cpu: 150m
+                memory: 512i
             env:
-                TZ: ${CONFIG_TIMEZONE}
+              TZ: ${CONFIG_TIMEZONE}
     service:
       main:
         controller: main
         type: ClusterIP
         ports:
           http:
-            port: 8989
+            port: 80
     ingress:
       # Configure an Ingress for the main application
       main:
         className: "internal"
         hosts:
-          - host: sonarr.seganet.org
+          - host: "flaresolverr.${SECRET_DOMAIN}"
             paths:
               - path: /
                 pathType: Prefix
@@ -76,4 +78,4 @@ spec:
         accessMode: ReadWriteOnce
         retain: true
         storageClass: openebs-hostpath
-        size: 5Gi
+        size: 200Mi

@@ -94,6 +94,14 @@ spec:
         retain: true
         storageClass: openebs-hostpath
         size: 2Gi
+      mcache:
+        type: emptyDir
+        globalMounts:
+          - path: /metadata/cache
+      mtmp:
+        type: emptyDir
+        globalMounts:
+          - path: /metadata/tmp
       audiobooks:
         type: nfs
         server: 192.168.1.150

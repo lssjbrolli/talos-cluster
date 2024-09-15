@@ -88,3 +88,7 @@ spec:
         size: 200Mi
       tmp:
         type: emptyDir
+      global:
+        type: emptyDir
+        globalMounts:
+          - path: /usr/local

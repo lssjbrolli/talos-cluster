@@ -23,13 +23,6 @@ spec:
       strategy: rollback
       retries: 3
   values:
-    defaultPodOptions:
-      securityContext:
-        runAsNonRoot: true
-        runAsUser: 568
-        runAsGroup: 568
-        fsGroup: 568
-        fsGroupChangePolicy: OnRootMismatch
     controllers:
       main:
         strategy: Recreate
@@ -38,11 +31,10 @@ spec:
         containers:
           main:
             image:
-              repository: linuxserver/overseerr
-              tag: 1.33.2
+              repository: ghcr.io/sct/overseerr
+              tag: 1.33.2@sha256:714ea6db2bc007a2262d112bef7eec74972eb33d9c72bddb9cbd98b8742de950
               pullPolicy: Always
             securityContext:
-              allowPrivilegeEscalation: false
               readOnlyRootFilesystem: false
               capabilities: { drop: ["ALL"] }
             resources:
@@ -67,9 +59,9 @@ spec:
       main:
         className: external
         annotations:
-          external-dns.alpha.kubernetes.io/target: "external.${SECRET_DOMAIN}"
+          external-dns.alpha.kubernetes.io/target: "external.seganet.org"
         hosts:
-          - host: &host "requests.${SECRET_DOMAIN}"
+          - host: &host "requests.seganet.org"
             paths:
               - path: /
                 pathType: Prefix
@@ -87,3 +79,5 @@ spec:
         retain: true
         storageClass: openebs-hostpath
         size: 200Mi
+        globalMounts:
+          - path: /app/config

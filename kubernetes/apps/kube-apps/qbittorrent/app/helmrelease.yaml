@@ -59,6 +59,8 @@ spec:
                 cpu: 500m
                 memory: 2Gi
             env:
+              WEBUI_PORT: &port 80
+              TORRENTING_PORT: 54321
               TZ: ${CONFIG_TIMEZONE}
           # Configure the gluetun sidecar
           gluetun:
@@ -101,7 +103,7 @@ spec:
               - name: FIREWALL_OUTBOUND_SUBNETS
                 value: "172.16.0.0/16,172.17.0.0/16"
               - name: FIREWALL_INPUT_PORTS
-                value: "8080"
+                value: *port
             securityContext:
               capabilities:
                 add:
@@ -117,7 +119,7 @@ spec:
               - name: QBITTORRENT_SERVER
                 value: localhost
               - name: QBITTORRENT_PORT
-                value: "8080"
+                value: *port
               - name: QBITTORRENT_USER
                 value: admin
               - name: QBITTORRENT_PASS
@@ -132,7 +134,7 @@ spec:
         type: ClusterIP
         ports:
           http:
-            port: 8080
+            port: *port
 
     ingress:
       # Configure an Ingress for the main application
@@ -146,10 +148,6 @@ spec:
                 service:
                   identifier: main
                   port: http
-        tls:
-          - secretName: seganet-org-production-tls
-            hosts:
-              - *host
 
     persistence:
       config:

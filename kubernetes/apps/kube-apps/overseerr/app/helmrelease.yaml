@@ -39,7 +39,7 @@ spec:
           main:
             image:
               repository: linuxserver/overseerr
-              tag: 1.33.2
+              tag: 2021.12.12
               pullPolicy: Always
             securityContext:
               allowPrivilegeEscalation: false

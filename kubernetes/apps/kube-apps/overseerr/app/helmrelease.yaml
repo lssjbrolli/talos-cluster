@@ -40,9 +40,10 @@ spec:
             image:
               repository: ghcr.io/sct/overseerr
               tag: 1.33.2@sha256:714ea6db2bc007a2262d112bef7eec74972eb33d9c72bddb9cbd98b8742de950
+              pullPolicy: Always
             securityContext:
               allowPrivilegeEscalation: false
-              readOnlyRootFilesystem: true
+              readOnlyRootFilesystem: false
               capabilities: { drop: ["ALL"] }
             resources:
               requests:
@@ -86,9 +87,3 @@ spec:
         retain: true
         storageClass: openebs-hostpath
         size: 200Mi
-      tmp:
-        type: emptyDir
-      global:
-        type: emptyDir
-        globalMounts:
-          - path: /usr/local

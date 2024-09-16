@@ -5,9 +5,8 @@ metadata:
 stringData:
     username: ENC[AES256_GCM,data:TqWTj8nFmQ0=,iv:tuxZ2/+S+BYrSNrgziaJr1s3q9Lraz+u/JxyY4yv67Y=,tag:9TEMNodfYaKZA1OBnbnPHw==,type:str]
     password: ENC[AES256_GCM,data:6YD103baLMaUTfyi,iv:F7RVLjX+fXCYYfCOmu+aoAvKeRap1A95XzpY4j9VKpY=,tag:dlX/d1wOiMVkJN1NaaS1vw==,type:str]
-    server: ENC[AES256_GCM,data:SuG4i7vE+18azw==,iv:J9ntSzFp5+2q1eVduA29f3YsDEIuOhjPk47s8To+Jbw=,tag:nizT+JvdM73jXn9vSWSPXQ==,type:str]
+    server: ENC[AES256_GCM,data:53i4ixrLL+uB9A==,iv:Uqwy8V4NWlGyiqj/vUTnHxESdksrgRll6q43uQO9pKs=,tag:CYtAT+uGUk5RV7Ae7rrZcA==,type:str]
     region: ENC[AES256_GCM,data:88QU9mMmiQ==,iv:X+i9moObZNLJVaucn0Hn3FCxqbLTfUomcy9iRMwrA3g=,tag:ezXbKbPYQTlrCiM4LiPwdg==,type:str]
-    qbituser: ENC[AES256_GCM,data:0VpJqHY=,iv:LuOOVB7gMOrlNw0AZZDpcbCfrQQQQCtUiDKNkZLtjQY=,tag:x7RLoYvvl6ofwKRYXIngVQ==,type:str]
 sops:
     kms: []
     gcp_kms: []
@@ -23,8 +22,8 @@ sops:
             MVIwNCs0SlpKQ2JhaktjSm50anFxVlEK3HmAKnNB8GfqPcA2QUGC63qsyTak+s65
             i1qg5fIr56dgCkmBffi8xtgqMzhMWnlLO4ECCcxVUdbTR6ARebZ6nA==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-09-14T00:41:40Z"
-    mac: ENC[AES256_GCM,data:LSO1i4odQXmIQiiEGc6Slg1Inh+34AzIIdwLKv3s7qKTIaZn+/oWqaDwxQ6x01/GqcQaEmohQ/9fNOEM2apFOp9AJh9E/dzvN0DwY6XpeCJUREWb7xIGR1Xu5AtjmfO5IeYB+VvK5GP4kOwOtLjSUYjK7ye1iBvxpHq9g4j7ihk=,iv:aJfFMrWWjc52+RJ1YNIrmSRN1LSussuwyhwIOQZ66Io=,tag:rk/SfXAxizUMFOYCt4hL4w==,type:str]
+    lastmodified: "2024-09-16T23:33:01Z"
+    mac: ENC[AES256_GCM,data:IFhzKfX7df0Gn6W5NMZUyvdDcGkNX56OOplhqYg6N44dHpeIsmjvkrlI4E/k3mYiDs04SJZXWMTnWCYe+0+mJhwwBl/qm2sCbdM++kooJAvYlcRi4P+udTrLl8xvufCX2tY8qvAt8vqOsvefx4Wy+bEbFSxKJOzjn/OiFOk8WQU=,iv:vZWnBHBvcTS8pB2SX9Cmuz0fy28Sk4HVE4LOy7gCkBk=,tag:hUTJ3wP2cStbtjrBPnCddA==,type:str]
     pgp: []
     encrypted_regex: ^(data|stringData)$
     version: 3.9.0

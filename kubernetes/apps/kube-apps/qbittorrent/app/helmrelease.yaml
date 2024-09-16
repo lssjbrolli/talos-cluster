@@ -141,7 +141,7 @@ spec:
       main:
         className: "internal"
         hosts:
-          - host: &host "{{ .Release.Name }}.${SECRET_DOMAIN}"
+          - host: qbt.seganet.org
             paths:
               - path: /
                 pathType: Prefix

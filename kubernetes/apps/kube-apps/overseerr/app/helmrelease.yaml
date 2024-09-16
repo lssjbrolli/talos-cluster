@@ -69,7 +69,7 @@ spec:
                   identifier: main
                   port: http
         tls:
-          - secretName: seganet-org-production-tls
+          - secretName: network/seganet-org-production-tls
             hosts:
               - *host
     persistence:

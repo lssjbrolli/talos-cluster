@@ -105,7 +105,7 @@ spec:
                 value: debug
               # Allow access to k8s subnets
               - name: FIREWALL_OUTBOUND_SUBNETS
-                value: "172.16.0.0/16,172.17.0.0/16,192.168.1.0/24,0.0.0.0/0"
+                value: "172.16.0.0/16,172.17.0.0/16,192.168.1.0/24"
               - name: FIREWALL_INPUT_PORTS
                 value: 80,53
             securityContext:

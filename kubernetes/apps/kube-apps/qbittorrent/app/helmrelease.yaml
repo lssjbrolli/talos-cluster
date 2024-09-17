@@ -28,9 +28,9 @@ spec:
       strategy: rollback
       retries: 3
   values:
-    defaultPodOptions:
-      securityContext:
-        seccompProfile: { type: RuntimeDefault }
+    # defaultPodOptions:
+    #   securityContext:
+    #     seccompProfile: { type: RuntimeDefault }
     controllers:
       main:
         annotations:
@@ -40,17 +40,17 @@ spec:
             image:
               repository: ghcr.io/onedr0p/qbittorrent
               tag: 4.6.6@sha256:5634593d1594ae6899b11ff6e9e9311e1aab0ed60170679150f175183e3a9364
-            securityContext:
-              allowPrivilegeEscalation: false
-              readOnlyRootFilesystem: true
-              runAsNonRoot: true
-              runAsUser: 568
-              runAsGroup: 568
-              fsGroup: 568
-              fsGroupChangePolicy: OnRootMismatch
-              capabilities:
-                drop:
-                  - ALL
+            # securityContext:
+            #   allowPrivilegeEscalation: false
+            #   readOnlyRootFilesystem: true
+            #   runAsNonRoot: true
+            #   runAsUser: 568
+            #   runAsGroup: 568
+            #   fsGroup: 568
+            #   fsGroupChangePolicy: OnRootMismatch
+            #   capabilities:
+            #     drop:
+            #       - ALL
             resources:
               requests:
                 cpu: 100m
@@ -110,7 +110,7 @@ spec:
               capabilities:
                 add:
                   - NET_ADMIN
-                allowPrivilegeEscalation: false
+                allowPrivilegeEscalation: true
                 readOnlyRootFilesystem: false
           port-forward:
             dependsOn: gluetun
@@ -159,10 +159,10 @@ spec:
         retain: true
         storageClass: openebs-hostpath
         size: 200Mi
-      media:
-        type: nfs
-        server: 192.168.1.150
-        path: /mnt/storage/media
+      # media:
+      #   type: nfs
+      #   server: 192.168.1.150
+      #   path: /mnt/storage/media
       # Configure an emptyDir to share the port-forwarding location between containers
       gluetun-data:
         type: emptyDir
@@ -173,3 +173,12 @@ spec:
             port-forward:
               - path: /tmp/gluetun
                 readOnly: true
+      # Configure an emptyDir for gluetun server list
+      server-list:
+        type: emptyDir
+        medium: Memory
+        sizeLimit: 50Mi
+        advancedMounts:
+          main:
+            gluetun:
+              - path: /gluetun

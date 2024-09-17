@@ -114,6 +114,9 @@ spec:
                   - NET_ADMIN
                 allowPrivilegeEscalation: true
                 readOnlyRootFilesystem: false
+                runAsNonRoot: false
+                runAsUser: 0
+                runAsGroup: 0
           port-forward:
             dependsOn: gluetun
             image:
@@ -176,11 +179,7 @@ spec:
       #   path: /mnt/storage/media
       # Configure an emptyDir to share the port-forwarding location between containers
       gluetun-data:
-        type: persistentVolumeClaim
-        accessMode: ReadWriteOnce
-        retain: true
-        storageClass: openebs-hostpath
-        size: 50Mi
+        type: emptyDir
         advancedMounts:
           main:
             gluetun:
@@ -189,10 +188,12 @@ spec:
               - path: /tmp/gluetun
                 readOnly: true
       # Configure an emptyDir for gluetun server list
-      server-list:
-        type: emptyDir
-        medium: Memory
-        sizeLimit: 50Mi
+      gluetun-list:
+        type: persistentVolumeClaim
+        accessMode: ReadWriteOnce
+        retain: true
+        storageClass: openebs-hostpath
+        size: 50Mi
         advancedMounts:
           main:
             gluetun:

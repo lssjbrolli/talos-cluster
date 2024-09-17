@@ -139,6 +139,15 @@ spec:
         ports:
           http:
             port: *port
+      gluetun:
+        controller: main
+        type: LoadBalancer
+        annotations:
+          io.cilium/lb-ipam-ips: 192.168.1.130
+        ports:
+          http:
+            port: 8000
+
 
     ingress:
       # Configure an Ingress for the main application

@@ -101,11 +101,13 @@ spec:
                 value: off
               - name: DOT
                 value: off
+              - name: LOG_LEVEL
+                value: debug
               # Allow access to k8s subnets
               - name: FIREWALL_OUTBOUND_SUBNETS
-                value: "172.16.0.0/16,172.17.0.0/16,192.168.1.0/24"
+                value: "172.16.0.0/16,172.17.0.0/16,192.168.1.0/24,0.0.0.0/0"
               - name: FIREWALL_INPUT_PORTS
-                value: *port
+                value: 80,53
             securityContext:
               capabilities:
                 add:

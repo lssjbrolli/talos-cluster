@@ -35,8 +35,6 @@ spec:
           secretKeyRef:
             name: internal-dns-secret
             key: pi-password
-      - name: EXTERNAL_DNS_PIHOLE_TLS_SKIP_VERIFY
-        value: "true"
     extraArgs:
       - --ingress-class=internal
       - --ignore-ingress-tls-spec

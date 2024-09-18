@@ -52,4 +52,4 @@ spec:
     serviceMonitor:
       enabled: true
     podAnnotations:
-      secret.reloader.stakater.com/auto: true
+      secret.reloader.stakater.com//reload: external-dns-secret

@@ -72,21 +72,23 @@ spec:
               readiness: *probes
     service:
       main:
+        annotations:
+          external-dns.alpha.kubernetes.io/hostname: radarr.seganet.org
         controller: main
         type: ClusterIP
         ports:
           http:
             port: *port
+
     ingress:
       # Configure an Ingress for the main application
       main:
-        annotations:
-          external-dns.alpha.kubernetes.io/target: internal.seganet.org
         className: internal
         hosts:
           - host: radarr.seganet.org
             paths:
               - path: /
+                pathType: Prefix
                 service:
                   identifier: main
                   port: http

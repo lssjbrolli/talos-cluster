@@ -50,18 +50,26 @@ spec:
               limits:
                 memory: 1Gi
             env:
-                TZ: ${CONFIG_TIMEZONE}
+              SONARR__APP__INSTANCENAME: Sonarr
+              SONARR__AUTH__REQUIRED: DisabledForLocalAddresses
+              SONARR__LOG__DBENABLED: "False"
+              SONARR__LOG__LEVEL: info
+              SONARR__SERVER__PORT: &port 80
+              TZ: ${CONFIG_TIMEZONE}
     service:
       main:
+        annotations:
+          external-dns.alpha.kubernetes.io/hostname: sonarr.seganet.org
         controller: main
         type: ClusterIP
         ports:
           http:
-            port: 80
+            port: *port
+
     ingress:
       # Configure an Ingress for the main application
       main:
-        className: "internal"
+        className: internal
         hosts:
           - host: sonarr.seganet.org
             paths:

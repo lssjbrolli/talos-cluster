@@ -7,7 +7,7 @@ spec:
   interval: 30m
   chart:
     spec:
-      chart: external-dns
+      chart: external-dns-cloudflare
       version: 1.15.0
       sourceRef:
         kind: HelmRepository

@@ -2,12 +2,12 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: &app external-dns
+  name: &app external-dns-cloudflare
 spec:
   interval: 30m
   chart:
     spec:
-      chart: external-dns-cloudflare
+      chart: external-dns
       version: 1.15.0
       sourceRef:
         kind: HelmRepository

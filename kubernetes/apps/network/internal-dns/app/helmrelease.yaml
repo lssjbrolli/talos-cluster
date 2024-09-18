@@ -41,7 +41,8 @@ spec:
         value: true
     extraArgs:
       - --ingress-class=internal
-      - --ignore-ingress-tls-specS
+      - --ignore-ingress-tls-spec
+      - --crd-source-apiversion=externaldns.k8s.io/v1alpha1
     policy: sync
     sources: ["service", "ingress"]
     txtPrefix: k8s.

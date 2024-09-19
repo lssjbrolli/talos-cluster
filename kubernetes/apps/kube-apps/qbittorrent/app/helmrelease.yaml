@@ -129,7 +129,7 @@ spec:
               - name: PORT_FORWARDED
                 value: "/tmp/gluetun/forwarded_port"
     service:
-      main:
+      qbt:
         controller: main
         type: ClusterIP
         ports:

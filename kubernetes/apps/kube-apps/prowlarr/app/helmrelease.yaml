@@ -71,8 +71,6 @@ spec:
       # Configure an Ingress for the main application
       main:
         className: "internal"
-        annotations:
-          external-dns.alpha.kubernetes.io/target: internal.seganet.org
         hosts:
           - host: prowlarr.seganet.org
             paths:

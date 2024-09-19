@@ -78,9 +78,9 @@ spec:
                   identifier: main
                   port: http
         tls:
-          - secretName: network/seganet-org-production-tls
-            hosts:
+          - hosts:
               - *host
+            secretName: abs-cert
     persistence:
       config:
         type: persistentVolumeClaim

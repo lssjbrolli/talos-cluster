@@ -139,8 +139,6 @@ spec:
     ingress:
       # Configure an Ingress for the main application
       main:
-        annotations:
-          external-dns.alpha.kubernetes.io/target: internal.seganet.org
         className: internal
         hosts:
           - host: qbt.seganet.org

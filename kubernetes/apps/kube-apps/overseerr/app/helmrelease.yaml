@@ -60,6 +60,7 @@ spec:
         className: external
         annotations:
           external-dns.alpha.kubernetes.io/target: "external.seganet.org"
+          cert-manager.io/issuer: "seganet-org-production"
         hosts:
           - host: &host "requests.seganet.org"
             paths:
@@ -69,9 +70,10 @@ spec:
                   identifier: main
                   port: http
         tls:
-          - secretName: network/seganet-org-production-tls
-            hosts:
+          - hosts:
               - *host
+            secretName: overseerr-cert
+
     persistence:
       config:
         type: persistentVolumeClaim

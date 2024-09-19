@@ -69,6 +69,7 @@ spec:
         className: external
         annotations:
           external-dns.alpha.kubernetes.io/target: "external.${SECRET_DOMAIN}"
+          cert-manager.io/issuer: "seganet-org-production"
         hosts:
           - host: &host "abs.${SECRET_DOMAIN}"
             paths:

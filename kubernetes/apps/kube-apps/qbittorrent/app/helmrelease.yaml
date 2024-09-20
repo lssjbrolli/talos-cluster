@@ -130,6 +130,8 @@ spec:
                 value: "/tmp/gluetun/forwarded_port"
     service:
       main:
+        annotations:
+          external-dns.alpha.kubernetes.io/hostname: qbt.seganet.org
         controller: main
         type: ClusterIP
         ports:

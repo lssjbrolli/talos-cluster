@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Secret
 metadata:
-    name: cnpg-secret
+    name: cloudnative-pg-secret
 stringData:
     username: ENC[AES256_GCM,data:pRbupQ==,iv:WxeNvLZkhmz1Xeww/H8mZGgIpxa8GgY/wE11pBBkM+0=,tag:4P9Gw/wUGYiHAj8yR9+hFQ==,type:str]
     password: ENC[AES256_GCM,data:9nhh9g==,iv:dQMghyt3DrpIw4hqSD4ixWUNapdkNP0IGSXFZgLaKwQ=,tag:LbLrrRCjQIiYMwUIUBZRxw==,type:str]
@@ -20,8 +20,8 @@ sops:
             ak4wVGxQSVRtTFRyMDFKQTRYMGVvYkkK8+Z3btE51I0PAA9hz4pOLkOgOPH+oLaZ
             9jBvdFra08Uv3B+Z4JVuIyVftTGfg1miWo72kNzj9dpPB9/T539NKQ==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-09-21T14:49:24Z"
-    mac: ENC[AES256_GCM,data:IRwR14KnmWlpE7xXE5MErtDxxgm2o2u7i+OQZJ2k6fUaktzHyap57hLBmVfBz2JAmJOEesoY/jO6HOa8L4NQsnLyc+7SDTVb2eFvVaQC9LAfY5YTgx+YT/oTEghdTzzyiFC+pla+rsB/4rDlxxHxLJRFXFjvDjVN3j6pdMuMY9M=,iv:Tl5uRVNjjDud5wAl+U5fo3Qh54utVPmTynWkjZ9LtAw=,tag:9s7CZz2kPdKHJC7pUi4Gyw==,type:str]
+    lastmodified: "2024-09-21T14:55:38Z"
+    mac: ENC[AES256_GCM,data:9elARQ50AuK61mvOLRvHEiiP0pFGoxJHK3lLLcVBwfkfppkgRlk6xgVn2bGrDy3IwKwlpW5ohc5zKpIbzAsx2L0w2+nT+6kqsed8iC8/uP/RwQymenFR+Ee1Sas6UNmJ5v8Ia/fCF66fNeobcVOKhYxOEQlfUl9TYQ47GChzdBE=,iv:SloqndeGC27V+DYWn3jO+8+F9xjMD4kTdJ2XlZe7MzY=,tag:tKgY13Ly/b79/iq9FlgAoQ==,type:str]
     pgp: []
     encrypted_regex: ^(data|stringData)$
     version: 3.9.0

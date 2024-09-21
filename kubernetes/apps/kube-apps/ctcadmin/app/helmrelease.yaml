@@ -36,7 +36,10 @@ spec:
         annotations:
           reloader.stakater.com/auto: "true"
         initContainers:
+
           init-db:
+            dependsOn:
+              cnpg-cluster
             image:
               repository: ghcr.io/onedr0p/postgres-init
               tag: 16
@@ -46,6 +49,7 @@ spec:
                   name: cnpgsecrets
         containers:
           main:
+            dependsOn: init-db
             image:
               repository: ghcr.io/ctcadmin2/remixctc
               tag: 0.9.14@sha256:c072396e2173f4c6590e7f6492e2e15406bb8c4908e1b626574521dcc01560ad

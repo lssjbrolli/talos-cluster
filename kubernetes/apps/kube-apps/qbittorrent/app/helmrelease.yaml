@@ -61,8 +61,19 @@ spec:
                 memory: 2Gi
             env:
               WEBUI_PORT: &port 80
+              QBITTORRENT__PORT: *port
               TORRENTING_PORT: 54321
               TZ: ${CONFIG_TIMEZONE}
+            probes:
+              startup:
+                enabled: true
+                spec:
+                  failureThreshold: 30
+                  periodSeconds: 5
+              liveness:
+                enabled: true
+              readiness:
+                enabled: true
           # Configure the gluetun sidecar
           gluetun:
             image:
@@ -129,7 +140,7 @@ spec:
               - name: PORT_FORWARDED
                 value: "/tmp/gluetun/forwarded_port"
     service:
-      main:
+      qbt:
         annotations:
           external-dns.alpha.kubernetes.io/hostname: qbt.seganet.org
         controller: main

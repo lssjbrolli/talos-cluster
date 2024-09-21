@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: cnpg-secret
+stringData:
+  username: "sega"
+  password: "sega"

@@ -33,7 +33,7 @@ spec:
       app.kubernetes.io/name: *app
   dependsOn:
     - name: cnpg
-  path: ./kubernetes/main/apps/database/cnpg/cluster
+  path: ./kubernetes/apps/db/cnpg/cluster
   prune: true
   sourceRef:
     kind: GitRepository

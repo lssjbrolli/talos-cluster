@@ -1,0 +1,20 @@
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: &app cnpg
+  namespace: flux-system
+spec:
+  targetNamespace: db
+  commonMetadata:
+    labels:
+      app.kubernetes.io/name: *app
+  path: ./kubernetes/apps/db/cnpg/app
+  prune: false # never should be deleted
+  sourceRef:
+    kind: GitRepository
+    name: talos-cluster
+  wait: false
+  interval: 30m
+  retryInterval: 1m
+  timeout: 5m

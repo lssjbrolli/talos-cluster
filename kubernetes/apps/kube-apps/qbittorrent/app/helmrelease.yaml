@@ -158,7 +158,7 @@ spec:
             paths:
               - path: /
                 service:
-                  identifier: main
+                  identifier: qbt
                   port: http
 
     persistence:

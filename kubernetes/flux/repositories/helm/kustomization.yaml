@@ -15,4 +15,3 @@ resources:
   - ./stakater.yaml
   - ./external-dns.yaml
   - ./ingress-nginx.yaml
-  - ./k8s-gateway.yaml

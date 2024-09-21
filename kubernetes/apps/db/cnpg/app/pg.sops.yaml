@@ -1,7 +1,27 @@
 apiVersion: v1
 kind: Secret
 metadata:
-  name: cnpg-secret
+    name: cnpg-secret
 stringData:
-  username: "sega"
-  password: "sega"
+    username: ENC[AES256_GCM,data:pRbupQ==,iv:WxeNvLZkhmz1Xeww/H8mZGgIpxa8GgY/wE11pBBkM+0=,tag:4P9Gw/wUGYiHAj8yR9+hFQ==,type:str]
+    password: ENC[AES256_GCM,data:9nhh9g==,iv:dQMghyt3DrpIw4hqSD4ixWUNapdkNP0IGSXFZgLaKwQ=,tag:LbLrrRCjQIiYMwUIUBZRxw==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age1k5cr4cvs4atdm3gse77vq4glnv9q49gq5wl49p9806gfyfld7p3setz3tw
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBkTVpFTUZtTk1JUVFXSStr
+            YzE5ODNSZHhGc3RjcEJUYTZxL2lpaUkzams4CkRxK0dJS0FFNG1HOG5mWktWemNk
+            aVc3ZmMwWHlIaHUwL1NTN2lZd3dPV2sKLS0tIGFOU01udXN3Z2dsVk1UU0FnbkE2
+            ak4wVGxQSVRtTFRyMDFKQTRYMGVvYkkK8+Z3btE51I0PAA9hz4pOLkOgOPH+oLaZ
+            9jBvdFra08Uv3B+Z4JVuIyVftTGfg1miWo72kNzj9dpPB9/T539NKQ==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2024-09-21T14:49:24Z"
+    mac: ENC[AES256_GCM,data:IRwR14KnmWlpE7xXE5MErtDxxgm2o2u7i+OQZJ2k6fUaktzHyap57hLBmVfBz2JAmJOEesoY/jO6HOa8L4NQsnLyc+7SDTVb2eFvVaQC9LAfY5YTgx+YT/oTEghdTzzyiFC+pla+rsB/4rDlxxHxLJRFXFjvDjVN3j6pdMuMY9M=,iv:Tl5uRVNjjDud5wAl+U5fo3Qh54utVPmTynWkjZ9LtAw=,tag:9s7CZz2kPdKHJC7pUi4Gyw==,type:str]
+    pgp: []
+    encrypted_regex: ^(data|stringData)$
+    version: 3.9.0

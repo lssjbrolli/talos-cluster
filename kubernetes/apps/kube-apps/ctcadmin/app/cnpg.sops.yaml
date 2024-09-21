@@ -1,10 +1,30 @@
 apiVersion: v1
 kind: Secret
 metadata:
-  name: cnpgsecrets
+    name: cnpgsecrets
 stringData:
-  INIT_POSTGRES_HOST: cnpg-webhook-service.db.svc.cluster.local:443
-  INIT_POSTGRES_SUPER_PASS: unset
-  INIT_POSTGRES_USER: app
-  INIT_POSTGRES_PASS: sega
-  INIT_POSTGRES_DBNAME: app
+    INIT_POSTGRES_HOST: ENC[AES256_GCM,data:Nx+RpG/dGQQmNG5rdcOZkoBLUx1lPsRAzOZZScp5hnwuFm4s9ZZxi8+4hLVr,iv:Q9p2LOP5vQXfj2c4c6dgzx8tVnG0V6nVV4jvwegT7TA=,tag:hGYqpqJnnf6QTmOo4DJ50g==,type:str]
+    INIT_POSTGRES_SUPER_PASS: ENC[AES256_GCM,data:MgcZPcU=,iv:dT4qs8vPnVucQAi07E+lHkfkAcgQ8e1fPY8jgo2ttsw=,tag:iy682Hln6npGuJLLTP+RMQ==,type:str]
+    INIT_POSTGRES_USER: ENC[AES256_GCM,data:BEy+,iv:K+TQdVsDbnSQNUb2GKwseTIM/APQy80FqCDN9+kV/6U=,tag:+e+Qni3awYSYdwJDjOLihw==,type:str]
+    INIT_POSTGRES_PASS: ENC[AES256_GCM,data:kK1WfQ==,iv:q5aR8YIMkMsUH9ViX90K9ZMnXFOx1/HpbRV0A1oiLfQ=,tag:T/Xvddk5mOvC2T4Zn4GtSg==,type:str]
+    INIT_POSTGRES_DBNAME: ENC[AES256_GCM,data:MpNU,iv:kf4dDjQjZmffCMeLoWTysEL7c+R+YzaRjhll/An5pxQ=,tag:94hI4X6aN4u8BV4B83SYQg==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age1k5cr4cvs4atdm3gse77vq4glnv9q49gq5wl49p9806gfyfld7p3setz3tw
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBqOGFmdGp0RzJEdEppVTBE
+            dnFTc1ZXK3ZKL0pDRHBrbFYwdEh3UGFlS0VrCldwTFhxU1h3RXFFVVQ5b1o4Q2xS
+            SkllUm9zbDVsMmhSWld2MVRwOFMvS3MKLS0tIC9acXdEakRJN1JwY0huL2YrNlU1
+            blp2SHVFZDB3VVVsaHVEMzVITEIvOFkKUEVzKRgstANOfFCrCiqeZSnk/gFKLf05
+            NmoPlS89qg0pjN39GHdhcvlkgN4sykatOZ4Jm5NVblAPrOBDE9cJmA==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2024-09-21T14:49:24Z"
+    mac: ENC[AES256_GCM,data:UjxZGSbNpWv1f+wP9+Lfku22VfS1tk8zP3orxWFbpZn6RUpnV79K5nvfmQvkK3LE8syR2UnvSD2X8pPA7RRdEu1tukflHjc76eZn2Ztl4UMWn6pkdyRAu/I4CRmmHrX2wkYO1UFuRvvFvuU3QOMbEretyx9NVOBd0AnF4/K0/c4=,iv:W/AoiBpaCGyA6JkI45uAu8fpEoVsDjEuSf02HsJeUxM=,tag:85MD8rqgwY916hUX5BfHEA==,type:str]
+    pgp: []
+    encrypted_regex: ^(data|stringData)$
+    version: 3.9.0

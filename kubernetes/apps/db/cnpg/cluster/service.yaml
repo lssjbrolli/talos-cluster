@@ -5,6 +5,7 @@ metadata:
   name: postgres-lb
   annotations:
     external-dns.alpha.kubernetes.io/hostname: pg.seganet.org
+    io.cilium/lb-ipam-ips: 192.168.1.130
 spec:
   type: LoadBalancer
   ports:

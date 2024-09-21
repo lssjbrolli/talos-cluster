@@ -151,7 +151,7 @@ spec:
 
     ingress:
       # Configure an Ingress for the main application
-      main:
+      qbt:
         className: internal
         hosts:
           - host: qbt.seganet.org

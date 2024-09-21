@@ -6,6 +6,7 @@ resources:
   - ./cilium.yaml
   - ./cnpg.yaml
   - ./coredns.yaml
+  - ./grafana.yaml
   - ./jetstack.yaml
   - ./metrics-server.yaml
   - ./openebs.yaml

@@ -34,7 +34,7 @@ spec:
           memory: 256Mi
         limits:
           cpu: 500m
-          memory: 512Gi
+          memory: 512Mi
       storage:
         size: 5Gi
         storageClass: openebs-hostpath

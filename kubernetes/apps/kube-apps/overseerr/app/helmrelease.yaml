@@ -59,10 +59,10 @@ spec:
       main:
         className: external
         annotations:
-          external-dns.alpha.kubernetes.io/target: "external.seganet.org"
-          cert-manager.io/issuer: "seganet-org-production"
+          external-dns.alpha.kubernetes.io/target: "external.${SECRET_DOMAIN}"
+          cert-manager.io/issuer: "letsencrypt-production"
         hosts:
-          - host: &host "requests.seganet.org"
+          - host: &host "requests.${SECRET_DOMAIN}"
             paths:
               - path: /
                 pathType: Prefix

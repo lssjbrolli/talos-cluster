@@ -57,10 +57,10 @@ spec:
             resources:
               requests:
                 cpu: 150m
-                memory: 512Mi
+                memory: 128Mi
               limits:
                 cpu: 250m
-                memory: 1Gi
+                memory: 256Gi
             env:
               - name: ITEMS_PER_PAGE
                 value: 7

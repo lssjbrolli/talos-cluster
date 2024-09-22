@@ -47,10 +47,10 @@ spec:
             resources:
               requests:
                 cpu: 500m
-                memory: 2Gi
+                memory: 512Mi
               limits:
                 cpu: 6000m
-                memory: 8Gi
+                memory: 2Gi
             env:
               - name: TZ
                 value: ${CONFIG_TIMEZONE}

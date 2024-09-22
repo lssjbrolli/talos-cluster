@@ -1,4 +1,5 @@
 ---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/cloudnative-pg/charts/refs/heads/main/charts/cloudnative-pg/values.schema.json
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
@@ -24,7 +25,16 @@ spec:
   values:
     crds:
       create: true
+    image:
+      tag: 1.24.0@sha256:01af1b3ecd920e15fa8ff8963a249d14bb5eb7da702a9042278f49c3d099e5d3
     monitoring:
       podMonitorEnabled: false
       grafanaDashboard:
         create: true
+    resources:
+      requests:
+        cpu: 250m
+        memory: 256Mi
+      limits:
+        cpu: 500m
+        memory: 512Mi

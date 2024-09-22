@@ -1,61 +1,50 @@
 ---
-# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/postgresql.cnpg.io/cluster_v1.json
-apiVersion: postgresql.cnpg.io/v1
-kind: Cluster
+# yaml-language-server: $schema=https://raw.githubusercontent.com/cloudnative-pg/charts/refs/heads/main/charts/cluster/values.schema.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
 metadata:
-  name: postgres16
+  name: cluster16
+  namespace: db
 spec:
-  instances: 3
-  imageName: ghcr.io/cloudnative-pg/postgresql:16.4-19
-  primaryUpdateStrategy: unsupervised
-  storage:
-    size: 20Gi
-    storageClass: openebs-hostpath
-  superuserSecret:
-    name: cloudnative-pg-secret
-  enableSuperuserAccess: true
-  postgresql:
-    parameters:
-      max_connections: "400"
-      shared_buffers: 256MB
-  nodeMaintenanceWindow:
-    inProgress: false
-    reusePVC: true
-  resources:
-    requests:
-      cpu: 500m
-    limits:
-      memory: 4Gi
-  monitoring:
-    enablePodMonitor: true
-  # backup:
-  #   retentionPolicy: 30d
-  #   barmanObjectStore: &barmanObjectStore
-  #     data:
-  #       compression: bzip2
-  #     wal:
-  #       compression: bzip2
-  #       maxParallel: 8
-  #     destinationPath: s3://cloudnative-pg/
-  #     endpointURL: http://minio.default.svc.cluster.local:9000
-      # Note: serverName version needs to be inclemented
-      # when recovering from an existing cnpg cluster
-      # serverName: &currentCluster postgres16-v6
-      # s3Credentials:
-      #   accessKeyId:
-      #     name: cloudnative-pg-secret
-      #     key: aws-access-key-id
-      #   secretAccessKey:
-      #     name: cloudnative-pg-secret
-      #     key: aws-secret-access-key
-  # Note: previousCluster needs to be set to the name of the previous
-  # cluster when recovering from an existing cnpg cluster
-  # bootstrap:
-  #   recovery:
-  #     source: &previousCluster postgres16-v5
-  # Note: externalClusters is needed when recovering from an existing cnpg cluster
-  # externalClusters:
-  #   - name: *previousCluster
-  #     barmanObjectStore:
-  #       <<: *barmanObjectStore
-  #       serverName: *previousCluster
+  releaseName: cluster16
+  chart:
+    spec:
+      chart: cluster
+      version: 0.0.11
+      sourceRef:
+        kind: HelmRepository
+        name: cnpg
+        namespace: flux-system
+  interval: 30m
+  install:
+    remediation:
+      retries: 3
+  dependsOn:
+    - name: openebs
+      namespace: storage-system
+  values:
+    cluster:
+      enableSuperuserAccess: true
+      imageName: ghcr.io/cloudnative-pg/postgresql:16.4-19@sha256:d66c35dc163f69237ca4265042fa2a867ee015af788a584ce02b0808c8b934c9
+      instances: 2
+      logLevel: warning
+      resources:
+        requests:
+          cpu: 250m
+          memory: 256Mi
+        limits:
+          cpu: 500m
+          memory: 4Gi
+      storage:
+        size: 5Gi
+        storageClass: openebs-hostpath
+      superuserSecret:
+        name: cloudnative-pg-secret
+    postgresql:
+      parameters:
+        max_connections: "100"
+        shared_buffers: 256MB
+    nodeMaintenanceWindow:
+      inProgress: false
+      reusePVC: true
+

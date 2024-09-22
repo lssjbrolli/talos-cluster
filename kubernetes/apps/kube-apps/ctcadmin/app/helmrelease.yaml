@@ -60,7 +60,7 @@ spec:
                 memory: 128Mi
               limits:
                 cpu: 250m
-                memory: 256Gi
+                memory: 256Mi
             env:
               - name: ITEMS_PER_PAGE
                 value: 7

@@ -47,10 +47,10 @@ spec:
             resources:
               requests:
                 cpu: 100m
-                memory: 256Mi
+                memory: 128Mi
               limits:
                 cpu: 250m
-                memory: 1Gi
+                memory: 512Mi
             env:
               READARR__APP__INSTANCENAME: Readarr
               READARR__AUTH__REQUIRED: DisabledForLocalAddresses

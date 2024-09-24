@@ -35,9 +35,12 @@ spec:
               tag: 2.13.4@sha256:be7977352e38fdbc2cfd6961f93d546636f2017b2f5cc03212436f127c37db20
             securityContext:
               readOnlyRootFilesystem: false
-              runAsNonRoot: false
-              runAsUser: 0
-              runAsGroup: 0
+              runAsNonRoot: true
+              runAsUser: 568
+              runAsGroup: 568
+              fsGroup: 568
+              fsGroupChangePolicy: OnRootMismatch
+              seccompProfile: { type: RuntimeDefault }
               capabilities: { drop: ["ALL"] }
             resources:
               requests:

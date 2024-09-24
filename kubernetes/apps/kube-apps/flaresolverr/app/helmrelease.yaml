@@ -41,10 +41,10 @@ spec:
             resources:
               requests:
                 cpu: 10m
-                memory: 64Mi
+                memory: 256Mi
               limits:
                 cpu: 150m
-                memory: 256Mi
+                memory: 512Mi
             env:
               TZ:                      Europe/Bucharest
               BROWSER_TIMEOUT:         40000

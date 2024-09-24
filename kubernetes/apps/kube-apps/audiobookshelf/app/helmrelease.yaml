@@ -23,13 +23,6 @@ spec:
       strategy: rollback
       retries: 3
   values:
-    defaultPodOptions:
-      securityContext:
-        runAsNonRoot: true
-        runAsUser: 568
-        runAsGroup: 568
-        fsGroup: 568
-        fsGroupChangePolicy: OnRootMismatch
     controllers:
       main:
         strategy: Recreate
@@ -41,8 +34,10 @@ spec:
               repository: ghcr.io/advplyr/audiobookshelf
               tag: 2.13.4@sha256:be7977352e38fdbc2cfd6961f93d546636f2017b2f5cc03212436f127c37db20
             securityContext:
-              allowPrivilegeEscalation: false
-              readOnlyRootFilesystem: true
+              readOnlyRootFilesystem: false
+              runAsNonRoot: false
+              runAsUser: 0
+              runAsGroup: 0
               capabilities: { drop: ["ALL"] }
             resources:
               requests:
@@ -56,6 +51,23 @@ spec:
               AUDIOBOOKSHELF_UID: 568
               TZ: ${CONFIG_TIMEZONE}
               PORT: &port 80
+            probes:
+              startup:
+                enabled: true
+                path: "/ping"
+                type: HTTP
+                port: *port
+                spec:
+                  initialDelaySeconds: 30
+                  failureThreshold: 5
+              liveness:
+                enabled: true
+                path: "/ping"
+
+              readiness:
+                enabled: true
+                path: "/ping"
+
     service:
       main:
         controller: main

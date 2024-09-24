@@ -53,11 +53,11 @@ spec:
                 memory: 256Mi
             env:
               FB_DATABASE: /config/filebrowser.db
+              FB_CONFIG: /config/filebrowser.json
               FB_ROOT: /data
               FB_LOG: stdout
-              FB_NOAUTH: true
               TZ: ${CONFIG_TIMEZONE}
-              PORT: &port 80
+              FB_PORT: &port 80
     service:
       main:
         controller: main

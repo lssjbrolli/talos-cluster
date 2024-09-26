@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Secret
 metadata:
-    name: cnpgsecrets
+    name: ctcadmin-db
 stringData:
     INIT_POSTGRES_HOST: ENC[AES256_GCM,data:+zO8NxWk5fp7YLOiAJDjq45WmlxuthJqqMdbtwHE3ff1,iv:l3qXo8/XaJjti+n7XdvXWqKLr6EjtR6ePwg8jvsgdBc=,tag:SUZ+ed0XLU4rdFIvnaC4hg==,type:str]
     INIT_POSTGRES_SUPER_PASS: ENC[AES256_GCM,data:8WGKEg==,iv:lrbaI89h19m3QT+En0X3MzuwTF13u3QxMlLj/qSEe2Q=,tag:gFU4I+nvoVu4Z7I/ORS0VA==,type:str]
@@ -23,8 +23,8 @@ sops:
             blp2SHVFZDB3VVVsaHVEMzVITEIvOFkKUEVzKRgstANOfFCrCiqeZSnk/gFKLf05
             NmoPlS89qg0pjN39GHdhcvlkgN4sykatOZ4Jm5NVblAPrOBDE9cJmA==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-09-24T08:36:03Z"
-    mac: ENC[AES256_GCM,data:yKuzRkmDf2a0tjV4Rnbj2BAyxh+5FukjfkvsHHLmnXJVks6oTkvLk6fPCZDwWRCs0G+2eOAQUIGd/VkwC5UOBX8nVN2VQgliMajscsqEmJIFkjcRezDpK6BinUdK6aUVkff0x8ta5uU1t4Tk2Bi58ZdrFbX1iHEQGPScNpluHj4=,iv:Vh3TO66+2nBt8SRCuuM/9/Qbg2Nu7YgBi8ZwMedba9k=,tag:Cp77wktSVSztKncVPvwj4g==,type:str]
+    lastmodified: "2024-09-25T09:11:16Z"
+    mac: ENC[AES256_GCM,data:K5KTv4jG05XI1LTQYV5iKCQUx6cDiMDAH31R6oUGYP3ff7Ht0YZf1veYiOdPT75/VwzwZJhhmlTQJnwYC7TOwFTx2D7zm4qjepHHgwde0UMnNa4gXKjsUQjv9jsX55Nm/elreV+7zrPDoEuPO7GowNj8qUQXLBqlOOs82hLNI5s=,iv:qDyzCdZUYBbuw7yUEXY1zMzzC297e7FS5ZBmBbs04Tw=,tag:t+rzYj1jHkcJHA6zT2ZO0A==,type:str]
     pgp: []
     encrypted_regex: ^(data|stringData)$
     version: 3.9.0

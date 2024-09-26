@@ -15,3 +15,4 @@ resources:
   - ./readarr/ks.yaml
   - ./sonarr/ks.yaml
   - ./tautulli/ks.yaml
+  - ./vaultwarden/ks.yaml

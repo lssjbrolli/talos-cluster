@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Secret
+metadata:
+    name: vault-db
+stringData:
+    INIT_POSTGRES_HOST: ENC[AES256_GCM,data:N3FW57r+0bJLNsaPEQEm8vSX6g54rvT3KUgHmBJhLXI1,iv:dUy0vLrBP4yUcOlRix0KWpoZv11Lg0Q5RJ74XwVDOdo=,tag:t30qaCm3S433NQZypu2JQA==,type:str]
+    INIT_POSTGRES_SUPER_PASS: ENC[AES256_GCM,data:BqyLNw==,iv:3OZjypJaiNoZYwbqx2WzCbEiXi6NtIqrTJtN9/HfOpA=,tag:dhVLI/an+hVceAV3xwIMjw==,type:str]
+    INIT_POSTGRES_USER: ENC[AES256_GCM,data:LH6dqw==,iv:vaWhOwmYZGMUE+dRedpe5qmmJ7HvTvMlUSMI2FhrGbs=,tag:upmxApO8MQTWoWUxJo2NPQ==,type:str]
+    INIT_POSTGRES_PASS: ENC[AES256_GCM,data:LeSeAg==,iv:w22XJUKQlF81Kn1Gkm7rBi1VqOQTr7KLqyzEYIzuGpA=,tag:Q0whGgruyz4W5xujJgnmOw==,type:str]
+    INIT_POSTGRES_DBNAME: ENC[AES256_GCM,data:qlhM84k=,iv:ds4Z1qwXooWyHEkdQD4laNB59OAmMS81+RcopApIy3c=,tag:GymEGfjAgquSSHSCoaLS6A==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age1k5cr4cvs4atdm3gse77vq4glnv9q49gq5wl49p9806gfyfld7p3setz3tw
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSB5NVIzcFNrV2grMk16Yy9N
+            bmJmeURMbWpBYVlNL2JLam1LYVorU1NWVURNCldQY2tVQ3NaZlVHakRIa1YzV1ZU
+            cDFhSldUQ0NwQkVtS2dLdHh4M09yUm8KLS0tIHRqbS83Nmx5RFYrNDJHeUduZktS
+            TlU5UzB3aXpWY1MzeWppcUhHZnBaN2cK37DEAcZmxBNoSM0eUwFvQ7JyscCWrjkA
+            EW3qL8MRC9qQ7Awxp9GIa5rKRKHlJjNIZvUKf5yV8gflbfSDenLEXA==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2024-09-25T16:01:57Z"
+    mac: ENC[AES256_GCM,data:E4Ml1TRFLBGPP4tH2ZEfKl4xkktsQKhqRsYBD1Xd/dmhXpNMHi3h23pJmZxh8C2/VLbnyXuGSdfK+/3a52uWHYf8PwDnQQyA2agUOEU4oh8KgdfaZ8QDAWqCvQ/1PUybCwxQxq5w9OaqIyTcFrOHAcD7arNSfc0nqpEnexKjtsg=,iv:FlNmrHHtytFWgMGMGX+Riohe7dI1ntDf4BXNl9sCQ8M=,tag:foimFhhSvbLYfeNFMDrZjg==,type:str]
+    pgp: []
+    encrypted_regex: ^(data|stringData)$
+    version: 3.9.0

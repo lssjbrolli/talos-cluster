@@ -1,0 +1,147 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/bernd-schorgers/helm-charts/main/charts/other/app-template/schemas/helmrelease-helm-v2.schema.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: vaultwarden
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: app-template
+      version: 3.4.0
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s
+        namespace: flux-system
+  maxHistory: 2
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      strategy: rollback
+      retries: 3
+  values:
+    controllers:
+      main:
+        strategy: Recreate
+        annotations:
+          reloader.stakater.com/auto: "true"
+        initContainers:
+          init-db:
+            image:
+              repository: ghcr.io/onedr0p/postgres-init
+              tag: 16.3@sha256:8ba3204f6b293dd168766009aae2ce4fa986a29b931c2d30ac1b30238ac750b8
+            envFrom:
+              - secretRef:
+                  name: vault-db
+        pod:
+          securityContext:
+            runAsUser: 568
+            runAsGroup: 568
+            fsGroup: 568
+            fsGroupChangePolicy: "OnRootMismatch"
+            seccompProfile: { type: RuntimeDefault }
+        containers:
+          main:
+            image:
+              repository: vaultwarden/server
+              tag: 1.32.0@sha256:71668d20d4208d70919cf8cb3caf3071d41ed4b7d95afe71125ccad8408b040d
+            securityContext:
+              capabilities: { drop: ["ALL"] }
+            resources:
+              requests:
+                cpu: 150m
+                memory: 256Mi
+              limits:
+                cpu: 250m
+                memory: 1Gi
+            probes:
+              liveness: &probes
+                enabled: true
+                custom: true
+                spec:
+                  httpGet:
+                    path: /alive
+                    port: &port 80
+                  initialDelaySeconds: 0
+                  periodSeconds: 10
+                  timeoutSeconds: 1
+                  failureThreshold: 3
+              readiness: *probes
+            env:
+              - name: DATABASE_URL
+                secretKeyRef:
+                  name: vault-secrets
+                  key: db
+              - name: DATA_FOLDER
+                value: data
+              - name: ICON_CACHE_FOLDER
+                value: data/icon_cache
+              - name: ATTACHMENTS_FOLDER
+                value: data/attachments
+              - name: DOMAIN
+                value: "https://vaultwarden.${SECRET_EXTERNAL_DOMAIN}"
+              - name: TZ
+                value:  "${TIMEZONE}"
+              - name: SIGNUPS_ALLOWED
+                value: 'false'
+              - name: PUSH_ENABLED
+                value: "true"
+              - name: PUSH_INSTALLATION_ID
+                secretKeyRef:
+                  name: vault-secrets
+                  key: push-id
+              - name: PUSH_INSTALLATION_KEY
+                secretKeyRef:
+                  name: vault-secrets
+                  key: push-key
+              - name: SIGNUPS_ALLOWED
+                value: "false"
+              - name: INVITATION_ORG_NAME
+                value: 'seganet'
+              - name: LOG_LEVEL
+                value: 'warn'
+              # TODO: configure smtp
+              # - name: SMTP_HOST
+              #   value: smtp-relay.default.svc.cluster.local.
+              # - name: SMTP_FROM
+              #   value: vaultwarden@${SECRET_DOMAIN}
+              # - name: SMTP_FROM_NAME
+              #   value: vaultwarden
+              # - name: SMTP_PORT
+              #   value: 2525
+              # - name: SMTP_SECURITY
+              #   value: "off"
+    service:
+      main:
+        controller: main
+        type: ClusterIP
+        ports:
+          http:
+            port: *port
+    ingress:
+      # Configure an Ingress for the main application
+      main:
+        className: "internal"
+        hosts:
+          - host: "vault.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
+                service:
+                  identifier: main
+                  port: http
+
+    persistence:
+      config:
+        type: persistentVolumeClaim
+        accessMode: ReadWriteOnce
+        retain: true
+        storageClass: openebs-hostpath
+        size: 200Mi
+        globalMounts:
+          - path: /data

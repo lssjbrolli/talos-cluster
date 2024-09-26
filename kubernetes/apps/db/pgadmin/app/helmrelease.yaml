@@ -46,7 +46,8 @@ spec:
               tag: 8.12.0@sha256:585350593e8b0483941fa9a2d5ebb04b88a66e83a7b5603c169f9446b271312f
             securityContext:
               allowPrivilegeEscalation: false
-              readOnlyRootFilesystem: true
+              readOnlyRootFilesystem: false
+              runAsNonRoot: true
               capabilities: { drop: ["ALL"] }
             resources:
               requests:
@@ -57,11 +58,25 @@ spec:
                 memory: 256Mi
             env:
               - name: PGADMIN_CONFIG_ENHANCED_COOKIE_PROTECTION
-                value: "False"
+                value: "false"
               - name: TZ
                 value: ${CONFIG_TIMEZONE}
-              - name: PGADMIN_DISABLE_POSTFIX
-                value: true
+            envFrom:
+              - secretRef:
+                  name: pgadmin-secret
+            probes:
+              liveness:
+                enabled: true
+                type: HTTP
+                path: /misc/ping
+              readiness:
+                enabled: true
+                type: HTTP
+                path: /misc/ping
+              startup:
+                enabled: true
+                type: HTTP
+                path: /misc/ping
     service:
       main:
         controller: main

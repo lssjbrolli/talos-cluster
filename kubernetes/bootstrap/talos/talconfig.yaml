@@ -57,7 +57,6 @@ patches:
   - "@./patches/global/cluster-discovery.yaml"
   - "@./patches/global/containerd.yaml"
   - "@./patches/global/disable-search-domain.yaml"
-  - "@./patches/global/extensions.yaml"
   - "@./patches/global/hostdns.yaml"
   - "@./patches/global/kubelet.yaml"
   - "@./patches/global/openebs-local.yaml"

@@ -103,14 +103,14 @@ spec:
         volumeName: abs-config
         accessMode: ReadWriteOnce
         retain: true
-        storageClass: openebs-hostpath
+        storageClass: iscsi
         size: 200Mi
       metadata:
         type: persistentVolumeClaim
         volumeName: abs-metadata
         accessMode: ReadWriteOnce
         retain: true
-        storageClass: openebs-hostpath
+        storageClass: iscsi
         size: 2Gi
       mcache:
         type: emptyDir

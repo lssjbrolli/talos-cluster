@@ -23,3 +23,57 @@ spec:
       strategy: rollback
       retries: 3
   values:
+    csiDriver:
+      name: "iscsi"
+    storageClasses:
+    - name: iscsi
+      defaultClass: false
+      reclaimPolicy: Retain
+      volumeBindingMode: Immediate
+      allowVolumeExpansion: true
+      parameters:
+        fsType: ext4
+        detachedVolumesFromSnapshots: "false"
+      mountOptions: []
+      # secrets:
+      #   provisioner-secret:
+      #   controller-publish-secret:
+      #   node-stage-secret:
+      #   node-publish-secret:
+      #   controller-expand-secret:
+    volumeSnapshotClasses:
+    - name: iscsi
+      parameters:
+        detachedSnapshots: "true"
+    driver:
+      config:
+        driver: freenas-api-iscsi
+        instance_id:
+        httpConnection:
+          protocol: http
+          host: 192.168.1.150
+          port: 80
+          apiKey: 1-8ut82p9luLHvlaZIXqrF5KdB9nghLW0e9pt8VGeffaoMuyHVjwhWPrFZzTe8weOB
+          allowInsecure: true
+        zfs:
+          datasetParentName: storage/k8s/iscsi/v
+          detachedSnapshotsDatasetParentName: storage/k8s/iscsi/s
+          zvolEnableReservation: false
+        iscsi:
+          targetPortal: "192.168.1.150:3260"
+          targetPortals: []
+          interface:
+          namePrefix: csi-
+          nameSuffix: "-clustera"
+          targetGroups:
+            - targetGroupPortalGroup: 8
+              targetGroupInitiatorGroup: 14
+              targetGroupAuthType: None
+              targetGroupAuthGroup:
+          extentInsecureTpc: true
+          extentXenCompat: false
+          extentDisablePhysicalBlocksize: true
+          extentBlocksize: 512
+          extentRpm: "SSD"
+          extentAvailThreshold: 0
+

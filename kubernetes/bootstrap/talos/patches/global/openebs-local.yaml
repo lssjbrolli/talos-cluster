@@ -13,3 +13,4 @@ machine:
     - device: /dev/vdb # The name of the disk to use.
       partitions:
         - mountpoint: /var/mnt/storage # Where to mount the partition.
+    - device: /dev/vdc

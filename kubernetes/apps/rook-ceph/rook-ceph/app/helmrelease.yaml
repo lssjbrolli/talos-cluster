@@ -28,15 +28,21 @@ spec:
   #   - name: snapshot-controller
   #     namespace: volsync-system
   values:
+    logLevel: WARNING
+    containerSecurityContext:
+      runAsUser: 568
+      runAsGroup: 568
     csi:
       cephFSKernelMountOptions: ms_mode=prefer-crc
       enableLiveness: true
       serviceMonitor:
         enabled: true
+      enableCephfsSnapshotter: false
+      enableNFSSnapshotter: false
+      enableRBDSnapshotter: false
+      enableVolumeGroupSnapshot: false
+      provisionerReplicas: 1
+      nfs:
+        enabled: true
     monitoring:
       enabled: true
-    resources:
-      requests:
-        memory: 128Mi # unchangable
-        cpu: 100m # unchangable
-      limits: {}

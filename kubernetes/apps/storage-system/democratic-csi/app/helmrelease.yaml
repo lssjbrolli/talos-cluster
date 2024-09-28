@@ -41,10 +41,10 @@ spec:
       #   node-stage-secret:
       #   node-publish-secret:
       #   controller-expand-secret:
-    volumeSnapshotClasses:
-    - name: iscsi
-      parameters:
-        detachedSnapshots: "true"
+    # volumeSnapshotClasses:
+    # - name: iscsi
+    #   parameters:
+    #     detachedSnapshots: "true"
     driver:
       config:
         driver: freenas-api-iscsi

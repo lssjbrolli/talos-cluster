@@ -31,7 +31,7 @@ spec:
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
-  path: ./kubernetes/main/rook-ceph/rook-ceph/cluster
+  path: ./kubernetes/apps/rook-ceph/rook-ceph/cluster
   prune: false # never should be deleted
   sourceRef:
     kind: GitRepository

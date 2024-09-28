@@ -57,7 +57,7 @@ spec:
           allowInsecure: true
         zfs:
           datasetParentName: apps/vms/talos
-          detachedSnapshotsDatasetParentName:
+          detachedSnapshotsDatasetParentName: storage/backup/iscsi
           zvolEnableReservation: false
         iscsi:
           targetPortal: "192.168.1.150:3260"

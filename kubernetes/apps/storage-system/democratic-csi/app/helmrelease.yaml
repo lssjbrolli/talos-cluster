@@ -50,7 +50,7 @@ spec:
         driver: freenas-api-iscsi
         instance_id:
         httpConnection:
-          protocol: http
+          protocol: https
           host: 192.168.1.150
           port: 8443
           apiKey: 1-8ut82p9luLHvlaZIXqrF5KdB9nghLW0e9pt8VGeffaoMuyHVjwhWPrFZzTe8weOB

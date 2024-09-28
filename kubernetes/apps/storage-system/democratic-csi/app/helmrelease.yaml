@@ -56,8 +56,8 @@ spec:
           apiKey: 1-8ut82p9luLHvlaZIXqrF5KdB9nghLW0e9pt8VGeffaoMuyHVjwhWPrFZzTe8weOB
           allowInsecure: true
         zfs:
-          datasetParentName: storage/k8s/iscsi/v
-          detachedSnapshotsDatasetParentName: storage/k8s/iscsi/s
+          datasetParentName: apps/vms/talos
+          detachedSnapshotsDatasetParentName:
           zvolEnableReservation: false
         iscsi:
           targetPortal: "192.168.1.150:3260"
@@ -66,14 +66,14 @@ spec:
           namePrefix: csi-
           nameSuffix: "-clustera"
           targetGroups:
-            - targetGroupPortalGroup: 8
-              targetGroupInitiatorGroup: 14
+            - targetGroupPortalGroup: 5
+              targetGroupInitiatorGroup: 4
               targetGroupAuthType: None
               targetGroupAuthGroup:
           extentInsecureTpc: true
           extentXenCompat: false
           extentDisablePhysicalBlocksize: true
-          extentBlocksize: 512
+          extentBlocksize: 4096
           extentRpm: "SSD"
           extentAvailThreshold: 0
 

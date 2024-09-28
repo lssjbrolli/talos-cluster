@@ -8,9 +8,9 @@ kubernetesVersion: v1.31.1
 clusterName: "talos-cluster"
 endpoint: https://192.168.1.101:6443
 clusterPodNets:
-  - "172.16.0.0/16"
+  - "172.16.0.0/24"
 clusterSvcNets:
-  - "172.17.0.0/16"
+  - "172.17.0.0/24"
 additionalApiServerCertSans: &sans
   - "192.168.1.101"
   - 127.0.0.1 # KubePrism
@@ -24,7 +24,7 @@ nodes:
   - hostname: "control-node"
     ipAddress: "192.168.1.100"
     installDisk: "/dev/vda"
-    talosImageURL: factory.talos.dev/installer/ce4c980550dd2ab1b17bbf2b08801c7eb59418eafe8f279833297925d67c7515
+    talosImageURL: factory.talos.dev/installer/dc7b152cb3ea99b821fcb7340ce7168313ce393d663740b791c36f6e95fc8586
     controlPlane: true
     networkInterfaces:
       - deviceSelector:

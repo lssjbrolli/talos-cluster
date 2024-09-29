@@ -28,7 +28,7 @@ spec:
   dependsOn:
     - name: prometheus-operator-crds
       namespace: observability
-    - name: openebs
+    - name: democratic-csi
       namespace: storage-system
   values:
     crds:
@@ -46,7 +46,7 @@ spec:
         storage:
           volumeClaimTemplate:
             spec:
-              storageClassName: openebs-hostpath
+              storageClassName: iscsi
               resources:
                 requests:
                   storage: 1Gi

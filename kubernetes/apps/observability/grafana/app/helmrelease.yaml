@@ -193,6 +193,8 @@ spec:
       ingressClassName: internal
       hosts: ["grafana.seganet.org"]
     persistence:
-      enabled: false
+      enabled: true
+      storageClass: iscsi
+      size: 10Gi
     testFramework:
       enabled: false

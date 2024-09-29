@@ -59,7 +59,6 @@ spec:
         className: external
         annotations:
           external-dns.alpha.kubernetes.io/target: "external.${SECRET_DOMAIN}"
-          cert-manager.io/issuer: "letsencrypt-production"
         hosts:
           - host: &host "requests.${SECRET_DOMAIN}"
             paths:
@@ -78,7 +77,7 @@ spec:
         type: persistentVolumeClaim
         accessMode: ReadWriteOnce
         retain: true
-        storageClass: openebs-hostpath
+        storageClass: iscsi
         size: 200Mi
         globalMounts:
           - path: /app/config

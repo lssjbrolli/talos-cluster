@@ -54,34 +54,35 @@ spec:
           - name: ISCSIADM_HOST_PATH
             value: /usr/local/sbin/iscsiadm
         iscsiDirHostPath: /usr/local/etc/iscsi
-        config:
-          driver: freenas-api-iscsi
-          instance_id:
-          httpConnection:
-            protocol: https
-            host: 192.168.1.150
-            port: 8443
-            apiKey: 1-8ut82p9luLHvlaZIXqrF5KdB9nghLW0e9pt8VGeffaoMuyHVjwhWPrFZzTe8weOB
-            allowInsecure: true
-          zfs:
-            datasetParentName: apps/vms/talos
-            detachedSnapshotsDatasetParentName: storage/backup/iscsi
-            zvolEnableReservation: false
-          iscsi:
-            targetPortal: "192.168.1.150:3260"
-            targetPortals: []
-            interface:
-            namePrefix: csi-
-            nameSuffix: "-clustera"
-            targetGroups:
-              - targetGroupPortalGroup: 5
-                targetGroupInitiatorGroup: 4
-                targetGroupAuthType: None
-                targetGroupAuthGroup:
-            extentInsecureTpc: true
-            extentXenCompat: false
-            extentDisablePhysicalBlocksize: true
-            extentBlocksize: 4096
-            extentRpm: "SSD"
-            extentAvailThreshold: 0
+    driver:
+      config:
+        driver: freenas-api-iscsi
+        instance_id:
+        httpConnection:
+          protocol: https
+          host: 192.168.1.150
+          port: 8443
+          apiKey: 1-8ut82p9luLHvlaZIXqrF5KdB9nghLW0e9pt8VGeffaoMuyHVjwhWPrFZzTe8weOB
+          allowInsecure: true
+        zfs:
+          datasetParentName: apps/vms/talos
+          detachedSnapshotsDatasetParentName: storage/backup/iscsi
+          zvolEnableReservation: false
+        iscsi:
+          targetPortal: "192.168.1.150:3260"
+          targetPortals: []
+          interface:
+          namePrefix: csi-
+          nameSuffix: "-clustera"
+          targetGroups:
+            - targetGroupPortalGroup: 5
+              targetGroupInitiatorGroup: 4
+              targetGroupAuthType: None
+              targetGroupAuthGroup:
+          extentInsecureTpc: true
+          extentXenCompat: false
+          extentDisablePhysicalBlocksize: true
+          extentBlocksize: 4096
+          extentRpm: "SSD"
+          extentAvailThreshold: 0
 

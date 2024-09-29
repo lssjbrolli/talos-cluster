@@ -45,15 +45,15 @@ spec:
     - name: iscsi
       parameters:
         detachedSnapshots: "true"
-    hostPID: true
-    driver:
+    node:
+      hostPID: true
+      driver:
       extraEnv:
         - name: ISCSIADM_HOST_STRATEGY
           value: nsenter
         - name: ISCSIADM_HOST_PATH
           value: /usr/local/sbin/iscsiadm
       iscsiDirHostPath: /usr/local/etc/iscsi
-      iscsiDirHostPathType: ""
       config:
         driver: freenas-api-iscsi
         instance_id:

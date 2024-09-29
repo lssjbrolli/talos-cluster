@@ -107,7 +107,6 @@ spec:
         size: 200Mi
       metadata:
         type: persistentVolumeClaim
-        volumeName: abs-metadata
         accessMode: ReadWriteOnce
         retain: true
         storageClass: iscsi

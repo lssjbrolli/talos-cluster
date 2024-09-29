@@ -83,7 +83,6 @@ spec:
         accessMode: ReadWriteOnce
         retain: true
         storageClass: iscsi
-        # volumeName: filebrowser-config
         size: 200Mi
       data:
         type: nfs

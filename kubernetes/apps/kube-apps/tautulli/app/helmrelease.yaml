@@ -84,5 +84,5 @@ spec:
         type: persistentVolumeClaim
         accessMode: ReadWriteOnce
         retain: true
-        storageClass: openebs-hostpath
+        storageClass: iscsi
         size: 1Gi

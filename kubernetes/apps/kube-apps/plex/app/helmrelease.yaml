@@ -77,14 +77,14 @@ spec:
         type: persistentVolumeClaim
         accessMode: ReadWriteOnce
         retain: true
-        storageClass: openebs-hostpath
+        storageClass: iscsi
         size: 50Gi
       # Separate PVC for cache to avoid backing up cache files
       cache:
         type: persistentVolumeClaim
         accessMode: ReadWriteOnce
         retain: true
-        storageClass: openebs-hostpath
+        storageClass: iscsi
         size: 10Gi
         globalMounts:
           - path: /config/Library/Application Support/Plex Media Server/Cache

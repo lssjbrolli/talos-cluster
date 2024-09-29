@@ -142,7 +142,7 @@ spec:
     service:
       qbt:
         annotations:
-          external-dns.alpha.kubernetes.io/hostname: qbt.seganet.org
+          external-dns.alpha.kubernetes.io/hostname: qbt.${SECRET_DOMAIN}
         controller: main
         type: ClusterIP
         ports:
@@ -154,7 +154,7 @@ spec:
       qbt:
         className: internal
         hosts:
-          - host: qbt.seganet.org
+          - host: qbt.${SECRET_DOMAIN}
             paths:
               - path: /
                 service:
@@ -166,7 +166,7 @@ spec:
         type: persistentVolumeClaim
         accessMode: ReadWriteOnce
         retain: true
-        storageClass: openebs-hostpath
+        storageClass: iscsi
         size: 200Mi
       media:
         type: nfs
@@ -187,7 +187,7 @@ spec:
         type: persistentVolumeClaim
         accessMode: ReadWriteOnce
         retain: true
-        storageClass: openebs-hostpath
+        storageClass: iscsi
         size: 50Mi
         advancedMounts:
           main:

@@ -71,7 +71,7 @@ spec:
       main:
         className: "internal"
         hosts:
-          - host: prowlarr.seganet.org
+          - host: prowlarr.${SECRET_DOMAIN}
             paths:
               - path: /
                 pathType: Prefix
@@ -83,5 +83,5 @@ spec:
         type: persistentVolumeClaim
         accessMode: ReadWriteOnce
         retain: true
-        storageClass: openebs-hostpath
+        storageClass: iscsi
         size: 200Mi

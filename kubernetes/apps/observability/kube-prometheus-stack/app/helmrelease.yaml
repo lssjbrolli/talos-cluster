@@ -38,7 +38,7 @@ spec:
       ingress:
         enabled: true
         ingressClassName: internal
-        hosts: ["alertmanager.seganet.org"]
+        hosts: ["alertmanager.${SECRET_DOMAIN}"]
         pathType: Prefix
       alertmanagerSpec:
         useExistingSecret: true
@@ -70,7 +70,7 @@ spec:
       ingress:
         enabled: true
         ingressClassName: internal
-        hosts: ["prometheus.seganet.org"]
+        hosts: ["prometheus.${SECRET_DOMAIN}"]
         pathType: Prefix
       prometheusSpec:
         scrapeInterval: 1m # Must match interval in Grafana Helm chart
@@ -95,7 +95,7 @@ spec:
         storageSpec:
           volumeClaimTemplate:
             spec:
-              storageClassName: openebs-hostpath
+              storageClassName: iscsi
               resources:
                 requests:
                   storage: 75Gi

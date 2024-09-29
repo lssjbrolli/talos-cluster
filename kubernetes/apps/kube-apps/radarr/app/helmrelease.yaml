@@ -73,7 +73,7 @@ spec:
     service:
       main:
         annotations:
-          external-dns.alpha.kubernetes.io/hostname: radarr.seganet.org
+          external-dns.alpha.kubernetes.io/hostname: radarr.${SECRET_DOMAIN}
         controller: main
         type: ClusterIP
         ports:
@@ -85,7 +85,7 @@ spec:
       main:
         className: internal
         hosts:
-          - host: radarr.seganet.org
+          - host: radarr.${SECRET_DOMAIN}
             paths:
               - path: /
                 pathType: Prefix
@@ -97,7 +97,7 @@ spec:
         type: persistentVolumeClaim
         accessMode: ReadWriteOnce
         retain: true
-        storageClass: openebs-hostpath
+        storageClass: iscsi
         size: 5Gi
       media:
         type: nfs

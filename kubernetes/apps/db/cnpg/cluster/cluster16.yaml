@@ -20,7 +20,7 @@ spec:
     remediation:
       retries: 3
   dependsOn:
-    - name: openebs
+    - name: democratic-csi
       namespace: storage-system
   values:
     cluster:
@@ -37,7 +37,7 @@ spec:
           memory: 512Mi
       storage:
         size: 5Gi
-        storageClass: openebs-hostpath
+        storageClass: iscsi
       superuserSecret: cloudnative-pg-secret
     postgresql:
       parameters:

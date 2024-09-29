@@ -20,7 +20,7 @@ spec:
     remediation:
       retries: 3
   dependsOn:
-    - name: openebs
+    - name: democratic-csi
       namespace: storage-system
   values:
     crds:

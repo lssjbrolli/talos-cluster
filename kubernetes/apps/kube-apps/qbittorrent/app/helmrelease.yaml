@@ -121,6 +121,9 @@ spec:
                   - NET_ADMIN
                 allowPrivilegeEscalation: false
                 readOnlyRootFilesystem: true
+            resources:
+              limits:
+                squat.ai/tun: "1"
           port-forward:
             dependsOn: gluetun
             image:

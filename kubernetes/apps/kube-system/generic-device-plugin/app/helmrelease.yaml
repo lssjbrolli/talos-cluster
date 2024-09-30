@@ -25,8 +25,8 @@ spec:
       tag: 36bfc606bba2064de6ede0ff2764cbb52edff70d@sha256:ba6f0b4cf6c858d6ad29ba4d32e4da11638abbc7d96436bf04f582a97b2b8821
       pullPolicy: IfNotPresent
     persistence:
-      dev: /dev
-      device-plugins: /var/lib/kubelet/device-plugins
+      dev:
+        hostPath: /dev
     config:
       data:
         devices:

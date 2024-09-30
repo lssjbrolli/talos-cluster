@@ -28,7 +28,7 @@ spec:
       dev:
         hostPath: /dev
     config:
-      data:
+      data: |
         devices:
           - name: tun
             groups:

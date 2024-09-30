@@ -179,7 +179,7 @@ spec:
         type: emptyDir
         medium: Memory
         globalMounts:
-          - /config/.cache
+          - path: /config/.cache
 
       # Configure an emptyDir to share the port-forwarding location between containers
       gluetun-data:

@@ -194,7 +194,6 @@ spec:
       hosts: ["grafana.${SECRET_DOMAIN}"]
     persistence:
       enabled: true
-      storageClass: iscsi
-      size: 10Gi
+      size: 1Gi
     testFramework:
       enabled: false

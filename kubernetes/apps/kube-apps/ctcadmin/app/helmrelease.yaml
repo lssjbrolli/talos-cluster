@@ -96,9 +96,11 @@ spec:
     ingress:
       # Configure an Ingress for the main application
       main:
-        className: "internal"
+        className: external
+        annotations:
+          external-dns.alpha.kubernetes.io/target: "admin.cozmatransport.eu"
         hosts:
-          - host: "ctcadmin.${SECRET_DOMAIN}"
+          - host: "admin.cozmatransport.eu"
             paths:
               - path: /
                 pathType: Prefix

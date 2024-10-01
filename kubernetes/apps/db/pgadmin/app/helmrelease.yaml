@@ -61,19 +61,22 @@ spec:
             envFrom:
               - secretRef:
                   name: pgadmin-secret
-            # probes:
-            #   liveness:
-            #     enabled: true
-            #     type: HTTP
-            #     path: /misc/ping
-            #   readiness:
-            #     enabled: true
-            #     type: HTTP
-            #     path: /misc/ping
-            #   startup:
-            #     enabled: true
-            #     type: HTTP
-            #     path: /misc/ping
+            probes:
+              liveness:
+                enabled: true
+                type: HTTP
+                path: /misc/ping
+              readiness:
+                enabled: true
+                type: HTTP
+                path: /misc/ping
+              startup:
+                enabled: true
+                type: HTTP
+                path: /misc/ping
+                spec:
+                  initialDelaySeconds: 30
+                  failureThreshold: 5
     service:
       main:
         controller: main
@@ -100,23 +103,4 @@ spec:
     #     size: 200Mi
     #     globalMounts:
     #       - path: /var/lib/pgadmin
-    #   backup:
-    #     type: nfs
-    #     server: 192.168.1.150
-    #     path: /mnt/storage/backup/ctc_storage/db
-    #   devshm:
-    #     type: emptyDir
-    #     globalMounts:
-    #       - /dev/shm
-    #   shared:
-    #     type: emptyDir
-    #   tmp:
-    #     type: emptyDir
-    #   varlogs:
-    #     type: emptyDir
-    #     globalMounts:
-    #       - /var/logs
-    #   varrun:
-    #     type: emptyDir
-    #     globalMounts:
-    #       - /var/run
+

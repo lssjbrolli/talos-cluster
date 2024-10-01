@@ -45,8 +45,7 @@ spec:
               fsGroup: 568
               fsGroupChangePolicy: OnRootMismatch
               seccompProfile: { type: RuntimeDefault }
-              capabilities:
-                drop: { drop: ["ALL"] }
+              capabilities: { drop: ["ALL"] }
             resources:
               requests:
                 cpu: 250m

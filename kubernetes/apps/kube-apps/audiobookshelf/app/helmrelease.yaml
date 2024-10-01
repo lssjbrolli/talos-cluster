@@ -100,7 +100,6 @@ spec:
     persistence:
       config:
         type: persistentVolumeClaim
-        volumeName: abs-config
         accessMode: ReadWriteOnce
         retain: true
         storageClass: iscsi

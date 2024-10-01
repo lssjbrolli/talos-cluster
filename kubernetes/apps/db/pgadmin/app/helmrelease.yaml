@@ -55,7 +55,7 @@ spec:
                 memory: 256Mi
             env:
               - name: PGADMIN_CONFIG_ENHANCED_COOKIE_PROTECTION
-                value: "false"
+                value: "False"
               - name: TZ
                 value: ${CONFIG_TIMEZONE}
             envFrom:

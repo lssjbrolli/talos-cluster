@@ -96,11 +96,11 @@ spec:
                 service:
                   identifier: main
                   port: http
-    # persistence:
-    #   config:
-    #     type: persistentVolumeClaim
-    #     accessMode: ReadWriteOnce
-    #     size: 200Mi
-    #     globalMounts:
-    #       - path: /var/lib/pgadmin
+    persistence:
+      config:
+        type: persistentVolumeClaim
+        accessMode: ReadWriteOnce
+        size: 200Mi
+        globalMounts:
+          - path: /var/lib/pgadmin
 

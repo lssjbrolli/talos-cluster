@@ -22,20 +22,22 @@ spec:
     remediation:
       strategy: rollback
       retries: 3
+  driftDetection:
+    mode: warn
+  maxHistory: 2
   values:
     controllers:
       main:
-        strategy: Recreate
-        annotations:
-          reloader.stakater.com/auto: "true"
+        # annotations:
+        #   reloader.stakater.com/auto: "true"
         containers:
           main:
             image:
               repository: ghcr.io/advplyr/audiobookshelf
               tag: 2.13.4@sha256:be7977352e38fdbc2cfd6961f93d546636f2017b2f5cc03212436f127c37db20
             securityContext:
-              readOnlyRootFilesystem: false
-              runAsNonRoot: true
+              # readOnlyRootFilesystem: false
+              # runAsNonRoot: true
               runAsUser: 568
               runAsGroup: 568
               fsGroup: 568
@@ -66,11 +68,9 @@ spec:
               liveness:
                 enabled: true
                 path: "/ping"
-
               readiness:
                 enabled: true
                 path: "/ping"
-
     service:
       main:
         controller: main
@@ -101,14 +101,14 @@ spec:
       config:
         type: persistentVolumeClaim
         accessMode: ReadWriteOnce
-        retain: true
-        storageClass: iscsi
+        # retain: true
+        # storageClass: iscsi
         size: 200Mi
       metadata:
         type: persistentVolumeClaim
         accessMode: ReadWriteOnce
-        retain: true
-        storageClass: iscsi
+        # retain: true
+        # storageClass: iscsi
         size: 2Gi
       mcache:
         type: emptyDir

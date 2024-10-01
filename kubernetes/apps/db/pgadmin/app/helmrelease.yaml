@@ -38,7 +38,7 @@ spec:
               tag: 8.12.0@sha256:585350593e8b0483941fa9a2d5ebb04b88a66e83a7b5603c169f9446b271312f
             securityContext:
               allowPrivilegeEscalation: false
-              readOnlyRootFilesystem: true
+              # readOnlyRootFilesystem: true
               runAsNonRoot: true
               runAsUser: 568
               runAsGroup: 568

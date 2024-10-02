@@ -99,8 +99,6 @@ spec:
                 secretKeyRef:
                   name: vault-secrets
                   key: push-key
-              - name: SIGNUPS_ALLOWED
-                value: "false"
               - name: INVITATION_ORG_NAME
                 value: 'seganet'
               - name: LOG_LEVEL

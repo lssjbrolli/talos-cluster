@@ -39,11 +39,11 @@ spec:
             - secretRef:
                 name: nextcloud-db
       datadir: /var/www/data
-      extraEnv:
-        - name: REDIS_HOST
-          value: dragonfly.db.svc.cluster.local.
-        - name: REDIS_HOST_PORT
-          value: "6379"
+      # extraEnv:
+      #   - name: REDIS_HOST
+      #     value: dragonfly.db.svc.cluster.local.
+      #   - name: REDIS_HOST_PORT
+      #     value: "6379"
       host: "cloud.${SECRET_DOMAIN}"
       # mail:
       #   enabled: true

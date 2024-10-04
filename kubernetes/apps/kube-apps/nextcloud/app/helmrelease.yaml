@@ -37,7 +37,7 @@ spec:
           image: ghcr.io/onedr0p/postgres-init:16.3@sha256:9cc2856e3bd5e6100dca9123aae7b6dc9c2f8b7d5a0eab00aad0c2fed5355c93
           envFrom:
             - secretRef:
-                name: nexcloud-db
+                name: nextcloud-db
       datadir: /var/www/data
       extraEnv:
         - name: REDIS_HOST

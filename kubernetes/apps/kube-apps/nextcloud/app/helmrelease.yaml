@@ -44,7 +44,7 @@ spec:
           value: dragonfly.db.svc.cluster.local.
         - name: REDIS_HOST_PORT
           value: "6379"
-      host: &host cloud.${CLUSTER_DOMAIN}
+      host: "cloud.${SECRET_DOMAIN}"
       # mail:
       #   enabled: true
         # fromAddress: admin
@@ -92,7 +92,7 @@ spec:
       enabled: true
       className: external
       annotations:
-        external-dns.alpha.kubernetes.io/target: external.${CLUSTER_DOMAIN}
+        external-dns.alpha.kubernetes.io/target: "external.${SECRET_DOMAIN}"
         nginx.ingress.kubernetes.io/enable-cors: "true"
         nginx.ingress.kubernetes.io/cors-allow-headers: "X-Forwarded-For"
         nginx.ingress.kubernetes.io/proxy-body-size: "10G"

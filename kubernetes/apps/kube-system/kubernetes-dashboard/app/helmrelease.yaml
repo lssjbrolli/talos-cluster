@@ -38,4 +38,4 @@ spec:
           nginx.ingress.kubernetes.io/configuration-snippet: |
             auth_request_set $required_groups 'kubernetes_dashboard';
         hosts:
-          - host: "dashboard.${SECRET_DOMAIN}"
+          - "dashboard.${SECRET_DOMAIN}"

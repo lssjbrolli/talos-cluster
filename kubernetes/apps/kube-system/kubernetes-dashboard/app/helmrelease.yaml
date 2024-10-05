@@ -27,24 +27,17 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    main:
+    app:
       image:
         pullPolicy: IfNotPresent
       ingress:
         enabled: true
-        useDefaultIngressClass: true
+        ingressClassName: "internal"
         annotations:
           nginx.ingress.kubernetes.io/proxy-body-size: "100m"
           nginx.ingress.kubernetes.io/configuration-snippet: |
             auth_request_set $required_groups 'kubernetes_dashboard';
         hosts:
-          - dashboard.${CLUSTER_DOMAIN}
-          - dashboard.home.${CLUSTER_DOMAIN}
-    metricsScraper:
-      enabled: true
-    nginx:
-      enabled: false
-    cert-manager:
-      enabled: false
-    metrics-server:
+          - host: "dashboard.${SECRET_DOMAIN}"
+    kong:
       enabled: false

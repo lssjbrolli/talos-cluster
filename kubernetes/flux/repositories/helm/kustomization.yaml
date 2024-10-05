@@ -12,6 +12,7 @@ resources:
   - ./grafana.yaml
   - ./ingress-nginx.yaml
   - ./jetstack.yaml
+  - ./kubernetes-dashboard.yaml
   - ./metrics-server.yaml
   - ./nextcloud.yaml
   - ./postfinance.yaml

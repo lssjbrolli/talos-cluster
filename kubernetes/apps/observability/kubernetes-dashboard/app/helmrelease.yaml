@@ -3,7 +3,6 @@ apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: kubernetes-dashboard
-  namespace: kubernetes-dashboard
 spec:
   interval: 15m
   chart:
@@ -28,8 +27,15 @@ spec:
     keepHistory: false
   values:
     app:
+      env:
+        TZ: "${TIMEZONE}"
       image:
         pullPolicy: IfNotPresent
+      extraArgs:
+        - --enable-skip-login
+        - --disable-settings-authorizer
+        - --enable-insecure-login
+        - --token-ttl=43200 # seconds time to expire
       ingress:
         enabled: true
         ingressClassName: "internal"

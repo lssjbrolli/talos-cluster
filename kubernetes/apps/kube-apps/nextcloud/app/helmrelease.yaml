@@ -6,7 +6,7 @@ metadata:
   name: nextcloud
 spec:
   timeout: 5m
-  interval: 30m
+  interval: 10m
   chart:
     spec:
       chart: nextcloud
@@ -17,12 +17,12 @@ spec:
         namespace: flux-system
   install:
     remediation:
-      retries: 3
+      retries: -3
   upgrade:
     cleanupOnFail: true
     remediation:
       strategy: rollback
-      retries: 3
+      retries: -3
   # dependsOn:
   #   - name: volsync
   #     namespace: storage
@@ -139,7 +139,7 @@ spec:
       serviceMonitor:
         enabled: true
     startupProbe:
-      enabled: true
+      enabled: false
       initialDelaySeconds: 10
       periodSeconds: 20
       timeoutSeconds: 5

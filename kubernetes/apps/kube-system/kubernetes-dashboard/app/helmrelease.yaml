@@ -39,5 +39,3 @@ spec:
             auth_request_set $required_groups 'kubernetes_dashboard';
         hosts:
           - host: "dashboard.${SECRET_DOMAIN}"
-    kong:
-      enabled: false

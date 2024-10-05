@@ -28,9 +28,13 @@ spec:
   #     namespace: storage
   values:
     image:
+      tag: 30.0.0-fpm-alpine@sha256:c13308eaba442e9af950fb79e4d2fc4e8258d22e9ef68b85953d6431b17618c1
       flavor: fpm-alpine
     nginx:
       enabled: true
+      image:
+        repository: nginx
+        tag: 1.27.2-alpine@sha256:2140dad235c130ac861018a4e13a6bc8aea3a35f3a40e20c1b060d51a7efd250
     nextcloud:
       extraInitContainers:
         - name: init-db
@@ -39,12 +43,17 @@ spec:
             - secretRef:
                 name: nextcloud-db
       datadir: /var/www/data
+      existingSecret:
+        enabled: true
+        secretName: nextcloud-secret
+        usernameKey: user
+        passwordKey: pass
       # extraEnv:
       #   - name: REDIS_HOST
       #     value: dragonfly.db.svc.cluster.local.
       #   - name: REDIS_HOST_PORT
       #     value: "6379"
-      host: "cloud.${SECRET_DOMAIN}"
+      host: &host "cloud.${SECRET_DOMAIN}"
       # mail:
       #   enabled: true
         # fromAddress: admin
@@ -81,7 +90,7 @@ spec:
     externalDatabase:
       enabled: true
       type: postgresql
-      host: cluster16-rw.db.svc.cluster.local.
+      host: cluster16-rw.db.svc.cluster.local:5432
       database: nextcloud
       existingSecret:
         enabled: true
@@ -95,13 +104,12 @@ spec:
         external-dns.alpha.kubernetes.io/target: "external.${SECRET_DOMAIN}"
         nginx.ingress.kubernetes.io/enable-cors: "true"
         nginx.ingress.kubernetes.io/cors-allow-headers: "X-Forwarded-For"
-        nginx.ingress.kubernetes.io/proxy-body-size: "10G"
+        nginx.ingress.kubernetes.io/proxy-body-size: "512M"
         nginx.ingress.kubernetes.io/proxy-buffering: "off"
         nginx.ingress.kubernetes.io/proxy-request-buffering: "off"
-        nginx.ingress.kubernetes.io/server-snippet: |-
+        nginx.ingress.kubernetes.io/server-snippet: |
           server_tokens off;
           proxy_hide_header X-Powered-By;
-
           rewrite ^/.well-known/webfinger /public.php?service=webfinger last;
           rewrite ^/.well-known/nodeinfo /index.php/.well-known/nodeinfo last;
           rewrite ^/.well-known/host-meta /public.php?service=host-meta last;
@@ -123,25 +131,35 @@ spec:
           location ~ ^/(?:autotest|occ|issue|indie|db_|console) {
             deny all;
           }
-      path: /
-      pathType: Prefix
+      tls:
+        - hosts:
+            - *host
+          secretName: ${SECRET_DOMAIN//./-}-production-tls
     persistence:
       enabled: true
-      size: 2Gi
+      size: 512Mi
       nextcloudData:
         enabled: true
         size: 100Gi
-    # this seems to be required for nextcloud initialization which takes a long time
     metrics:
       enabled: true
       image:
         tag: 0.7.0@sha256:85d412884b6cc14c0cfc03d68bc1d15a6f5a2144a4152ba333ce902ade681c8b
       serviceMonitor:
         enabled: true
+    # this seems to be required for nextcloud initialization which takes a long time
     startupProbe:
       enabled: false
-      initialDelaySeconds: 10
-      periodSeconds: 20
+      initialDelaySeconds: 30
+      periodSeconds: 10
       timeoutSeconds: 5
       failureThreshold: 30
-      successThreshold: 1
+      successThreshold: 2
+    cronjob:
+      enabled: true
+    resources:
+      requests:
+        cpu: 500m
+        memory: 256Mi
+      limits:
+        memory: 512Mi

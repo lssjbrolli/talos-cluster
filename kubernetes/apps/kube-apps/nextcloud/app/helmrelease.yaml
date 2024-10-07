@@ -35,6 +35,11 @@ spec:
       image:
         repository: nginx
         tag: 1.27.2-alpine@sha256:2140dad235c130ac861018a4e13a6bc8aea3a35f3a40e20c1b060d51a7efd250
+    redis:
+      enabled: true
+      auth:
+        enabled: false
+
     nextcloud:
       extraInitContainers:
         - name: init-db
@@ -68,23 +73,23 @@ spec:
         runAsUser: 568
         runAsGroup: 568
         runAsNonRoot: true
-      configs:
-        proxy.config.php: |-
-          <?php
-          $CONFIG = array (
-            'trusted_proxies' => array(
-              0 => '127.0.0.1',
-              1 => '${NETWORK_K8S_POD_CIDR}',
-              2 => '${NETWORK_K8S_POD_CIDR_V6}',
-            ),
-            'forwarded_for_headers' => array('HTTP_X_FORWARDED_FOR'),
-          ); ?>
-        misc.config.php: |-
-          <?php
-          $CONFIG = array (
-            'default_phone_region' => 'CA',
-            'maintenance_window_start' => 2,
-          ); ?>
+      # configs:
+      #   proxy.config.php: |-
+      #     <?php
+      #     $CONFIG = array (
+      #       'trusted_proxies' => array(
+      #         0 => '127.0.0.1',
+      #         1 => '${NETWORK_K8S_POD_CIDR}',
+      #         2 => '${NETWORK_K8S_POD_CIDR_V6}',
+      #       ),
+      #       'forwarded_for_headers' => array('HTTP_X_FORWARDED_FOR'),
+      #     ); ?>
+      #   misc.config.php: |-
+      #     <?php
+      #     $CONFIG = array (
+      #       'default_phone_region' => 'RO',
+      #       'maintenance_window_start' => 2,
+      #     ); ?>
     internalDatabase:
       enabled: false
     externalDatabase:
@@ -142,12 +147,16 @@ spec:
         enabled: true
         size: 100Gi
     metrics:
-      enabled: true
+      enabled: false
       image:
         tag: 0.7.0@sha256:85d412884b6cc14c0cfc03d68bc1d15a6f5a2144a4152ba333ce902ade681c8b
       serviceMonitor:
-        enabled: true
+        enabled: false
     # this seems to be required for nextcloud initialization which takes a long time
+    livenessProbe:
+      enabled: false
+    readinessProbe:
+      enabled: false
     startupProbe:
       enabled: false
       initialDelaySeconds: 30

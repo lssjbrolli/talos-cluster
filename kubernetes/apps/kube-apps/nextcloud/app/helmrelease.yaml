@@ -28,7 +28,7 @@ spec:
   #     namespace: storage
   values:
     image:
-      tag: 29.0.7-fpm-alpine
+      tag: 30.0.0-fpm-alpine@sha256:c13308eaba442e9af950fb79e4d2fc4e8258d22e9ef68b85953d6431b17618c1
       flavor: fpm-alpine
     nginx:
       enabled: true

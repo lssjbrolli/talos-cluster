@@ -126,7 +126,8 @@ spec:
       main:
         className: external
         annotations:
-          external-dns.alpha.kubernetes.io/target: "admin.cozmatransport.eu"
+          external-dns.alpha.kubernetes.io/target: "external.${SECRET_DOMAIN}"
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
         hosts:
           - host: "vault.${SECRET_DOMAIN}"
             paths:

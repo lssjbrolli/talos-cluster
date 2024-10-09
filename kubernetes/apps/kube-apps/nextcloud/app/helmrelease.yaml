@@ -39,7 +39,8 @@ spec:
       enabled: true
       auth:
         enabled: false
-
+      replica:
+        replicaCount: 1
     nextcloud:
       extraInitContainers:
         - name: init-db
@@ -142,7 +143,7 @@ spec:
           secretName: ${SECRET_DOMAIN//./-}-production-tls
     persistence:
       enabled: true
-      size: 512Mi
+      size: 2Gi
       nextcloudData:
         enabled: true
         size: 100Gi

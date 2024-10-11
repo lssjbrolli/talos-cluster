@@ -98,10 +98,10 @@ spec:
       main:
         className: external
         annotations:
-          external-dns.alpha.kubernetes.io/target: "admin.cozmatransport.eu"
+          external-dns.alpha.kubernetes.io/target: &host "admin.cozmatransport.eu"
           cert-manager.io/cluster-issuer: "letsencrypt-production"
         hosts:
-          - host: "admin.cozmatransport.eu"
+          - host: *host
             paths:
               - path: /
                 pathType: Prefix

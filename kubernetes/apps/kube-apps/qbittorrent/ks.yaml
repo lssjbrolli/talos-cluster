@@ -12,10 +12,8 @@ spec:
       app.kubernetes.io/name: *app
   path: ./kubernetes/apps/kube-apps/qbittorrent/app
   prune: true
-  decryption:
-    provider: sops
-    secretRef:
-      name: sops-age
+  dependsOn:
+    - name: generic-device-plugin
   sourceRef:
     kind: GitRepository
     name: talos-cluster

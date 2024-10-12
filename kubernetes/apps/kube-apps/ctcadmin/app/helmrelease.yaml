@@ -99,7 +99,7 @@ spec:
         className: external
         annotations:
           external-dns.alpha.kubernetes.io/target: &host "admin.cozmatransport.eu"
-          cert-manager.io/cluster-issuer: "letsencrypt-production"
+          # cert-manager.io/cluster-issuer: "letsencrypt-production"
         hosts:
           - host: *host
             paths:
@@ -108,10 +108,10 @@ spec:
                 service:
                   identifier: main
                   port: http
-        tls:
-          - hosts:
-              - *host
-            secretName: ctcadmin-cert
+        # tls:
+        #   - hosts:
+        #       - *host
+        #     secretName: ctcadmin-cert
     persistence:
       storage:
         type: nfs

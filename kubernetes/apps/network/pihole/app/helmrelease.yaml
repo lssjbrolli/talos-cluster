@@ -32,11 +32,13 @@ spec:
       https:
         # -- Generate a service for HTTPS traffic
         enabled: false
-    virtualHost: pihole.${SECRET_DOMAIN}
+    virtualHost: &host pihole.${SECRET_DOMAIN}
     ingress:
       # -- Configuration for the Ingress
       enabled: "true"
       ingressClassName: internal
+      hosts:
+        - *host
     resources:
       requests:
        cpu: 100m

@@ -95,7 +95,7 @@ spec:
         ports:
           http:
             port: 9001
-          api:
+          s3:
             port: 9000
 
     serviceMonitor:
@@ -111,37 +111,19 @@ spec:
     ingress:
       app:
         className: internal
-        annotations:
-          nginx.ingress.kubernetes.io/whitelist-source-range: "10.0.0.0/16,172.16.0.0/16,192.168.1.0/24"
         hosts:
-          - host: minio.${SECRET_DOMAIN}
+          - host: "minio.${SECRET_DOMAIN}"
             paths:
               - path: /
                 service:
                   identifier: app
                   port: http
-        # tls:
-        #   - hosts:
-        #       - *console-host
-      s3:
-        className: internal
-        annotations:
-          nginx.ingress.kubernetes.io/whitelist-source-range: "10.0.0.0/16,172.16.0.0/16,192.168.1.0/24"
-          nginx.ingress.kubernetes.io/proxy-connect-timeout: "180"
-          nginx.ingress.kubernetes.io/proxy-body-size: 1024m
-          nginx.ingress.kubernetes.io/proxy-request-buffering: "off"
-          nginx.ingress.kubernetes.io/configuration-snippet: |
-            chunked_transfer_encoding off;
-        hosts:
-          - host: &api-host s3.${SECRET_DOMAIN}
+          - host: s3..${SECRET_DOMAIN}
             paths:
               - path: /
                 service:
                   identifier: app
-                  port: api
-        # tls:
-        #   - hosts:
-        #       - *api-host
+                  port: s3
 
     persistence:
       config:

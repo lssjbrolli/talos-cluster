@@ -1,0 +1,89 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: pihole
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: pihole
+      version: 2.26.1
+      sourceRef:
+        kind: HelmRepository
+        name: mojo2600
+        namespace: flux-system
+  install:
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  values:
+    image:
+      tag: "2024.07.0@sha256:0def896a596e8d45780b6359dbf82fc8c75ef05b97e095452e67a0a4ccc95377"
+    dnsHostPort:
+      enabled: true
+
+    serviceDns:
+      # -- A fixed `spec.loadBalancerIP` for the DNS Service
+      loadBalancerIP: "192.168.1.254"
+    serviceDhcp:
+      # -- Generate a Service resource for DHCP traffic
+      enabled: false
+    serviceWeb:
+      https:
+        # -- Generate a service for HTTPS traffic
+        enabled: false
+    virtualHost: &host pihole.${SECRET_DOMAIN}
+    ingress:
+      # -- Configuration for the Ingress
+      enabled: "true"
+      ingressClassName: internal
+    resources:
+      limits:
+       cpu: 100m
+       memory: 128Mi
+      requests:
+       cpu: 500m
+       memory: 256Mi
+    persistentVolumeClaim:
+      enabled: true
+      size: "500Mi"
+    admin:
+      enabled: true
+      existingSecret: "pihole-secret"
+      passwordKey: "pass"
+    extraEnvVars:
+      TZ: ${CONFIG_TIMEZONE}
+    DNS1: "1.1.1.1"
+    DNS2: "9.9.9.9"
+    hostname: *host
+
+    podAnnotations:
+      prometheus.io/port: '9617'
+      prometheus.io/scrape: 'true'
+
+    monitoring:
+      podMonitor:
+        enabled: false
+      sidecar:
+        enabled: false
+        port: 9617
+        image:
+          tag: v0.4.0@sha256:b101b2beb6787aee407be287fe35426cf88f15233ed01aeeef445931232d89e
+        resources:
+          limits:
+            cpu: 50m
+            memory: 128Mi
+          requests:
+           cpu: 100m
+           memory: 256Mi
+
+    podDnsConfig:
+      enabled: true
+      policy: "None"
+      nameservers:
+        - 127.0.0.1
+        - 1.1.1.1

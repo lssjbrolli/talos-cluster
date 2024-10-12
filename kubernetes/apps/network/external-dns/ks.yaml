@@ -32,6 +32,8 @@ spec:
     labels:
       app.kubernetes.io/name: *app
   path: ./kubernetes/apps/network/external-dns/pihole
+  dependsOn:
+    - name: pihole
   prune: true
   sourceRef:
     kind: GitRepository

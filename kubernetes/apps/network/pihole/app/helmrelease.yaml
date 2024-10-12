@@ -76,10 +76,10 @@ spec:
         image:
           tag: v0.4.0@sha256:b101b2beb6787aee407be287fe35426cf88f15233ed01aeeef445931232d89e
         resources:
-          limits:
+          requests:
             cpu: 50m
             memory: 128Mi
-          requests:
+          limits:
            cpu: 100m
            memory: 256Mi
 

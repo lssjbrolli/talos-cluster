@@ -3,7 +3,7 @@
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
-  name: mojo2600https://mojo2600.github.io/pihole-kubernetes/
+  name: mojo2600
   namespace: flux-system
 spec:
   interval: 2h

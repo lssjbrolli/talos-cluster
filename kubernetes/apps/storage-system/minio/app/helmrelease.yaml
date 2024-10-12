@@ -118,7 +118,7 @@ spec:
                 service:
                   identifier: app
                   port: http
-          - host: s3..${SECRET_DOMAIN}
+          - host: s3.${SECRET_DOMAIN}
             paths:
               - path: /
                 service:

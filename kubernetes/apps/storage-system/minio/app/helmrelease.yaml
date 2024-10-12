@@ -27,20 +27,20 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    defaultPodOptions:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 568
+        runAsGroup: 568
+        fsGroup: 568
+        fsGroupChangePolicy: OnRootMismatch
+        supplementalGroups: [10000]
+        seccompProfile: { type: RuntimeDefault }
+
     controllers:
       minio:
         annotations:
           reloader.stakater.com/auto: "true"
-
-        pod:
-          securityContext:
-              # readOnlyRootFilesystem: false
-              # runAsNonRoot: true
-              runAsUser: 568
-              runAsGroup: 568
-              fsGroup: 568
-              fsGroupChangePolicy: OnRootMismatch
-              seccompProfile: { type: RuntimeDefault }
 
         containers:
           app:
@@ -62,6 +62,11 @@ spec:
                   name: minio-secret
 
             args: ["server", "/data", "--console-address", ":9001"]
+
+            securityContext:
+              allowPrivilegeEscalation: false
+              readOnlyRootFilesystem: true
+              capabilities: { drop: ["ALL"] }
 
             probes:
               liveness: &probes
@@ -109,7 +114,7 @@ spec:
         annotations:
           nginx.ingress.kubernetes.io/whitelist-source-range: "10.0.0.0/16,172.16.0.0/16,192.168.1.0/24"
         hosts:
-          - host: &console-host minio.${SECRET_DOMAIN}
+          - host: minio.${SECRET_DOMAIN}
             paths:
               - path: /
                 service:

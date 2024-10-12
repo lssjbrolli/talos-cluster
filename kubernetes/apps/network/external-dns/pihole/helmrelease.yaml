@@ -39,12 +39,11 @@ spec:
         value: "true"
     extraArgs:
       - --ingress-class=internal
-      # Pihole only supports A/CNAME records so there is no mechanism to track ownership.
-      # You don't need to set this flag, but if you leave it unset, you will receive warning
-      # logs when ExternalDNS attempts to create TXT records.
-      - --registry=noop
-      - --provider=pihole
     policy: sync
+    # Pihole only supports A/CNAME records so there is no mechanism to track ownership.
+    # You don't need to set this flag, but if you leave it unset, you will receive warning
+    # logs when ExternalDNS attempts to create TXT records.
+    registry: noop
     sources: ["service", "ingress"]
     domainFilters: ["${SECRET_DOMAIN}"]
     serviceMonitor:

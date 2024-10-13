@@ -37,3 +37,8 @@ spec:
     runner:
       sendAdditionalTelemetry: true
       additional_env_vars: []
+    enableHolmesGPT: true
+    holmes:
+      additionalEnvVars:
+      - name: ROBUSTA_AI
+        value: "true"

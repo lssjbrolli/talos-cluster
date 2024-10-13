@@ -26,17 +26,32 @@ spec:
     clusterName: talos-cluster
     isSmallCluster: true
     globalConfig:
-      signing_key: 37a062be-2ad5-45b6-8903-7a683903844e
-      account_id: be2b51f3-ee4e-41fe-802d-16146af6a6a9
+      signing_key: {{ env.signing_key }}
+      account_id: {{ env.account_id }}
     sinksConfig:
       - robusta_sink:
           name: robusta_ui_sink
-          token: eyJhY2NvdW50X2lkIjogImJlMmI1MWYzLWVlNGUtNDFmZS04MDJkLTE2MTQ2YWY2YTZhOSIsICJhcGlfa2V5IjogImV5SmhiR2NpT2lKSVV6STFOaUlzSW5SNWNDSTZJa3BYVkNKOS5leUp5YjJ4bElqb2lZVzV2YmlJc0ltbGhkQ0k2TVRZeU5ERTNNalF5TkN3aVpYaHdJam94T1RNNU56UTROREkwZlEuaFJMdjZQQW54MWNhdkR3bC1pWXlnQXJINHFBMERWSFluckQ3MUFzcXFQdyIsICJzdG9yZV91cmwiOiAiaHR0cHM6Ly94dnlocG94Zm10cHVxcWV5cWtzby5zdXBhYmFzZS5jbyIsICJlbWFpbCI6ICJhcGl1c2VyLXNlZ2FuZXQtODkxOTE2QHJvYnVzdGEuZGV2IiwgInBhc3N3b3JkIjogIjA3NzEyYzJiLTRjMGItNGM3ZS1hZGRmLWUwMDkxODg2MDViOSJ9
+          token: {{ env.token }}
     enablePrometheusStack: false
     enablePlatformPlaybooks: true
     runner:
       sendAdditionalTelemetry: true
-      additional_env_vars: []
+      additional_env_vars:
+        - name: signing_key
+          valueFrom:
+            secretKeyRef:
+              name: robusta-secrets
+              key: signing_key
+        - name: account_id
+          valueFrom:
+            secretKeyRef:
+              name: robusta-secrets
+              key: account_id
+        - name: token
+          valueFrom:
+            secretKeyRef:
+              name: robusta-secrets
+              key: token
     enableHolmesGPT: true
     holmes:
       additionalEnvVars:

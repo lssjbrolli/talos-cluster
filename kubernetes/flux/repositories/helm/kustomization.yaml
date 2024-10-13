@@ -5,6 +5,7 @@ resources:
   - ./backube.yaml
   - ./bjw-s.yaml
   - ./cilium.yaml
+  - ./ckotzbauer.yaml
   - ./cnpg.yaml
   - ./coredns.yaml
   - ./democratic-csi.yaml

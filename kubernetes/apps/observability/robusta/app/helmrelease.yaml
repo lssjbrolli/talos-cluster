@@ -1,0 +1,39 @@
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/helm.toolkit.fluxcd.io/helmrelease_v2.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: robusta
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: robusta
+      version: 0.18.0
+      sourceRef:
+        kind: HelmRepository
+        name: robusta
+        namespace: flux-system
+  install:
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      strategy: rollback
+      retries: 3
+  values:
+    clusterName: talos-cluster
+    isSmallCluster: true
+    globalConfig:
+      signing_key: 37a062be-2ad5-45b6-8903-7a683903844e
+      account_id: be2b51f3-ee4e-41fe-802d-16146af6a6a9
+    sinksConfig:
+      - robusta_sink:
+          name: robusta_ui_sink
+          token: eyJhY2NvdW50X2lkIjogImJlMmI1MWYzLWVlNGUtNDFmZS04MDJkLTE2MTQ2YWY2YTZhOSIsICJhcGlfa2V5IjogImV5SmhiR2NpT2lKSVV6STFOaUlzSW5SNWNDSTZJa3BYVkNKOS5leUp5YjJ4bElqb2lZVzV2YmlJc0ltbGhkQ0k2TVRZeU5ERTNNalF5TkN3aVpYaHdJam94T1RNNU56UTROREkwZlEuaFJMdjZQQW54MWNhdkR3bC1pWXlnQXJINHFBMERWSFluckQ3MUFzcXFQdyIsICJzdG9yZV91cmwiOiAiaHR0cHM6Ly94dnlocG94Zm10cHVxcWV5cWtzby5zdXBhYmFzZS5jbyIsICJlbWFpbCI6ICJhcGl1c2VyLXNlZ2FuZXQtODkxOTE2QHJvYnVzdGEuZGV2IiwgInBhc3N3b3JkIjogIjA3NzEyYzJiLTRjMGItNGM3ZS1hZGRmLWUwMDkxODg2MDViOSJ9
+    enablePrometheusStack: false
+    enablePlatformPlaybooks: true
+    runner:
+      sendAdditionalTelemetry: true
+      additional_env_vars: []

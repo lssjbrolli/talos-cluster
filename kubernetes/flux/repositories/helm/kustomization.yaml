@@ -20,6 +20,7 @@ resources:
   - ./nextcloud.yaml
   - ./postfinance.yaml
   - ./prometheus-community.yaml
+  - ./robusta.yaml
   - ./spegel.yaml
   - ./stakater.yaml
 

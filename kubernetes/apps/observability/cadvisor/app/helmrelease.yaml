@@ -27,3 +27,23 @@ spec:
       tag: v0.50.0@sha256:2f3ea45c7ee3d7a0ce9f9d55a5053bd12285b02aca307ce9657af8e3ea7f6761
     container:
       port: 80
+    hostPaths:
+    - name: rootfs
+      path: "/"
+      mount: "/rootfs"
+      readOnly: true
+    - name: varrun
+      path: "/var/run"
+      readOnly: true
+    - name: sys
+      path: "/sys"
+      readOnly: true
+    - name: docker
+      path: "/var/lib/docker"
+      readOnly: true
+    - name: disk
+      path: "/dev/disk"
+      readOnly: true
+    - name: kmsg
+      path: "/dev/kmsg"
+      readOnly: true

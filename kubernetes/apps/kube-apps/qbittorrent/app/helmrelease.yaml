@@ -55,10 +55,9 @@ spec:
             resources:
               requests:
                 cpu: 250m
-                memory: 1Gi
+                memory: 2048Mi
               limits:
-                cpu: 500m
-                memory: 2Gi
+                memory: 2048Mi
             env:
               WEBUI_PORT: &port 80
               QBITTORRENT__PORT: *port
@@ -122,7 +121,11 @@ spec:
                 allowPrivilegeEscalation: false
                 readOnlyRootFilesystem: true
             resources:
+              requests:
+                cpu: 150m
+                memory: 128Mi
               limits:
+                memory: 128Mi
                 squat.ai/tun: "1"
           port-forward:
             dependsOn: gluetun
@@ -142,6 +145,12 @@ spec:
                 value: http
               - name: PORT_FORWARDED
                 value: "/tmp/gluetun/forwarded_port"
+            resources:
+              requests:
+                cpu: 150m
+                memory: 128Mi
+              limits:
+                memory: 128Mi
     service:
       qbt:
         annotations:

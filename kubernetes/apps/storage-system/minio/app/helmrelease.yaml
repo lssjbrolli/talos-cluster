@@ -82,10 +82,10 @@ spec:
 
             resources:
               requests:
-                memory: 100Mi
-                cpu: 100m
+                memory: 512Mi
+                cpu: 50m
               limits:
-                memory: 4000Mi
+                memory: 2048Mi
 
     service:
       app:

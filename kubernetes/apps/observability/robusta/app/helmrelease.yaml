@@ -26,28 +26,28 @@ spec:
     clusterName: talos-cluster
     isSmallCluster: true
     globalConfig:
-      signing_key: {{ env.signing_key }}
-      account_id: {{ env.account_id }}
+      signing_key: "{{ env.SIGNKEY }}"
+      account_id: "{{ env.ACCOUNTID }}"
     sinksConfig:
       - robusta_sink:
           name: robusta_ui_sink
-          token: {{ env.token }}
+          token: "{{ env.TOKEN }}"
     enablePrometheusStack: false
     enablePlatformPlaybooks: true
     runner:
       sendAdditionalTelemetry: true
       additional_env_vars:
-        - name: signing_key
+        - name: SIGNKEY
           valueFrom:
             secretKeyRef:
               name: robusta-secrets
               key: signing_key
-        - name: account_id
+        - name: ACCOUNTID
           valueFrom:
             secretKeyRef:
               name: robusta-secrets
               key: account_id
-        - name: token
+        - name: TOKEN
           valueFrom:
             secretKeyRef:
               name: robusta-secrets

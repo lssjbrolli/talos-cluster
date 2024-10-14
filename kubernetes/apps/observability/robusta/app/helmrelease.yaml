@@ -60,6 +60,11 @@ spec:
             secretKeyRef:
               name: robusta-secrets
               key: webhook
+        - name: ROBUSTA_UI_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: robusta-secrets
+              key: token
     enableHolmesGPT: true
     holmes:
       additionalEnvVars:

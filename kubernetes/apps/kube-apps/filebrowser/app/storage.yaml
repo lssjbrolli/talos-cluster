@@ -1,33 +1,4 @@
 ---
-kind: PersistentVolumeClaim
-apiVersion: v1
-metadata:
-  name: filebrowser-config
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 200Mi
-
----
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: filebrowser-config
-spec:
-  accessModes:
-    - ReadWriteOnce
-  storageClassName: iscsi
-  volumeMode: Filesystem
-  capacity:
-    storage: 200Mi
-  claimRef:
-    kind: PersistentVolumeClaim
-    name: filebrowser-config
-    namespace: kube-apps
-
----
 apiVersion: snapshot.storage.k8s.io/v1
 kind: VolumeSnapshot
 metadata:

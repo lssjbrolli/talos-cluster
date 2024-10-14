@@ -80,7 +80,10 @@ spec:
     persistence:
       config:
         type: persistentVolumeClaim
-        existingClaim: filebrowser-config
+        accessMode: ReadWriteOnce
+        retain: true
+        storageClass: iscsi
+        size: 200Mi
       data:
         type: nfs
         server: 192.168.1.150

@@ -16,8 +16,14 @@ kind: PersistentVolume
 metadata:
   name: filebrowser-config
 spec:
-  storageClassName: ""
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: iscsi
+  volumeMode: Filesystem
+  capacity:
+    storage: 200Mi
   claimRef:
+    kind: PersistentVolumeClaim
     name: filebrowser-config
     namespace: kube-apps
 

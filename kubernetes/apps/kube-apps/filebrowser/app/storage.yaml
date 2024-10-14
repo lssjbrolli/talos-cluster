@@ -34,6 +34,6 @@ metadata:
   name: filebrowser-config-snapshot
   namespace: kube-apps
 spec:
-  volumeSnapshotClassName: volume-snapshot-class #change it with your volume snapshot class name
+  volumeSnapshotClassName: iscsi #change it with your volume snapshot class name
   source:
     persistentVolumeClaimName: filebrowser-config # change it with target pvc name

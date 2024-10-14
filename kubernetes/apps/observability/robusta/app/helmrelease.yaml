@@ -32,6 +32,9 @@ spec:
       - robusta_sink:
           name: robusta_ui_sink
           token: "{{ env.TOKEN }}"
+      - discord_sink:
+          name: personal_discord_sink
+          url: "{{env.WEBHOOK}}"
     enablePrometheusStack: true
     enablePlatformPlaybooks: true
     runner:
@@ -52,11 +55,22 @@ spec:
             secretKeyRef:
               name: robusta-secrets
               key: token
+        - name: WEBHOOK
+          valueFrom:
+            secretKeyRef:
+              name: robusta-secrets
+              key: webhook
     enableHolmesGPT: true
     holmes:
       additionalEnvVars:
       - name: ROBUSTA_AI
         value: "true"
+      additional_env_vars:
+      - name: ROBUSTA_UI_TOKEN
+        valueFrom:
+          secretKeyRef:
+            name: robusta-secrets
+            key: token
     enabledManagedConfiguration: true # Enable managed alerts
     kube-prometheus-stack: # those rules are now managed by Robusta
       defaultRules:
@@ -78,3 +92,9 @@ spec:
           nodeExporterAlerting: false
           prometheus: false
           prometheusOperator: false
+      grafana:
+        persistence:
+          enabled: true
+    prometheus:
+      prometheusSpec:
+        retention: 30d #change the number of days here

@@ -10,6 +10,7 @@ resources:
   - ./coredns.yaml
   - ./democratic-csi.yaml
   - ./external-dns.yaml
+  - ./fairwinds.yaml
   - ./gabe565.yaml
   - ./grafana.yaml
   - ./ingress-nginx.yaml

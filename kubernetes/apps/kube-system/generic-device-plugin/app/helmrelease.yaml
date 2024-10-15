@@ -40,7 +40,6 @@ spec:
         cpu: 50m
         memory: 10Mi
       limits:
-        cpu: 50m
         memory: 20Mi
     service:
       main:

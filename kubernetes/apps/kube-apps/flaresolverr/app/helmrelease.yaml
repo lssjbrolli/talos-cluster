@@ -43,7 +43,6 @@ spec:
                 cpu: 10m
                 memory: 256Mi
               limits:
-                cpu: 150m
                 memory: 512Mi
             env:
               TZ:                      Europe/Bucharest

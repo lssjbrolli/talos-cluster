@@ -54,10 +54,10 @@ spec:
                   - ALL
             resources:
               requests:
-                cpu: 250m
+                cpu: 500m
                 memory: 1Gi
               limits:
-                memory: 2Gi
+                memory: 3Gi
             env:
               WEBUI_PORT: &port 80
               QBITTORRENT__PORT: *port
@@ -125,8 +125,8 @@ spec:
                 readOnlyRootFilesystem: true
             resources:
               requests:
-                cpu: 150m
-                memory: 128Mi
+                cpu: 500m
+                memory: 512Mi
               limits:
                 memory: 1Gi
                 squat.ai/tun: "1"

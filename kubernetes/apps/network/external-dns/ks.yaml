@@ -34,6 +34,7 @@ spec:
   path: ./kubernetes/apps/network/external-dns/pihole
   dependsOn:
     - name: pihole
+
   prune: true
   sourceRef:
     kind: GitRepository

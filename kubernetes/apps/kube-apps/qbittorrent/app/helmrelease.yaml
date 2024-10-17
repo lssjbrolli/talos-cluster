@@ -189,7 +189,6 @@ spec:
         path: /mnt/storage/media
       cache:
         type: emptyDir
-        medium: Memory
         advancedMounts:
           main:
             qbt:

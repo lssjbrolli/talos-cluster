@@ -60,6 +60,12 @@ spec:
             secretKeyRef:
               name: robusta-secrets
               key: webhook
+      resources:
+        requests:
+          memory: 512Mi
+          cpu: 250m
+        limits:
+          memory: 2Gi
     enableHolmesGPT: true
     holmes:
       additionalEnvVars:

@@ -5,7 +5,7 @@ metadata:
 stringData:
     username: ENC[AES256_GCM,data:TqWTj8nFmQ0=,iv:tuxZ2/+S+BYrSNrgziaJr1s3q9Lraz+u/JxyY4yv67Y=,tag:9TEMNodfYaKZA1OBnbnPHw==,type:str]
     password: ENC[AES256_GCM,data:6YD103baLMaUTfyi,iv:F7RVLjX+fXCYYfCOmu+aoAvKeRap1A95XzpY4j9VKpY=,tag:dlX/d1wOiMVkJN1NaaS1vw==,type:str]
-    server: ENC[AES256_GCM,data:aQ7t4sYkHM1eMQ==,iv:H/NqQdK/9fivlBDWfBFHVBiFDfz+SYDwmgjaPopiAeU=,tag:Q38VIYmfSSKXMzScmabKYg==,type:str]
+    server: ENC[AES256_GCM,data:xMwYVTc/n15m0w==,iv:jlfUaC3bKYCEqQMeAsMeFu42S/VslBOHVD6cWOrHKCM=,tag:s1yznxCgebaLo+YYpZu1zA==,type:str]
     region: ENC[AES256_GCM,data:88QU9mMmiQ==,iv:X+i9moObZNLJVaucn0Hn3FCxqbLTfUomcy9iRMwrA3g=,tag:ezXbKbPYQTlrCiM4LiPwdg==,type:str]
 sops:
     kms: []
@@ -22,8 +22,8 @@ sops:
             MVIwNCs0SlpKQ2JhaktjSm50anFxVlEK3HmAKnNB8GfqPcA2QUGC63qsyTak+s65
             i1qg5fIr56dgCkmBffi8xtgqMzhMWnlLO4ECCcxVUdbTR6ARebZ6nA==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-09-17T00:11:56Z"
-    mac: ENC[AES256_GCM,data:bO1PqXCXRVSMLuJjwZyE5HRNzBP0gxILQWRWQAWW56Dg2M3HDgsDHCgQ7yOOqZ5IxOV8pCAgInk/XX7KBaVGT5PRh+7X/YRW/GluL7r1FBxcSdJ3eRxxgZObMRxKgtkQI3uvvSUHT1uQapNx6UdWl/A16m+bSnrAsH7SHDqOCSA=,iv:rb9ldY0XY68YJbm0fRPD7aDc3y9qol2dO3jUh5AYHtY=,tag:qK1C64cx5am3Jtmcrxwpmw==,type:str]
+    lastmodified: "2024-10-18T20:31:46Z"
+    mac: ENC[AES256_GCM,data:r2jVd5oIvl/JAAD+0GRgBb16fMaVGv6GJ49vDNfr0oBD+84c7ZJjhzRLhdMIZAxnyZ38alsPblDu4prrnyxCawerTwlxNFh8JscGylFIgglvfzt0MKzJa0LRJgqImMhJpuboJhvuXFsw7EH7iSmoc5c8c4TfuecaXGP5gYVbI5U=,iv:1c3yuw5jLIS425Z+/o+5kmyLCg2OiYB4Gc7PleUbkgc=,tag:pGFAsCTVI3ShvbgbP/miQg==,type:str]
     pgp: []
     encrypted_regex: ^(data|stringData)$
-    version: 3.9.0
+    version: 3.9.1

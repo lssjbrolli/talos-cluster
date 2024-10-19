@@ -120,10 +120,10 @@ spec:
                 secretKeyRef:
                   name: vpnconfig
                   key: password
-              - name: SERVER_REGIONS
-                secretKeyRef:
-                  name: vpnconfig
-                  key: region
+              # - name: SERVER_REGIONS
+              #   secretKeyRef:
+              #     name: vpnconfig
+              #     key: region
               - name: SERVER_NAMES
                 secretKeyRef:
                   name: vpnconfig
@@ -151,7 +151,6 @@ spec:
               capabilities:
                 add:
                   - NET_ADMIN
-                  # - SYS_MODULE
                 allowPrivilegeEscalation: false
                 readOnlyRootFilesystem: true
             resources:

@@ -106,8 +106,8 @@ spec:
                   key: wgaddress
               #optional
               # port forward
-              - name: PORT_FORWARD_ONLY
-                value: true
+              # - name: PORT_FORWARD_ONLY
+              #   value: true
               - name: VPN_PORT_FORWARDING
                 value: on
               - name: VPN_PORT_FORWARDING_PROVIDER

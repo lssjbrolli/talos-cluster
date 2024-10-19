@@ -100,26 +100,14 @@ spec:
                 secretKeyRef:
                   name: vpnconfig
                   key: privkey
-              # - name: WIREGUARD_PRESHARED_KEY
-              #   secretKeyRef:
-              #     name: vpnconfig
-              #     key: preshared
               - name: WIREGUARD_ADDRESSES
                 secretKeyRef:
                   name: vpnconfig
                   key: wgaddress
-              # - name: OPENVPN_USER
-              #   secretKeyRef:
-              #     name: vpnconfig
-              #     key: username
-              # - name: OPENVPN_PASSWORD
-              #   secretKeyRef:
-              #     name: vpnconfig
-              #     key: password
               #optional
               # port forward
-              # - name: PORT_FORWARD_ONLY
-              #   value: true
+              - name: PORT_FORWARD_ONLY
+                value: true
               - name: VPN_PORT_FORWARDING
                 value: on
               - name: VPN_PORT_FORWARDING_PROVIDER
@@ -132,14 +120,14 @@ spec:
                 secretKeyRef:
                   name: vpnconfig
                   key: password
-              # - name: SERVER_REGIONS
-              #   secretKeyRef:
-              #     name: vpnconfig
-              #     key: region
-              # - name: SERVER_NAMES
-              #   secretKeyRef:
-              #     name: vpnconfig
-              #     key: server
+              - name: SERVER_REGIONS
+                secretKeyRef:
+                  name: vpnconfig
+                  key: region
+              - name: SERVER_NAMES
+                secretKeyRef:
+                  name: vpnconfig
+                  key: server
               - name: UPDATER_PERIOD
                 value: 24h
               - name: TZ
@@ -159,9 +147,6 @@ spec:
                 value: "172.16.0.0/16,172.17.0.0/16,192.168.1.0/24"
               - name: FIREWALL_INPUT_PORTS
                 value: 80
-              # v2.6 has high CPU usage, use 2.5 for now
-              # - name: OPENVPN_VERSION
-              #   value: 2.5
             securityContext:
               capabilities:
                 add:

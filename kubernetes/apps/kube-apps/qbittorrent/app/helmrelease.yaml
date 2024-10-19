@@ -117,8 +117,9 @@ spec:
               #     name: vpnconfig
               #     key: password
               #optional
-              - name: PORT_FORWARD_ONLY
-                value: true
+              # port forward
+              # - name: PORT_FORWARD_ONLY
+              #   value: true
               - name: VPN_PORT_FORWARDING
                 value: on
               - name: VPN_PORT_FORWARDING_PROVIDER
@@ -159,12 +160,13 @@ spec:
               - name: FIREWALL_INPUT_PORTS
                 value: 80
               # v2.6 has high CPU usage, use 2.5 for now
-              - name: OPENVPN_VERSION
-                value: 2.5
+              # - name: OPENVPN_VERSION
+              #   value: 2.5
             securityContext:
               capabilities:
                 add:
                   - NET_ADMIN
+                  # - SYS_MODULE
                 allowPrivilegeEscalation: false
                 readOnlyRootFilesystem: true
             resources:

@@ -105,7 +105,9 @@ spec:
               - name: WIREGUARD_MTU
                 value: 1384
               - name: DNS_ADDRESS
-                value: 10.0.0.243
+                secretKeyRef:
+                  name: vpnconfig
+                  key: dns
               #optional
               - name: VPN_PORT_FORWARDING
                 value: on

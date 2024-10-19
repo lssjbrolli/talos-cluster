@@ -21,11 +21,9 @@ spec:
   install:
     remediation:
       retries: 3
-    createNamespace: true
   upgrade:
     cleanupOnFail: true
     remediation:
-      strategy: rollback
       retries: 3
   values:
     defaultPodOptions:
@@ -104,10 +102,11 @@ spec:
                 secretKeyRef:
                   name: vpnconfig
                   key: wgaddress
+              - name: WIREGUARD_MTU
+                value: 1384
+              - name: DNS_ADDRESS
+                value: 10.0.0.243
               #optional
-              # port forward
-              # - name: PORT_FORWARD_ONLY
-              #   value: true
               - name: VPN_PORT_FORWARDING
                 value: on
               - name: VPN_PORT_FORWARDING_PROVIDER
@@ -120,10 +119,6 @@ spec:
                 secretKeyRef:
                   name: vpnconfig
                   key: password
-              # - name: SERVER_REGIONS
-              #   secretKeyRef:
-              #     name: vpnconfig
-              #     key: region
               - name: SERVER_NAMES
                 secretKeyRef:
                   name: vpnconfig

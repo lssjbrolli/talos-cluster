@@ -42,7 +42,7 @@ spec:
               repository: ghcr.io/onedr0p/prowlarr
               tag: 1.24.3@sha256:698e7f84ebcc558d6c25b1f3295a991fa310ad5925c6d1df56bbb47ed18cfbb0
             env:
-              TZ: "${TIMEZONE}"
+              TZ: "${CONFIG_TIMEZONE}"
               PROWLARR__APP__INSTANCENAME: Prowlarr
               PROWLARR__LOG__DBENABLED: "False"
               PROWLARR__LOG__LEVEL: info

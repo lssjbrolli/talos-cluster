@@ -132,18 +132,18 @@ spec:
                 secretKeyRef:
                   name: vpnconfig
                   key: password
-              - name: SERVER_REGIONS
-                secretKeyRef:
-                  name: vpnconfig
-                  key: region
-              - name: SERVER_NAMES
-                secretKeyRef:
-                  name: vpnconfig
-                  key: server
+              # - name: SERVER_REGIONS
+              #   secretKeyRef:
+              #     name: vpnconfig
+              #     key: region
+              # - name: SERVER_NAMES
+              #   secretKeyRef:
+              #     name: vpnconfig
+              #     key: server
               - name: UPDATER_PERIOD
                 value: 24h
               - name: TZ
-                value: ${TIMEZONE}
+                value: ${CONFIG_TIMEZONE}
               - name: VERSION_INFORMATION
                 value: off
               - name: DOT

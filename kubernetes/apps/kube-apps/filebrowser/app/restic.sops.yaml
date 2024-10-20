@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Secret
 metadata:
     name: restic-volsync
+    namespace: kube-apps
 stringData:
     #ENC[AES256_GCM,data:v/rqDm3BYT1G7Li+NAfj5WZWJw==,iv:piXYLG+01JqYS+G6/ZFggNVsZt5NgDuv6EUU6Oh+sbQ=,tag:CqqT7wJgEXOLSgrJhQClqw==,type:comment]
     RESTIC_REPOSITORY: ENC[AES256_GCM,data:Dxl2HchfjQc42ldKoS/GfnGdxXH15zhhDx+IbKFfuPQ=,iv:nmNx/QfNqAb8c2UNsyK6YoKjKmPHLeuduwfUj7yFQ0I=,tag:b6CvnSsC1SX+htzkSZlrtA==,type:str]
@@ -26,8 +27,8 @@ sops:
             Tm9NYVNVZjUrZUFLbS9WQmNVcjFpVGsKrZyCYx3InSl9BAfOLP/8Nb4Bt9skNjmi
             ywg6GNEEN0qS/W/1TKVCwLZ/TAbbyeyKXWiq/WzCiDtxrNg0YWT35g==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-10-20T15:54:17Z"
-    mac: ENC[AES256_GCM,data:ymihYHha4fJ5Nto0pTGy+eJibYv3j3qrCcBGQ4Qi+TXaHzUMrOdxvxE8d7/melB8Ocvj5/aMV1kqi3IZg6gMLPIVgj4AUzBouZ/d0VEa+cuibCz9+ck3itacu8uTEOT9DwTa8Kga24ZHePuYYy1ewcojQYBsijpI8P5BFb4aW8Y=,iv:pzLIdtAJPSEENPwkV3ssKIq7XrgPpP+Dg6MvtBLJ9Cc=,tag:KwSOz5sCG6KIXzYCPfMgLg==,type:str]
+    lastmodified: "2024-10-20T18:54:16Z"
+    mac: ENC[AES256_GCM,data:uCk/o0OQvjy6gDg3qWN0IQkPhLlJaVbOrW/s9VdPq5aC60V0TOe7Iyfi4IGb2HW1tclj0fWFKGcEsrbqUIOaPon50i4rf2I6RdttD1/WDvv4QhV50/G8XDsR8psfUXkl1cQPN06cv//TyazoyLrv6niR61E0NFk0F5zXi0aQJrA=,iv:ImDs9ZBfEjR0nghtP3eeC6lJzivg3kSTT9Lf6A5VKfQ=,tag:fO3Jk2UON0bNgdQSZkgo4w==,type:str]
     pgp: []
     encrypted_regex: ^(data|stringData)$
     version: 3.9.1

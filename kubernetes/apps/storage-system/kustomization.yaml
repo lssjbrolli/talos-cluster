@@ -8,4 +8,4 @@ resources:
   - ./minio/ks.yaml
   - ./snapscheduler/ks.yaml
   - ./snapshot-controller/ks.yaml
-  # - ./volsync/ks.yaml
+  - ./volsync/ks.yaml

@@ -5,7 +5,7 @@ metadata:
     namespace: kube-apps
 stringData:
     #ENC[AES256_GCM,data:v/rqDm3BYT1G7Li+NAfj5WZWJw==,iv:piXYLG+01JqYS+G6/ZFggNVsZt5NgDuv6EUU6Oh+sbQ=,tag:CqqT7wJgEXOLSgrJhQClqw==,type:comment]
-    RESTIC_REPOSITORY: ENC[AES256_GCM,data:Dxl2HchfjQc42ldKoS/GfnGdxXH15zhhDx+IbKFfuPQ=,iv:nmNx/QfNqAb8c2UNsyK6YoKjKmPHLeuduwfUj7yFQ0I=,tag:b6CvnSsC1SX+htzkSZlrtA==,type:str]
+    RESTIC_REPOSITORY: ENC[AES256_GCM,data:x8VKyPe//QHQzjMFVZkx6LJG/Gj5Q4zHwgFBhnmXLad2WO9zVU6ksLIGOoU/0dQ4fgJKwW6kozx/pGtk7Q==,iv:oEzosjVCSYcLehJj882VoAjk+1kxpEaEJfVhIt0dLjs=,tag:gHoNtNS4V+kuxlHw1mIu9g==,type:str]
     #ENC[AES256_GCM,data:7AAND4QuKTwkUSA1Hn4d+UevZCQLjxYD+SSJ8DPi,iv:8InNm5Sxaxa7IFYYwM7OapFI1e7rGa8rO2tb+2yFcR8=,tag:HjMSFBVAf8PcJBq9ybLD/w==,type:comment]
     RESTIC_PASSWORD: ENC[AES256_GCM,data:WE/I1g==,iv:6Xo1/vSxl1jz8RCccyIFrl86D4Zn0dpxwUgzL3x4gmc=,tag:n5SMBtWFrmy7DU5N+EnY3g==,type:str]
     #ENC[AES256_GCM,data:6qoNbUfJ3LiIi6fwteXU0HC+z8may4qfZZTkKLxX9eFBmdLtPbQm4Hg=,iv:D5OoPq6eaw17tQ46G8RrMuBCY/BSYp5RFuORoMoSY6I=,tag:E7AwYNjDM9ajMljWjrCDRQ==,type:comment]
@@ -27,8 +27,8 @@ sops:
             Tm9NYVNVZjUrZUFLbS9WQmNVcjFpVGsKrZyCYx3InSl9BAfOLP/8Nb4Bt9skNjmi
             ywg6GNEEN0qS/W/1TKVCwLZ/TAbbyeyKXWiq/WzCiDtxrNg0YWT35g==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-10-20T18:54:16Z"
-    mac: ENC[AES256_GCM,data:uCk/o0OQvjy6gDg3qWN0IQkPhLlJaVbOrW/s9VdPq5aC60V0TOe7Iyfi4IGb2HW1tclj0fWFKGcEsrbqUIOaPon50i4rf2I6RdttD1/WDvv4QhV50/G8XDsR8psfUXkl1cQPN06cv//TyazoyLrv6niR61E0NFk0F5zXi0aQJrA=,iv:ImDs9ZBfEjR0nghtP3eeC6lJzivg3kSTT9Lf6A5VKfQ=,tag:fO3Jk2UON0bNgdQSZkgo4w==,type:str]
+    lastmodified: "2024-10-20T19:23:25Z"
+    mac: ENC[AES256_GCM,data:CmgljX0TKt/B1Ihc6CMQp1HBkkOpsI3EZAbGvQk0JqpQGESZInBzndHItK1YK2reOvaJND0GgezdI6m5or+RqpBcN/ZspUiTl/Qa9ie24XlVeSztp3cVmfMJXOhpq495iuJaFA77H8GFm4x8k1gFxb5fwTJNybLqvA9WqrlaTQM=,iv:EqV1owubOPS3JEh1YKI0VB4BpANyN64xFQxZLSf72LY=,tag:jCKIfxfs6xH4hpsMQpgjgw==,type:str]
     pgp: []
     encrypted_regex: ^(data|stringData)$
     version: 3.9.1

@@ -6,5 +6,6 @@ resources:
   - ./democratic-csi/ks.yaml
   - ./gemini/ks.yaml
   # - ./minio/ks.yaml
+  - ./snapscheduler/ks.yaml
   - ./snapshot-controller/ks.yaml
   # - ./volsync/ks.yaml

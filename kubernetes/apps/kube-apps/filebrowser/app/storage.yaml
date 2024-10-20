@@ -47,6 +47,10 @@ spec:
     # Take a backup every 30 minutes
     schedule: "*/30 * * * *"
   restic:
+    moverSecurityContext:
+      runAsUser: 568
+      runAsGroup: 568
+      fsGroup: 568
     # Prune the repository (repack to free space) every 2 weeks
     pruneIntervalDays: 14
     # Name of the Secret with the connection information

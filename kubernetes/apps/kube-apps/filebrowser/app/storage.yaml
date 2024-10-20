@@ -1,10 +1,67 @@
+# ---
+# apiVersion: snapshot.storage.k8s.io/v1
+# kind: VolumeSnapshot
+# metadata:
+#   name: filebrowser-config-snapshot
+#   namespace: kube-apps
+# spec:
+#   volumeSnapshotClassName: iscsi #change it with your volume snapshot class name
+#   source:
+#     persistentVolumeClaimName: filebrowser-config # change it with target pvc name
+
+# ---
+# apiVersion: gemini.fairwinds.com/v1
+# kind: SnapshotGroup
+# metadata:
+#   name: filebrowser-config
+# spec:
+#   persistentVolumeClaim:
+#     claimName: filebrowser-config
+#   schedule:
+#     - every: hour
+#       keep: 7
+#   template:
+#     spec:
+#       volumeSnapshotClassName: iscsi
+
+# ---
+# apiVersion: snapscheduler.backube/v1
+# kind: SnapshotSchedule
+# metadata:
+#   name: hourly
+# spec:
+#   disabled: false  # optional
+#   retention:
+#     maxCount: 7
+#   schedule: "0 * * * *"
+
 ---
-apiVersion: snapscheduler.backube/v1
-kind: SnapshotSchedule
+apiVersion: volsync.backube/v1alpha1
+kind: ReplicationSource
 metadata:
-  name: hourly
+  name: filebrowser
 spec:
-  disabled: false  # optional
-  retention:
-    maxCount: 7
-  schedule: "0 * * * *"
+  # The PVC to be backed up
+  sourcePVC: filebrowser-config
+  trigger:
+    # Take a backup every 30 minutes
+    schedule: "*/30 * * * *"
+  restic:
+    # Prune the repository (repack to free space) every 2 weeks
+    pruneIntervalDays: 14
+    # Name of the Secret with the connection information
+    repository: restic-volsync
+    # Retention policy for backups
+    retain:
+      hourly: 6
+      daily: 5
+      weekly: 4
+      monthly: 2
+      yearly: 1
+    # Clone the source volume prior to taking a backup to ensure a
+    # point-in-time image.
+    copyMethod: Snapshot
+    # The StorageClass to use when creating the PiT copy (same as source PVC if omitted)
+    #storageClassName: my-sc-name
+    # The VSC to use if the copy method is Snapshot (default if omitted)
+    #volumeSnapshotClassName: my-vsc-name

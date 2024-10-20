@@ -113,12 +113,14 @@ spec:
           - host: "minio.${SECRET_DOMAIN}"
             paths:
               - path: /
+                pathType: Prefix
                 service:
                   identifier: app
                   port: http
           - host: s3.${SECRET_DOMAIN}
             paths:
               - path: /
+                pathType: Prefix
                 service:
                   identifier: app
                   port: s3

@@ -108,7 +108,7 @@ spec:
 
     ingress:
       app:
-        className: internal
+        className: "internal"
         hosts:
           - host: "minio.${SECRET_DOMAIN}"
             paths:

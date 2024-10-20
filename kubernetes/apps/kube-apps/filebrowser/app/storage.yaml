@@ -1,25 +1,10 @@
-# ---
-# apiVersion: snapshot.storage.k8s.io/v1
-# kind: VolumeSnapshot
-# metadata:
-#   name: filebrowser-config-snapshot
-#   namespace: kube-apps
-# spec:
-#   volumeSnapshotClassName: iscsi #change it with your volume snapshot class name
-#   source:
-#     persistentVolumeClaimName: filebrowser-config # change it with target pvc name
-
 ---
-apiVersion: gemini.fairwinds.com/v1
-kind: SnapshotGroup
+apiVersion: snapscheduler.backube/v1
+kind: SnapshotSchedule
 metadata:
-  name: filebrowser-config
+  name: hourly
 spec:
-  persistentVolumeClaim:
-    claimName: filebrowser-config
-  schedule:
-    - every: hour
-      keep: 7
-  template:
-    spec:
-      volumeSnapshotClassName: iscsi
+  disabled: false  # optional
+  retention:
+    maxCount: 7
+  schedule: "0 * * * *"

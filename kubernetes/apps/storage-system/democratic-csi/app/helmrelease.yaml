@@ -43,6 +43,7 @@ spec:
       #   controller-expand-secret:
     volumeSnapshotClasses:
     - name: iscsi
+      defaultClass: true
       parameters:
         detachedSnapshots: "true"
     node:

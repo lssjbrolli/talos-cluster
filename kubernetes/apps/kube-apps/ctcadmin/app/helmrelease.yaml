@@ -47,7 +47,7 @@ spec:
           main:
             image:
               repository: ghcr.io/ctcadmin2/remixctc
-              tag: 0.9.14@sha256:c072396e2173f4c6590e7f6492e2e15406bb8c4908e1b626574521dcc01560ad
+              tag: 0.9.16@sha256:faedc96af31e58a2f6a843a7752bd62f3c78f6fe386d3001a836c86ac33027e8
             securityContext:
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: false

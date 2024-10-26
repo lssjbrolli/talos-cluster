@@ -39,7 +39,7 @@ spec:
           main:
             image:
               repository: ghcr.io/onedr0p/radarr
-              tag: 5.13.1@sha256:103e88de8c71f264d6a04708a89c4cb255536cbd86846ec7589325920b87eeb7
+              tag: 5.14.0@sha256:48e094d0eb3e78a88a2fe1f4b41f9eb2356d19bd01a3f95d701455097db8d5ff
             securityContext:
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: false

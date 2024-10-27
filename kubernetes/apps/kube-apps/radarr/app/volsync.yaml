@@ -1,0 +1,46 @@
+---
+apiVersion: volsync.backube/v1alpha1
+kind: ReplicationSource
+metadata:
+  name: radarr
+spec:
+  # The PVC to be backed up
+  sourcePVC: radarr-config
+  trigger:
+    # Take a backup every 30 minutes
+    schedule: "0/30 * * * *"
+  restic:
+    moverSecurityContext:
+      runAsUser: 568
+      runAsGroup: 568
+      fsGroup: 568
+    # Prune the repository (repack to free space) every 2 weeks
+    pruneIntervalDays: 7
+    # Name of the Secret with the connection information
+    repository: restic-radarr
+    # Retention policy for backups
+    retain:
+      daily: 2
+    # Clone the source volume prior to taking a backup to ensure a
+    # point-in-time image.
+    copyMethod: Clone
+    # The VSC to use if the copy method is Snapshot (default if omitted)
+    volumeSnapshotClassName: iscsi
+
+# ---
+# apiVersion: volsync.backube/v1alpha1
+# kind: ReplicationDestination
+# metadata:
+#   name: radarr-config
+# spec:
+#   trigger:
+#     manual: init
+#   restic:
+#     moverSecurityContext:
+#       runAsUser: 568
+#       runAsGroup: 568
+#       fsGroup: 568
+#     repository: restic-radarr
+#     # Use an existing PVC, don't provision a new one
+#     destinationPVC: radarr-config
+#     copyMethod: Direct

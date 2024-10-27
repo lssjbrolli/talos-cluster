@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Secret
 metadata:
-    name: restic-volsync
+    name: restic-filebrowser
     namespace: kube-apps
 stringData:
     #ENC[AES256_GCM,data:v/rqDm3BYT1G7Li+NAfj5WZWJw==,iv:piXYLG+01JqYS+G6/ZFggNVsZt5NgDuv6EUU6Oh+sbQ=,tag:CqqT7wJgEXOLSgrJhQClqw==,type:comment]
-    RESTIC_REPOSITORY: ENC[AES256_GCM,data:KAip6eqwshLQbHsdSkoFgexKYveazcezodFuMvuoFfhZi9xaMg0S/9eV0bJOlbOwI3NSMBB8v9ioaow+bg==,iv:IaxHJliix0j4RkiHYT4xAGzWYPORz2eTMIJvMVIHbAk=,tag:ZA7tsnJ43ySJs1J8d1Xg3w==,type:str]
+    RESTIC_REPOSITORY: ENC[AES256_GCM,data:IVuYaOMKgZvcNsxVIWrD+Kb0tsKj0xIS9uOeMTefypssFqtlVXni1RfYIJc5jrtxTebjS1UR8XE7hkN5rioLH1S5kU/PRVnJtw==,iv:E/NNPycjCnas8vN25sefUYFibORDLVkpDddFx37h7Iw=,tag:SleGBKgMqhmeVSo4iT/Rtw==,type:str]
     #ENC[AES256_GCM,data:7AAND4QuKTwkUSA1Hn4d+UevZCQLjxYD+SSJ8DPi,iv:8InNm5Sxaxa7IFYYwM7OapFI1e7rGa8rO2tb+2yFcR8=,tag:HjMSFBVAf8PcJBq9ybLD/w==,type:comment]
     RESTIC_PASSWORD: ENC[AES256_GCM,data:WE/I1g==,iv:6Xo1/vSxl1jz8RCccyIFrl86D4Zn0dpxwUgzL3x4gmc=,tag:n5SMBtWFrmy7DU5N+EnY3g==,type:str]
     #ENC[AES256_GCM,data:6qoNbUfJ3LiIi6fwteXU0HC+z8may4qfZZTkKLxX9eFBmdLtPbQm4Hg=,iv:D5OoPq6eaw17tQ46G8RrMuBCY/BSYp5RFuORoMoSY6I=,tag:E7AwYNjDM9ajMljWjrCDRQ==,type:comment]
@@ -27,8 +27,8 @@ sops:
             Tm9NYVNVZjUrZUFLbS9WQmNVcjFpVGsKrZyCYx3InSl9BAfOLP/8Nb4Bt9skNjmi
             ywg6GNEEN0qS/W/1TKVCwLZ/TAbbyeyKXWiq/WzCiDtxrNg0YWT35g==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-10-20T19:23:54Z"
-    mac: ENC[AES256_GCM,data:UhX/+KKH69taS2+1+tdrkewxw82480SZzsXRfi+0FaeOoSYqDKNIPRhk+eAlhJRLUyEMpMfI4T7j9vXWldP7D8sOVjQx/O5mkPC9mD16lj0MovOaMP4Ue2xpUSOOP7BQPtj+J1DgrBZbxTGps2n9ZH3LrWydK2NoqFuEBYbWOWU=,iv:ga4c17+i1zn60r+oK6qUYux2HFy95nUlmEiFq/HNM1Q=,tag:+E2jIYbqhIpY4VnFyFJVIA==,type:str]
+    lastmodified: "2024-10-27T12:36:37Z"
+    mac: ENC[AES256_GCM,data:g0qwfxWb+sKSlArfRNO3vHOA5ilaaCMYtq2n2FFaqMnGDASzDqZyAM8hybZwOngonO5HTe6lNFJKHnMtnCVLEstGCv3bRnDZ04qu7N9rpzjqavuwh1yFpFGsXKZu7F3HLp5iyGvYfcZhOe8qW09LmDe+/OuOmxDARW7LdJ1/JNE=,iv:dkNsd/auJtFDtf1Z3jdbxsPWn/pPO1jiLNG1Z5sFcyg=,tag:UjAi5k/nGmP7QR1mhd9Phg==,type:str]
     pgp: []
     encrypted_regex: ^(data|stringData)$
     version: 3.9.1

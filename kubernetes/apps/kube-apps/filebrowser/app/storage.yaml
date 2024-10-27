@@ -1,39 +1,110 @@
-# ---
-# apiVersion: snapshot.storage.k8s.io/v1
-# kind: VolumeSnapshot
+# apiVersion: v1
+# kind: PersistentVolumeClaim
 # metadata:
-#   name: filebrowser-config-snapshot
-#   namespace: kube-apps
-# spec:
-#   volumeSnapshotClassName: iscsi #change it with your volume snapshot class name
-#   source:
-#     persistentVolumeClaimName: filebrowser-config # change it with target pvc name
-
-# ---
-# apiVersion: gemini.fairwinds.com/v1
-# kind: SnapshotGroup
-# metadata:
+#   annotations:
+#     helm.sh/resource-policy: keep
+#     meta.helm.sh/release-name: filebrowser
+#     meta.helm.sh/release-namespace: kube-apps
+#     pv.kubernetes.io/bind-completed: 'yes'
+#     pv.kubernetes.io/bound-by-controller: 'yes'
+#     volume.beta.kubernetes.io/storage-provisioner: iscsi
+#     volume.kubernetes.io/storage-provisioner: iscsi
+#   creationTimestamp: '2024-10-01T09:04:21Z'
+#   finalizers:
+#     - kubernetes.io/pvc-protection
+#   labels:
+#     app.kubernetes.io/instance: filebrowser
+#     app.kubernetes.io/managed-by: Helm
+#     app.kubernetes.io/name: filebrowser
+#     helm.sh/chart: app-template-3.5.1
+#     helm.toolkit.fluxcd.io/name: filebrowser
+#     helm.toolkit.fluxcd.io/namespace: kube-apps
+#   managedFields:
+#     - apiVersion: v1
+#       fieldsType: FieldsV1
+#       fieldsV1:
+#         f:metadata:
+#           f:annotations:
+#             f:pv.kubernetes.io/bind-completed: {}
+#             f:pv.kubernetes.io/bound-by-controller: {}
+#             f:volume.beta.kubernetes.io/storage-provisioner: {}
+#             f:volume.kubernetes.io/storage-provisioner: {}
+#         f:spec:
+#           f:volumeName: {}
+#       manager: kube-controller-manager
+#       operation: Update
+#       time: '2024-10-01T09:04:29Z'
+#     - apiVersion: v1
+#       fieldsType: FieldsV1
+#       fieldsV1:
+#         f:status:
+#           f:accessModes: {}
+#           f:capacity:
+#             .: {}
+#             f:storage: {}
+#           f:phase: {}
+#       manager: kube-controller-manager
+#       operation: Update
+#       subresource: status
+#       time: '2024-10-01T09:04:29Z'
+#     - apiVersion: v1
+#       fieldsType: FieldsV1
+#       fieldsV1:
+#         f:metadata:
+#           f:annotations:
+#             .: {}
+#             f:helm.sh/resource-policy: {}
+#             f:meta.helm.sh/release-name: {}
+#             f:meta.helm.sh/release-namespace: {}
+#           f:labels:
+#             .: {}
+#             f:app.kubernetes.io/instance: {}
+#             f:app.kubernetes.io/managed-by: {}
+#             f:app.kubernetes.io/name: {}
+#             f:helm.sh/chart: {}
+#             f:helm.toolkit.fluxcd.io/name: {}
+#             f:helm.toolkit.fluxcd.io/namespace: {}
+#         f:spec:
+#           f:accessModes: {}
+#           f:resources:
+#             f:requests:
+#               .: {}
+#               f:storage: {}
+#           f:storageClassName: {}
+#           f:volumeMode: {}
+#       manager: helm-controller
+#       operation: Update
+#       time: '2024-10-08T22:06:30Z'
 #   name: filebrowser-config
+#   namespace: kube-apps
+#   resourceVersion: '14637696'
+#   uid: 8b432d90-048e-4121-a321-684be9acbf99
 # spec:
-#   persistentVolumeClaim:
-#     claimName: filebrowser-config
-#   schedule:
-#     - every: hour
-#       keep: 7
-#   template:
-#     spec:
-#       volumeSnapshotClassName: iscsi
-
-# ---
-# apiVersion: snapscheduler.backube/v1
-# kind: SnapshotSchedule
-# metadata:
-#   name: hourly
-# spec:
-#   disabled: false  # optional
-#   retention:
-#     maxCount: 7
-#   schedule: "0 * * * *"
+#   accessModes:
+#     - ReadWriteOnce
+#   resources:
+#     requests:
+#       storage: 200Mi
+#   storageClassName: iscsi
+#   volumeMode: Filesystem
+#   volumeName: pvc-8b432d90-048e-4121-a321-684be9acbf99
+# status:
+#   accessModes:
+#     - ReadWriteOnce
+#   capacity:
+#     storage: 200Mi
+#   phase: Bound
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: filebrowser-config
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 200Mi
 
 ---
 apiVersion: volsync.backube/v1alpha1
@@ -45,27 +116,35 @@ spec:
   sourcePVC: filebrowser-config
   trigger:
     # Take a backup every 30 minutes
-    schedule: "*/30 * * * *"
+    schedule: "0 0 * * *"
   restic:
     moverSecurityContext:
       runAsUser: 568
       runAsGroup: 568
       fsGroup: 568
     # Prune the repository (repack to free space) every 2 weeks
-    pruneIntervalDays: 14
+    pruneIntervalDays: 7
     # Name of the Secret with the connection information
-    repository: restic-volsync
+    repository: restic-filebrowser
     # Retention policy for backups
     retain:
-      hourly: 6
-      daily: 5
-      weekly: 4
-      monthly: 2
-      yearly: 1
+      daily: 7
     # Clone the source volume prior to taking a backup to ensure a
     # point-in-time image.
-    copyMethod: Direct
-    # The StorageClass to use when creating the PiT copy (same as source PVC if omitted)
-    #storageClassName: my-sc-name
+    copyMethod: Clone
     # The VSC to use if the copy method is Snapshot (default if omitted)
     volumeSnapshotClassName: iscsi
+
+---
+apiVersion: volsync.backube/v1alpha1
+kind: ReplicationDestination
+metadata:
+  name: filebrowser-config
+spec:
+  trigger:
+    manual: init
+  restic:
+    repository: restic-filebrowser
+    # Use an existing PVC, don't provision a new one
+    destinationPVC: filebrowser-config
+    copyMethod: Direct

@@ -1,4 +1,16 @@
 ---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: sonarr-config
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+
+---
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationSource
 metadata:
@@ -8,23 +20,35 @@ spec:
   sourcePVC: sonarr-config
   trigger:
     # Take a backup every 30 minutes
-    schedule: "0 * * * *"
+    schedule: "0/30 * * * *"
   restic:
     moverSecurityContext:
       runAsUser: 568
       runAsGroup: 568
       fsGroup: 568
     # Prune the repository (repack to free space) every 2 weeks
-    pruneIntervalDays: 14
+    pruneIntervalDays: 7
     # Name of the Secret with the connection information
     repository: restic-volsync
     # Retention policy for backups
     retain:
-      hourly: 6
+      daily: 2
     # Clone the source volume prior to taking a backup to ensure a
     # point-in-time image.
-    copyMethod: Direct
-    # The StorageClass to use when creating the PiT copy (same as source PVC if omitted)
-    #storageClassName: my-sc-name
+    copyMethod: Clone
     # The VSC to use if the copy method is Snapshot (default if omitted)
     volumeSnapshotClassName: iscsi
+
+---
+apiVersion: volsync.backube/v1alpha1
+kind: ReplicationDestination
+metadata:
+  name: sonarr-config
+spec:
+  trigger:
+    manual: init
+  restic:
+    repository: restic-volsync
+    # Use an existing PVC, don't provision a new one
+    destinationPVC: sonarr-config
+    copyMethod: Direct

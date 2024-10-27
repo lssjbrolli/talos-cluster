@@ -17,7 +17,7 @@ spec:
     # Prune the repository (repack to free space) every 2 weeks
     pruneIntervalDays: 7
     # Name of the Secret with the connection information
-    repository: restic-volsync
+    repository: restic-sonarr
     # Retention policy for backups
     retain:
       daily: 2
@@ -40,7 +40,7 @@ spec:
       runAsUser: 568
       runAsGroup: 568
       fsGroup: 568
-    repository: restic-volsync
+    repository: restic-sonarr
     # Use an existing PVC, don't provision a new one
     destinationPVC: sonarr-config
     copyMethod: Direct

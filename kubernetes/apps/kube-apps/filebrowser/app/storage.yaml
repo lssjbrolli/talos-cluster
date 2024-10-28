@@ -19,7 +19,6 @@ spec:
   # The PVC to be backed up
   sourcePVC: filebrowser-config
   trigger:
-    # Take a backup every 30 minutes
     schedule: "0 0 * * *"
   restic:
     moverSecurityContext:
@@ -32,7 +31,7 @@ spec:
     repository: restic-filebrowser
     # Retention policy for backups
     retain:
-      daily: 7
+      weekly: 2
     # Clone the source volume prior to taking a backup to ensure a
     # point-in-time image.
     copyMethod: Clone

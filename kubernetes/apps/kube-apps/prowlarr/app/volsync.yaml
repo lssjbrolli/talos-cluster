@@ -2,12 +2,12 @@
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationSource
 metadata:
-  name: radarr
+  name: prowlarr
 spec:
   # The PVC to be backed up
-  sourcePVC: radarr-config
+  sourcePVC: prowlarr-config
   trigger:
-    schedule: "0 */3 * * *"
+    schedule: "0 0 * * *"
   restic:
     moverSecurityContext:
       runAsUser: 568
@@ -16,10 +16,10 @@ spec:
     # Prune the repository (repack to free space) every 2 weeks
     pruneIntervalDays: 7
     # Name of the Secret with the connection information
-    repository: restic-radarr
+    repository: restic-prowlarr
     # Retention policy for backups
     retain:
-      daily: 2
+      weekly: 2
     # Clone the source volume prior to taking a backup to ensure a
     # point-in-time image.
     copyMethod: Clone

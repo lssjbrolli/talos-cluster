@@ -100,14 +100,10 @@ spec:
       config:
         type: persistentVolumeClaim
         accessMode: ReadWriteOnce
-        # retain: true
-        # storageClass: iscsi
         size: 200Mi
       metadata:
         type: persistentVolumeClaim
         accessMode: ReadWriteOnce
-        # retain: true
-        # storageClass: iscsi
         size: 2Gi
       mcache:
         type: emptyDir

@@ -36,6 +36,7 @@ spec:
         - --disable-settings-authorizer
         - --enable-insecure-login
         - --token-ttl=43200 # seconds time to expire
+
       ingress:
         enabled: true
         ingressClassName: "internal"
@@ -45,3 +46,38 @@ spec:
             auth_request_set $required_groups 'kubernetes_dashboard';
         hosts:
           - "dashboard.${SECRET_DOMAIN}"
+    auth:
+      resources:
+        requests:
+          cpu: 10m
+          memory: 128Mi
+        limits:
+          memory: 128Mi
+    metricsScraper:
+      resources:
+        requests:
+          cpu: 10m
+          memory: 128Mi
+        limits:
+          memory: 128Mi
+    api:
+      resources:
+        requests:
+          cpu: 10m
+          memory: 128Mi
+        limits:
+          memory: 512Mi
+    proxy:
+      resources:
+        requests:
+          cpu: 10m
+          memory: 256Mi
+        limits:
+          memory: 512Mi
+    web:
+      resources:
+        requests:
+          cpu: 10m
+          memory: 64Mi
+        limits:
+          memory: 128Mi

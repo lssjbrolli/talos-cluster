@@ -62,7 +62,7 @@ tasks:
     desc: Upgrade Talos on a node
     dir: "{{.KUBERNETES_DIR}}/bootstrap/talos"
     cmds:
-      - talosctl --nodes {{.node}} upgrade --image {{.image}} --wait=true --timeout=10m --preserve=true --reboot-mode={{.mode}}
+      - talosctl --nodes {{.node}} upgrade --image {{.image}} --wait=true --timeout=10m --reboot-mode={{.mode}}
       - talosctl --nodes {{.node}} health --wait-timeout=10m --server=false
     vars:
       mode: '{{.mode | default "default"}}'

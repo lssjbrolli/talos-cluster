@@ -117,7 +117,7 @@ spec:
       # comments below.
       # --------------------
       # `velero server` default: kopia
-      uploaderType:
+      uploaderType: restic
       # `velero server` default: 1m
       backupSyncPeriod:
       # `velero server` default: 4h

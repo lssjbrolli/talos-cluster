@@ -27,6 +27,10 @@ spec:
   values:
     # image:
     #   tag: v1.15.0-rc.2@sha256:d48f0b88937cb3a33aace7ea1e96eac2f2ab0fefd9970290aab435f80f70cb90
+
+    annotations:
+      secret.reloader.stakater.com/reload: velero-secrets
+
     resources:
       requests:
         cpu: 50m

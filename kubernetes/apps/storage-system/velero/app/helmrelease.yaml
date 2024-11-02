@@ -31,6 +31,15 @@ spec:
     annotations:
       secret.reloader.stakater.com/reload: velero-secrets
 
+    # Init containers to add to the Velero deployment's pod spec. At least one plugin provider image is required.
+    initContainers:
+      - name: aws
+        image: velero/velero-plugin-for-aws:v1.10.1@sha256:3b7017496cfff289947821a3f75db2b86fa075b009c37bb364aa04ea64d4e5dc
+        imagePullPolicy: IfNotPresent
+        volumeMounts:
+          - mountPath: /target
+            name: plugins
+
     resources:
       requests:
         cpu: 50m
@@ -49,7 +58,7 @@ spec:
       backupStorageLocation:
         # name is the name of the backup storage location where backups should be stored. If a name is not provided,
         # a backup storage location will be created with the name "default". Optional.
-        - name:
+        - name: minio
           # provider is the name for the backup storage location provider.
           provider: aws
           # bucket is the name of the bucket to store backups in. Required.

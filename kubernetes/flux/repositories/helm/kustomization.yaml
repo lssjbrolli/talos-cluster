@@ -24,5 +24,6 @@ resources:
   - ./robusta.yaml
   - ./spegel.yaml
   - ./stakater.yaml
+  - ./vmware-tanzu.yaml
 
 

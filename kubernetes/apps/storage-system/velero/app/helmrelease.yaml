@@ -45,7 +45,7 @@ spec:
       backupStorageLocation:
         # name is the name of the backup storage location where backups should be stored. If a name is not provided,
         # a backup storage location will be created with the name "default". Optional.
-        - velero:
+        - name:
           # provider is the name for the backup storage location provider.
           provider: velero.io/aws
           # bucket is the name of the bucket to store backups in. Required.
@@ -80,16 +80,16 @@ spec:
         # name is the name of the volume snapshot location where snapshots are being taken. Required.
         - name:
           # provider is the name for the volume snapshot provider.
-          provider:
-          credential:
-            # name of the secret used by this volumeSnapshotLocation.
-            name:
-            # name of key that contains the secret data to be used.
-            key:
+          provider: velero.io/aws
+          # credential:
+          #   # name of the secret used by this volumeSnapshotLocation.
+          #   name:
+          #   # name of key that contains the secret data to be used.
+          #   key:
           # Additional provider-specific configuration. See link above
           # for details of required/optional fields for your provider.
-          config: {}
-        #    region:
+          config:
+            region: minio
         #    apiTimeout:
         #    resourceGroup:
         #    The ID of the subscription where volume snapshots should be stored, if different from the cluster’s subscription. If specified, also requires `configuration.volumeSnapshotLocation.config.resourceGroup`to be set. (Azure only)

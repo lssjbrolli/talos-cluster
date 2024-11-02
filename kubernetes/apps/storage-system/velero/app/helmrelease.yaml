@@ -51,7 +51,7 @@ spec:
         # a backup storage location will be created with the name "default". Optional.
         - name:
           # provider is the name for the backup storage location provider.
-          provider: velero.io/aws
+          provider: aws
           # bucket is the name of the bucket to store backups in. Required.
           bucket: velero
           # credential:
@@ -136,7 +136,7 @@ spec:
       # Set log-format for Velero pod. Default: text. Other option: json.
       logFormat:
       # Set log-level for Velero pod. Default: info. Other options: debug, warning, error, fatal, panic.
-      logLevel:
+      logLevel: warning
       # The address to expose prometheus metrics. Default: :8085
       metricsAddress:
       # Directory containing Velero plugins. Default: /plugins

@@ -50,11 +50,11 @@ spec:
           provider: velero.io/aws
           # bucket is the name of the bucket to store backups in. Required.
           bucket: velero
-          credential:
-            # name of the secret used by this backupStorageLocation.
-            name: velero-secrets
-            # name of key that contains the secret data to be used.
-            key:
+          # credential:
+          #   # name of the secret used by this backupStorageLocation.
+          #   name: velero-secrets
+          #   # name of key that contains the secret data to be used.
+          #   key:
           # Additional provider-specific configuration. See link above
           # for details of required/optional fields for your provider.
           config:

@@ -28,8 +28,9 @@ spec:
   values:
     controllers:
       main:
-        # annotations:
-        #   reloader.stakater.com/auto: "true"
+        annotations:
+          reloader.stakater.com/auto: "true"
+          backup.velero.io/backup-volumes: audiobookshelf-config,audiobookshelf-metadata
         containers:
           main:
             image:

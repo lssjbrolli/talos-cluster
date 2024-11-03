@@ -5,8 +5,8 @@ kind: Kustomization
 resources:
   - ./helmrelease.yaml
   - ./cnpg.sops.yaml
-  - ./restic-root.sops.yaml
-  - ./restic-data.sops.yaml
+  # - ./restic-root.sops.yaml
+  # - ./restic-data.sops.yaml
   - ./secret.sops.yaml
-  - ./volsync-root.yaml
-  - ./volsync-data.yaml
+  # - ./volsync-root.yaml
+  # - ./volsync-data.yaml

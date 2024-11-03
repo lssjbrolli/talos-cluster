@@ -7,4 +7,4 @@ resources:
   - ./minio/ks.yaml
   - ./snapshot-controller/ks.yaml
   - ./velero/ks.yaml
-  - ./volsync/ks.yaml
+  # - ./volsync/ks.yaml

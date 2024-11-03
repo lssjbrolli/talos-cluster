@@ -224,7 +224,7 @@ spec:
       extraSecretRef: ""
 
     # Whether to create backupstoragelocation crd, if false => do not create a default backup location
-    backupsEnabled: true
+    backupsEnabled: false
     # Whether to create volumesnapshotlocation crd, if false => disable snapshot feature
     snapshotsEnabled: false
 

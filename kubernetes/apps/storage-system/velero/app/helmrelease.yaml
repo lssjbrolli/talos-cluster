@@ -58,7 +58,7 @@ spec:
       backupStorageLocation:
         # name is the name of the backup storage location where backups should be stored. If a name is not provided,
         # a backup storage location will be created with the name "default". Optional.
-        - name:
+        - name: minio
           # provider is the name for the backup storage location provider.
           provider: aws
           # bucket is the name of the bucket to store backups in. Required.
@@ -117,51 +117,51 @@ spec:
       # comments below.
       # --------------------
       # `velero server` default: kopia
-      uploaderType: restic
+      # uploaderType: restic
       # `velero server` default: 1m
-      backupSyncPeriod:
+      # backupSyncPeriod:
       # `velero server` default: 4h
-      fsBackupTimeout:
+      # fsBackupTimeout:
       # `velero server` default: 30
-      clientBurst:
+      # clientBurst:
       # `velero server` default: 500
-      clientPageSize:
+      # clientPageSize:
       # `velero server` default: 20.0
-      clientQPS:
+      # clientQPS:
       # Name of the default backup storage location. Default: default
-      defaultBackupStorageLocation:
+      defaultBackupStorageLocation: minio
       # The default duration any single item operation can take before timing out, especially important for large volume schedules. Default 4h
-      defaultItemOperationTimeout:
+      # defaultItemOperationTimeout:
       # How long to wait by default before backups can be garbage collected. Default: 72h
-      defaultBackupTTL:
+      # defaultBackupTTL:
       # Name of the default volume snapshot location.
-      defaultVolumeSnapshotLocations:
+      # defaultVolumeSnapshotLocations:
       # `velero server` default: empty
-      disableControllers:
+      # disableControllers:
       # `velero server` default: false
-      disableInformerCache: false
+      # disableInformerCache: false
       # `velero server` default: 1h
-      garbageCollectionFrequency:
+      # garbageCollectionFrequency:
       # Set log-format for Velero pod. Default: text. Other option: json.
-      logFormat:
+      # logFormat:
       # Set log-level for Velero pod. Default: info. Other options: debug, warning, error, fatal, panic.
       logLevel: warning
       # The address to expose prometheus metrics. Default: :8085
-      metricsAddress:
+      # metricsAddress:
       # Directory containing Velero plugins. Default: /plugins
-      pluginDir:
+      # pluginDir:
       # The address to expose the pprof profiler. Default: localhost:6060
-      profilerAddress:
+      # profilerAddress:
       # `velero server` default: false
-      restoreOnlyMode:
+      # restoreOnlyMode:
       # `velero server` default: customresourcedefinitions,namespaces,storageclasses,volumesnapshotclass.snapshot.storage.k8s.io,volumesnapshotcontents.snapshot.storage.k8s.io,volumesnapshots.snapshot.storage.k8s.io,persistentvolumes,persistentvolumeclaims,secrets,configmaps,serviceaccounts,limitranges,pods,replicasets.apps,clusterclasses.cluster.x-k8s.io,clusters.cluster.x-k8s.io,clusterresourcesets.addons.cluster.x-k8s.io
-      restoreResourcePriorities:
+      # restoreResourcePriorities:
       # `velero server` default: 1m
-      storeValidationFrequency:
+      # storeValidationFrequency:
       # How long to wait on persistent volumes and namespaces to terminate during a restore before timing out. Default: 10m
-      terminatingResourceTimeout:
+      # terminatingResourceTimeout:
       # Bool flag to configure Velero server to move data by default for all snapshots supporting data movement. Default: false
-      defaultSnapshotMoveData:
+      # defaultSnapshotMoveData:
       # Comma separated list of velero feature flags. default: empty
       # features: EnableCSI
       features: EnableCSI
@@ -211,17 +211,17 @@ spec:
       # [AWS] https://github.com/vmware-tanzu/velero-plugin-for-aws/blob/main/README.md
       # [GCP] https://github.com/vmware-tanzu/velero-plugin-for-gcp/blob/main/README.md
       # [Azure] https://github.com/vmware-tanzu/velero-plugin-for-microsoft-azure/blob/main/README.md
-      secretContents: {}
+      # secretContents: {}
       #  cloud: |
       #    [default]
       #    aws_access_key_id=<REDACTED>
       #    aws_secret_access_key=<REDACTED>
       # additional key/value pairs to be used as environment variables such as "DIGITALOCEAN_TOKEN: <your-key>". Values will be stored in the secret.
-      extraEnvVars: {}
+      # extraEnvVars: {}
       # Name of a pre-existing secret (if any) in the Velero namespace
       # that will be used to load environment variables into velero and node-agent.
       # Secret should be in format - https://kubernetes.io/docs/concepts/configuration/secret/#use-case-as-container-environment-variables
-      extraSecretRef: ""
+      # extraSecretRef: ""
 
     # Whether to create backupstoragelocation crd, if false => do not create a default backup location
     backupsEnabled: true
@@ -245,13 +245,13 @@ spec:
           memory: 1024Mi
 
       # Tolerations to use for the node-agent daemonset. Optional.
-      tolerations: []
+      # tolerations: []
 
       # Annotations to set for the node-agent daemonset. Optional.
-      annotations: {}
+      # annotations: {}
 
       # labels to set for the node-agent daemonset. Optional.
-      labels: {}
+      # labels: {}
 
       # will map /scratch to emptyDir. Set to false and specify your own volume
       # via extraVolumes and extraVolumeMounts that maps to /scratch
@@ -259,17 +259,17 @@ spec:
       useScratchEmptyDir: true
 
       # Extra volumes for the node-agent daemonset. Optional.
-      extraVolumes: []
+      # extraVolumes: []
 
       # Extra volumeMounts for the node-agent daemonset. Optional.
-      extraVolumeMounts: []
+      # extraVolumeMounts: []
 
       # Key/value pairs to be used as environment variables for the node-agent daemonset. Optional.
-      extraEnvVars: {}
+      # extraEnvVars: {}
 
       # Additional command-line arguments that will be passed to the node-agent. Optional.
       # e.g.: extraArgs: ["--foo=bar"]
-      extraArgs: []
+      # extraArgs: []
 
       # Configure the dnsPolicy of the node-agent daemonset
       # See: https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy
@@ -284,19 +284,19 @@ spec:
 
       # Container Level Security Context for the 'node-agent' container of the node-agent daemonset. Optional.
       # See: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-container
-      containerSecurityContext: {}
+      # containerSecurityContext: {}
 
       # Container Lifecycle Hooks to use for the node-agent daemonset. Optional.
-      lifecycle: {}
+      # lifecycle: {}
 
       # Node selector to use for the node-agent daemonset. Optional.
-      nodeSelector: {}
+      # nodeSelector: {}
 
       # Affinity to use with node-agent daemonset. Optional.
-      affinity: {}
+      # affinity: {}
 
       # DNS configuration to use for the node-agent daemonset. Optional.
-      dnsConfig: {}
+      # dnsConfig: {}
 
     # Backup schedules to create.
     # Eg:
@@ -320,7 +320,7 @@ spec:
     #       - persistentVolumeClaims
     #       excludedClusterScopedResources:
     #       - persistentVolumes
-    schedules: {}
+    # schedules: {}
 
     # Velero ConfigMaps.
     # Eg:
@@ -345,4 +345,4 @@ spec:
     #         readOnlyRootFilesystem: true
     #         runAsUser: 1001
     #         runAsGroup: 999
-    configMaps: {}
+    # configMaps: {}

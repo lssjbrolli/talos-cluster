@@ -71,7 +71,7 @@ spec:
           # Additional provider-specific configuration. See link above
           # for details of required/optional fields for your provider.
           config:
-            region: minio
+            region: eu-east
             s3ForcePathStyle: true
             s3Url: http://minio.storage-system.svc.cluster.local:9000
           #  kmsKeyId:

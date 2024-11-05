@@ -1,46 +1,46 @@
----
-apiVersion: volsync.backube/v1alpha1
-kind: ReplicationSource
-metadata:
-  name: nextcloud-nextcloud
-spec:
-  # The PVC to be backed up
-  sourcePVC: nextcloud-nextcloud
-  trigger:
-    # Take a backup every 30 minutes
-    schedule: "0 */12 * * *"
-  restic:
-    moverSecurityContext:
-      runAsUser: 568
-      runAsGroup: 568
-      fsGroup: 568
-    # Prune the repository (repack to free space) every 2 weeks
-    pruneIntervalDays: 7
-    # Name of the Secret with the connection information
-    repository: restic-nc-root
-    # Retention policy for backups
-    retain:
-      daily: 2
-    # Clone the source volume prior to taking a backup to ensure a
-    # point-in-time image.
-    copyMethod: Clone
-    # The VSC to use if the copy method is Snapshot (default if omitted)
-    volumeSnapshotClassName: iscsi
-
 # ---
 # apiVersion: volsync.backube/v1alpha1
-# kind: ReplicationDestination
+# kind: ReplicationSource
 # metadata:
-#   name: audiobookshelf-config
+#   name: nextcloud-nextcloud
 # spec:
+#   # The PVC to be backed up
+#   sourcePVC: nextcloud-nextcloud
 #   trigger:
-#     manual: init
+#     # Take a backup every 30 minutes
+#     schedule: "0 */12 * * *"
 #   restic:
 #     moverSecurityContext:
 #       runAsUser: 568
 #       runAsGroup: 568
 #       fsGroup: 568
-#     repository: restic-audiobookshelf
-#     # Use an existing PVC, don't provision a new one
-#     destinationPVC: audiobookshelf-config
-#     copyMethod: Direct
+#     # Prune the repository (repack to free space) every 2 weeks
+#     pruneIntervalDays: 7
+#     # Name of the Secret with the connection information
+#     repository: restic-nc-root
+#     # Retention policy for backups
+#     retain:
+#       daily: 2
+#     # Clone the source volume prior to taking a backup to ensure a
+#     # point-in-time image.
+#     copyMethod: Clone
+#     # The VSC to use if the copy method is Snapshot (default if omitted)
+#     volumeSnapshotClassName: iscsi
+
+---
+apiVersion: volsync.backube/v1alpha1
+kind: ReplicationDestination
+metadata:
+  name: nextcloud-nextcloud
+spec:
+  trigger:
+    manual: init
+  restic:
+    moverSecurityContext:
+      runAsUser: 568
+      runAsGroup: 568
+      fsGroup: 568
+    repository: restic-nc-root
+    # Use an existing PVC, don't provision a new one
+    destinationPVC: nextcloud-nextcloud
+    copyMethod: Direct

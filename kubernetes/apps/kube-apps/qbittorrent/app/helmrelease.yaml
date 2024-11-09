@@ -52,7 +52,7 @@ spec:
                   - ALL
             resources:
               requests:
-                cpu: 500m
+                cpu: 50m
                 memory: 1Gi
               limits:
                 memory: 3Gi
@@ -152,7 +152,7 @@ spec:
                 readOnlyRootFilesystem: true
             resources:
               requests:
-                cpu: 500m
+                cpu: 250m
                 memory: 512Mi
               limits:
                 memory: 1Gi
@@ -177,7 +177,7 @@ spec:
                 value: "/tmp/gluetun/forwarded_port"
             resources:
               requests:
-                cpu: 150m
+                cpu: 10m
                 memory: 128Mi
               limits:
                 memory: 128Mi

@@ -39,37 +39,38 @@ spec:
       superuserSecret: cloudnative-pg-secret
       monitoring:
         enabled: true
-      backup:
-        retentionPolicy: 30d
-        barmanObjectStore: &barmanObjectStore
-          data:
-            compression: bzip2
-          wal:
-            compression: bzip2
-            maxParallel: 8
-          destinationPath: s3://cnpg/
-          endpointURL: http://minio.storage-system.svc.cluster.local:9000
-          # Note: serverName version needs to be incremented
-          # when recovering from an existing cnpg cluster
-          serverName: cluster16-v1
-          s3Credentials:
-            accessKeyId:
-              name: cloudnative-pg-secret
-              key: aws-access-key-id
-            secretAccessKey:
-              name: cloudnative-pg-secret
-              key: aws-secret-access-key
+    backups:
+      retentionPolicy: 30d
+      provider: s3
+      barmanObjectStore: &barmanObjectStore
+        data:
+          compression: bzip2
+        wal:
+          compression: bzip2
+          maxParallel: 8
+        destinationPath: s3://cnpg/
+        endpointURL: http://minio.storage-system.svc.cluster.local:9000
+        # Note: serverName version needs to be incremented
+        # when recovering from an existing cnpg cluster
+        serverName: cluster16-v1
+        s3Credentials:
+          accessKeyId:
+            name: cloudnative-pg-secret
+            key: aws-access-key-id
+          secretAccessKey:
+            name: cloudnative-pg-secret
+            key: aws-secret-access-key
       # Note: previousCluster needs to be set to the name of the previous
       # cluster when recovering from an existing cnpg cluster
-      bootstrap:
-        recovery:
-          source: &previousCluster cluster16-v1
-      # Note: externalClusters is needed when recovering from an existing cnpg cluster
-      externalClusters:
-        - name: *previousCluster
-          barmanObjectStore:
-            <<: *barmanObjectStore
-            serverName: *previousCluster
+    bootstrap:
+      recovery:
+        source: &previousCluster cluster16-v1
+    # Note: externalClusters is needed when recovering from an existing cnpg cluster
+    externalClusters:
+      - name: *previousCluster
+        barmanObjectStore:
+          <<: *barmanObjectStore
+          serverName: *previousCluster
     postgresql:
       parameters:
         max_connections: "100"

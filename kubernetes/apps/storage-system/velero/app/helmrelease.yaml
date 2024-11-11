@@ -34,7 +34,7 @@ spec:
     # Init containers to add to the Velero deployment's pod spec. At least one plugin provider image is required.
     initContainers:
       - name: aws
-        image: velero/velero-plugin-for-aws:v1.10.1@sha256:fdf710a65c6ead48b1018cda19360943abe17ca8c3e9ef5ab7be73a63b99a6d3
+        image: velero/velero-plugin-for-aws:v1.11.0@sha256:80d5b5176d29d4f1294d7e561b3c13a3417d775f7479995171f5b147fc3c705e
         imagePullPolicy: IfNotPresent
         volumeMounts:
           - mountPath: /target

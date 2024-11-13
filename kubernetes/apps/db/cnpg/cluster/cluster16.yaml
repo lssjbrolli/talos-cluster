@@ -46,6 +46,7 @@ spec:
       endpointURL: http://minio.storage-system.svc.cluster.local:9000
       data:
         compression: bzip2
+        encryption: ''
       wal:
         compression: bzip2
         maxParallel: 8
@@ -55,7 +56,7 @@ spec:
         bucket: "cnpg"
         path: "/v1"
         secret:
-          create: false
+          create: False
           name: s3-secret
         accessKey: aws-access-key-id
         secretKey: aws-secret-access-key

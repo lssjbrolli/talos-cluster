@@ -54,15 +54,13 @@ spec:
         bucket: "cnpg"
         path: "/v1"
         accessKey:
-          valueFrom:
-            secretKeyRef:
-              name: cloudnative-pg-secret
-              key: aws-access-key-id
+          secretKeyRef:
+            name: s3-secret
+            key: aws-access-key-id
         secretKey:
-          valueFrom:
-            secretKeyRef:
-              name: cloudnative-pg-secret
-              key: aws-secret-access-key
+          secretKeyRef:
+            name: s3-secret
+            key: aws-secret-access-key
       scheduledBackups:
         - name: daily-backup # Daily at midnight
           schedule: "0 0 0 * * *"

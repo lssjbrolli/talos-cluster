@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Secret
+metadata:
+    name: s3-secret
+stringData:
+    aws-access-key-id: ENC[AES256_GCM,data:fvyovt0PdC74SZIZzwyHgmeQR3s=,iv:KkHkKqCLmMv2oRATfXncH01L8D6JzkcLduYksrJ+G/Q=,tag:1dP2dHGc3rt9UECEaYv1Mw==,type:str]
+    aws-secret-access-key: ENC[AES256_GCM,data:o6QhVMiMKBB/gdejhI+LqgmlU+BSTRiUnYa1mnHd8YxYMjfwM6pmpQ==,iv:D0AcLtG2jUnzbAvXC8e0DBBEI0x64Ikmec6CL/zSBOE=,tag:TCTNV3bTRBMKJKBH2cJO0A==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age1k5cr4cvs4atdm3gse77vq4glnv9q49gq5wl49p9806gfyfld7p3setz3tw
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSB6Kzd6aThxeWlxY2pFQ3J2
+            NVc4VGdWcUpNWkNKRXAxWWxVbkE2TE9KNWpJCm5meWFFQnV5RHhDajNjemZLaFBP
+            UDY3TnQ2N2trcHdGTHhSMGk3N3BMQU0KLS0tIGxNTlBxbTlDMWdvMkNDQ2hZcTNL
+            Z0I4SFNYUDZjT281RVNNQUZHdU1CWG8KwJ1yRoWGjPGMQZxIlxDnNxnHD/m0o2xk
+            U8odRhH6xV/2UBdD7zfilmxrAsMeF9oLzgtkbkXTUwPDbt3ZfueCUA==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2024-11-13T01:34:27Z"
+    mac: ENC[AES256_GCM,data:tF0vsp3dAh7tzEOyxlnp5/+Llgp/nvaeQVKj8XmTx1ETiYOY419VDJBO8p7e9bZ/gIhoIcBayzfeKrNiPWo2vm+acjQQ8VMqGUdePOQfrZRKL+SLIhyUlI+RCGZo7lc20mwiA2R2jEwAW4tUDQ3qcngOq7f14XXdH/mYXnGhQlk=,iv:VziKzB5cG/N/sbls5aA2GxfMhrgGjczmHGE0+R3K/zY=,tag:9GM/EX4xhq12hgECTNeuMQ==,type:str]
+    pgp: []
+    encrypted_regex: ^(data|stringData)$
+    version: 3.9.1

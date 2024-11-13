@@ -5,8 +5,6 @@ metadata:
 stringData:
     username: ENC[AES256_GCM,data:1r+bd3hzKAA=,iv:UHTQFeXfbVSO6jtaLaMSlfldfMCobYSmXikIoJjamHQ=,tag:H5jTErT3MibD0bPiB9vryg==,type:str]
     password: ENC[AES256_GCM,data:9nhh9g==,iv:dQMghyt3DrpIw4hqSD4ixWUNapdkNP0IGSXFZgLaKwQ=,tag:LbLrrRCjQIiYMwUIUBZRxw==,type:str]
-    aws-access-key-id: ENC[AES256_GCM,data:pxX9z0ok9Qcn6JfY/7nSSAfeoW4=,iv:JHfG1n2TzYVPTL4L9LXUZ25QXraftKnb7NXOFAZm8+c=,tag:ktTAMDGh1gE8MWDZA40syA==,type:str]
-    aws-secret-access-key: ENC[AES256_GCM,data:tgldpCUfy5UNXnM+9yn3S+jJ4iljO89k2Qg/JYRx6sEDdZaB+IUaJw==,iv:s5nGZZxC+TDZIzTQEjHgFXyU21bBdx9FMtfIhDwfk/4=,tag:5snK3BprcbEE7c6vtM33Xw==,type:str]
 sops:
     kms: []
     gcp_kms: []
@@ -22,8 +20,8 @@ sops:
             ak4wVGxQSVRtTFRyMDFKQTRYMGVvYkkK8+Z3btE51I0PAA9hz4pOLkOgOPH+oLaZ
             9jBvdFra08Uv3B+Z4JVuIyVftTGfg1miWo72kNzj9dpPB9/T539NKQ==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-11-10T12:16:10Z"
-    mac: ENC[AES256_GCM,data:4e32cWv/kurQqDttoiUA6kK42Xsth4OR/udFp7EHW+HjZ1bXg8OdCwT9CT4oXCCyUT6y5U9sMwBZol8wbN/9HG26PnOBAOva9MCE9Z+z2FD11Q6Hp6ejqmNnBv/aJkEZJhVseGT0AzOqKxnZDc/uFlISRf7VBcltkxy9Pjlqdgo=,iv:AV75ihRKQsZ+o/Ww95vkLyzDcrZDSkAG1YGQdoeEriA=,tag:ZGixa7Odig2Rr4S+b1n7aA==,type:str]
+    lastmodified: "2024-11-13T01:35:09Z"
+    mac: ENC[AES256_GCM,data:0Dh0gdD0DeZ2G+8R7LRHEZKypgFJR5K8YxdmKLpubIeeMLkLj9kbhTfFYXcpjR5P9RxfaY3EHTloAb013NvmhzZwrxVXYERQj8n1iwRMtHBZ9mRuwonlj1n2zaJsoPkE1qyFYaSH5aIazUJDW+d3ronL6Yj9aCyrnOyAcozDKZI=,iv:7GYoP0X2SFwTlrcVgupRiiI0nk7npHs7q4YhCcHigkA=,tag:MegfclUNXgubI7CFfJttUQ==,type:str]
     pgp: []
     encrypted_regex: ^(data|stringData)$
     version: 3.9.1

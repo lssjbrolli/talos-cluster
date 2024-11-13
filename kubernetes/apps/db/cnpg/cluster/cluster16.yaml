@@ -55,8 +55,10 @@ spec:
         region: "eu-east"
         bucket: "cnpg"
         path: "/v1"
-        accessKey: ACCESS_KEY_ID
-        secretKey: ACCESS_SECRET_KEY
+        secret:
+          name: s3-secret
+        accessKey: aws-access-key-id
+        secretKey: aws-secret-access-key
       scheduledBackups:
         - name: daily-backup # Daily at midnight
           schedule: "0 0 0 * * *"

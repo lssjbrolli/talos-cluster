@@ -39,7 +39,7 @@ spec:
       superuserSecret: cloudnative-pg-secret
       monitoring:
         enabled: true
-    backup:
+    backups:
       enabled: true
       retentionPolicy: 30d
       provider: s3

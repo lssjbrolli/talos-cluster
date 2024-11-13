@@ -44,6 +44,8 @@ spec:
       retentionPolicy: 30d
       provider: s3
       endpointURL: http://minio.storage-system.svc.cluster.local:9000
+      secret:
+          name: s3-secret
       data:
         compression: bzip2
         encryption: ''
@@ -55,8 +57,6 @@ spec:
         region: "eu-east"
         bucket: "cnpg"
         path: "/v1"
-        secret:
-          name: s3-secret
         accessKey: aws-access-key-id
         secretKey: aws-secret-access-key
       scheduledBackups:

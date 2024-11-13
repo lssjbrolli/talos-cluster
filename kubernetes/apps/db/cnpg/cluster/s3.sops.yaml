@@ -3,8 +3,8 @@ kind: Secret
 metadata:
     name: s3-secret
 stringData:
-    aws-access-key-id: ENC[AES256_GCM,data:ztuD1owYUSWsidtLmJ7lR1ueLMQ=,iv:UZ5rlfTITvqk+sOjK7TcWD86gFXXP1LAkcRFLQJ/NeM=,tag:umYIzOt6tv0GuvzVyJQ3sA==,type:str]
-    aws-secret-access-key: ENC[AES256_GCM,data:RhX5t+O4ZkhhfilWT6nwmPeOxZnJOqVBpbNuMy3KDOebY/lkyiaoNg==,iv:0UJMcfIqAva2kyMg7JA0RN4iZgO/aUzryLEnJqtlVsg=,tag:t4H9cUZWCVNkrWdII6/7+Q==,type:str]
+    ACCESS_KEY_ID: ENC[AES256_GCM,data:DQmFz7MZSmpPVjWC/WLFDzz3gvs=,iv:zL6eTf6o1qF8lhnu7mlm6Yywa/YwT7rXjK3Wdpz5fiU=,tag:+yB9fv2SSXvqh5lBIbLe5A==,type:str]
+    ACCESS_SECRET_KEY: ENC[AES256_GCM,data:32FqPRzo1GZtMvJ0XkuJxsi9N94hep2/cO3/wA+cg9S8Fk3aNJ3EuQ==,iv:2Wpku35LsvaVd/3nqu2Jfhc8EnUqqkysOKYjrPq98FY=,tag:5WOxZntubraBu9tgkyOf3w==,type:str]
 sops:
     kms: []
     gcp_kms: []
@@ -20,8 +20,8 @@ sops:
             Z0I4SFNYUDZjT281RVNNQUZHdU1CWG8KwJ1yRoWGjPGMQZxIlxDnNxnHD/m0o2xk
             U8odRhH6xV/2UBdD7zfilmxrAsMeF9oLzgtkbkXTUwPDbt3ZfueCUA==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-11-13T23:26:06Z"
-    mac: ENC[AES256_GCM,data:v8W6Swsz1gFik78x//5C4fr5Xtku2er8/zfwnZe+enaz5ZdS+X4w/EMmuAdrKZXHXFIXJi7bsAjc3XppcEHXA6TS+cI77fJ8Tuf56cQGaDy0teQLp+MlKppLbfwCaM3ewGqPQz2TpUXfmqvT/NvRjQvEFcnclqFsbcl0nlERQro=,iv:dkehR0R6MyPFxpYSzLo940KZS1OXRL1KFqCh8Ne3HJI=,tag:I6ohhDdMH7LatZdYY7uicA==,type:str]
+    lastmodified: "2024-11-13T23:30:11Z"
+    mac: ENC[AES256_GCM,data:Cg7cle0Ant2E4b+al/TDCNYyVcn+lL9B+Y45QQoFbk06IL+G8s6g7tIbiMgfs9yRZDQrs+TyN17w0meKRuGNL2f8vPQ4cWxqzvO735R9r9/gYFlF7Ub3ic+nXUhX+ucKidEWuvjvi7gg82RawkP6EBKnrHb64q1priUZQZdZ+44=,iv:6L7p+tjornilO17Ls6S57nhr1j+lUd+cDs3hdOMS0L4=,tag:Ovwc9QHrfuwSwbTNm0NFqw==,type:str]
     pgp: []
     encrypted_regex: ^(data|stringData)$
     version: 3.9.1

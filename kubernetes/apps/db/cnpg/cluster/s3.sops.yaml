@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Secret
 metadata:
-    name: cluster16-backup-s3-creds
+    name: s3-secret
 stringData:
-    ACCESS_KEY_ID: ENC[AES256_GCM,data:V69ooxNnEfxkBCZwxFy1x/ofdVc=,iv:DtuKINzP8MzRNayr9onSpcN0pvgP2i8miwAlOity4g0=,tag:nF/Bgaifc1mNoLd5Rdid3A==,type:str]
-    ACCESS_SECRET_KEY: ENC[AES256_GCM,data:1ZPhhrSGaOOZ44xFojTx5bq7FR2yKU4LVuSMwyvuNnK1K9eiB5faxg==,iv:8F2rBQeFLrauvEzq1A/FdIJNL7parD9z5KsL+P9Ya10=,tag:iTtgorlZFHHtlwBWIstQIw==,type:str]
+    aws-access-key-id: ENC[AES256_GCM,data:Jp32ehHq+xZ+qqC2psnr/8KNp84=,iv:0lRwCGOCJri5t57AVMWterZb5884j/rpUfuktCBIWcA=,tag:eNJalzSCSL0RlsfqjMU2Kw==,type:str]
+    aws-secret-access-key: ENC[AES256_GCM,data:iQCcxqPExRaHCO/vhNtqHSDSag8uJ/LewiEH3UPfQGgO0QZjpIJgGg==,iv:zVpT2gCSZ+xUsrtvJAdvZa8tIBVhQYZzeNI9bEKrxpo=,tag:/O2+Yftw3vXpS95a3cE6Tg==,type:str]
 sops:
     kms: []
     gcp_kms: []
@@ -20,8 +20,8 @@ sops:
             Z0I4SFNYUDZjT281RVNNQUZHdU1CWG8KwJ1yRoWGjPGMQZxIlxDnNxnHD/m0o2xk
             U8odRhH6xV/2UBdD7zfilmxrAsMeF9oLzgtkbkXTUwPDbt3ZfueCUA==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-11-13T22:28:47Z"
-    mac: ENC[AES256_GCM,data:tRddgHuSP5ho3I6TnV3Suo4OIiHVFEDmCZoys5eLLsRsQ0sMKdXlVJPg4YDLeYxQ5gr1WPRtfVBfGsz1tlmW1103dr/bdD7VAy/9VP6UhCy2Zw4hcnhar4lY2HbTtwMTQEEWzDL/6oZCHSNob7l0So8/uVj5sNfBYuQURqxA4GE=,iv:5f3XsPFo3+7lColMUvqatdbHOz1h5gOLlqd1px9XWsY=,tag:A8u/ST7Tro6n986B0H73hQ==,type:str]
+    lastmodified: "2024-11-13T22:37:21Z"
+    mac: ENC[AES256_GCM,data:jjAZLO7tv+5yJsAthP54m2PbfVILlS5nOzhl2+7jOPTuqgbybPu8Auzlxn2qjnB1ZakAR3dtwuMv2ipJIY+Z0auKwKW2UKZnc1ZHnnlSsqWRz2OnVJ8+1236d7bxCZwNusNhu+uXSiZP54bL4CaswiVVSCCqJFTD9vEDdErA7Wc=,iv:krjHggQsG7TPZRSNG/XAqc058LDUNKdg+L5SwXMjaMk=,tag:QQibgI/vBUrDQZP3L7TePg==,type:str]
     pgp: []
     encrypted_regex: ^(data|stringData)$
     version: 3.9.1

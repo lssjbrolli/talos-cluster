@@ -57,8 +57,6 @@ spec:
         secret:
           create: false
           name: s3-secret
-        accessKey: aws-access-key-id
-        secretKey: aws-secret-access-key
       scheduledBackups:
         - name: daily-backup # Daily at midnight
           schedule: "0 0 0 * * *"

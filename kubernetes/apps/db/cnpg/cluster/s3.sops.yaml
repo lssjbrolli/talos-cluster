@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Secret
 metadata:
-    name: cluster16-backup-s3-creds
+    name: s3-secret
 stringData:
     aws-access-key-id: ENC[AES256_GCM,data:ztuD1owYUSWsidtLmJ7lR1ueLMQ=,iv:UZ5rlfTITvqk+sOjK7TcWD86gFXXP1LAkcRFLQJ/NeM=,tag:umYIzOt6tv0GuvzVyJQ3sA==,type:str]
     aws-secret-access-key: ENC[AES256_GCM,data:RhX5t+O4ZkhhfilWT6nwmPeOxZnJOqVBpbNuMy3KDOebY/lkyiaoNg==,iv:0UJMcfIqAva2kyMg7JA0RN4iZgO/aUzryLEnJqtlVsg=,tag:t4H9cUZWCVNkrWdII6/7+Q==,type:str]
@@ -20,8 +20,8 @@ sops:
             Z0I4SFNYUDZjT281RVNNQUZHdU1CWG8KwJ1yRoWGjPGMQZxIlxDnNxnHD/m0o2xk
             U8odRhH6xV/2UBdD7zfilmxrAsMeF9oLzgtkbkXTUwPDbt3ZfueCUA==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-11-13T23:20:17Z"
-    mac: ENC[AES256_GCM,data:AzpeyGD+hkQHCp4fzL+7VVU9e2K/shJZ36vUJWCRnqgvvTuCNDwLFs6xOw68/HDuJnQB3kSfTmLjsIL5UJXbj9uuMs+gqWBP6rA4K0AbmtPmZ58nsi6PRWmr1wXmRikCG6aF+UUN4Jtdw7rEA87zs64HsyHaVwXLFLq+V1/APPI=,iv:PFL9OT05SnphJY9j6gOBr5osNUjYBwlsgsUf7ORwDiw=,tag:yJPpUtrne93Gr34dj+nzcg==,type:str]
+    lastmodified: "2024-11-13T23:26:06Z"
+    mac: ENC[AES256_GCM,data:v8W6Swsz1gFik78x//5C4fr5Xtku2er8/zfwnZe+enaz5ZdS+X4w/EMmuAdrKZXHXFIXJi7bsAjc3XppcEHXA6TS+cI77fJ8Tuf56cQGaDy0teQLp+MlKppLbfwCaM3ewGqPQz2TpUXfmqvT/NvRjQvEFcnclqFsbcl0nlERQro=,iv:dkehR0R6MyPFxpYSzLo940KZS1OXRL1KFqCh8Ne3HJI=,tag:I6ohhDdMH7LatZdYY7uicA==,type:str]
     pgp: []
     encrypted_regex: ^(data|stringData)$
     version: 3.9.1

@@ -45,7 +45,7 @@ spec:
       provider: s3
       endpointURL: http://minio.storage-system.svc.cluster.local:9000
       secret:
-        create: False
+        create: false
         name: s3-secret
       data:
         compression: bzip2

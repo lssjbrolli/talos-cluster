@@ -53,11 +53,11 @@ spec:
         region: "eu-east"
         bucket: "cnpg"
         path: "/v1"
-        accessKey: |
+        accessKey:
           secretKeyRef:
             name: cloudnative-pg-secret
             key: aws-access-key-id
-        secretKey: |
+        secretKey:
           secretKeyRef:
             name: cloudnative-pg-secret
             key: aws-secret-access-key

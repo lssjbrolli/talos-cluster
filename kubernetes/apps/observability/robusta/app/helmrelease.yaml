@@ -36,7 +36,7 @@ spec:
           name: personal_discord_sink
           url: "{{env.WEBHOOK}}"
       - telegram_sink:
-        name: personal_telegram sink
+        name: personal_telegram_sink
         bot_token: "{{env.BOTTOKEN}}"
         chat_id: "{{env.CHATID}}"
     enablePrometheusStack: true

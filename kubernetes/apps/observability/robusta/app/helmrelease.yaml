@@ -62,10 +62,8 @@ spec:
               key: webhook
       resources:
         requests:
-          memory: 512Mi
-          cpu: 250m
-        limits:
           memory: 1024Mi
+          cpu: 250m
     enableHolmesGPT: true
     holmes:
       additionalEnvVars:

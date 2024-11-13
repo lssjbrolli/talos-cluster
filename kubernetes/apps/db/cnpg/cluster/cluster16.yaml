@@ -54,13 +54,11 @@ spec:
         bucket: "cnpg"
         path: "/v1"
         accessKey:
-          secretKeyRef:
-            name: s3-secret
-            key: aws-access-key-id
+          name: s3-secret
+          key: aws-access-key-id
         secretKey:
-          secretKeyRef:
-            name: s3-secret
-            key: aws-secret-access-key
+          name: s3-secret
+          key: aws-secret-access-key
       scheduledBackups:
         - name: daily-backup # Daily at midnight
           schedule: "0 0 0 * * *"

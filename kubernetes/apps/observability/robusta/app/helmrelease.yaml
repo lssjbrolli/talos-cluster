@@ -35,6 +35,10 @@ spec:
       - discord_sink:
           name: personal_discord_sink
           url: "{{env.WEBHOOK}}"
+      - telegram_sink:
+        name: personal_telegram sink
+        bot_token: "{{env.BOTTOKEN}}"
+        chat_id: "{{env.CHATID}}"
     enablePrometheusStack: true
     enablePlatformPlaybooks: true
     runner:
@@ -60,6 +64,16 @@ spec:
             secretKeyRef:
               name: robusta-secrets
               key: webhook
+        - name: BOTTOKEN
+          valueFrom:
+            secretKeyRef:
+              name: robusta-secrets
+              key: bot_token
+        - name: CHATID
+          valueFrom:
+            secretKeyRef:
+              name: robusta-secrets
+              key: chat_id
       resources:
         requests:
           memory: 1024Mi

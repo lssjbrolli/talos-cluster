@@ -41,7 +41,7 @@ spec:
         enabled: true
     backups:
       enabled: true
-      retentionPolicy: 30d
+      retentionPolicy: 14d
       provider: s3
       endpointURL: http://minio.storage-system.svc.cluster.local:9000
       secret:
@@ -61,8 +61,8 @@ spec:
         accessKey: aws-access-key-id
         secretKey: aws-secret-access-key
       scheduledBackups:
-        - name: daily-backup # Daily at midnight
-          schedule: "0 0 0 * * *"
+        - name: hourly-backup #hourly
+          schedule: "0 0 * * * *"
           backupOwnerReference: self
     postgresql:
       parameters:

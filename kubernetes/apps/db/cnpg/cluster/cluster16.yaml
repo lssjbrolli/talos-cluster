@@ -61,8 +61,9 @@ spec:
         accessKey: aws-access-key-id
         secretKey: aws-secret-access-key
       scheduledBackups:
-        - name: hourly-backup #hourly
-          schedule: "0 0 * * * *"
+        - name: daily-backup #daily
+          schedule: "0 0 0 * * *"
+          method: volumeSnapshot
           backupOwnerReference: self
     postgresql:
       parameters:

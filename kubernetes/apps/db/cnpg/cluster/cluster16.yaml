@@ -23,7 +23,7 @@ spec:
     - name: democratic-csi
       namespace: storage-system
   values:
-    # mode: recovery
+    mode: recovery
     cluster:
       imageName: ghcr.io/cloudnative-pg/postgresql:16.4-19@sha256:d66c35dc163f69237ca4265042fa2a867ee015af788a584ce02b0808c8b934c9
       instances: 2
@@ -66,7 +66,7 @@ spec:
       s3:
         region: "eu-east"
         bucket: "cnpg"
-        path: "/v1"
+        path: "/v2"
         accessKey: aws-access-key-id
         secretKey: aws-secret-access-key
       scheduledBackups:
@@ -81,7 +81,7 @@ spec:
       s3:
         region: "eu-east"
         bucket: "cnpg"
-        path: "/v2"
+        path: "/v1"
         accessKey: aws-access-key-id
         secretKey: aws-secret-access-key
       secret:

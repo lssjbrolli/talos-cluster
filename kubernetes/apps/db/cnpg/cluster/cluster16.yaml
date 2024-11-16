@@ -86,6 +86,4 @@ spec:
       secret:
         create: false
         name: s3-secret
-    version:
-      postgresql: "16"
     type: postgresql

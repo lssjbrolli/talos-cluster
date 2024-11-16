@@ -32,13 +32,21 @@ spec:
           cpu: 250m
           memory: 256Mi
         limits:
-          memory: 512Mi
+          memory: 256Mi
       storage:
         size: 5Gi
+        storageClass: iscsi
+      walStorage:
+        enabled: true
+        size: 1Gi
         storageClass: iscsi
       superuserSecret: cloudnative-pg-secret
       monitoring:
         enabled: true
+      postgresql:
+        parameters:
+          max_connections: "100"
+          shared_buffers: 256MB
     backups:
       enabled: true
       retentionPolicy: 14d
@@ -64,11 +72,20 @@ spec:
         - name: hourly-backup #hourly
           schedule: "0 0 * * * *"
           backupOwnerReference: self
-    postgresql:
-      parameters:
-        max_connections: "100"
-        shared_buffers: 256MB
-    # nodeMaintenanceWindow:
-    #   inProgress: false
-    #   reusePVC: true
-
+    recovery:
+      clusterName: cluster16
+      endpointURL: http://minio.storage-system.svc.cluster.local:9000
+      method: object_store
+      provider: s3
+      s3:
+        region: "eu-east"
+        bucket: "cnpg"
+        path: "/v1"
+        accessKey: aws-access-key-id
+        secretKey: aws-secret-access-key
+      secret:
+        create: false
+        name: s3-secret
+    version:
+      postgresql: 16
+    type: postgresql

@@ -27,20 +27,20 @@ spec:
     # The VSC to use if the copy method is Snapshot (default if omitted)
     volumeSnapshotClassName: iscsi
 
----
-apiVersion: volsync.backube/v1alpha1
-kind: ReplicationDestination
-metadata:
-  name: audiobookshelf-metadata
-spec:
-  trigger:
-    manual: init
-  restic:
-    moverSecurityContext:
-      runAsUser: 568
-      runAsGroup: 568
-      fsGroup: 568
-    repository: restic-audiobookshelf-metadata
-    # Use an existing PVC, don't provision a new one
-    destinationPVC: audiobookshelf-metadata
-    copyMethod: Direct
+# ---
+# apiVersion: volsync.backube/v1alpha1
+# kind: ReplicationDestination
+# metadata:
+#   name: audiobookshelf-metadata
+# spec:
+#   trigger:
+#     manual: init
+#   restic:
+#     moverSecurityContext:
+#       runAsUser: 568
+#       runAsGroup: 568
+#       fsGroup: 568
+#     repository: restic-audiobookshelf-metadata
+#     # Use an existing PVC, don't provision a new one
+#     destinationPVC: audiobookshelf-metadata
+#     copyMethod: Direct

@@ -1,30 +1,30 @@
-# ---
-# apiVersion: volsync.backube/v1alpha1
-# kind: ReplicationSource
-# metadata:
-#   name: nextcloud-nextcloud-data
-# spec:
-#   # The PVC to be backed up
-#   sourcePVC: nextcloud-nextcloud-data
-#   trigger:
-#     schedule: "0 */3 * * *"
-#   restic:
-#     moverSecurityContext:
-#       runAsUser: 568
-#       runAsGroup: 568
-#       fsGroup: 568
-#     # Prune the repository (repack to free space) every 2 weeks
-#     pruneIntervalDays: 7
-#     # Name of the Secret with the connection information
-#     repository: restic-nc-data
-#     # Retention policy for backups
-#     retain:
-#       daily: 2
-#     # Clone the source volume prior to taking a backup to ensure a
-#     # point-in-time image.
-#     copyMethod: Clone
-#     # The VSC to use if the copy method is Snapshot (default if omitted)
-#     volumeSnapshotClassName: iscsi
+---
+apiVersion: volsync.backube/v1alpha1
+kind: ReplicationSource
+metadata:
+  name: nextcloud-nextcloud-data
+spec:
+  # The PVC to be backed up
+  sourcePVC: nextcloud-nextcloud-data
+  trigger:
+    schedule: "0 */3 * * *"
+  restic:
+    moverSecurityContext:
+      runAsUser: 568
+      runAsGroup: 568
+      fsGroup: 568
+    # Prune the repository (repack to free space) every 2 weeks
+    pruneIntervalDays: 7
+    # Name of the Secret with the connection information
+    repository: restic-nc-data
+    # Retention policy for backups
+    retain:
+      daily: 2
+    # Clone the source volume prior to taking a backup to ensure a
+    # point-in-time image.
+    copyMethod: Clone
+    # The VSC to use if the copy method is Snapshot (default if omitted)
+    volumeSnapshotClassName: iscsi
 
 ---
 apiVersion: volsync.backube/v1alpha1

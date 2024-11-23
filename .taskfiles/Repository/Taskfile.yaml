@@ -1,6 +1,9 @@
 ---
 # yaml-language-server: $schema=https://taskfile.dev/schema.json
-version: "3"
+version: '3'
+
+vars:
+  PRIVATE_DIR: '{{.ROOT_DIR}}/.private'
 
 tasks:
 
@@ -11,6 +14,9 @@ tasks:
       # Clean up CI
       - rm -rf {{.ROOT_DIR}}/.github/tests
       - rm -rf {{.ROOT_DIR}}/.github/workflows/e2e.yaml
+      # Clean up devcontainer
+      - rm -rf {{.ROOT_DIR}}/.devcontainer/ci
+      - rm -rf {{.ROOT_DIR}}/.github/workflows/devcontainer.yaml
       # Move bootstrap directory to gitignored directory
       - mv {{.BOOTSTRAP_DIR}} {{.PRIVATE_DIR}}/bootstrap-{{now | date "150405"}}
       - mv {{.MAKEJINJA_CONFIG_FILE}} {{.PRIVATE_DIR}}/makejinja-{{now | date "150405"}}.toml
@@ -23,33 +29,13 @@ tasks:
         sh: test -f {{.ROOT_DIR}}/.github/renovate.json5
 
   reset:
-    desc: Reset templated configuration files
+    desc: Reset templated configuration files (use --force to reset repo back to HEAD)
     prompt: Reset templated configuration files... continue?
     cmds:
-      - task: :kubernetes:.reset
-      - task: :sops:.reset
-      - task: :talos:.reset
-
-  force-reset:
-    desc: Reset repo back to HEAD
-    prompt: Reset repo back to HEAD... continue?
-    cmds:
-      - task: reset
-      - git reset --hard HEAD
-      - git clean -f -d
-      - git pull origin main
-
-  update-template:
-    desc: Update from the upstream cluster-template repository
-    cmds:
-      - mkdir -p $(dirname {{.shafile}})
-      - touch {{.shafile}}
-      - git remote get-url template >/dev/null 2>&1 || git remote add template git@github.com:onedr0p/cluster-template.git
-      - git fetch --all
-      - git cherry-pick --no-commit --allow-empty $(cat {{.shafile}})..template/main
-      - git ls-remote template HEAD | awk '{ print $1}' > {{.shafile}}
-    vars:
-      shafile: "{{.ROOT_DIR}}/.task/.latest-template.sha"
-    preconditions:
-      - { msg: "Git repository not up-to-date", sh: "git diff --exit-code" }
-      - { msg: "Git repository not up-to-date", sh: "git diff --cached --exit-code" }
+      - task: :kubernetes:reset
+      - task: :sops:reset
+      - task: :talos:reset
+      - cmd: |
+          {{- if eq .CLI_FORCE true }}
+          git reset --hard HEAD && git clean -f -d && git pull origin main
+          {{- end }}

@@ -8,9 +8,9 @@ kubernetesVersion: v1.31.3
 clusterName: "talos-cluster"
 endpoint: https://192.168.1.101:6443
 clusterPodNets:
-  - "172.16.0.0/24"
+  - "172.16.0.0/16"
 clusterSvcNets:
-  - "172.17.0.0/24"
+  - "172.17.0.0/16"
 additionalApiServerCertSans: &sans
   - "192.168.1.101"
   - 127.0.0.1 # KubePrism

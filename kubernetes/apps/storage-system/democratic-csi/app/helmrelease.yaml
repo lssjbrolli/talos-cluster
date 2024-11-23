@@ -75,7 +75,7 @@ spec:
           targetPortals: []
           interface:
           namePrefix: csi-
-          nameSuffix: "-clustera"
+          nameSuffix: "-iscsi"
           targetGroups:
             - targetGroupPortalGroup: 5
               targetGroupInitiatorGroup: 6

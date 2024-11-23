@@ -43,4 +43,5 @@ spec:
     repository: restic-sonarr
     # Use an existing PVC, don't provision a new one
     destinationPVC: sonarr-config
+    cleanupCachePVC: true
     copyMethod: Direct

@@ -42,4 +42,5 @@ spec:
     repository: restic-plex
     # Use an existing PVC, don't provision a new one
     destinationPVC: plex-config
+    cleanupCachePVC: true
     copyMethod: Direct

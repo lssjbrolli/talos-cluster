@@ -42,4 +42,5 @@ spec:
     repository: restic-nc-data
     # Use an existing PVC, don't provision a new one
     destinationPVC: nextcloud-nextcloud-data
+    cleanupCachePVC: true
     copyMethod: Direct

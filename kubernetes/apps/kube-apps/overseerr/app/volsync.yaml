@@ -42,4 +42,5 @@ spec:
     repository: restic-overseerr
     # Use an existing PVC, don't provision a new one
     destinationPVC: overseerr-config
+    cleanupCachePVC: true
     copyMethod: Direct

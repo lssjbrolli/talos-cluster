@@ -42,4 +42,5 @@ spec:
     repository: restic-vaultwarden
     # Use an existing PVC, don't provision a new one
     destinationPVC: vaultwarden-config
+    cleanupCachePVC: true
     copyMethod: Direct

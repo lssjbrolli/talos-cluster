@@ -43,4 +43,5 @@ spec:
     repository: restic-audiobookshelf-metadata
     # Use an existing PVC, don't provision a new one
     destinationPVC: audiobookshelf-metadata
+    cleanupCachePVC: true
     copyMethod: Direct

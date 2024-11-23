@@ -42,4 +42,5 @@ spec:
     repository: restic-gluetun
     # Use an existing PVC, don't provision a new one
     destinationPVC: qbittorrent-gluetun-list
+    cleanupCachePVC: true
     copyMethod: Direct

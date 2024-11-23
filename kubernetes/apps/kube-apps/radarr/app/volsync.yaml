@@ -42,4 +42,5 @@ spec:
     repository: restic-radarr
     # Use an existing PVC, don't provision a new one
     destinationPVC: radarr-config
+    cleanupCachePVC: true
     copyMethod: Direct

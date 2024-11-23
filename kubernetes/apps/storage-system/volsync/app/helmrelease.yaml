@@ -22,9 +22,9 @@ spec:
     remediation:
       strategy: rollback
       retries: 3
-  dependsOn:
-    - name: snapshot-controller
-      namespace: storage-system
+  # dependsOn:
+  #   - name: snapshot-controller
+  #     namespace: storage-system
   values:
     manageCRDs: true
     metrics:

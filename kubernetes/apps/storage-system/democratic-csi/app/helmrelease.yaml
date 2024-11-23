@@ -78,7 +78,7 @@ spec:
           nameSuffix: "-iscsi"
           targetGroups:
             - targetGroupPortalGroup: 5
-              targetGroupInitiatorGroup: 6
+              targetGroupInitiatorGroup: 7
               targetGroupAuthType: None
               targetGroupAuthGroup:
           extentInsecureTpc: true

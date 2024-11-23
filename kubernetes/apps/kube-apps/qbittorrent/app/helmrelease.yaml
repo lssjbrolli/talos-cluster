@@ -206,10 +206,7 @@ spec:
     persistence:
       config:
         type: persistentVolumeClaim
-        accessMode: ReadWriteOnce
-        retain: true
-        storageClass: iscsi
-        size: 200Mi
+        existingClaim: qbittorrent-config
       media:
         type: nfs
         server: 192.168.1.150
@@ -234,10 +231,7 @@ spec:
       # Configure an emptyDir for gluetun server list
       gluetun-list:
         type: persistentVolumeClaim
-        accessMode: ReadWriteOnce
-        retain: true
-        storageClass: iscsi
-        size: 50Mi
+        existingClaim: qbittorrent-gluetun-list
         advancedMounts:
           main:
             gluetun:

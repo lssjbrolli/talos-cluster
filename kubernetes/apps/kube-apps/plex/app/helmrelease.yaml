@@ -74,10 +74,7 @@ spec:
     persistence:
       config:
         type: persistentVolumeClaim
-        accessMode: ReadWriteOnce
-        retain: true
-        storageClass: iscsi
-        size: 50Gi
+        existingClaim: plex-config
       # Separate PVC for cache to avoid backing up cache files
       cache:
         type: persistentVolumeClaim

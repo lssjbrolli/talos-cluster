@@ -3,17 +3,17 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - ./namespace.yaml
-  # - ./audiobookshelf/ks.yaml
-  # - ./ctcadmin/ks.yaml
-  # - ./filebrowser/ks.yaml
-  # - ./flaresolverr/ks.yaml
-  # - ./nextcloud/ks.yaml
-  # - ./overseerr/ks.yaml
-  # - ./plex/ks.yaml
-  # - ./prowlarr/ks.yaml
-  # - ./qbittorrent/ks.yaml
-  # - ./radarr/ks.yaml
-  # - ./readarr/ks.yaml
-  # - ./sonarr/ks.yaml
-  # - ./tautulli/ks.yaml
-  # - ./vaultwarden/ks.yaml
+  - ./audiobookshelf/ks.yaml
+  - ./ctcadmin/ks.yaml
+  - ./filebrowser/ks.yaml
+  - ./flaresolverr/ks.yaml
+  - ./nextcloud/ks.yaml
+  - ./overseerr/ks.yaml
+  - ./plex/ks.yaml
+  - ./prowlarr/ks.yaml
+  - ./qbittorrent/ks.yaml
+  - ./radarr/ks.yaml
+  - ./readarr/ks.yaml
+  - ./sonarr/ks.yaml
+  - ./tautulli/ks.yaml
+  - ./vaultwarden/ks.yaml

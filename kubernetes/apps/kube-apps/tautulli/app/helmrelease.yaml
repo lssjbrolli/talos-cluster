@@ -81,7 +81,4 @@ spec:
     persistence:
       config:
         type: persistentVolumeClaim
-        accessMode: ReadWriteOnce
-        retain: true
-        storageClass: iscsi
-        size: 1Gi
+        existingClaim: tautulli-config

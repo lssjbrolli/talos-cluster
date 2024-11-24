@@ -68,8 +68,10 @@ spec:
       # Configure an Ingress for the main application
       main:
         className: "internal"
+        annotations:
+          external-dns.alpha.kubernetes.io/target: &host "filebrowser.${SECRET_DOMAIN}"
         hosts:
-          - host: "filebrowser.${SECRET_DOMAIN}"
+          - host: *host
             paths:
               - path: /
                 pathType: Prefix

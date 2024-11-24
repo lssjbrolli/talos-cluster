@@ -7,7 +7,7 @@ resources:
   - ./ctcadmin/ks.yaml
   - ./filebrowser/ks.yaml
   - ./flaresolverr/ks.yaml
-  # - ./nextcloud/ks.yaml
+  - ./nextcloud/ks.yaml
   - ./overseerr/ks.yaml
   - ./plex/ks.yaml
   - ./prowlarr/ks.yaml

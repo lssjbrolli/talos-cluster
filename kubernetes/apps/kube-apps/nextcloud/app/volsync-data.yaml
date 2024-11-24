@@ -2,12 +2,12 @@
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationSource
 metadata:
-  name: nextcloud-nextcloud-data
+  name: nextcloud-data
 spec:
   # The PVC to be backed up
-  sourcePVC: nextcloud-nextcloud-data
+  sourcePVC: nextcloud-data
   trigger:
-    schedule: "0 */3 * * *"
+    schedule: "0 0/6 * * *"
   restic:
     moverSecurityContext:
       runAsUser: 568
@@ -19,7 +19,8 @@ spec:
     repository: restic-nc-data
     # Retention policy for backups
     retain:
-      daily: 2
+      daily: 1
+      weekly: 1
     # Clone the source volume prior to taking a backup to ensure a
     # point-in-time image.
     copyMethod: Snapshot
@@ -30,7 +31,7 @@ spec:
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationDestination
 metadata:
-  name: nextcloud-nextcloud-data
+  name: nextcloud-data
 spec:
   trigger:
     manual: init
@@ -41,6 +42,6 @@ spec:
       fsGroup: 568
     repository: restic-nc-data
     # Use an existing PVC, don't provision a new one
-    destinationPVC: nextcloud-nextcloud-data
+    destinationPVC: nextcloud-data
     cleanupCachePVC: true
     copyMethod: Direct

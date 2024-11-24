@@ -14,17 +14,19 @@ spec:
       runAsGroup: 568
       fsGroup: 568
     # Prune the repository (repack to free space) every 2 weeks
-    pruneIntervalDays: 7
+    pruneIntervalDays: 2
     # Name of the Secret with the connection information
     repository: restic-plex
     # Retention policy for backups
     retain:
-      weekly: 2
+      daily: 2
+      weekly: 1
     # Clone the source volume prior to taking a backup to ensure a
     # point-in-time image.
     copyMethod: Snapshot
     # The VSC to use if the copy method is Snapshot (default if omitted)
     volumeSnapshotClassName: iscsi
+    cacheCapacity: 4Gi
 
 ---
 apiVersion: volsync.backube/v1alpha1
@@ -44,3 +46,4 @@ spec:
     destinationPVC: plex-config
     cleanupCachePVC: true
     copyMethod: Direct
+    cacheCapacity: 4Gi

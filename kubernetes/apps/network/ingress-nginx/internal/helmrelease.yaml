@@ -3,7 +3,6 @@ apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: ingress-nginx-internal
-  namespace: network
 spec:
   interval: 30m
   chart:
@@ -21,12 +20,16 @@ spec:
     cleanupOnFail: true
     remediation:
       retries: 3
+  dependsOn:
+    - name: pihole
+      namespace: network
   values:
     fullnameOverride: ingress-nginx-internal
     controller:
       disableLeaderElection: true
       service:
         annotations:
+          external-dns.alpha.kubernetes.io/hostname: "internal.${SECRET_DOMAIN}"
           lbipam.cilium.io/ips: "192.168.1.105"
         externalTrafficPolicy: Cluster
       ingressClassResource:

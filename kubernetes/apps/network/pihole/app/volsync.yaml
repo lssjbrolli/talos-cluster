@@ -37,6 +37,6 @@ spec:
   restic:
     repository: restic-pihole
     # Use an existing PVC, don't provision a new one
-    destinationPVC: filebrowser-config
+    destinationPVC: pihole
     cleanupCachePVC: true
     copyMethod: Direct

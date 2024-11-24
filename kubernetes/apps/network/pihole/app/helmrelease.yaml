@@ -51,7 +51,7 @@ spec:
        memory: 256Mi
     persistentVolumeClaim:
       enabled: true
-      size: "1Gi"
+      existingSecret: pihole
     admin:
       enabled: true
       existingSecret: "pihole-secret"

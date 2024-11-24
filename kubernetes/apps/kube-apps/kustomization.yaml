@@ -5,7 +5,7 @@ resources:
   - ./namespace.yaml
   - ./audiobookshelf/ks.yaml
   - ./ctcadmin/ks.yaml
-  # - ./filebrowser/ks.yaml
+  - ./filebrowser/ks.yaml
   - ./flaresolverr/ks.yaml
   # - ./nextcloud/ks.yaml
   # - ./overseerr/ks.yaml

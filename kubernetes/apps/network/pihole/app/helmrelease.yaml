@@ -32,6 +32,8 @@ spec:
       https:
         # -- Generate a service for HTTPS traffic
         enabled: true
+      http:
+        enabled: true
       type: LoadBalancer
       loadBalancerIP: "192.168.1.249"
     serviceDns:

@@ -4,9 +4,9 @@ kind: Kustomization
 resources:
   - ./namespace.yaml
   # - ./audiobookshelf/ks.yaml
-  # - ./ctcadmin/ks.yaml
+  - ./ctcadmin/ks.yaml
   # - ./filebrowser/ks.yaml
-  # - ./flaresolverr/ks.yaml
+  - ./flaresolverr/ks.yaml
   # - ./nextcloud/ks.yaml
   # - ./overseerr/ks.yaml
   # - ./plex/ks.yaml

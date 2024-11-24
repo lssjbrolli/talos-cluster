@@ -89,6 +89,8 @@ spec:
       # Configure an Ingress for the main application
       main:
         className: "internal"
+        annotations:
+          external-dns.alpha.kubernetes.io/target: "internal.${SECRET_DOMAIN}"
         hosts:
           - host: "pgadmin.${SECRET_DOMAIN}"
             paths:

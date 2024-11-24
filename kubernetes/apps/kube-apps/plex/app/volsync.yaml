@@ -27,7 +27,6 @@ spec:
     # The VSC to use if the copy method is Snapshot (default if omitted)
     volumeSnapshotClassName: iscsi
     cacheCapacity: 2Gi
-    unlock: 'true'
 
 ---
 apiVersion: volsync.backube/v1alpha1

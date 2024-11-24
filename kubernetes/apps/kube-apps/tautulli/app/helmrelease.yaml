@@ -87,7 +87,6 @@ spec:
       cache:
         type: persistentVolumeClaim
         accessMode: ReadWriteOnce
-        retain: true
         storageClass: iscsi
         size: 500Mi
         globalMounts:

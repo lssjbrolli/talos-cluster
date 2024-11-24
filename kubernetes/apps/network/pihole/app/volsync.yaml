@@ -33,7 +33,7 @@ metadata:
   name: pihole
 spec:
   trigger:
-    manual: init2
+    manual: init
   restic:
     repository: restic-pihole
     # Use an existing PVC, don't provision a new one

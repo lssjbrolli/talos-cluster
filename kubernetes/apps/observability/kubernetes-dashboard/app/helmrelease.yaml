@@ -47,6 +47,7 @@ spec:
             auth_request_set $required_groups 'kubernetes_dashboard';
         hosts:
           - "dashboard.${SECRET_DOMAIN}"
+        pathType: Prefix
     auth:
       resources:
         requests:

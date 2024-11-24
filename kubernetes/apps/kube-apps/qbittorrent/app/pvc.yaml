@@ -14,7 +14,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: qbittorrent-gluetun-list
+  name: gluetun
 spec:
   accessModes:
     - ReadWriteOnce

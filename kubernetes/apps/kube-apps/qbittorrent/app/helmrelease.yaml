@@ -230,10 +230,10 @@ spec:
             port-forward:
               - path: /tmp/gluetun
                 readOnly: true
-      # Configure an emptyDir for gluetun server list
+      # Configure a pvc for gluetun server list
       gluetun-list:
         type: persistentVolumeClaim
-        existingClaim: qbittorrent-gluetun-list
+        existingClaim: gluetun
         advancedMounts:
           main:
             gluetun:

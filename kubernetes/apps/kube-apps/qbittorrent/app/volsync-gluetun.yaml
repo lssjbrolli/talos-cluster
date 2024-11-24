@@ -5,21 +5,21 @@ metadata:
   name: gluetun
 spec:
   # The PVC to be backed up
-  sourcePVC: qbittorrent-gluetun-list
+  sourcePVC: gluetun
   trigger:
-    schedule: "0 0 * * *"
+    schedule: "0 0 1 * *"
   restic:
     moverSecurityContext:
       runAsUser: 568
       runAsGroup: 568
       fsGroup: 568
     # Prune the repository (repack to free space) every 2 weeks
-    pruneIntervalDays: 2
+    pruneIntervalDays: 30
     # Name of the Secret with the connection information
     repository: restic-gluetun
     # Retention policy for backups
     retain:
-      weekly: 2
+      monthly: 1
     # Clone the source volume prior to taking a backup to ensure a
     # point-in-time image.
     copyMethod: Snapshot
@@ -30,7 +30,7 @@ spec:
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationDestination
 metadata:
-  name: qbittorrent-gluetun-list
+  name: gluetun
 spec:
   trigger:
     manual: init
@@ -41,6 +41,6 @@ spec:
       fsGroup: 568
     repository: restic-gluetun
     # Use an existing PVC, don't provision a new one
-    destinationPVC: qbittorrent-gluetun-list
+    destinationPVC: gluetun
     cleanupCachePVC: true
     copyMethod: Direct

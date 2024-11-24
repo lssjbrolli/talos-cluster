@@ -84,3 +84,12 @@ spec:
       config:
         type: persistentVolumeClaim
         existingClaim: tautulli-config
+      cache:
+        type: persistentVolumeClaim
+        accessMode: ReadWriteOnce
+        retain: true
+        storageClass: iscsi
+        size: 500Mi
+        globalMounts:
+          - path: /config/cache
+

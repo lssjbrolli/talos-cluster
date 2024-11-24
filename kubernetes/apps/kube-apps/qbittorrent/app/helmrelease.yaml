@@ -195,6 +195,8 @@ spec:
       # Configure an Ingress for the main application
       qbt:
         className: internal
+        annotations:
+          external-dns.alpha.kubernetes.io/target: "internal.${SECRET_DOMAIN}"
         hosts:
           - host: qbt.${SECRET_DOMAIN}
             paths:

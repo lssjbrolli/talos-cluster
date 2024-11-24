@@ -38,6 +38,8 @@ spec:
       ingress:
         enabled: true
         ingressClassName: internal
+        annotations:
+          external-dns.alpha.kubernetes.io/target: "internal.${SECRET_DOMAIN}"
         hosts: ["alertmanager.${SECRET_DOMAIN}"]
         pathType: Prefix
       alertmanagerSpec:
@@ -70,6 +72,8 @@ spec:
       ingress:
         enabled: true
         ingressClassName: internal
+        annotations:
+          external-dns.alpha.kubernetes.io/target: "internal.${SECRET_DOMAIN}"
         hosts: ["prometheus.${SECRET_DOMAIN}"]
         pathType: Prefix
       prometheusSpec:

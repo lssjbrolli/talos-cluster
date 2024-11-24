@@ -69,7 +69,7 @@ spec:
     ingress:
       # Configure an Ingress for the main application
       main:
-        className: "internal"
+        className: internal
         annotations:
           external-dns.alpha.kubernetes.io/target: "internal.${SECRET_DOMAIN}"
         hosts:

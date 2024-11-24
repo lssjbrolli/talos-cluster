@@ -7,8 +7,8 @@ spec:
   # The PVC to be backed up
   sourcePVC: tautulli-config
   trigger:
-    # Take a backup every 30 minutes
-    schedule: "0 0 * * *"
+    # Take a backup every 12h
+    schedule: "0 */12 * * *"
   restic:
     moverSecurityContext:
       runAsUser: 568
@@ -20,7 +20,8 @@ spec:
     repository: restic-tautulli
     # Retention policy for backups
     retain:
-      weekly: 2
+      daily: 2
+      weekly: 1
     # Clone the source volume prior to taking a backup to ensure a
     # point-in-time image.
     copyMethod: Snapshot

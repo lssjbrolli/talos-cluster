@@ -35,6 +35,10 @@ spec:
   trigger:
     manual: init
   restic:
+    moverSecurityContext:
+      runAsUser: 568
+      runAsGroup: 568
+      fsGroup: 568
     repository: restic-pihole
     # Use an existing PVC, don't provision a new one
     destinationPVC: pihole

@@ -41,6 +41,8 @@ spec:
       # -- Configuration for the Ingress
       enabled: "true"
       ingressClassName: internal
+      annotations:
+          external-dns.alpha.kubernetes.io/target: "internal.${SECRET_DOMAIN}"
       hosts:
         - *host
     resources:

@@ -35,7 +35,7 @@ metadata:
   name: tautulli-config
 spec:
   trigger:
-    manual: init1
+    manual: init2
   restic:
     moverSecurityContext:
       runAsUser: 568

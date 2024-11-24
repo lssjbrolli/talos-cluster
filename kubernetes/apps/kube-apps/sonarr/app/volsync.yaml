@@ -34,7 +34,7 @@ metadata:
   name: sonarr-config
 spec:
   trigger:
-    manual: init1
+    manual: init
   restic:
     moverSecurityContext:
       runAsUser: 568

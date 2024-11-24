@@ -34,7 +34,7 @@ metadata:
   name: sonarr-config
 spec:
   trigger:
-    manual: init
+    manual: init1
   restic:
     moverSecurityContext:
       runAsUser: 568
@@ -45,3 +45,4 @@ spec:
     destinationPVC: sonarr-config
     cleanupCachePVC: true
     copyMethod: Direct
+    previous: 1

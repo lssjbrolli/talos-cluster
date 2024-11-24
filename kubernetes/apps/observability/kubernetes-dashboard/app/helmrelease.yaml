@@ -39,7 +39,7 @@ spec:
 
       ingress:
         enabled: true
-        ingressclassName: internal
+        ingressClassName: internal
         annotations:
           external-dns.alpha.kubernetes.io/target: "internal.${SECRET_DOMAIN}"
           nginx.ingress.kubernetes.io/proxy-body-size: "100m"

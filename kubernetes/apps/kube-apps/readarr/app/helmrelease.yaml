@@ -72,7 +72,6 @@ spec:
               READARR__APP__THEME: auto
               READARR__LOG__LEVEL: info
               READARR__AUTH__REQUIRED: DisabledForLocalAddresses
-              READARR__AUTH__APIKEY: 10911c5d6c0f4a2ca2f7fcad4a0a015a
               READARR__AUTH__METHOD: Basic
               READARR__SERVER__PORT: &port 80
               READARR__SERVER__BINDADDRESS: "*"

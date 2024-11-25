@@ -4,6 +4,7 @@ metadata:
     name: readarr-secrets
     namespace: kube-apps
 stringData:
+    READARR__AUTH__APIKEY: ENC[AES256_GCM,data:dW0h3LnmFzLlrICoaVdU4YfCJxXOfv3HkiGet/t2Hgw=,iv:9SdmkeRh8WMXKAcSv8xmiws3A9W1+uHg3wA4bOJFzx8=,tag:PwupM7s+iKGrosl/aCevTw==,type:str]
     READARR__POSTGRES__HOST: ENC[AES256_GCM,data:5fJEsx2zIzEGmXLGxXgCO4kPTdXeOpLVD8DA5f1YzUpJ,iv:dG+pmjEZcAXYWu+6v16PAOLC80da7ob+z7yR5GsFfGs=,tag:iiOZfNXyRJ6tV4RgiFw5Bw==,type:str]
     READARR__POSTGRES__PORT: ENC[AES256_GCM,data:sMdrzA==,iv:JJHUhFSa+vrBplOCY0oNGBuStNki2rszi0JMwY7z9sw=,tag:JURKWBGrINPaVe7eXOEMPg==,type:str]
     READARR__POSTGRES__USER: ENC[AES256_GCM,data:bxysJA==,iv:+PxVFPr+bFw71FHAGMzWJMk64UT8C2/qGK3N8DhQMJM=,tag:2Z5RXYx+1C3oEIsYeL2YZg==,type:str]
@@ -31,8 +32,8 @@ sops:
             K3c3dlNlQ0l3VjhacVFONVdIM3BSOXcKwEfiPvFzy9ju8XHXYJLXJpG9El9SlQXc
             XUNzp6zHHcCEIflIpEJssLFuq9zxCFXk3CoFpk/2PNi8MiOIKIl/qw==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-11-25T19:03:46Z"
-    mac: ENC[AES256_GCM,data:qyO+O50OwkpmnwcsKL5n9z3Z0Exq2effrmWV0xX88AgFJgV2Cq0KfuMA+CTttHYotF2PYcoU4n0JfR3mrkgBC+acdth4D5b4uFupz12Njb+20WbDUftSmhkCrVMGFT0zLi51EIycm9pxe9H/K2G1vw1/2ozi9V2PYw/KFHsSsi8=,iv:ElXCTFlzDZQ4dRFUOVHhGVjuIF6+qOaOkOeH0UMqckM=,tag:eE4+Ipt3iWtRIjhWyyNSDA==,type:str]
+    lastmodified: "2024-11-25T19:10:45Z"
+    mac: ENC[AES256_GCM,data:272clJhnkwd/Ll8syzNKBCxj8ssIvqMg8rLwR3nUZCEEqHLAHfCVaFUmyB6TxcwR7Q+krzcz6NAxKGRCsARdxf4w9uBn0cQQU8OJ9Fd27b5OTmsgdab/c4RJaY7wgAmK+0HOgv1xNRjPLyoocFUQ6hXWZ4ZBitvctANdHD8ydiA=,iv:n6kfbHuLznjyqBXI7MKD42ZIC8w6yMTE3Qq6m+6zwZc=,tag:z8lFOuArBZ3RwwVZfJ3Beg==,type:str]
     pgp: []
     encrypted_regex: ^(data|stringData)$
     version: 3.9.1

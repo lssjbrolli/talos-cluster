@@ -54,11 +54,11 @@ spec:
         containers:
           main:
             image:
-              repository: ghcr.io/linuxserver/readarr
-              tag: develop-0.4.4.2686-ls131
+              repository: hotio/readarr
+              tag: testing-0.4.4.2686@sha256:a386c0af7dc372d324061c4750e02ac34e193002e9bf08b5ad2f5b4fac155ed5
             securityContext:
-              allowPrivilegeEscalation: true
-              readOnlyRootFilesystem: false
+              allowPrivilegeEscalation: false
+              readOnlyRootFilesystem: true
               capabilities: { drop: ["ALL"] }
             resources:
               requests:

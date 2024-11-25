@@ -32,7 +32,7 @@ spec:
   values:
     defaultPodOptions:
       securityContext:
-        runAsNonRoot: true
+        runAsNonRoot: false
         runAsUser: 568
         runAsGroup: 568
         fsGroup: 568
@@ -58,7 +58,7 @@ spec:
               tag: testing-0.4.4.2686@sha256:a386c0af7dc372d324061c4750e02ac34e193002e9bf08b5ad2f5b4fac155ed5
             securityContext:
               allowPrivilegeEscalation: false
-              readOnlyRootFilesystem: true
+              readOnlyRootFilesystem: false
               capabilities: { drop: ["ALL"] }
             resources:
               requests:

@@ -22,6 +22,13 @@ spec:
     remediation:
       strategy: rollback
       retries: 3
+  dependsOn:
+    - name: democratic-csi
+      namespace: storage-system
+    - name: volsync
+      namespace: storage-system
+    - name: minio
+      namespace: storage-system
   values:
     defaultPodOptions:
       securityContext:
@@ -30,33 +37,63 @@ spec:
         runAsGroup: 568
         fsGroup: 568
         fsGroupChangePolicy: OnRootMismatch
+        seccompProfile: { type: RuntimeDefault }
     controllers:
       main:
         strategy: Recreate
         annotations:
           reloader.stakater.com/auto: "true"
+        initContainers:
+          init-db:
+            image:
+              repository: ghcr.io/onedr0p/postgres-init
+              tag: 16.6@sha256:35353a77777ee8f634d0f3945f495b4a40065134b8619e0d18bd49b0ee9c855b
+            envFrom: &envFrom
+              - secretRef:
+                  name: readarr-secrets
         containers:
           main:
             image:
-              repository: ghcr.io/onedr0p/readarr-develop
-              tag: 0.3.32@sha256:3ae920c56261b120ec6e7fce038cd700cc691b74d6326ac074b0a8985af5f8b6
+              repository: ghcr.io/linuxserver/readarr
+              tag: develop-0.4.4.2686-ls131
             securityContext:
               allowPrivilegeEscalation: false
-              readOnlyRootFilesystem: false
+              readOnlyRootFilesystem: true
               capabilities: { drop: ["ALL"] }
             resources:
               requests:
-                cpu: 100m
+                cpu: 50m
                 memory: 256Mi
               limits:
                 memory: 512Mi
             env:
-              READARR__APP__INSTANCENAME: Readarr
-              READARR__AUTH__REQUIRED: DisabledForLocalAddresses
-              READARR__LOG__DBENABLED: "False"
-              READARR__LOG__LEVEL: info
-              READARR__SERVER__PORT: &port 80
               TZ: ${CONFIG_TIMEZONE}
+              READARR__APP__INSTANCENAME: Readarr
+              READARR__APP__THEME: auto
+              READARR__LOG__LEVEL: info
+              READARR__AUTH__REQUIRED: DisabledForLocalAddresses
+              READARR__AUTH__APIKEY: 10911c5d6c0f4a2ca2f7fcad4a0a015a
+              READARR__AUTH__METHOD: Basic
+              READARR__SERVER__PORT: &port 80
+              READARR__SERVER__BINDADDRESS: "*"
+              READARR__SERVER__ENABLESSL: False
+              READARR__UPDATE__BRANCH: develop
+              READARR__UPDATE__MECHANISM: docker
+              READARR__UPDATE__AUTOMATICALLY: False
+            envFrom: *envFrom
+            probes:
+              liveness: &probes
+                enabled: true
+                custom: true
+                spec:
+                  httpGet:
+                    path: /ping
+                    port: *port
+                  initialDelaySeconds: 0
+                  periodSeconds: 10
+                  timeoutSeconds: 1
+                  failureThreshold: 3
+              readiness: *probes
     service:
       main:
         controller: main

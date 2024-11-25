@@ -32,7 +32,7 @@ spec:
   values:
     defaultPodOptions:
       securityContext:
-        runAsNonRoot: false
+        runAsNonRoot: true
         runAsUser: 568
         runAsGroup: 568
         fsGroup: 568
@@ -54,11 +54,11 @@ spec:
         containers:
           main:
             image:
-              repository: hotio/readarr
-              tag: testing-0.4.4.2686@sha256:a386c0af7dc372d324061c4750e02ac34e193002e9bf08b5ad2f5b4fac155ed5
+              repository: ghcr.io/elfhosted/readarr-develop
+              tag: 0.4.4.2686@sha256:51f9aec4471dc3222e7bb0ec083820d5abc1f683541bf3ae8620cc75caca794f
             securityContext:
               allowPrivilegeEscalation: false
-              readOnlyRootFilesystem: false
+              readOnlyRootFilesystem: true
               capabilities: { drop: ["ALL"] }
             resources:
               requests:

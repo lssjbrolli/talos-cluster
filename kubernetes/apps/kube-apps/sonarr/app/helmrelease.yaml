@@ -66,34 +66,34 @@ spec:
                 memory: 512Mi
             env:
               TZ: ${CONFIG_TIMEZONE}
-              RADARR__APP__INSTANCENAME: Sonarr
-              RADARR__APP__THEME: auto
-              RADARR__APP__LAUNCHBROWSER: False
-              RADARR__LOG__LEVEL: info
-              RADARR__LOG__DBENABLED: True
-              RADARR__LOG__ANALYTICSENABLED: True
-              RADARR__AUTH__REQUIRED: DisabledForLocalAddresses
-              RADARR__AUTH__METHOD: Basic
-              RADARR__SERVER__PORT: &port 80
-              RADARR__SERVER__BINDADDRESS: "*"
-              RADARR__SERVER__ENABLESSL: False
-              RADARR__UPDATE__BRANCH: develop
-              RADARR__UPDATE__MECHANISM: docker
-              RADARR__UPDATE__AUTOMATICALLY: False
+              SONARR__APP__INSTANCENAME: Sonarr
+              SONARR__APP__THEME: auto
+              SONARR__APP__LAUNCHBROWSER: False
+              SONARR__LOG__LEVEL: info
+              SONARR__LOG__DBENABLED: True
+              SONARR__LOG__ANALYTICSENABLED: True
+              SONARR__AUTH__REQUIRED: DisabledForLocalAddresses
+              SONARR__AUTH__METHOD: Basic
+              SONARR__SERVER__PORT: &port 80
+              SONARR__SERVER__BINDADDRESS: "*"
+              SONARR__SERVER__ENABLESSL: False
+              SONARR__UPDATE__BRANCH: develop
+              SONARR__UPDATE__MECHANISM: docker
+              SONARR__UPDATE__AUTOMATICALLY: False
             envFrom: *envFrom
-            # probes:
-              # liveness: &probes
-              #   enabled: true
-              #   custom: true
-              #   spec:
-              #     httpGet:
-              #       path: /ping
-              #       port: *port
-              #     initialDelaySeconds: 10
-              #     periodSeconds: 10
-              #     timeoutSeconds: 1
-              #     failureThreshold: 3
-              # readiness: *probes
+            probes:
+              liveness: &probes
+                enabled: true
+                custom: true
+                spec:
+                  httpGet:
+                    path: /ping
+                    port: *port
+                  initialDelaySeconds: 10
+                  periodSeconds: 10
+                  timeoutSeconds: 1
+                  failureThreshold: 3
+              readiness: *probes
     service:
       main:
         controller: main

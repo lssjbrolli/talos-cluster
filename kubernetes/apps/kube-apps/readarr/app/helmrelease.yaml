@@ -55,7 +55,7 @@ spec:
           main:
             image:
               repository: ghcr.io/elfhosted/readarr-develop
-              tag: 0.4.3.2665@sha256:f4e354fa36a0bced8299dfa30f4ab007229f2a3c53d5c6d21125d483ea679110
+              tag: 0.4.4.2686@sha256:4d1e980238f09b845f19b66bb81a5e5970ede534024aca75fc92beeb1c66ae6a
             securityContext:
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: true
@@ -71,6 +71,7 @@ spec:
               READARR__APP__INSTANCENAME: Readarr
               READARR__APP__THEME: auto
               READARR__LOG__LEVEL: info
+              READARR__LOG__DBENABLED: False
               READARR__AUTH__REQUIRED: DisabledForLocalAddresses
               READARR__AUTH__METHOD: Basic
               READARR__SERVER__PORT: &port 80

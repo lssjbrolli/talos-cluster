@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: Secret
+metadata:
+    name: prowlarr-secrets
+    namespace: kube-apps
+stringData:
+    PROWLARR__AUTH__APIKEY: ENC[AES256_GCM,data:5SuBXW2DMWHbiEmFzYUSs44j9hLmoRPL8COmmKFle54=,iv:1q95LsyGV7Q/zfcYnPwbqzfZfui/YLRJWGHxrzEg9DI=,tag:YprL2bNm/ma+ldOXAkPilw==,type:str]
+    PROWLARR__POSTGRES__HOST: ENC[AES256_GCM,data:KpeD5Ke3UBVZjHDyq5Ex7ZsOCA1sYwwqreOJ1zq3kqvZ,iv:bB2ocZ60XpC+YDCPbOnaPG9ikTUHH3pZKXrR8mUNyl0=,tag:P6ucn64jnH1NaCm+yF8c+g==,type:str]
+    PROWLARR__POSTGRES__PORT: ENC[AES256_GCM,data:3lmQzg==,iv:6RN0AeExyuKvwxYBKXIcJKlc9ISJeWRvS7hxUpPhVoI=,tag:dolXtnFPz1/6BSn15RNI8Q==,type:str]
+    PROWLARR__POSTGRES__USER: ENC[AES256_GCM,data:k0DQcA==,iv:KnaYvzO+Nle6UJ8cG4MdIujJJ5aIDGeUAcYxG5/qzlw=,tag:ZjzljCiqqsMsGG86lD8/ew==,type:str]
+    PROWLARR__POSTGRES__PASSWORD: ENC[AES256_GCM,data:9NCFqg==,iv:3ifh0opY70/4tMXuKqk5UEEicCIHSmAws3jr+5hMpBc=,tag:F2D8Xbr04AOuB7b+aLKj6w==,type:str]
+    PROWLARR__POSTGRES__MAINDB: ENC[AES256_GCM,data:LID/YVn72ps=,iv:p9E3KzbqrSuXbtkHBqJ0ZbMzJfIc9jfetMQibHrRAHI=,tag:IAZQSHIwcVEjniN0SoNRWg==,type:str]
+    PROWLARR__POSTGRES__LOGDB: ENC[AES256_GCM,data:yPwsSZTZIfgwmYgx,iv:Wh5nWnyjjKqgoEHsHqrNdyqDXBxFxTcK2wR4tXF/B3A=,tag:3fvYYjpUDlus3jW1LhUcew==,type:str]
+    INIT_POSTGRES_DBNAME: ENC[AES256_GCM,data:4bxs6YlmewN4P0wE7/yZLd6ETqXR,iv:inF9By37cjddhdfCXxzX/UWZJqVSjcBiz+ZO88FNGRs=,tag:44tvALUS5njzYdAwKPeiAg==,type:str]
+    INIT_POSTGRES_HOST: ENC[AES256_GCM,data:JZQ1rSNd1LQY7MfbCP+lOMutjMcMVuwwNdQ9RlWbvMCL,iv:mosHHz6XVDyu/qsW65zMKU8Vx9Ak1F4DYlNBLLI7KXU=,tag:++zIFUtjJiKhOZb8VI00uw==,type:str]
+    INIT_POSTGRES_USER: ENC[AES256_GCM,data:q8qQuQ==,iv:FhwLlTKfGwFFfmIWCtXNfcb9cItkMvpgv2KqY4GjcLo=,tag:NF4aiCogOFiaO04F0qy9qQ==,type:str]
+    INIT_POSTGRES_PASS: ENC[AES256_GCM,data:TRbVkQ==,iv:h9meYY54EDG3ElBsPP70tIOkRmwXmlihhtIspH2/6ck=,tag:uO3y0cQft91BwT7ZMZOr1g==,type:str]
+    INIT_POSTGRES_SUPER_PASS: ENC[AES256_GCM,data:mSC5tQ==,iv:4udw5VQlXUnTPa7hsi4CMvSsv9Ye6ozwK8hf50diwa8=,tag:j56oMmIjoNWnfG9odT/biQ==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age1k5cr4cvs4atdm3gse77vq4glnv9q49gq5wl49p9806gfyfld7p3setz3tw
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBweDZZZnNJMFJmUVVRZFlq
+            RlpKMFpyZzRQSk1vV1pvVytkNGJtVVUxRXlVCnZnbEZaZG5Ld2FITDlBa1phOXFk
+            R0Z5UzlZZkh1QWpCdFNWN0F0cG5nejgKLS0tIG1rL3pDMTZ0TTJBblRxdkQxTVpu
+            K3c3dlNlQ0l3VjhacVFONVdIM3BSOXcKwEfiPvFzy9ju8XHXYJLXJpG9El9SlQXc
+            XUNzp6zHHcCEIflIpEJssLFuq9zxCFXk3CoFpk/2PNi8MiOIKIl/qw==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2024-11-26T17:56:57Z"
+    mac: ENC[AES256_GCM,data:6f21vTJTv//A1j4RCJLArYF9cxCtaXJq1yIsk3kSb08JzQEtQEDRI+7c/Ym4gVfRzT9hS5GmCeO5B3rRzFYORxoUT4xW9Fu0YoLmnnfr7Yvw7Q3Ki7Ajrqq6DPX3PZKStGvag90kz+0Akbr6gTddK7rujOt4alkjc62E0Is8vnI=,iv:3YjhqykyGjRYEGVAIxNAze7qIcZ7484A2yaaGrR1JHs=,tag:icTGhFMpd0tONkmV9bNyAA==,type:str]
+    pgp: []
+    encrypted_regex: ^(data|stringData)$
+    version: 3.9.1

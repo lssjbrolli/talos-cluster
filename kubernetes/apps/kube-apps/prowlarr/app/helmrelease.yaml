@@ -1,6 +1,5 @@
 ---
 # yaml-language-server: $schema=https://raw.githubusercontent.com/bernd-schorgers/helm-charts/main/charts/other/app-template/schemas/helmrelease-helm-v2.schema.json
-# yaml-language-server: $schema=https://raw.githubusercontent.com/bjw-s/helm-charts/common-3.4.0/charts/library/common/schemas/persistence.json
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
@@ -15,14 +14,21 @@ spec:
         kind: HelmRepository
         name: bjw-s
         namespace: flux-system
-  # install:
-  #   remediation:
-  #     retries: 3
-  # upgrade:
-  #   cleanupOnFail: true
-  #   remediation:
-  #     strategy: rollback
-  #     retries: 3
+  install:
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      strategy: rollback
+      retries: 3
+  driftDetection:
+    mode: enabled
+  dependsOn:
+    - name: volsync
+      namespace: storage-system
+    - name: cluster16
+      namespace: db
   values:
     defaultPodOptions:
       securityContext:
@@ -34,38 +40,69 @@ spec:
         seccompProfile: { type: RuntimeDefault }
     controllers:
       main:
+        strategy: Recreate
         annotations:
           reloader.stakater.com/auto: "true"
+        initContainers:
+          init-db:
+            image:
+              repository: ghcr.io/onedr0p/postgres-init
+              tag: 16.6@sha256:35353a77777ee8f634d0f3945f495b4a40065134b8619e0d18bd49b0ee9c855b
+            envFrom: &envFrom
+              - secretRef:
+                  name: prowlarr-secrets
         containers:
           main:
             image:
-              repository: ghcr.io/onedr0p/prowlarr
-              tag: 1.26.1@sha256:a7815d50e74405c030278cdfdf7308f3bd1896cfe241f0383e95b4f3492b4a36
-            env:
-              TZ: "${CONFIG_TIMEZONE}"
-              PROWLARR__APP__INSTANCENAME: Prowlarr
-              PROWLARR__LOG__DBENABLED: "False"
-              PROWLARR__LOG__LEVEL: info
-              PROWLARR__AUTH__METHOD: External
-              PROWLARR__AUTH__REQUIRED: DisabledForLocalAddresses
-              PROWLARR__SERVER__PORT: &port 80
+              repository: ghcr.io/elfhosted/prowlarr-develop
+              tag: 1.27.0.4852@sha256:b8a74b1b4e97393cde6a5a4a971c3ad825b0a6cb18728aa05a5a6c7aad7c2e4
             securityContext:
               allowPrivilegeEscalation: false
-              readOnlyRootFilesystem: false
+              readOnlyRootFilesystem: true
               capabilities: { drop: ["ALL"] }
             resources:
               requests:
-                cpu: 100m
+                cpu: 50m
                 memory: 256Mi
               limits:
                 memory: 512Mi
+            env:
+              TZ: ${CONFIG_TIMEZONE}
+              PROWLARR__APP__INSTANCENAME: Prowlarr
+              PROWLARR__APP__THEME: auto
+              PROWLARR__APP__LAUNCHBROWSER: False
+              PROWLARR__LOG__LEVEL: info
+              PROWLARR__LOG__DBENABLED: True
+              PROWLARR__LOG__ANALYTICSENABLED: True
+              PROWLARR__AUTH__REQUIRED: DisabledForLocalAddresses
+              PROWLARR__AUTH__METHOD: Basic
+              PROWLARR__SERVER__PORT: &port 80
+              PROWLARR__SERVER__BINDADDRESS: "*"
+              PROWLARR__SERVER__ENABLESSL: False
+              PROWLARR__UPDATE__BRANCH: develop
+              PROWLARR__UPDATE__MECHANISM: docker
+              PROWLARR__UPDATE__AUTOMATICALLY: False
+            envFrom: *envFrom
+            probes:
+              liveness: &probes
+                enabled: true
+                custom: true
+                spec:
+                  httpGet:
+                    path: /ping
+                    port: *port
+                  initialDelaySeconds: 0
+                  periodSeconds: 10
+                  timeoutSeconds: 1
+                  failureThreshold: 3
+              readiness: *probes
     service:
       main:
         controller: main
+        type: ClusterIP
         ports:
           http:
             port: *port
-
     ingress:
       # Configure an Ingress for the main application
       main:

@@ -6,4 +6,5 @@ resources:
   - ./helmrelease.yaml
   - ./pvc.yaml
   - ./restic.sops.yaml
+  - ./sonarr.sops.yaml
   - ./volsync.yaml

@@ -22,6 +22,11 @@ spec:
     remediation:
       strategy: rollback
       retries: 3
+  dependsOn:
+    - name: volsync
+      namespace: storage-system
+    - name: cluster16
+      namespace: db
   values:
     defaultPodOptions:
       securityContext:
@@ -30,37 +35,67 @@ spec:
         runAsGroup: 568
         fsGroup: 568
         fsGroupChangePolicy: OnRootMismatch
+        seccompProfile: { type: RuntimeDefault }
     controllers:
       main:
         strategy: Recreate
         annotations:
           reloader.stakater.com/auto: "true"
+        initContainers:
+          init-db:
+            image:
+              repository: ghcr.io/onedr0p/postgres-init
+              tag: 16.6@sha256:35353a77777ee8f634d0f3945f495b4a40065134b8619e0d18bd49b0ee9c855b
+            envFrom: &envFrom
+              - secretRef:
+                  name: sonarr-secrets
         containers:
           main:
             image:
-              repository: ghcr.io/onedr0p/sonarr
-              tag: 4.0.10@sha256:17b05e619b07854182bc47295efca2348fadde0a927de1797b55dc01dcd5f58c
+              repository: ghcr.io/elfhosted/sonarr-develop
+              tag: 4.0.10.2656@sha256:475d74f3256bcb6312087dc43e296390e797f3d0507aa0547a90f37c683962cc
             securityContext:
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: false
               capabilities: { drop: ["ALL"] }
             resources:
               requests:
-                cpu: 100m
+                cpu: 50m
                 memory: 256Mi
               limits:
                 memory: 512Mi
             env:
-              SONARR__APP__INSTANCENAME: Sonarr
-              SONARR__AUTH__REQUIRED: DisabledForLocalAddresses
-              SONARR__LOG__DBENABLED: "False"
-              SONARR__LOG__LEVEL: info
-              SONARR__SERVER__PORT: &port 80
               TZ: ${CONFIG_TIMEZONE}
+              RADARR__APP__INSTANCENAME: Sonarr
+              RADARR__APP__THEME: auto
+              RADARR__APP__LAUNCHBROWSER: False
+              RADARR__LOG__LEVEL: info
+              RADARR__LOG__DBENABLED: True
+              RADARR__LOG__ANALYTICSENABLED: True
+              RADARR__AUTH__REQUIRED: DisabledForLocalAddresses
+              RADARR__AUTH__METHOD: Basic
+              RADARR__SERVER__PORT: &port 80
+              RADARR__SERVER__BINDADDRESS: "*"
+              RADARR__SERVER__ENABLESSL: False
+              RADARR__UPDATE__BRANCH: develop
+              RADARR__UPDATE__MECHANISM: docker
+              RADARR__UPDATE__AUTOMATICALLY: False
+            envFrom: *envFrom
+            probes:
+              liveness: &probes
+                enabled: true
+                custom: true
+                spec:
+                  httpGet:
+                    path: /ping
+                    port: *port
+                  initialDelaySeconds: 0
+                  periodSeconds: 10
+                  timeoutSeconds: 1
+                  failureThreshold: 3
+              readiness: *probes
     service:
       main:
-        annotations:
-          external-dns.alpha.kubernetes.io/hostname: sonarr.${SECRET_DOMAIN}
         controller: main
         type: ClusterIP
         ports:

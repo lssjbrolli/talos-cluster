@@ -54,8 +54,8 @@ spec:
         containers:
           main:
             image:
-              repository: ghcr.io/elfhosted/readarr-develop
-              tag: 0.4.4.2686@sha256:4d1e980238f09b845f19b66bb81a5e5970ede534024aca75fc92beeb1c66ae6a
+              repository: ghcr.io/lssjbrolli/containers
+              tag: latest
             securityContext:
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: true

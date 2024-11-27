@@ -43,19 +43,19 @@ spec:
         strategy: Recreate
         annotations:
           reloader.stakater.com/auto: "true"
-        initContainers:
-          init-db:
-            image:
-              repository: ghcr.io/onedr0p/postgres-init
-              tag: 16.6@sha256:35353a77777ee8f634d0f3945f495b4a40065134b8619e0d18bd49b0ee9c855b
-            envFrom: &envFrom
-              - secretRef:
-                  name: readarr-secrets
+        # initContainers:
+        #   init-db:
+        #     image:
+        #       repository: ghcr.io/onedr0p/postgres-init
+        #       tag: 16.6@sha256:35353a77777ee8f634d0f3945f495b4a40065134b8619e0d18bd49b0ee9c855b
+        #     envFrom: &envFrom
+        #       - secretRef:
+        #           name: readarr-secrets
         containers:
           main:
             image:
-              repository: ghcr.io/lssjbrolli/containers
-              tag: latest
+              repository: ghcr.io/elfhosted/readarr-develop
+              tag: 0.4.4.2686@sha256:4d1e980238f09b845f19b66bb81a5e5970ede534024aca75fc92beeb1c66ae6a
             securityContext:
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: true
@@ -68,19 +68,19 @@ spec:
                 memory: 512Mi
             env:
               TZ: ${CONFIG_TIMEZONE}
-              READARR__APP__INSTANCENAME: Readarr
-              READARR__APP__THEME: auto
-              READARR__LOG__LEVEL: info
-              READARR__LOG__DBENABLED: False
-              READARR__AUTH__REQUIRED: DisabledForLocalAddresses
-              READARR__AUTH__METHOD: Basic
-              READARR__SERVER__PORT: &port 80
-              READARR__SERVER__BINDADDRESS: "*"
-              READARR__SERVER__ENABLESSL: False
-              READARR__UPDATE__BRANCH: develop
-              READARR__UPDATE__MECHANISM: docker
-              READARR__UPDATE__AUTOMATICALLY: False
-            envFrom: *envFrom
+            #   READARR__APP__INSTANCENAME: Readarr
+            #   READARR__APP__THEME: auto
+            #   READARR__LOG__LEVEL: info
+            #   READARR__LOG__DBENABLED: False
+            #   READARR__AUTH__REQUIRED: DisabledForLocalAddresses
+            #   READARR__AUTH__METHOD: Basic
+            #   READARR__SERVER__PORT: &port 80
+            #   READARR__SERVER__BINDADDRESS: "*"
+            #   READARR__SERVER__ENABLESSL: False
+            #   READARR__UPDATE__BRANCH: develop
+            #   READARR__UPDATE__MECHANISM: docker
+            #   READARR__UPDATE__AUTOMATICALLY: False
+            # envFrom: *envFrom
             probes:
               liveness: &probes
                 enabled: true

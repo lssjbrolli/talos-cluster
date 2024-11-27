@@ -60,7 +60,6 @@ spec:
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: true
               capabilities: { drop: ["ALL"] }
-            restartPolicy: Never
             resources:
               requests:
                 cpu: 50m

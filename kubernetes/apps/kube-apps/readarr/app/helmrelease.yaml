@@ -125,4 +125,4 @@ spec:
         path: /mnt/storage/media
       tmp:
         type: emptyDir
-        medium: memory
+        medium: Memory

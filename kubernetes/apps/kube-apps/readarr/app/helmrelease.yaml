@@ -74,26 +74,26 @@ spec:
             #   READARR__LOG__DBENABLED: False
             #   READARR__AUTH__REQUIRED: DisabledForLocalAddresses
             #   READARR__AUTH__METHOD: Basic
-            #   READARR__SERVER__PORT: &port 80
+              READARR__SERVER__PORT: &port 80
             #   READARR__SERVER__BINDADDRESS: "*"
             #   READARR__SERVER__ENABLESSL: False
             #   READARR__UPDATE__BRANCH: develop
             #   READARR__UPDATE__MECHANISM: docker
             #   READARR__UPDATE__AUTOMATICALLY: False
             # envFrom: *envFrom
-            probes:
-              liveness: &probes
-                enabled: true
-                custom: true
-                spec:
-                  httpGet:
-                    path: /ping
-                    port: *port
-                  initialDelaySeconds: 0
-                  periodSeconds: 10
-                  timeoutSeconds: 1
-                  failureThreshold: 3
-              readiness: *probes
+            # probes:
+            #   liveness: &probes
+            #     enabled: true
+            #     custom: true
+            #     spec:
+            #       httpGet:
+            #         path: /ping
+            #         port: *port
+            #       initialDelaySeconds: 0
+            #       periodSeconds: 10
+            #       timeoutSeconds: 1
+            #       failureThreshold: 3
+            #   readiness: *probes
     service:
       main:
         controller: main

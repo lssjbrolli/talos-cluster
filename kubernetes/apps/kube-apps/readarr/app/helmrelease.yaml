@@ -60,6 +60,7 @@ spec:
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: true
               capabilities: { drop: ["ALL"] }
+            restartPolicy: Never
             resources:
               requests:
                 cpu: 50m
@@ -74,7 +75,7 @@ spec:
             #   READARR__LOG__DBENABLED: False
             #   READARR__AUTH__REQUIRED: DisabledForLocalAddresses
             #   READARR__AUTH__METHOD: Basic
-              READARR__SERVER__PORT: &port 80
+              # READARR__SERVER__PORT: &port 80
             #   READARR__SERVER__BINDADDRESS: "*"
             #   READARR__SERVER__ENABLESSL: False
             #   READARR__UPDATE__BRANCH: develop
@@ -100,7 +101,7 @@ spec:
         type: ClusterIP
         ports:
           http:
-            port: *port
+            port: "80"
     ingress:
       # Configure an Ingress for the main application
       main:
@@ -123,3 +124,6 @@ spec:
         type: nfs
         server: 192.168.1.150
         path: /mnt/storage/media
+      tmp:
+        type: emptyDir
+        medium: memory

@@ -33,7 +33,7 @@ metadata:
   name: overseerr-config
 spec:
   trigger:
-    manual: init
+    manual: restorev1
   restic:
     moverSecurityContext:
       runAsUser: 568

@@ -8,5 +8,5 @@ resources:
   - ./restic-gluetun.sops.yaml
   - ./restic-qbt.sops.yaml
   - ./vpnconfig.sops.yaml
-  - ./volsync-gluetun.yaml
-  - ./volsync-qbt.yaml
+  # - ./volsync-gluetun.yaml
+  # - ./volsync-qbt.yaml

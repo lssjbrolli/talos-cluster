@@ -113,6 +113,14 @@ spec:
       grafana:
         persistence:
           enabled: true
+      prometheus:
+        prometheusSpec:
+          resources:
+            requests:
+              cpu: 100m
+              memory: 1Gi
+            limits:
+              memory: 2Gi
     prometheus:
       prometheusSpec:
-        retention: 30d #change the number of days here
+        retention: 15d #change the number of days here

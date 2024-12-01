@@ -47,9 +47,9 @@ spec:
             resources:
               requests:
                 cpu: 150m
-                memory: 256Mi
+                memory: 128Mi
               limits:
-                memory: 512Mi
+                memory: 256Mi
             env:
               AUDIOBOOKSHELF_GID: 568
               AUDIOBOOKSHELF_UID: 568

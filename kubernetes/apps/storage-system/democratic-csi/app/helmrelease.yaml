@@ -23,8 +23,54 @@ spec:
       strategy: rollback
       retries: 3
   values:
+    controller:
+      driver:
+        resources:
+          requests:
+            memory: 128Mi
+          limits:
+            memory: 256Mi
+      externalAttacher:
+        args:
+          - --leader-election=false
+        resources:
+          requests:
+            memory: 10Mi
+          limits:
+            memory: 30Mi
+      externalProvisioner:
+        args:
+          - --leader-election=false
+        resources:
+          requests:
+            memory: 10Mi
+          limits:
+            memory: 30Mi
+      externalResizer:
+        args:
+          - --leader-election=false
+        resources:
+          requests:
+            memory: 10Mi
+          limits:
+            memory: 30Mi
+      externalSnapshotter:
+        args:
+          - --leader-election=false
+        resources:
+          requests:
+            memory: 10Mi
+          limits:
+            memory: 30Mi
     csiDriver:
       name: "iscsi"
+    csiProxy:
+      resources:
+        requests:
+          cpu: 0m
+          memory: 15Mi
+        limits:
+          memory: 22Mi
     storageClasses:
       - name: iscsi
         defaultClass: true
@@ -48,6 +94,13 @@ spec:
           detachedSnapshots: "true"
     node:
       hostPID: true
+      driverRegistrar:
+        resources:
+          requests:
+            cpu: 0m
+            memory: 20Mi
+          limits:
+            memory: 30Mi
       driver:
         extraEnv:
           - name: ISCSIADM_HOST_STRATEGY
@@ -66,6 +119,7 @@ spec:
           port: 443
           apiKey: 1-8ut82p9luLHvlaZIXqrF5KdB9nghLW0e9pt8VGeffaoMuyHVjwhWPrFZzTe8weOB
           allowInsecure: true
+          apiVersion: 2
         zfs:
           datasetParentName: apps/iscsi
           detachedSnapshotsDatasetParentName: apps/snapshots

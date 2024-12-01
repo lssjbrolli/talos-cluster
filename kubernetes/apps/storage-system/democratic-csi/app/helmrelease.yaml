@@ -39,8 +39,8 @@ spec:
           limits:
             memory: 30Mi
       externalProvisioner:
-        args:
-          - --leader-election=false
+        # args:
+        #   - --leader-election=false
         resources:
           requests:
             memory: 10Mi

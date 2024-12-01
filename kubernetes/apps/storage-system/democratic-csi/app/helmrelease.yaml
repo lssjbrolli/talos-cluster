@@ -31,32 +31,32 @@ spec:
           limits:
             memory: 256Mi
       externalAttacher:
-        args:
-          - --leader-election=false
+        # args:
+        #   - --leader-election=false
         resources:
           requests:
             memory: 10Mi
           limits:
             memory: 30Mi
       externalProvisioner:
-        args:
-          - --leader-election=false
+        # args:
+        #   - --leader-election=false
         resources:
           requests:
             memory: 10Mi
           limits:
             memory: 30Mi
       externalResizer:
-        args:
-          - --leader-election=false
+        # args:
+        #   - --leader-election=false
         resources:
           requests:
             memory: 10Mi
           limits:
             memory: 30Mi
       externalSnapshotter:
-        args:
-          - --leader-election=false
+        # args:
+        #   - --leader-election=false
         resources:
           requests:
             memory: 10Mi

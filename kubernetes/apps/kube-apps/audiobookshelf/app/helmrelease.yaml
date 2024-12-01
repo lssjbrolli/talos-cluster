@@ -36,8 +36,8 @@ spec:
               repository: ghcr.io/advplyr/audiobookshelf
               tag: 2.17.3@sha256:88afb2bfbada78c1084ea7e3a5c0c51512ecb547c5ca9ad264d83754b413eb99
             securityContext:
-              # readOnlyRootFilesystem: false
-              # runAsNonRoot: true
+              readOnlyRootFilesystem: true
+              runAsNonRoot: true
               runAsUser: 568
               runAsGroup: 568
               fsGroup: 568

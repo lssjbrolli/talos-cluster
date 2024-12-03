@@ -7,7 +7,6 @@ spec:
   # The PVC to be backed up
   sourcePVC: tautulli-config
   trigger:
-    # Take a backup every 12h
     schedule: "0 */12 * * *"
   restic:
     moverSecurityContext:
@@ -35,7 +34,7 @@ metadata:
   name: tautulli-config
 spec:
   trigger:
-    manual: init2
+    manual: init
   restic:
     moverSecurityContext:
       runAsUser: 568

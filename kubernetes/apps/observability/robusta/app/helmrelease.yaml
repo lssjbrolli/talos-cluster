@@ -24,7 +24,6 @@ spec:
       retries: 3
   values:
     clusterName: talos-cluster
-    isSmallCluster: true
     globalConfig:
       signing_key: "{{ env.SIGNKEY }}"
       account_id: "{{ env.ACCOUNTID }}"

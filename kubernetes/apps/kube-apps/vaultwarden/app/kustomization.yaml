@@ -8,4 +8,4 @@ resources:
   - ./restic.sops.yaml
   - ./vault-db.sops.yaml
   - ./vault-secret.sops.yaml
-  # - ./volsync.yaml
+  - ./volsync.yaml

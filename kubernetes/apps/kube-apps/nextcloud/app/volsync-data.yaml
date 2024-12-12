@@ -7,14 +7,14 @@ spec:
   # The PVC to be backed up
   sourcePVC: nextcloud-data
   trigger:
-    schedule: "0 0/6 * * *"
+    schedule: "0 */3 * * *"
   restic:
     moverSecurityContext:
       runAsUser: 568
       runAsGroup: 568
       fsGroup: 568
-    # Prune the repository (repack to free space) every 2 weeks
-    pruneIntervalDays: 2
+
+    pruneIntervalDays: 14
     # Name of the Secret with the connection information
     repository: restic-nc-data
     # Retention policy for backups

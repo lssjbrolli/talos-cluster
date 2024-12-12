@@ -7,19 +7,20 @@ spec:
   # The PVC to be backed up
   sourcePVC: pihole
   trigger:
-    schedule: "0 0 * * *"
+    schedule: "0 */12 * * *"
   restic:
     moverSecurityContext:
       runAsUser: 568
       runAsGroup: 568
       fsGroup: 568
-    # Prune the repository (repack to free space) every 2 weeks
-    pruneIntervalDays: 2
+
+    pruneIntervalDays: 14
     # Name of the Secret with the connection information
     repository: restic-pihole
     # Retention policy for backups
     retain:
-      weekly: 2
+      daily: 1
+      weekly: 1
     # Clone the source volume prior to taking a backup to ensure a
     # point-in-time image.
     copyMethod: Snapshot

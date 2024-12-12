@@ -98,6 +98,10 @@ spec:
                 secretKeyRef:
                   name: vault-secrets
                   key: push-key
+              - name: PUSH_RELAY_URI
+                value: https://api.bitwarden.eu
+              - name: PUSH_IDENTITY_URI
+                value: https://identity.bitwarden.eu
               - name: INVITATION_ORG_NAME
                 value: 'seganet'
               - name: LOG_LEVEL

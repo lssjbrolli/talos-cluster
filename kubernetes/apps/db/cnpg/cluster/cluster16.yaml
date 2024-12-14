@@ -36,11 +36,11 @@ spec:
           memory: 1Gi
       storage:
         size: 10Gi
-        storageClass: iscsi
+        storageClass: freenas-nfs
       walStorage:
         enabled: true
         size: 2Gi
-        storageClass: iscsi
+        storageClass: freenas-nfs
       superuserSecret: cloudnative-pg-secret
       monitoring:
         enabled: true

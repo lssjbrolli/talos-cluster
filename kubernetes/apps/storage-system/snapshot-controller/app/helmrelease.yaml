@@ -25,9 +25,9 @@ spec:
       replicaCount: 1
   #   validatingWebhook:
   # enabled: false
-  # rbac:
-  #   enabled: true
-  # replicaCount: 3
+    rbac:
+      enabled: true
+    replicaCount: 1
   # image:
   #   repository: registry.k8s.io/sig-storage/snapshot-validation-webhook
   #   pullPolicy: IfNotPresent

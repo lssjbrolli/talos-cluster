@@ -26,7 +26,7 @@ spec:
     # point-in-time image.
     copyMethod: Snapshot
     # The VSC to use if the copy method is Snapshot (default if omitted)
-    volumeSnapshotClassName: iscsi
+    volumeSnapshotClassName: freenas-nfs
 
 ---
 apiVersion: volsync.backube/v1alpha1

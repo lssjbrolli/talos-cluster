@@ -63,7 +63,7 @@ spec:
           limits:
             memory: 30Mi
     csiDriver:
-      name: "iscsi"
+      name: "freenas-nfs"
     csiProxy:
       resources:
         requests:
@@ -72,15 +72,17 @@ spec:
         limits:
           memory: 22Mi
     storageClasses:
-      - name: iscsi
+      - name: freenas-nfs
         defaultClass: true
         reclaimPolicy: Delete
         volumeBindingMode: Immediate
         allowVolumeExpansion: true
         parameters:
-          fsType: ext4
-          detachedVolumesFromSnapshots: "false"
-        mountOptions: []
+          fsType: nfs
+          # detachedVolumesFromSnapshots: "false"
+        mountOptions:
+          - noatime
+          - nfsvers=4
         # secrets:
         #   provisioner-secret:
         #   controller-publish-secret:
@@ -88,7 +90,7 @@ spec:
         #   node-publish-secret:
         #   controller-expand-secret:
     volumeSnapshotClasses:
-      - name: iscsi
+      - name: freenas-nfs
         defaultClass: true
         parameters:
           detachedSnapshots: "true"
@@ -101,17 +103,18 @@ spec:
             memory: 20Mi
           limits:
             memory: 30Mi
-      driver:
-        extraEnv:
-          - name: ISCSIADM_HOST_STRATEGY
-            value: nsenter
-          - name: ISCSIADM_HOST_PATH
-            value: /usr/local/sbin/iscsiadm
-        iscsiDirHostPath: /usr/local/etc/iscsi
-        iscsiDirHostPathType: ""
+      # driver:
+      #   extraEnv:
+      #     - name: ISCSIADM_HOST_STRATEGY
+      #       value: nsenter
+      #     - name: ISCSIADM_HOST_PATH
+      #       value: /usr/local/sbin/iscsiadm
+      #   iscsiDirHostPath: /usr/local/etc/iscsi
+      #   iscsiDirHostPathType: ""
     driver:
       config:
-        driver: freenas-api-iscsi
+        # driver: freenas-api-iscsi
+        driver: freenas-api-nfs
         instance_id:
         httpConnection:
           protocol: https
@@ -121,24 +124,39 @@ spec:
           allowInsecure: true
           apiVersion: 2
         zfs:
-          datasetParentName: apps/iscsi
-          detachedSnapshotsDatasetParentName: apps/snapshots
+          datasetParentName: apps/data/vols
+          detachedSnapshotsDatasetParentName: apps/data/snaps
           zvolEnableReservation: false
-        iscsi:
-          targetPortal: "192.168.1.150:3260"
-          targetPortals: []
-          interface:
-          namePrefix: csi-
-          nameSuffix: "-iscsi"
-          targetGroups:
-            - targetGroupPortalGroup: 5
-              targetGroupInitiatorGroup: 7
-              targetGroupAuthType: None
-              targetGroupAuthGroup:
-          extentInsecureTpc: true
-          extentXenCompat: false
-          extentDisablePhysicalBlocksize: true
-          extentBlocksize: 4096
-          extentRpm: "SSD"
-          extentAvailThreshold: 0
+          datasetEnableQuotas: true
+          datasetEnableReservation: false
+          datasetPermissionsMode: "0777"
+          datasetPermissionsUser: 568
+          datasetPermissionsGroup: 568
+        # iscsi:
+        #   targetPortal: "192.168.1.150:3260"
+        #   targetPortals: []
+        #   interface:
+        #   namePrefix: csi-
+        #   nameSuffix: "-iscsi"
+        #   targetGroups:
+        #     - targetGroupPortalGroup: 5
+        #       targetGroupInitiatorGroup: 7
+        #       targetGroupAuthType: None
+        #       targetGroupAuthGroup:
+        #   extentInsecureTpc: true
+        #   extentXenCompat: false
+        #   extentDisablePhysicalBlocksize: true
+        #   extentBlocksize: 4096
+        #   extentRpm: "SSD"
+        #   extentAvailThreshold: 0
+        nfs:
+          #shareCommentTemplate: "{{ parameters.[csi.storage.k8s.io/pvc/namespace] }}-{{ parameters.[csi.storage.k8s.io/pvc/name] }}"
+          shareHost: 192.168.1.150
+          shareAlldirs: false
+          shareAllowedHosts: []
+          shareAllowedNetworks: []
+          shareMaprootUser: root
+          shareMaprootGroup: root
+          shareMapallUser: ""
+          shareMapallGroup: ""
 

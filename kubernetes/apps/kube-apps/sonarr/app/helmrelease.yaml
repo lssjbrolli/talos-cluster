@@ -70,7 +70,7 @@ spec:
               SONARR__APP__THEME: auto
               SONARR__APP__LAUNCHBROWSER: False
               SONARR__LOG__LEVEL: info
-              SONARR__LOG__DBENABLED: True
+              SONARR__LOG__DBENABLED: False
               SONARR__LOG__ANALYTICSENABLED: True
               SONARR__AUTH__REQUIRED: DisabledForLocalAddresses
               SONARR__AUTH__METHOD: Basic

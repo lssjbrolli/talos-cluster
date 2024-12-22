@@ -38,7 +38,7 @@ spec:
             dependsOn: gluetun
             image:
               repository: ghcr.io/onedr0p/qbittorrent
-              tag: 5.0.2@sha256:cff9a083e908112d00deb64ef05ad893a2c014d0f4d0a06040287bfab1d9e97c
+              tag: 5.0.3@sha256:6053c01fca5a6313386fbfcf405fa0eec3f87fd2ca6d5bfaf0693c71d4bdd997
             securityContext:
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: true

@@ -25,8 +25,8 @@ python = "3.13"
 "aqua:siderolabs/talos" = "latest"
 "aqua:stern/stern" = "latest"
 "aqua:yannh/kubeconform" = "latest"
-restic = "latest"
-krew = "latest"
+"aqua:kubernetes-sigs/krew" = "latest"
+"aqua:restic/restic" = "latest"
 
 [tasks.install]
 description = "Install Python dependencies"

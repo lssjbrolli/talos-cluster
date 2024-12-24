@@ -28,9 +28,7 @@ spec:
     image:
       tag: 1.25.0@sha256:a27779ed10853ed607659ff9c7c51ae30b6b6c3ce204f58a2bf54c5d25e0e188
     monitoring:
-      podMonitorEnabled: false
-      grafanaDashboard:
-        create: true
+      podMonitorEnabled: true
     resources:
       requests:
         cpu: 100m

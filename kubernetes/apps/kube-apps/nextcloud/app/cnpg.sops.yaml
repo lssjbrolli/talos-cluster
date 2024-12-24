@@ -3,7 +3,7 @@ kind: Secret
 metadata:
     name: nextcloud-db
 stringData:
-    INIT_POSTGRES_HOST: ENC[AES256_GCM,data:+zO8NxWk5fp7YLOiAJDjq45WmlxuthJqqMdbtwHE3ff1,iv:l3qXo8/XaJjti+n7XdvXWqKLr6EjtR6ePwg8jvsgdBc=,tag:SUZ+ed0XLU4rdFIvnaC4hg==,type:str]
+    INIT_POSTGRES_HOST: ENC[AES256_GCM,data:iXcKeuWQaNbZlxerKVUG/N5yFrDNs3rzHlRcr5GvbaiD,iv:4XhzYT0om1NGnuS7IP2yfutz6Z0+zDwh2w9nzSq8lbU=,tag:vGO2cH26UPwXnISNoa7Vcg==,type:str]
     INIT_POSTGRES_SUPER_PASS: ENC[AES256_GCM,data:8WGKEg==,iv:lrbaI89h19m3QT+En0X3MzuwTF13u3QxMlLj/qSEe2Q=,tag:gFU4I+nvoVu4Z7I/ORS0VA==,type:str]
     INIT_POSTGRES_USER: ENC[AES256_GCM,data:rqrfCw==,iv:T65q0IEAnJi1KbDl9j4wHoDNLDGgFVdeMqu7kLRLc8E=,tag:NYpv86T61h0EDrJlDoVgxA==,type:str]
     INIT_POSTGRES_PASS: ENC[AES256_GCM,data:jC/LIQ==,iv:/vpbUrGJf6FTBK8unaZ6irPrGB9qrF1M0417mP6GUlo=,tag:brq5XUScytBW1pB3ebTivA==,type:str]
@@ -23,8 +23,8 @@ sops:
             blp2SHVFZDB3VVVsaHVEMzVITEIvOFkKUEVzKRgstANOfFCrCiqeZSnk/gFKLf05
             NmoPlS89qg0pjN39GHdhcvlkgN4sykatOZ4Jm5NVblAPrOBDE9cJmA==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-10-04T18:11:34Z"
-    mac: ENC[AES256_GCM,data:T3GYceyfXEIE0cvFV08kyL9Yu3VdPhhwmkiDknzeYPXD1WrDgMy4jQyWpuGJnUvjLSyjz3toL2ZwyPE3OE5hVlp7aS3ICfcpWNU7mjfepQ3w8dnYzF7eLvucLb8Rta3/gyPSptWckt1kDJAJ66iv1PrzvJAHdNs/4YctJ53sBZc=,iv:5T90hQEjFu12HHyGgoKWOySHeqSse2GtoGeFEydCxGo=,tag:OJ0rrPckInxp+HtEfEdmjQ==,type:str]
+    lastmodified: "2024-12-24T10:43:51Z"
+    mac: ENC[AES256_GCM,data:EVKDaBSYp8AZJDOuodyXXHlNPb1waZHNsmVdWQp7kzvNSfeb4pCbC5BFUQE/mbzmBFmeuWopj+5gjzpf1SAAIPrbZcg+NSJpprHMMeuIgHLcf+sA59OnJdtddOKy0+vB2rKvCECh84M1aZrEM5b+klXKwbSJQMizsA6cnnFihlQ=,iv:xhE54AT9VWAQc+lPO4Ao4tpi2YMMWZq6nZMrWWcVn/U=,tag:V9244YywD8nWT5QCOrbX8g==,type:str]
     pgp: []
     encrypted_regex: ^(data|stringData)$
-    version: 3.9.0
+    version: 3.9.1

@@ -3,7 +3,7 @@ kind: Secret
 metadata:
     name: ctcadmin-db
 stringData:
-    INIT_POSTGRES_HOST: ENC[AES256_GCM,data:+zO8NxWk5fp7YLOiAJDjq45WmlxuthJqqMdbtwHE3ff1,iv:l3qXo8/XaJjti+n7XdvXWqKLr6EjtR6ePwg8jvsgdBc=,tag:SUZ+ed0XLU4rdFIvnaC4hg==,type:str]
+    INIT_POSTGRES_HOST: ENC[AES256_GCM,data:t2aW1hEdYSBA9PxMYta4WopbnQICWwRY7Ri3spRlQbNQ,iv:71uG5q9exBdc8vEqWnsF9M6YDo4xxBa4z7AHwaLhHBY=,tag:2dYzp9z+PqW+fyhtOTmQDg==,type:str]
     INIT_POSTGRES_SUPER_PASS: ENC[AES256_GCM,data:8WGKEg==,iv:lrbaI89h19m3QT+En0X3MzuwTF13u3QxMlLj/qSEe2Q=,tag:gFU4I+nvoVu4Z7I/ORS0VA==,type:str]
     INIT_POSTGRES_USER: ENC[AES256_GCM,data:rqrfCw==,iv:T65q0IEAnJi1KbDl9j4wHoDNLDGgFVdeMqu7kLRLc8E=,tag:NYpv86T61h0EDrJlDoVgxA==,type:str]
     INIT_POSTGRES_PASS: ENC[AES256_GCM,data:jC/LIQ==,iv:/vpbUrGJf6FTBK8unaZ6irPrGB9qrF1M0417mP6GUlo=,tag:brq5XUScytBW1pB3ebTivA==,type:str]
@@ -23,8 +23,8 @@ sops:
             blp2SHVFZDB3VVVsaHVEMzVITEIvOFkKUEVzKRgstANOfFCrCiqeZSnk/gFKLf05
             NmoPlS89qg0pjN39GHdhcvlkgN4sykatOZ4Jm5NVblAPrOBDE9cJmA==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-09-25T09:11:16Z"
-    mac: ENC[AES256_GCM,data:K5KTv4jG05XI1LTQYV5iKCQUx6cDiMDAH31R6oUGYP3ff7Ht0YZf1veYiOdPT75/VwzwZJhhmlTQJnwYC7TOwFTx2D7zm4qjepHHgwde0UMnNa4gXKjsUQjv9jsX55Nm/elreV+7zrPDoEuPO7GowNj8qUQXLBqlOOs82hLNI5s=,iv:qDyzCdZUYBbuw7yUEXY1zMzzC297e7FS5ZBmBbs04Tw=,tag:t+rzYj1jHkcJHA6zT2ZO0A==,type:str]
+    lastmodified: "2024-12-24T10:45:26Z"
+    mac: ENC[AES256_GCM,data:3jiymXq6AN1vUJolMTdrzVFboH2yAwk/DGpHddxDBd+hgkit5dIeU9GvzMQrDzh3j30HDd2CFFL19d/heFw7L4d3JeWj5iCukqwNj4AtO4b5DiRvkdJUtU7Hqo+MvnbLuGF6+kWMcvDTQCIZWMg8on6TxEQB7yfVLTpATq3gA1c=,iv:MkQsgCaUHpT7WUAHzv64G6y24p0/haEDjxHAGPrE3uA=,tag:fegjiMSk9mVEQbn7GAlkaQ==,type:str]
     pgp: []
     encrypted_regex: ^(data|stringData)$
-    version: 3.9.0
+    version: 3.9.1

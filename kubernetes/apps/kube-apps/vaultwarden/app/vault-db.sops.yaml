@@ -3,7 +3,7 @@ kind: Secret
 metadata:
     name: vault-db
 stringData:
-    INIT_POSTGRES_HOST: ENC[AES256_GCM,data:N3FW57r+0bJLNsaPEQEm8vSX6g54rvT3KUgHmBJhLXI1,iv:dUy0vLrBP4yUcOlRix0KWpoZv11Lg0Q5RJ74XwVDOdo=,tag:t30qaCm3S433NQZypu2JQA==,type:str]
+    INIT_POSTGRES_HOST: ENC[AES256_GCM,data:JvS4KXlqis7n4BLpd1yMmKiaM3nHgWxfws+cXsN4OXhR,iv:/8+QuTyNCX0mDSplf1pmsHSukVTBck9+yzsgYoBVy7k=,tag:gu/GBExx5HViKKcqNL0VGg==,type:str]
     INIT_POSTGRES_SUPER_PASS: ENC[AES256_GCM,data:BqyLNw==,iv:3OZjypJaiNoZYwbqx2WzCbEiXi6NtIqrTJtN9/HfOpA=,tag:dhVLI/an+hVceAV3xwIMjw==,type:str]
     INIT_POSTGRES_USER: ENC[AES256_GCM,data:LH6dqw==,iv:vaWhOwmYZGMUE+dRedpe5qmmJ7HvTvMlUSMI2FhrGbs=,tag:upmxApO8MQTWoWUxJo2NPQ==,type:str]
     INIT_POSTGRES_PASS: ENC[AES256_GCM,data:LeSeAg==,iv:w22XJUKQlF81Kn1Gkm7rBi1VqOQTr7KLqyzEYIzuGpA=,tag:Q0whGgruyz4W5xujJgnmOw==,type:str]
@@ -23,8 +23,8 @@ sops:
             TlU5UzB3aXpWY1MzeWppcUhHZnBaN2cK37DEAcZmxBNoSM0eUwFvQ7JyscCWrjkA
             EW3qL8MRC9qQ7Awxp9GIa5rKRKHlJjNIZvUKf5yV8gflbfSDenLEXA==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-09-25T16:01:57Z"
-    mac: ENC[AES256_GCM,data:E4Ml1TRFLBGPP4tH2ZEfKl4xkktsQKhqRsYBD1Xd/dmhXpNMHi3h23pJmZxh8C2/VLbnyXuGSdfK+/3a52uWHYf8PwDnQQyA2agUOEU4oh8KgdfaZ8QDAWqCvQ/1PUybCwxQxq5w9OaqIyTcFrOHAcD7arNSfc0nqpEnexKjtsg=,iv:FlNmrHHtytFWgMGMGX+Riohe7dI1ntDf4BXNl9sCQ8M=,tag:foimFhhSvbLYfeNFMDrZjg==,type:str]
+    lastmodified: "2024-12-24T10:45:01Z"
+    mac: ENC[AES256_GCM,data:FxCJU2yB43mIyEj5U3t0qRtROciliq1cJc+avcZqQnhVwiRhZOCeH61E4yKo/tl70lH7rf5CmltQ32+YiBhlDK6hXEn7AlBCTUtZs+kOGvsmvv/fVdW1JvumFypUttl0++meBPIjpKv6HofX5On1ZulAS6kVwkn8+egw18FiTc4=,iv:+V5es+mdFBG9EbeDp12lY2ePP0la3t3GwMXr+szVxSc=,tag:qdJomC/trmlXWUcSOQMzkg==,type:str]
     pgp: []
     encrypted_regex: ^(data|stringData)$
-    version: 3.9.0
+    version: 3.9.1

@@ -5,7 +5,7 @@ metadata:
     namespace: kube-apps
 stringData:
     PROWLARR__AUTH__APIKEY: ENC[AES256_GCM,data:5SuBXW2DMWHbiEmFzYUSs44j9hLmoRPL8COmmKFle54=,iv:1q95LsyGV7Q/zfcYnPwbqzfZfui/YLRJWGHxrzEg9DI=,tag:YprL2bNm/ma+ldOXAkPilw==,type:str]
-    PROWLARR__POSTGRES__HOST: ENC[AES256_GCM,data:KpeD5Ke3UBVZjHDyq5Ex7ZsOCA1sYwwqreOJ1zq3kqvZ,iv:bB2ocZ60XpC+YDCPbOnaPG9ikTUHH3pZKXrR8mUNyl0=,tag:P6ucn64jnH1NaCm+yF8c+g==,type:str]
+    PROWLARR__POSTGRES__HOST: ENC[AES256_GCM,data:wWohouPy0I3goxjtJqr9EyBqDYto7Ms2d17Sy7xc+vZK,iv:IYtrRWp13y74uW6DzcB4DJVfY5DP5ex84t7j8m7r5JQ=,tag:8m1d3SOH7cf55K1aynk3bQ==,type:str]
     PROWLARR__POSTGRES__PORT: ENC[AES256_GCM,data:3lmQzg==,iv:6RN0AeExyuKvwxYBKXIcJKlc9ISJeWRvS7hxUpPhVoI=,tag:dolXtnFPz1/6BSn15RNI8Q==,type:str]
     PROWLARR__POSTGRES__USER: ENC[AES256_GCM,data:k0DQcA==,iv:KnaYvzO+Nle6UJ8cG4MdIujJJ5aIDGeUAcYxG5/qzlw=,tag:ZjzljCiqqsMsGG86lD8/ew==,type:str]
     PROWLARR__POSTGRES__PASSWORD: ENC[AES256_GCM,data:9NCFqg==,iv:3ifh0opY70/4tMXuKqk5UEEicCIHSmAws3jr+5hMpBc=,tag:F2D8Xbr04AOuB7b+aLKj6w==,type:str]
@@ -30,8 +30,8 @@ sops:
             K3c3dlNlQ0l3VjhacVFONVdIM3BSOXcKwEfiPvFzy9ju8XHXYJLXJpG9El9SlQXc
             XUNzp6zHHcCEIflIpEJssLFuq9zxCFXk3CoFpk/2PNi8MiOIKIl/qw==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-12-14T17:21:42Z"
-    mac: ENC[AES256_GCM,data:TWgozTeqJUQpAisWMjSYLrYMEPzAlBbdv310Qaj2iTh0kdw1+cVz3lhsC3lRuQjj/6S5b6f5OeALMLVgqkhj+83ioJbfxkKvbEj148aQD1U91+EnKXS6weMjNBqcePDTY3ePJ8/aXddq8iLTTHbLINr/yWpRD4c2IHtMH1aqR/I=,iv:+cI1ei1F1cbQjDmskhABJfCG/RFrtMWBft/gtwogjaM=,tag:trrmfsJReBbOZomSi7yKJQ==,type:str]
+    lastmodified: "2024-12-24T10:44:11Z"
+    mac: ENC[AES256_GCM,data:vmb4LMxpYw1saa+/5fyuEuOWgHwm+xNyOQrAcPkKvmU9beLF4/0Z2eXb55YUKiAW2o9Yak5Lhi8mQ5KJ2oV8LfXzNsmdwGTxvszinov54Hf/hFZpDURY4Jh4epQ4gkOMzdSrKKQ/gb4iX0LsGteFA2hFOlgVIMJk7obwpte8jvM=,iv:sIJIVdfYPnzP06Uo/odAAAHIkoA7i3jXGR5nmHupcyc=,tag:vHmPuQJye0L5r0y0Gch6CQ==,type:str]
     pgp: []
     encrypted_regex: ^(data|stringData)$
     version: 3.9.1

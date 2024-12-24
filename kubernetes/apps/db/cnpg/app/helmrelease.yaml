@@ -26,7 +26,7 @@ spec:
     crds:
       create: true
     image:
-      tag: 1.24.0@sha256:01af1b3ecd920e15fa8ff8963a249d14bb5eb7da702a9042278f49c3d099e5d3
+      tag: 1.25.0@sha256:a27779ed10853ed607659ff9c7c51ae30b6b6c3ce204f58a2bf54c5d25e0e188
     monitoring:
       podMonitorEnabled: false
       grafanaDashboard:

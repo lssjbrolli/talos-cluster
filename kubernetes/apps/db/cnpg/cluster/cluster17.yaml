@@ -24,7 +24,7 @@ spec:
       namespace: storage-system
   values:
     type: postgresql
-    mode: standalone
+    mode: recovery
     cluster:
       initdb:
         dataChecksums: true
@@ -84,7 +84,7 @@ spec:
       s3:
         region: "eu-east"
         bucket: "cnpg"
-        path: "/v4"
+        path: "/v5"
         accessKey: aws-access-key-id
         secretKey: aws-secret-access-key
       secret:

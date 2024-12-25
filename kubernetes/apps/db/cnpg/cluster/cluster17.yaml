@@ -26,7 +26,7 @@ spec:
     type: postgresql
     mode: recovery
     cluster:
-      imageName: ghcr.io/cloudnative-pg/postgresql:17.2-23@sha256:b9899e1f70c5c800dba59c8fb2c26de57740d1ad50e5b1b36b98cc1e3df5ea9c
+      imageName: ghcr.io/cloudnative-pg/postgresql:16.6-24@sha256:3a3c951c51be3a884be777116568a8a0d646869867576307c68df1e33dcc6c20
       instances: 2
       logLevel: warning
       resources:

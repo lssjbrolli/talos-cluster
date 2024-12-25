@@ -38,8 +38,8 @@ spec:
         containers:
           main:
             image:
-              repository: ghcr.io/onedr0p/plex
-              tag: 1.41.0.8994-f2c27da23@sha256:d3b8fec909cb32116f127647aafbf674d30beee1975e8a37824f8de9754e7e9a
+              repository: ghcr.io/elfhosted/plex
+              tag: 1.41.3.9314-a0bfb8370@sha256:f97a79a4924eb0ddc0536b53a248f58ae6ac3870308533a54d53fea0af4cb3ef
             securityContext:
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: false

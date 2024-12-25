@@ -28,29 +28,15 @@ spec:
     cluster:
       initdb:
         dataChecksums: true
-        # import:
-        #   type: monolith
-        #   databases:
-        #     - ctcadmin
-        #     - nextcloud
-        #     - prowlarr
-        #     - radarr
-        #     - readarr
-        #     - sonarr
-        #     - vault
-        #   roles:
-        #     - sega
-        #   source:
-        #     externalCluster: cluster16
       imageName: ghcr.io/cloudnative-pg/postgresql:17.2-24@sha256:4cb0db7406d1f8480fbb7b602d43ad98eec3601ccf17855f7a4790fad7d52bb6
       instances: 1
       logLevel: warning
       resources:
         requests:
           cpu: 150m
-          memory: 128Mi
-        limits:
           memory: 256Mi
+        limits:
+          memory: 512Mi
       storage:
         size: 10Gi
         storageClass: freenas-nfs
@@ -65,33 +51,33 @@ spec:
         parameters:
           max_connections: "100"
           shared_buffers: 256MB
-    # backups:
-    #   enabled: true
-    #   retentionPolicy: 7d
-    #   provider: s3
-    #   endpointURL: http://minio.storage-system.svc.cluster.local:9000
-    #   secret:
-    #     create: false
-    #     name: s3-secret
-    #   data:
-    #     compression: bzip2
-    #     encryption: ''
-    #   wal:
-    #     compression: bzip2
-    #     maxParallel: 8
-    #     encryption: ''
-    #   s3:
-    #     region: "eu-east"
-    #     bucket: "cnpg"
-    #     path: "/v5"
-    #     accessKey: aws-access-key-id
-    #     secretKey: aws-secret-access-key
-    #   scheduledBackups:
-    #     - name: cnpg-backup
-    #       schedule: "0 0 */6 * * *"
-    #       backupOwnerReference: self
-    # recovery:
-      clusterName: cluster17
+    backups:
+      enabled: true
+      retentionPolicy: 7d
+      provider: s3
+      endpointURL: http://minio.storage-system.svc.cluster.local:9000
+      secret:
+        create: false
+        name: s3-secret
+      data:
+        compression: bzip2
+        encryption: ''
+      wal:
+        compression: bzip2
+        maxParallel: 8
+        encryption: ''
+      s3:
+        region: "eu-east"
+        bucket: "cnpg"
+        path: "/v1"
+        accessKey: aws-access-key-id
+        secretKey: aws-secret-access-key
+      scheduledBackups:
+        - name: cnpg-backup
+          schedule: "0 0 */6 * * *"
+          backupOwnerReference: self
+    recovery:
+      clusterName: cluster16
       endpointURL: http://minio.storage-system.svc.cluster.local:9000
       method: object_store
       provider: s3

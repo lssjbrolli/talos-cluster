@@ -24,7 +24,7 @@ spec:
       namespace: storage-system
   values:
     type: postgresql
-    mode: recovery
+    mode: standalone
     cluster:
       initdb:
         dataChecksums: true

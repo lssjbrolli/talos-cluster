@@ -3,10 +3,10 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: cluster17
+  name: cluster16
   namespace: db
 spec:
-  releaseName: cluster17
+  releaseName: cluster16
   chart:
     spec:
       chart: cluster
@@ -24,25 +24,9 @@ spec:
       namespace: storage-system
   values:
     type: postgresql
-    mode: standalone
+    mode: recovery
     cluster:
-      initdb:
-        dataChecksums: true
-        # import:
-        #   type: monolith
-        #   databases:
-        #     - ctcadmin
-        #     - nextcloud
-        #     - prowlarr
-        #     - radarr
-        #     - readarr
-        #     - sonarr
-        #     - vault
-        #   roles:
-        #     - sega
-        #   source:
-        #     externalCluster: cluster16
-      imageName: ghcr.io/cloudnative-pg/postgresql:17.2-24@sha256:4cb0db7406d1f8480fbb7b602d43ad98eec3601ccf17855f7a4790fad7d52bb6
+      imageName: ghcr.io/cloudnative-pg/postgresql:16.6-24@sha256:3a3c951c51be3a884be777116568a8a0d646869867576307c68df1e33dcc6c20
       instances: 2
       logLevel: warning
       resources:
@@ -65,33 +49,33 @@ spec:
         parameters:
           max_connections: "100"
           shared_buffers: 256MB
-    # backups:
-    #   enabled: true
-    #   retentionPolicy: 7d
-    #   provider: s3
-    #   endpointURL: http://minio.storage-system.svc.cluster.local:9000
-    #   secret:
-    #     create: false
-    #     name: s3-secret
-    #   data:
-    #     compression: bzip2
-    #     encryption: ''
-    #   wal:
-    #     compression: bzip2
-    #     maxParallel: 8
-    #     encryption: ''
-    #   s3:
-    #     region: "eu-east"
-    #     bucket: "cnpg"
-    #     path: "/v5"
-    #     accessKey: aws-access-key-id
-    #     secretKey: aws-secret-access-key
-    #   scheduledBackups:
-    #     - name: cnpg-backup
-    #       schedule: "0 0 */6 * * *"
-    #       backupOwnerReference: self
-    # recovery:
-      clusterName: cluster17
+    backups:
+      enabled: true
+      retentionPolicy: 7d
+      provider: s3
+      endpointURL: http://minio.storage-system.svc.cluster.local:9000
+      secret:
+        create: false
+        name: s3-secret
+      data:
+        compression: bzip2
+        encryption: ''
+      wal:
+        compression: bzip2
+        maxParallel: 8
+        encryption: ''
+      s3:
+        region: "eu-east"
+        bucket: "cnpg"
+        path: "/v5"
+        accessKey: aws-access-key-id
+        secretKey: aws-secret-access-key
+      scheduledBackups:
+        - name: cnpg-backup
+          schedule: "0 0 */6 * * *"
+          backupOwnerReference: self
+    recovery:
+      clusterName: cluster16
       endpointURL: http://minio.storage-system.svc.cluster.local:9000
       method: object_store
       provider: s3

@@ -25,7 +25,7 @@ spec:
   dependsOn:
     - name: volsync
       namespace: storage-system
-    - name: cluster17
+    - name: cluster16
       namespace: db
   values:
     defaultPodOptions:

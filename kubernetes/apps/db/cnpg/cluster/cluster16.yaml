@@ -24,7 +24,7 @@ spec:
       namespace: storage-system
   values:
     type: postgresql
-    mode: standalone
+    mode: recovery
     cluster:
       imageName: ghcr.io/cloudnative-pg/postgresql:16.6-24@sha256:3a3c951c51be3a884be777116568a8a0d646869867576307c68df1e33dcc6c20
       instances: 2

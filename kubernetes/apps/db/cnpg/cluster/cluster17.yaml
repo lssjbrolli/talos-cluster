@@ -3,10 +3,10 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: cluster17
+  name: cluster16
   namespace: db
 spec:
-  releaseName: cluster17
+  releaseName: cluster16
   chart:
     spec:
       chart: cluster

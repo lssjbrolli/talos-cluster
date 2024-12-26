@@ -69,7 +69,7 @@ spec:
       s3:
         region: "eu-east"
         bucket: "cnpg"
-        path: "/v5"
+        path: "/v6"
         accessKey: aws-access-key-id
         secretKey: aws-secret-access-key
       scheduledBackups:
@@ -84,7 +84,7 @@ spec:
       s3:
         region: "eu-east"
         bucket: "cnpg"
-        path: "/v4"
+        path: "/v5"
         accessKey: aws-access-key-id
         secretKey: aws-secret-access-key
       secret:

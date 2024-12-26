@@ -7,7 +7,7 @@ spec:
   # The PVC to be backed up
   sourcePVC: vaultwarden-config
   trigger:
-    schedule: "0 */3 * * *"
+    schedule: "0 */12 * * *"
   restic:
     moverSecurityContext:
       runAsUser: 568

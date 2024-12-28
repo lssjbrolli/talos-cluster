@@ -24,7 +24,7 @@ spec:
       namespace: storage-system
   values:
     type: postgresql
-    mode: standalone
+    mode: recovery
     cluster:
       initdb:
         dataChecksums: true
@@ -77,7 +77,7 @@ spec:
           schedule: "0 0 */6 * * *"
           backupOwnerReference: self
     recovery:
-      clusterName: cluster17
+      clusterName: cluster16
       endpointURL: http://minio.storage-system.svc.cluster.local:9000
       method: object_store
       provider: s3

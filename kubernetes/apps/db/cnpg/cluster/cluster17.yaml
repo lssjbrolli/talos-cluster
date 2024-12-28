@@ -26,6 +26,7 @@ spec:
     type: postgresql
     mode: standalone
     cluster:
+      # follow https://github.com/cloudnative-pg/charts/issues/424 for externalClusters implementation
       initdb:
         dataChecksums: true
       imageName: ghcr.io/cloudnative-pg/postgresql:17.2-24@sha256:4cb0db7406d1f8480fbb7b602d43ad98eec3601ccf17855f7a4790fad7d52bb6

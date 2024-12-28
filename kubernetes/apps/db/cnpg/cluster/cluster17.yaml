@@ -24,10 +24,27 @@ spec:
       namespace: storage-system
   values:
     type: postgresql
-    mode: recovery
+    mode: standalone
     cluster:
       initdb:
         dataChecksums: true
+        import:
+          type: monolith
+          databases:
+            - app
+            - ctcadmin
+            - nextcloud
+            - postgres
+            - prowlarr
+            - radarr
+            - readarr
+            - sonarr
+            - vault
+          roles:
+            - app
+            - sega
+          source:
+            externalCluster: cluster16
       imageName: ghcr.io/cloudnative-pg/postgresql:17.2-24@sha256:4cb0db7406d1f8480fbb7b602d43ad98eec3601ccf17855f7a4790fad7d52bb6
       instances: 1
       logLevel: warning

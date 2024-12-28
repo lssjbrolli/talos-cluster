@@ -3,7 +3,7 @@ apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
   name: cluster17
-  namespace: database
+  namespace: db
 spec:
   instances: 1
   imageName: ghcr.io/cloudnative-pg/postgresql:17.2-24@sha256:4cb0db7406d1f8480fbb7b602d43ad98eec3601ccf17855f7a4790fad7d52bb6

@@ -23,12 +23,10 @@ spec:
       strategy: rollback
       retries: 3
   dependsOn:
-    - name: democratic-csi
-      namespace: storage-system
     - name: volsync
       namespace: storage-system
-    - name: minio
-      namespace: storage-system
+    - name: cluster17
+      namespace: db
   values:
     defaultPodOptions:
       securityContext:

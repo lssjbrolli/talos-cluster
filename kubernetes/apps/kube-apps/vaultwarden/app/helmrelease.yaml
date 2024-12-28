@@ -74,8 +74,8 @@ spec:
             env:
               - name: DATABASE_URL
                 secretKeyRef:
-                  name: vault-db
-                  key: INIT_POSTGRES_HOST
+                  name: vault-secrets
+                  key: db
               - name: DATA_FOLDER
                 value: data
               - name: ICON_CACHE_FOLDER

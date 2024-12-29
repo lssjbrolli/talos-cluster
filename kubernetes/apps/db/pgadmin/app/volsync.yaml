@@ -30,7 +30,7 @@ spec:
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationDestination
 metadata:
-  name: pgadmin-config
+  name: pgadmin
 spec:
   trigger:
     manual: init

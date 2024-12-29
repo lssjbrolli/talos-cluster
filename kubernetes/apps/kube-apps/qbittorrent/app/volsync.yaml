@@ -30,7 +30,7 @@ spec:
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationDestination
 metadata:
-  name: qbittorrent-config
+  name: qbittorrent
 spec:
   trigger:
     manual: init

@@ -7,5 +7,5 @@ resources:
   - ./pvc.yaml
   - ./restic-config.sops.yaml
   - ./restic-metadata.sops.yaml
-  - ./volsync-config.yaml
   - ./volsync-metadata.yaml
+  - ./volsync.yaml

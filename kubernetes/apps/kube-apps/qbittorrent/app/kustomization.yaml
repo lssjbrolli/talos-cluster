@@ -9,4 +9,4 @@ resources:
   - ./restic-qbt.sops.yaml
   - ./vpnconfig.sops.yaml
   - ./volsync-gluetun.yaml
-  - ./volsync-qbt.yaml
+  - ./volsync.yaml

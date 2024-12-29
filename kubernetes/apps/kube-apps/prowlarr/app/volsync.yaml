@@ -29,7 +29,7 @@ spec:
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationDestination
 metadata:
-  name: prowlarr-config
+  name: prowlarr
 spec:
   trigger:
     manual: init

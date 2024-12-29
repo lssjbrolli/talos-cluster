@@ -35,9 +35,9 @@ spec:
       resources:
         requests:
           cpu: 150m
-          memory: 256Mi
-        limits:
           memory: 512Mi
+        limits:
+          memory: 1Gi
       storage:
         size: 10Gi
         storageClass: freenas-nfs

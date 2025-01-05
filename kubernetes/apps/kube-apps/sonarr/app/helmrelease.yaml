@@ -53,7 +53,7 @@ spec:
           main:
             image:
               repository: ghcr.io/elfhosted/sonarr-develop
-              tag: 4.0.11.2815@sha256:a8052c18800928643eb94062ac8e66a97b90d440c086ef4f384923fa5fdd66ee
+              tag: 4.0.12.2825@sha256:9b9e19e803dcfe046bce129733baf3d28d7b1db0befd366e0ab03829c489e6b9
             securityContext:
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: false

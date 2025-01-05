@@ -55,7 +55,7 @@ spec:
           main:
             image:
               repository: ghcr.io/elfhosted/prowlarr-develop
-              tag: 1.29.1.4903@sha256:f2fa55dfce35f8207fe3c2aac2d75f1d8a26b5f1e500adb49efb8ccba5877c69
+              tag: 1.29.2.4915@sha256:4698c1871e32b8a54c75cd2365cc9fcf290378c53ce6d47766869fd987ca3d81
             securityContext:
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: true

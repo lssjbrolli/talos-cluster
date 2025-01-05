@@ -53,7 +53,7 @@ spec:
           main:
             image:
               repository: ghcr.io/elfhosted/radarr-develop
-              tag: 5.17.0.9555@sha256:3e119772ebbb2e0bba2f6ec263e2dc84cec422536eec3b04871a4f99a548560d
+              tag: 5.17.1.9561@sha256:916bb630d599c55eaaeaebc33e348122863ac895a6c6be7b49c1cb7640b4beab
             securityContext:
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: false

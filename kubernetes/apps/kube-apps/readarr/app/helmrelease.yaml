@@ -53,7 +53,7 @@ spec:
           main:
             image:
               repository: ghcr.io/elfhosted/readarr-develop
-              tag: 0.4.6.2711@sha256:d2bc200b58243ddf8ad3e1367c02ace4ee3c8419960681370ad55eaa7e80abec
+              tag: 0.4.7.2718@sha256:142e732c6b3405414f36e251c1f6faa9cf63a6d3c9b04825dd257c76e4316841
             securityContext:
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: true

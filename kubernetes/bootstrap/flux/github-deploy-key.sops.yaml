@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Secret
 metadata:
-    name: github-deploy-key
+    name: github.deploy-key
     namespace: flux-system
 stringData:
     identity: ENC[AES256_GCM,data:2G40Icg4RDi956qtzEyLDr9J1MkMvra4k8FVxVpR3rezsGFb16W5MgcZRYBkPIn3moXzYqPBk+oozjUgdI9EY6EGXIVC9DmkZLbhQjICrKlGtqBbVTXp+jRu7w7ZdrYVuQ91J+hdp6Yldn7BtknUIOgwuFrdPN45nordNEbsv77xPqgDsQtvzvearwza0BelfuKO0n/enJhvGDjyJTO7CAosmB2/MCYkb+IeOe+kNZwoNzZNozA+pWNYy1yHLw7Yx3jsaXkURQOhxq802r7n7CcEsWvdAELFsvlTXJZzpgzAbWHHWBGfNIqJBXIYVGxESlTrSVak8HNh2jt0ge3bSaBkNWAflSTPKRsGD1CrqSld0EJZdUf9sPn+lvUTXEC6pykqFRcDIGxinEGDpXmri7of9FiY36z4Z2tDr1oqRhjUZEr4v6cb+MNHhL1MI0gpJJOQkyRiLxqa4SfM9kGu5+xDfLAzGRlQLMD/7QXaou3e8PoVciZwhDpyNqU+T34EP13qdek54Ql9LzfMIVM+nhP+cySEBaQLKCB64BR0ZrMVsS/b+VsSbEHb88N8OeTFAsyEDo3C24W6CweJq+EXrhr1IyuUjdIfa8ISjRhoRx7NlZE25UiQL1EsNbbQXqqrGyrYkWBAYNkmIb0SRj9VuUq4A8WjGPwy4gg4Y86KzjL30sMKNq1mQ/RsLTTf1EuIFmMbvvu7KdRZpbs9vRRvLnpRi21CwhR44e4AkTVXspGF3YuwxlKBNW3GBzwaaisd4Q4eWhgbWFuFKgbn/hLRpkcocrpU9Y6JprdPhGyR5Qigd5ms2VuqQ5nn4VEOuUqK1aWOtcK1cUCrGgEqMdd/0rq0sLOASxgVBzGieBPcMK+CMcbW+FQgffNqNy8Awq6FqY7jRXaSPiBhFi7AxWyxU2etnFqYyUY09R8JGWHPG3fqFk6DWarI+8yBTetPCn1Ly9j/0gkFNVhvWFqmw8ILeQ==,iv:7uTvtN6AV8EPh8NqopWfwVJ8CRzRF4BpTeixrk8S+BM=,tag:35BYHK0YGc06OXh1Cfinxw==,type:str]
@@ -21,8 +21,8 @@ sops:
             NVdPbk12UFZEbDEranhRNDdrVCtVZWMK47MxRHcoWPlbjbBjm10RDHH8/LSz5YE3
             2O3ZoXSOmzazIh2ifSg+aM4grQVTiZGv45YV/Es6RNhb/08dyO72+g==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-09-04T17:22:25Z"
-    mac: ENC[AES256_GCM,data:gyaXNyF/mY6EgY4wxi5+r/AhEVYLEc1Bg3tnd6pBOLS41l9b6KtKuzvJKVQ78lwdaKCu0I3xpdvGs3fGP+VDUvLZBcF9ytwdNWhm5C3ZSOlx4RjEO5UU66aS3rEUs3jz6f0Cb5JQEfz57tUIi86BHM0eHdxJQDSxNedYm6C0Dmw=,iv:r/1L57h2vEl2vONyJ2pHuqDlPX/lavga28CTLzO28ts=,tag:oqFfnSWtw3EuuRST1rl2Tw==,type:str]
+    lastmodified: "2025-02-15T14:20:52Z"
+    mac: ENC[AES256_GCM,data:9sshk2NKC5XgvnUu6NOdhXi+wcUWjAAxH2Ws/65Y8Xjgj8ct92eN4IaUUXRJEcBzvMYKzavn+kzwn9cTfUwD2urL/fglRsghaygtBiIl1Sb/xI86qpw4vst/c9XPmSUXtT68KdUrmJyBhBej3GGDbKUqCeQYs+5ej8QDDrla+To=,iv:CZv7310ZAC8WJqkl1nQgz7n5ZrIplsx2pDtuDOFToOg=,tag:NX6QWXOUjunyXF5Zg9I8Vg==,type:str]
     pgp: []
     encrypted_regex: ^(data|stringData)$
-    version: 3.9.0
+    version: 3.9.2

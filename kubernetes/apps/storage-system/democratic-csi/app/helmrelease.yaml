@@ -23,6 +23,8 @@ spec:
       strategy: rollback
       retries: 3
   values:
+    csiDriver:
+      name: "freenas-nfs"
     controller:
       driver:
         resources:
@@ -31,46 +33,52 @@ spec:
           limits:
             memory: 256Mi
       externalAttacher:
-        # args:
-        #   - --leader-election=false
         resources:
           requests:
-            memory: 10Mi
+            memory: 32Mi
           limits:
-            memory: 30Mi
+            memory: 64Mi
       externalProvisioner:
-        # args:
-        #   - --leader-election=false
         resources:
           requests:
-            memory: 10Mi
+            memory: 32Mi
           limits:
-            memory: 30Mi
+            memory: 64Mi
       externalResizer:
-        # args:
-        #   - --leader-election=false
         resources:
           requests:
-            memory: 10Mi
+            memory: 32Mi
           limits:
-            memory: 30Mi
+            memory: 64Mi
       externalSnapshotter:
-        # args:
-        #   - --leader-election=false
         resources:
           requests:
-            memory: 10Mi
+            memory: 32Mi
           limits:
-            memory: 30Mi
-    csiDriver:
-      name: "freenas-nfs"
+            memory: 64Mi
+    node:
+      hostPID: true
+      cleanup:
+        resources:
+          requests:
+            cpu: 10m
+            memory: 16Mi
+          limits:
+            memory: 16Mi
+      driverRegistrar:
+        resources:
+          requests:
+            cpu: 10m
+            memory: 32Mi
+          limits:
+            memory: 64Mi
     csiProxy:
       resources:
         requests:
           cpu: 0m
-          memory: 15Mi
+          memory: 16Mi
         limits:
-          memory: 22Mi
+          memory: 32Mi
     storageClasses:
       - name: freenas-nfs
         defaultClass: true
@@ -94,23 +102,6 @@ spec:
         defaultClass: true
         parameters:
           detachedSnapshots: "true"
-    node:
-      hostPID: true
-      driverRegistrar:
-        resources:
-          requests:
-            cpu: 0m
-            memory: 20Mi
-          limits:
-            memory: 30Mi
-      # driver:
-      #   extraEnv:
-      #     - name: ISCSIADM_HOST_STRATEGY
-      #       value: nsenter
-      #     - name: ISCSIADM_HOST_PATH
-      #       value: /usr/local/sbin/iscsiadm
-      #   iscsiDirHostPath: /usr/local/etc/iscsi
-      #   iscsiDirHostPathType: ""
     driver:
       config:
         # driver: freenas-api-iscsi
@@ -132,25 +123,7 @@ spec:
           datasetPermissionsMode: "0777"
           datasetPermissionsUser: 568
           datasetPermissionsGroup: 568
-        # iscsi:
-        #   targetPortal: "192.168.1.150:3260"
-        #   targetPortals: []
-        #   interface:
-        #   namePrefix: csi-
-        #   nameSuffix: "-iscsi"
-        #   targetGroups:
-        #     - targetGroupPortalGroup: 5
-        #       targetGroupInitiatorGroup: 7
-        #       targetGroupAuthType: None
-        #       targetGroupAuthGroup:
-        #   extentInsecureTpc: true
-        #   extentXenCompat: false
-        #   extentDisablePhysicalBlocksize: true
-        #   extentBlocksize: 4096
-        #   extentRpm: "SSD"
-        #   extentAvailThreshold: 0
         nfs:
-          #shareCommentTemplate: "{{ parameters.[csi.storage.k8s.io/pvc/namespace] }}-{{ parameters.[csi.storage.k8s.io/pvc/name] }}"
           shareHost: 192.168.1.150
           shareAlldirs: false
           shareAllowedHosts: []
@@ -159,4 +132,9 @@ spec:
           shareMaprootGroup: root
           shareMapallUser: ""
           shareMapallGroup: ""
-
+      resources:
+        requests:
+          cpu: 10m
+          memory: 128Mi
+        limits:
+          memory: 256Mi

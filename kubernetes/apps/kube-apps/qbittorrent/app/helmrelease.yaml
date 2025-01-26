@@ -103,7 +103,7 @@ spec:
                   name: vpnconfig
                   key: wgaddress
               - name: WIREGUARD_MTU
-                value: 1384
+                value: 1364
               - name: DNS_ADDRESS
                 secretKeyRef:
                   name: vpnconfig

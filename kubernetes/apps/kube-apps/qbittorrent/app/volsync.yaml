@@ -33,7 +33,7 @@ metadata:
   name: qbittorrent
 spec:
   trigger:
-    manual: init2
+    manual: init3
   restic:
     moverSecurityContext:
       runAsUser: 568

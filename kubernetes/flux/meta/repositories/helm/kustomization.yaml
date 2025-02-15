@@ -6,26 +6,21 @@ resources:
   - ./backube.yaml
   - ./bjw-s.yaml
   - ./cilium.yaml
-  - ./ckotzbauer.yaml
   - ./cnpg.yaml
+  - ./controlplaneio.yaml
   - ./coredns.yaml
   - ./democratic-csi.yaml
   - ./external-dns.yaml
-  - ./fairwinds.yaml
-  - ./fluxcd-community.yaml
   - ./gabe565.yaml
-  - ./grafana.yaml
   - ./ingress-nginx.yaml
   - ./jetstack.yaml
   - ./kubernetes-dashboard.yaml
   - ./metrics-server.yaml
   - ./mojo2600.yaml
   - ./nextcloud.yaml
-  - ./postfinance.yaml
   - ./prometheus-community.yaml
   - ./robusta.yaml
   - ./spegel.yaml
   - ./stakater.yaml
-  - ./vmware-tanzu.yaml
 
 

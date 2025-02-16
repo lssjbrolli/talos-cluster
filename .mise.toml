@@ -30,6 +30,7 @@ uv = "0.6.0"
 "aqua:yannh/kubeconform" = "0.6.7"
 "aqua:kubernetes-sigs/krew" = "0.4.4"
 "aqua:restic/restic" = "0.17.3"
+helm-diff = "3.10.0"
 
 [tasks.install]
 description = "Install Python dependencies"

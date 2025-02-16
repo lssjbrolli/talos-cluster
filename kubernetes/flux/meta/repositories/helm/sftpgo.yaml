@@ -8,4 +8,4 @@ metadata:
 spec:
   type: oci
   interval: 6h
-  url: oci://ghcr.io/sftpgo/helm-charts/sftpgo
+  url: oci://ghcr.io/sftpgo/helm-charts

@@ -22,7 +22,7 @@ spec:
   values:
     image:
       # -- Image tag override for the default value (chart appVersion).
-      tag: "v2.6.5-distroless-slim@sha256:0f6f71898f5cb49852bae33ffb8e4d393ea50e1c0ebfa6a9bd5ebabf3bdb3115"
+      tag: "v2.6.5-distroless-slim"
     httpd:
       # -- Enable HTTP service.
       enabled: false

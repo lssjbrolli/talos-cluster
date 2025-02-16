@@ -24,7 +24,7 @@ spec:
       namespace: storage-system
   values:
     type: postgresql
-    mode: standalone
+    mode: recovery
     cluster:
       # follow https://github.com/cloudnative-pg/charts/issues/424 for externalClusters implementation
       initdb:
@@ -70,7 +70,7 @@ spec:
       s3:
         region: "eu-east"
         bucket: "cnpg"
-        path: "/v0"
+        path: "/v2"
         accessKey: aws-access-key-id
         secretKey: aws-secret-access-key
       scheduledBackups:
@@ -85,7 +85,7 @@ spec:
       s3:
         region: "eu-east"
         bucket: "cnpg"
-        path: "/v1"
+        path: "/v0"
         accessKey: aws-access-key-id
         secretKey: aws-secret-access-key
       secret:

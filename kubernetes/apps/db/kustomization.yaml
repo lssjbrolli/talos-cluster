@@ -2,10 +2,9 @@
 # yaml-language-server: $schema=https://json.schemastore.org/kustomization
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-namespace: cert-manager
+namespace: db
 components:
   - ../../flux/components/common
 resources:
-  - ./namespace.yaml
   - ./cnpg/ks.yaml
   # - ./pgadmin/ks.yaml

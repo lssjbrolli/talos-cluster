@@ -20,6 +20,7 @@ resources:
   - ./nextcloud.yaml
   - ./prometheus-community.yaml
   - ./robusta.yaml
+  - ./sftpgo.yaml
   - ./spegel.yaml
   - ./stakater.yaml
 

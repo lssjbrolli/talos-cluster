@@ -1,0 +1,44 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: sftpgo
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: sftpgo
+      version: 0.36.0
+      sourceRef:
+        kind: HelmRepository
+        name: sftpgo
+        namespace: flux-system
+      interval: 5m
+  dependsOn:
+    - name: ingress-nginx
+      namespace: network
+    - name: democratic-csi
+      namespace: storage-system
+  values:
+    image:
+      # -- Image tag override for the default value (chart appVersion).
+      tag: "v2.6.5-distroless-slim@sha256:0f6f71898f5cb49852bae33ffb8e4d393ea50e1c0ebfa6a9bd5ebabf3bdb3115"
+    httpd:
+      # -- Enable HTTP service.
+      enabled: false
+    resources:
+        limits:
+          memory: 256Mi
+        requests:
+          cpu: 100m
+          memory: 64Mi
+    persistence:
+      # -- Enable persistent storage for the /var/lib/sftpgo directory, saving state of the default sqlite db.
+      enabled: true
+      # -- Create the pvc desired specificiation.
+      pvc:
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 100Mi

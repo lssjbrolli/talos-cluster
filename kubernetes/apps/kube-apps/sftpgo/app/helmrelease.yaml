@@ -20,17 +20,57 @@ spec:
     - name: democratic-csi
       namespace: storage-system
   values:
-    initContainers:
-      init-db:
-        image:
-          repository: ghcr.io/onedr0p/postgres-init
-          tag: 16.6@sha256:a37bbb04a0ea3f15b505c6f97637e7ae89bc66541ae23b8d3848024087980e76
-        envFrom:
-          - secretRef:
-              name: sftpgo-db
+    # initContainers:
+    #   init-db:
+    #     image:
+    #       repository: ghcr.io/onedr0p/postgres-init
+    #       tag: 16.6@sha256:a37bbb04a0ea3f15b505c6f97637e7ae89bc66541ae23b8d3848024087980e76
+    #     envFrom:
+    #       - secretRef:
+    #           name: sftpgo-db
     image:
       # -- Image tag override for the default value (chart appVersion).
       tag: "v2.6.5-distroless-slim"
+    envVars:
+      - name: SFTPGO_DATA_PROVIDER__DRIVER
+        value: postgresql
+      - name: SFTPGO_DATA_PROVIDER__NAME
+        valueFrom:
+          secretKeyRef:
+            name: sftpgo-secrets
+            key: INIT_POSTGRES_DBNAME
+      - name: SFTPGO_DATA_PROVIDER__HOST
+        valueFrom:
+          secretKeyRef:
+            name: sftpgo-secrets
+            key: INIT_POSTGRES_HOST
+      - name: SFTPGO_DATA_PROVIDER__USERNAME
+        valueFrom:
+          secretKeyRef:
+            name: sftpgo-secrets
+            key: INIT_POSTGRES_USER
+      - name: SFTPGO_DATA_PROVIDER__PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: sftpgo-secrets
+            key: INIT_POSTGRES_PASS
+      - name: SFTPGO_DATA_PROVIDER__PORT
+        value: 5432
+      - name: SFTPGO_DATA_PROVIDER__UPDATE_MODE
+        value: 0
+      - name: SFTPGO_DATA_PROVIDER__CREATE_DEFAULT_ADMIN
+        value: true
+
+      - name: SFTPGO_DEFAULT_ADMIN_USERNAME
+        valueFrom:
+          secretKeyRef:
+            name: sftpgo-secrets
+            key: ADMIN_USER
+      - name: SFTPGO_DEFAULT_ADMIN_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: sftpgo-secrets
+            key: ADMIN_PASS
     httpd:
       # -- Enable HTTP service.
       enabled: false

@@ -55,11 +55,11 @@ spec:
             name: sftpgo-secrets
             key: INIT_POSTGRES_PASS
       - name: SFTPGO_DATA_PROVIDER__PORT
-        value: 5432
+        value: "5432"
       - name: SFTPGO_DATA_PROVIDER__UPDATE_MODE
-        value: 0
+        value: '0'
       - name: SFTPGO_DATA_PROVIDER__CREATE_DEFAULT_ADMIN
-        value: true
+        value: "true"
 
       - name: SFTPGO_DEFAULT_ADMIN_USERNAME
         valueFrom:

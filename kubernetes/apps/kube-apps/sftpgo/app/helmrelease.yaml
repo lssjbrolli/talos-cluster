@@ -71,7 +71,35 @@ spec:
             key: ADMIN_PASS
     httpd:
       # -- Enable HTTP service.
-      enabled: false
+      enabled: true
+    ui:
+      ingress:
+        # -- Enable [ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/).
+        enabled: true
+
+        # -- Ingress [class name](https://kubernetes.io/docs/concepts/services-networking/ingress/#ingress-class).
+        className: external
+
+        # -- Annotations to be added to the ingress.
+        annotations:
+          external-dns.alpha.kubernetes.io/target: "external.${SECRET_DOMAIN}"
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
+
+        # -- Ingress host configuration.
+        # @default -- See [values.yaml](values.yaml).
+        hosts:
+          - host: ftp.seganet.org
+            # Change httpd.web_root in the sftpgo configuration if you change the path
+            paths:
+              - path: /
+                pathType: ImplementationSpecific
+
+        # -- Ingress TLS configuration.
+        # @default -- See [values.yaml](values.yaml).
+        tls: []
+        #  - secretName: chart-example-tls
+        #    hosts:
+        #      - chart-example.local
     resources:
         limits:
           memory: 256Mi

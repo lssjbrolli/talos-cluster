@@ -120,6 +120,15 @@ spec:
         requests:
           cpu: 100m
           memory: 64Mi
+    volumes:
+      - name: storage
+        nfs:
+          path: /mnt/storage/media
+          server: 192.168.1.150
+    volumeMounts:
+      - mountPath: /storage
+        name: storage
+
     persistence:
       # -- Enable persistent storage for the /var/lib/sftpgo directory, saving state of the default sqlite db.
       enabled: true

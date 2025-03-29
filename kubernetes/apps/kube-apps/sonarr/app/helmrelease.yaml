@@ -61,9 +61,9 @@ spec:
             resources:
               requests:
                 cpu: 50m
-                memory: 256Mi
-              limits:
                 memory: 512Mi
+              limits:
+                memory: 768Mi
             env:
               TZ: ${CONFIG_TIMEZONE}
               SONARR__APP__INSTANCENAME: Sonarr

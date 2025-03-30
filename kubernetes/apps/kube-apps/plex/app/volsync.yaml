@@ -2,7 +2,7 @@
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationSource
 metadata:
-  name: plex
+  name: plex-backup
 spec:
   # The PVC to be backed up
   sourcePVC: plex-config
@@ -32,7 +32,7 @@ spec:
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationDestination
 metadata:
-  name: plex
+  name: plex-restore
 spec:
   trigger:
     manual: init

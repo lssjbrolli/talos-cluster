@@ -2,7 +2,7 @@
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationSource
 metadata:
-  name: sonarr
+  name: sonarr-backup
 spec:
   # The PVC to be backed up
   sourcePVC: sonarr-config
@@ -32,7 +32,7 @@ spec:
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationDestination
 metadata:
-  name: sonarr
+  name: sonarr-restore
 spec:
   trigger:
     manual: init

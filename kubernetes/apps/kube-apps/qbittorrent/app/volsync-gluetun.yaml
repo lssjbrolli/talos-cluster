@@ -2,7 +2,7 @@
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationSource
 metadata:
-  name: qbt-gluetun
+  name: qbt-gluetun-backup
 spec:
   # The PVC to be backed up
   sourcePVC: gluetun
@@ -25,7 +25,7 @@ spec:
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationDestination
 metadata:
-  name: qbt-gluetun
+  name: qbt-gluetun-restore
 spec:
   trigger:
     manual: init

@@ -2,7 +2,7 @@
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationSource
 metadata:
-  name: readarr
+  name: readarr-backup
 spec:
   # The PVC to be backed up
   sourcePVC: readarr-config
@@ -32,7 +32,7 @@ spec:
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationDestination
 metadata:
-  name: readarr
+  name: readarr-restore
 spec:
   trigger:
     manual: init

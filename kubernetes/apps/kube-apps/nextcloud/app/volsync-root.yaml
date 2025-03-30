@@ -2,7 +2,7 @@
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationSource
 metadata:
-  name: nextcloud
+  name: nextcloud-backup
 spec:
   # The PVC to be backed up
   sourcePVC: nextcloud
@@ -30,7 +30,7 @@ spec:
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationDestination
 metadata:
-  name: nextcloud
+  name: nextcloud-restore
 spec:
   trigger:
     manual: init

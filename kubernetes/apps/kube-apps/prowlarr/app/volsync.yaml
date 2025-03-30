@@ -2,7 +2,7 @@
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationSource
 metadata:
-  name: prowlarr
+  name: prowlarr-backup
 spec:
   # The PVC to be backed up
   sourcePVC: prowlarr-config
@@ -30,7 +30,7 @@ spec:
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationDestination
 metadata:
-  name: prowlarr
+  name: prowlarr-restore
 spec:
   trigger:
     manual: init

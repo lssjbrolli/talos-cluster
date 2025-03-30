@@ -2,7 +2,7 @@
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationSource
 metadata:
-  name: audiobookshelf-metadata
+  name: audiobookshelf-metadata-backup
 spec:
   # The PVC to be backed up
   sourcePVC: audiobookshelf-metadata
@@ -31,7 +31,7 @@ spec:
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationDestination
 metadata:
-  name: audiobookshelf-metadata
+  name: audiobookshelf-metadata-restore
 spec:
   trigger:
     manual: init

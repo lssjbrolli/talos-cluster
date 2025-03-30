@@ -9,7 +9,7 @@ spec:
   trigger:
     schedule: "0 */12 * * *"
   restic:
-    pruneIntervalDays: 14
+    pruneIntervalDays: 7
     # Name of the Secret with the connection information
     repository: restic-pihole
     # Retention policy for backups
@@ -35,4 +35,5 @@ spec:
     # Use an existing PVC, don't provision a new one
     destinationPVC: pihole
     cleanupCachePVC: true
+    enableFileDeletion: true
     copyMethod: Direct

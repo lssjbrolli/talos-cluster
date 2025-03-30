@@ -7,14 +7,14 @@ spec:
   # The PVC to be backed up
   sourcePVC: audiobookshelf-config
   trigger:
-    # Take a backup every 12 hours
-    schedule: "0 */12 * * *"
+    # Take a backup every 6 hours
+    schedule: "0 */6 * * *"
   restic:
     moverSecurityContext:
       runAsUser: 568
       runAsGroup: 568
       fsGroup: 568
-    pruneIntervalDays: 14
+    pruneIntervalDays: 7
     # Name of the Secret with the connection information
     repository: restic-audiobookshelf-config
     # Retention policy for backups
@@ -44,4 +44,5 @@ spec:
     # Use an existing PVC, don't provision a new one
     destinationPVC: audiobookshelf-config
     cleanupCachePVC: true
+    enableFileDeletion: true
     copyMethod: Direct

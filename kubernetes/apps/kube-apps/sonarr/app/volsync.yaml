@@ -15,7 +15,7 @@ spec:
       runAsGroup: 568
       fsGroup: 568
 
-    pruneIntervalDays: 14
+    pruneIntervalDays: 7
     # Name of the Secret with the connection information
     repository: restic-sonarr
     # Retention policy for backups
@@ -45,5 +45,5 @@ spec:
     # Use an existing PVC, don't provision a new one
     destinationPVC: sonarr-config
     cleanupCachePVC: true
+    enableFileDeletion: true
     copyMethod: Direct
-    previous: 1

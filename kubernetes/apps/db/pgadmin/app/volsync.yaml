@@ -9,11 +9,7 @@ spec:
   trigger:
     schedule: "0 0 * * *"
   restic:
-    moverSecurityContext:
-      runAsUser: 568
-      runAsGroup: 568
-      fsGroup: 56
-    pruneIntervalDays: 14
+    pruneIntervalDays: 7
     # Name of the Secret with the connection information
     repository: restic-pgadmin
     # Retention policy for backups
@@ -35,12 +31,9 @@ spec:
   trigger:
     manual: init
   restic:
-    moverSecurityContext:
-      runAsUser: 568
-      runAsGroup: 568
-      fsGroup: 568
     repository: restic-pgadmin
     # Use an existing PVC, don't provision a new one
     destinationPVC: pgadmin-config
     cleanupCachePVC: true
+    enableFileDeletion: true
     copyMethod: Direct

@@ -13,12 +13,13 @@ spec:
       runAsUser: 568
       runAsGroup: 568
       fsGroup: 568
-    pruneIntervalDays: 2
+    pruneIntervalDays: 7
     # Name of the Secret with the connection information
     repository: restic-prowlarr
     # Retention policy for backups
     retain:
       daily: 1
+      weekly: 1
     # Clone the source volume prior to taking a backup to ensure a
     # point-in-time image.
     copyMethod: Clone
@@ -42,4 +43,5 @@ spec:
     # Use an existing PVC, don't provision a new one
     destinationPVC: prowlarr-config
     cleanupCachePVC: true
+    enableFileDeletion: true
     copyMethod: Direct

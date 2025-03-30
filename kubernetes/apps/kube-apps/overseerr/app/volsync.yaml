@@ -9,12 +9,7 @@ spec:
   trigger:
     schedule: "0 */6 * * *"
   restic:
-    moverSecurityContext:
-      runAsUser: 568
-      runAsGroup: 568
-      fsGroup: 568
-
-    pruneIntervalDays: 14
+    pruneIntervalDays: 7
     # Name of the Secret with the connection information
     repository: restic-overseerr
     # Retention policy for backups
@@ -34,14 +29,11 @@ metadata:
   name: overseerr
 spec:
   trigger:
-    manual: restorev1
+    manual: init
   restic:
-    moverSecurityContext:
-      runAsUser: 568
-      runAsGroup: 568
-      fsGroup: 568
     repository: restic-overseerr
     # Use an existing PVC, don't provision a new one
     destinationPVC: overseerr-config
     cleanupCachePVC: true
+    enableFileDeletion: true
     copyMethod: Direct

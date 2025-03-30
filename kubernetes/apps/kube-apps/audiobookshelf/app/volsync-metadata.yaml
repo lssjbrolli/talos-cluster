@@ -8,17 +8,18 @@ spec:
   sourcePVC: audiobookshelf-metadata
   trigger:
     # Take a backup every 6 hours
-    schedule: "0 0 * * *"
+    schedule: "0 */6 * * *"
   restic:
     moverSecurityContext:
       runAsUser: 568
       runAsGroup: 568
       fsGroup: 568
-    pruneIntervalDays: 14
+    pruneIntervalDays: 7
     # Name of the Secret with the connection information
     repository: restic-audiobookshelf-metadata
     # Retention policy for backups
     retain:
+      daily: 1
       weekly: 1
     # Clone the source volume prior to taking a backup to ensure a
     # point-in-time image.
@@ -43,4 +44,5 @@ spec:
     # Use an existing PVC, don't provision a new one
     destinationPVC: audiobookshelf-metadata
     cleanupCachePVC: true
+    enableFileDeletion: true
     copyMethod: Direct

@@ -14,7 +14,7 @@ spec:
       runAsGroup: 568
       fsGroup: 568
 
-    pruneIntervalDays: 14
+    pruneIntervalDays: 7
     # Name of the Secret with the connection information
     repository: restic-plex
     # Retention policy for backups
@@ -45,5 +45,6 @@ spec:
     # Use an existing PVC, don't provision a new one
     destinationPVC: plex-config
     cleanupCachePVC: true
+    enableFileDeletion: true
     copyMethod: Direct
     cacheCapacity: 2Gi

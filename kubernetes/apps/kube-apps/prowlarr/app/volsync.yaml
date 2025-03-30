@@ -40,8 +40,9 @@ spec:
       runAsGroup: 568
       fsGroup: 568
     repository: restic-prowlarr
-    # Use an existing PVC, don't provision a new one
-    destinationPVC: prowlarr-config
     cleanupCachePVC: true
     enableFileDeletion: true
-    copyMethod: Direct
+    copyMethod: Snapshot
+    accessModes: [ReadWriteOnce]
+    capacity: 5Gi
+    volumeSnapshotClassName: freenas-nfs

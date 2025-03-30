@@ -41,8 +41,9 @@ spec:
       runAsGroup: 568
       fsGroup: 568
     repository: restic-audiobookshelf-metadata
-    # Use an existing PVC, don't provision a new one
-    destinationPVC: audiobookshelf-metadata
     cleanupCachePVC: true
     enableFileDeletion: true
-    copyMethod: Direct
+    copyMethod: Snapshot
+    accessModes: [ReadWriteOnce]
+    capacity: 2Gi
+    volumeSnapshotClassName: freenas-nfs

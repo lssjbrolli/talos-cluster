@@ -41,8 +41,9 @@ spec:
       runAsGroup: 568
       fsGroup: 568
     repository: restic-nc-data
-    # Use an existing PVC, don't provision a new one
-    destinationPVC: nextcloud-data
     cleanupCachePVC: true
     enableFileDeletion: true
-    copyMethod: Direct
+    copyMethod: Snapshot
+    accessModes: [ReadWriteOnce]
+    capacity: 50Gi
+    volumeSnapshotClassName: freenas-nfs

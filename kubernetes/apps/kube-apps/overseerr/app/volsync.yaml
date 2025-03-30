@@ -32,8 +32,9 @@ spec:
     manual: init
   restic:
     repository: restic-overseerr
-    # Use an existing PVC, don't provision a new one
-    destinationPVC: overseerr-config
     cleanupCachePVC: true
     enableFileDeletion: true
-    copyMethod: Direct
+    copyMethod: Snapshot
+    accessModes: [ReadWriteOnce]
+    capacity: 200Mi
+    volumeSnapshotClassName: freenas-nfs

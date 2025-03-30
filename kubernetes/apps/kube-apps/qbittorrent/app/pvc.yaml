@@ -6,6 +6,10 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
+  dataSourceRef:
+    kind: ReplicationDestination
+    apiGroup: volsync.backube
+    name: qbittorrent-restore
   resources:
     requests:
       storage: 200Mi
@@ -18,6 +22,10 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
+  dataSourceRef:
+    kind: ReplicationDestination
+    apiGroup: volsync.backube
+    name: qbt-gluetun-restore
   resources:
     requests:
       storage: 50Mi

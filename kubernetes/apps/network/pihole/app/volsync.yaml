@@ -32,8 +32,9 @@ spec:
     manual: init
   restic:
     repository: restic-pihole
-    # Use an existing PVC, don't provision a new one
-    destinationPVC: pihole
     cleanupCachePVC: true
     enableFileDeletion: true
-    copyMethod: Direct
+    copyMethod: Snapshot
+    accessModes: [ReadWriteOnce]
+    capacity: 500Mi
+    volumeSnapshotClassName: freenas-nfs

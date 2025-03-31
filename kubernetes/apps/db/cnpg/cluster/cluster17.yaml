@@ -70,7 +70,7 @@ spec:
       s3:
         region: "eu-east"
         bucket: "cnpg"
-        path: "/v4"
+        path: "/v3"
         accessKey: aws-access-key-id
         secretKey: aws-secret-access-key
       scheduledBackups:

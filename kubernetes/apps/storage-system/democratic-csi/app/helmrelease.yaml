@@ -98,7 +98,7 @@ spec:
     driver:
       config:
         # driver: freenas-api-iscsi
-        driver: freenas-api-nfs
+        driver: freenas-nfs
         instance_id:
         sshConnection:
           host: 192.168.1.150

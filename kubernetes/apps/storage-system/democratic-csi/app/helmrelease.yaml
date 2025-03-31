@@ -113,6 +113,8 @@ spec:
           username: root
           password: sega
         zfs:
+          cli:
+            sudoEnabled: true
           datasetParentName: apps/data/vols
           detachedSnapshotsDatasetParentName: apps/data/snaps
           datasetEnableQuotas: true

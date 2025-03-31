@@ -22,6 +22,9 @@ spec:
     remediation:
       strategy: rollback
       retries: 3
+  dependsOn:
+    - name: cluster17
+      namespace: db
   values:
     defaultPodOptions:
       securityContext:

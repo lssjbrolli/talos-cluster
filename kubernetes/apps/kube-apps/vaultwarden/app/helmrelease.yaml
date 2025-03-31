@@ -24,6 +24,11 @@ spec:
     remediation:
       strategy: rollback
       retries: 3
+  dependsOn:
+    - name: volsync
+      namespace: storage-system
+    - name: cluster17
+      namespace: db
   values:
     controllers:
       main:

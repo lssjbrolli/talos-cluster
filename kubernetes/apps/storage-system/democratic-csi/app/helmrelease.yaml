@@ -100,6 +100,13 @@ spec:
         # driver: freenas-api-iscsi
         driver: freenas-nfs
         instance_id:
+        httpConnection:
+          protocol: https
+          host: 192.168.1.150
+          port: 443
+          apiKey: 1-8ut82p9luLHvlaZIXqrF5KdB9nghLW0e9pt8VGeffaoMuyHVjwhWPrFZzTe8weOB
+          allowInsecure: true
+          apiVersion: 2
         sshConnection:
           host: 192.168.1.150
           port: 22

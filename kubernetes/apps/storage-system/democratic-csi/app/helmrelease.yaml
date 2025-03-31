@@ -25,8 +25,10 @@ spec:
   values:
     csiDriver:
       name: "freenas-nfs"
+      fsGroupPolicy: File
     controller:
       driver:
+        logLevel: debug
         resources:
           requests:
             memory: 128Mi
@@ -87,37 +89,25 @@ spec:
         allowVolumeExpansion: true
         parameters:
           fsType: nfs
-          # detachedVolumesFromSnapshots: "false"
         mountOptions:
           - noatime
           - nfsvers=4
-        # secrets:
-        #   provisioner-secret:
-        #   controller-publish-secret:
-        #   node-stage-secret:
-        #   node-publish-secret:
-        #   controller-expand-secret:
     volumeSnapshotClasses:
       - name: freenas-nfs
         defaultClass: true
-        parameters:
-          detachedSnapshots: "true"
     driver:
       config:
         # driver: freenas-api-iscsi
         driver: freenas-api-nfs
         instance_id:
-        httpConnection:
-          protocol: https
+        sshConnection:
           host: 192.168.1.150
-          port: 443
-          apiKey: 1-8ut82p9luLHvlaZIXqrF5KdB9nghLW0e9pt8VGeffaoMuyHVjwhWPrFZzTe8weOB
-          allowInsecure: true
-          apiVersion: 2
+          port: 22
+          username: apps
+          password: test
         zfs:
           datasetParentName: apps/data/vols
           detachedSnapshotsDatasetParentName: apps/data/snaps
-          zvolEnableReservation: false
           datasetEnableQuotas: true
           datasetEnableReservation: false
           datasetPermissionsMode: "0777"

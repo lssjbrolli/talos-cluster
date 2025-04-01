@@ -29,7 +29,7 @@ metadata:
   name: pihole-restore
 spec:
   trigger:
-    manual: init
+    manual: init2
   restic:
     repository: restic-pihole
     cleanupCachePVC: true
@@ -38,3 +38,4 @@ spec:
     accessModes: [ReadWriteOnce]
     capacity: 500Mi
     volumeSnapshotClassName: freenas-nfs
+    previous: 1

@@ -24,7 +24,7 @@ spec:
       namespace: storage-system
   values:
     type: postgresql
-    mode: recovery
+    mode: standalone
     cluster:
       # follow https://github.com/cloudnative-pg/charts/issues/424 for externalClusters implementation
       initdb:

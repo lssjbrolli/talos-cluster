@@ -97,7 +97,8 @@ spec:
         defaultClass: true
     driver:
       existingConfigSecret: democratic-csi-secret
-      config: {}
+      config:
+        driver: freenas-nfs
       resources:
         requests:
           cpu: 10m

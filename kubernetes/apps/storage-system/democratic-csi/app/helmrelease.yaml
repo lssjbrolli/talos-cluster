@@ -96,8 +96,8 @@ spec:
       - name: freenas-nfs
         defaultClass: true
     driver:
+      existingConfigSecret: democratic-csi-secret
       config:
-        existingConfigSecret: democratic-csi-secret
         driver: freenas-nfs
         instance_id:
         httpConnection:

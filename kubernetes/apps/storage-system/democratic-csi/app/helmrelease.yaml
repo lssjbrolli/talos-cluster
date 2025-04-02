@@ -27,6 +27,8 @@ spec:
       name: "freenas-nfs"
       fsGroupPolicy: File
     controller:
+      annotations:
+        reloader.stakater.com/auto: "true"
       driver:
         logLevel: debug
         resources:

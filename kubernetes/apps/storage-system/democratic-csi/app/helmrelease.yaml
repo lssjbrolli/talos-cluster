@@ -97,24 +97,26 @@ spec:
         defaultClass: true
     driver:
       config:
-        # driver: freenas-api-iscsi
+        existingConfigSecret: democratic-csi-secret
         driver: freenas-nfs
         instance_id:
         httpConnection:
           protocol: https
           host: 192.168.1.150
           port: 443
-          apiKey: 1-8ut82p9luLHvlaZIXqrF5KdB9nghLW0e9pt8VGeffaoMuyHVjwhWPrFZzTe8weOB
           allowInsecure: true
           apiVersion: 2
         sshConnection:
           host: 192.168.1.150
           port: 22
-          username: root
-          password: sega
         zfs:
           cli:
             sudoEnabled: true
+            paths:
+              zfs: /sbin/zfs
+              zpool: /sbin/zpool
+              sudo: /bin/sudo
+              chroot: /sbin/chroot
           datasetParentName: apps/data/vols
           detachedSnapshotsDatasetParentName: apps/data/snaps
           datasetEnableQuotas: true

@@ -97,42 +97,7 @@ spec:
         defaultClass: true
     driver:
       existingConfigSecret: democratic-csi-secret
-      config:
-        driver: freenas-nfs
-        instance_id:
-        httpConnection:
-          protocol: https
-          host: 192.168.1.150
-          port: 443
-          allowInsecure: true
-          apiVersion: 2
-        sshConnection:
-          host: 192.168.1.150
-          port: 22
-        zfs:
-          cli:
-            sudoEnabled: true
-            paths:
-              zfs: /sbin/zfs
-              zpool: /sbin/zpool
-              sudo: /bin/sudo
-              chroot: /sbin/chroot
-          datasetParentName: apps/data/vols
-          detachedSnapshotsDatasetParentName: apps/data/snaps
-          datasetEnableQuotas: true
-          datasetEnableReservation: false
-          datasetPermissionsMode: "0777"
-          datasetPermissionsUser: 568
-          datasetPermissionsGroup: 568
-        nfs:
-          shareHost: 192.168.1.150
-          shareAlldirs: false
-          shareAllowedHosts: []
-          shareAllowedNetworks: []
-          shareMaprootUser: root
-          shareMaprootGroup: root
-          shareMapallUser: ""
-          shareMapallGroup: ""
+      config: {}
       resources:
         requests:
           cpu: 10m

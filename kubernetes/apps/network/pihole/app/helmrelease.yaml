@@ -29,10 +29,11 @@ spec:
       # -- Generate a Service resource for DHCP traffic
       enabled: false
     serviceWeb:
-      https:
+      http:
         # -- Generate a service for HTTPS traffic
-        # enabled: false
-        loadBalancerIP: 192.168.1.253
+        enabled: true
+      type: LoadBalancer
+      loadBalancerIP: 192.168.1.253
     serviceDns:
       mixedService: true
       type: LoadBalancer

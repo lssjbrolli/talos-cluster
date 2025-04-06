@@ -20,7 +20,7 @@ spec:
     cleanupOnFail: true
     remediation:
       strategy: rollback
-      retries: 3
+      retries: -3
   values:
     provider:
       name: pihole

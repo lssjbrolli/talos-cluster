@@ -86,8 +86,8 @@ spec:
         #   authtype: NONE
         #   name: ""
         #   password: ""
-      securityContext:
-        runAsNonRoot: true
+      # securityContext:
+      #   runAsNonRoot: true
       # configs:
       #   proxy.config.php: |-
       #     <?php

@@ -28,4 +28,4 @@ spec:
   #   name: nextcloud-data-restore
   resources:
     requests:
-      storage: 50Gi
+      storage: 5Gi

@@ -87,8 +87,6 @@ spec:
         #   name: ""
         #   password: ""
       securityContext:
-        runAsUser: 568
-        runAsGroup: 568
         runAsNonRoot: true
       # configs:
       #   proxy.config.php: |-

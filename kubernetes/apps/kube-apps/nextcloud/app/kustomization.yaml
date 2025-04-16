@@ -10,4 +10,4 @@ resources:
   - ./restic-data.sops.yaml
   - ./secret.sops.yaml
   # - ./volsync-root.yaml
-  - ./volsync-data.yaml
+  # - ./volsync-data.yaml

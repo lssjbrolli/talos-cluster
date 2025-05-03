@@ -31,6 +31,9 @@ spec:
         reloader.stakater.com/auto: "true"
       driver:
         logLevel: debug
+        image:
+          registry: docker.io/democraticcsi/democratic-csi
+          tag: next
         resources:
           requests:
             memory: 128Mi

@@ -30,7 +30,7 @@ spec:
       namespace: db
   values:
     image:
-      tag: 31.0.2-fpm-alpine@sha256:449b48cdbb04fea5d70c4da0b88098260ffab825527a9fc87dd2299cc75709b6
+      tag: 31.0.4-fpm-alpine@sha256:a111d5b748a259936b075575879c621dd387b18fb8a864a2ed8f3f4f9c288f3f
       flavor: fpm-alpine
     nginx:
       enabled: true

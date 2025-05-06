@@ -12,6 +12,7 @@ resources:
   - ./democratic-csi.yaml
   - ./external-dns.yaml
   - ./gabe565.yaml
+  - ./immich.yaml
   - ./ingress-nginx.yaml
   - ./jetstack.yaml
   - ./kubernetes-dashboard.yaml

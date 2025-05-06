@@ -38,6 +38,17 @@ spec:
       persistence:
         library:
           existingClaim: immich-library
+      # configuration is immich-config.json converted to yaml
+      # ref: https://immich.app/docs/install/config-file/
+      #
+      configuration: {}
+        # trash:
+        #   enabled: false
+        #   days: 30
+        # storageTemplate:
+        #   enabled: true
+        #   template: "{{y}}/{{y}}-{{MM}}-{{dd}}/{{filename}}"
+
     env:
       # MACHINE_LEARNING_PRELOAD__CLIP: "ViT-H-14-378-quickgelu__dfn5b"
       DB_HOSTNAME:
@@ -64,17 +75,18 @@ spec:
       TZ: Europe/Bucharest
 
     server:
-      controller:
-        annotations:
-          reloader.stakater.com/auto: "true"
-        initContainers:
-          init-db:
-            image:
-              repository: ghcr.io/home-operations/postgres-init
-              tag: 17.4.0@sha256:a9f405688344a8a6f718e2c344438342ad21540986aeb5ab5fa781831eb2c597
-            envFrom:
-              - secretRef:
-                  name: immich-db
+      controllers:
+        main:
+          annotations:
+            reloader.stakater.com/auto: "true"
+          initContainers:
+            init-db:
+              image:
+                repository: ghcr.io/home-operations/postgres-init
+                tag: 17.4.0@sha256:a9f405688344a8a6f718e2c344438342ad21540986aeb5ab5fa781831eb2c597
+              envFrom:
+                - secretRef:
+                    name: immich-db
       resources:
         requests:
           cpu: 500m

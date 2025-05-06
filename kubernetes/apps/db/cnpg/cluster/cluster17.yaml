@@ -50,9 +50,9 @@ spec:
       monitoring:
         enabled: true
       postgresql:
-        shared_preload_libraries:
-          - "vchord.so"
         parameters:
+          shared_preload_libraries:
+            - "vchord.so"
           max_connections: "100"
           shared_buffers: 256MB
     backups:

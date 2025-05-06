@@ -87,7 +87,7 @@ spec:
           enabled: true
           annotations:
             kubernetes.io/ingress.class: nginx
-            cert-manager.io/cluster-issuer: letsencrypt-prod
+            cert-manager.io/cluster-issuer: letsencrypt-production
             external-dns.alpha.kubernetes.io/target: seganet.prg
             nginx.ingress.kubernetes.io/proxy-body-size: "0"
           hosts:

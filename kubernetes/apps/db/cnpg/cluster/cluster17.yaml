@@ -29,8 +29,7 @@ spec:
       # follow https://github.com/cloudnative-pg/charts/issues/424 for externalClusters implementation
       initdb:
         dataChecksums: true
-      imageName: ghcr.io/tensorchord/cloudnative-pgvecto.rs:17.4@sha256:19fefd118adc82e6a527c27052481e7961225eabad6081d585601f30b7ebe496
-      instances: 2
+      imageName: ghcr.io/tensorchord/vchord-postgres:pg17-v0.3.0@sha256:7eb42d15eb55d5518a403921abf417aee829a323eb2c731c2b589d1508184dc3
       logLevel: warning
       resources:
         requests:

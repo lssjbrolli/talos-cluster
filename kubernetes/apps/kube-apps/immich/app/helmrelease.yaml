@@ -58,12 +58,12 @@ spec:
         valueFrom:
           secretKeyRef:
             name: immich-db
-            key: HOST
+            key: HOSTNAME
       DB_USERNAME:
         valueFrom:
           secretKeyRef:
             name: immich-db
-            key: LOGIN
+            key: USERNAME
       DB_PASSWORD:
         valueFrom:
           secretKeyRef:

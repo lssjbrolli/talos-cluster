@@ -29,7 +29,9 @@ spec:
       # follow https://github.com/cloudnative-pg/charts/issues/424 for externalClusters implementation
       initdb:
         dataChecksums: true
-      imageName: ghcr.io/tensorchord/vchord-postgres:pg17-v0.3.0@sha256:7eb42d15eb55d5518a403921abf417aee829a323eb2c731c2b589d1508184dc3
+        postInitSQL:
+          - CREATE EXTENSION IF NOT EXISTS vchord CASCADE;
+      imageName: ghcr.io/tensorchord/cloudnative-vectorchord:17.4-0.3.0@sha256:1650dee9d32a05a4d93d430b5d7d7a8a10c9d49c7e48841e4642efff03a24964
       logLevel: warning
       resources:
         requests:
@@ -48,6 +50,8 @@ spec:
       monitoring:
         enabled: true
       postgresql:
+        shared_preload_libraries:
+          - "vchord.so"
         parameters:
           max_connections: "100"
           shared_buffers: 256MB

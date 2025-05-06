@@ -80,7 +80,9 @@ spec:
     server:
       resources:
         requests:
-          cpu: 1500m
+          cpu: 500m
+          memory: 512M
+        limits:
           memory: 2048M
       ingress:
         main:

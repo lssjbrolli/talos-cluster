@@ -53,7 +53,7 @@ spec:
       postgresql:
         parameters:
           shared_preload_libraries:
-            - "vectors.so"
+            "vectors.so"
           max_connections: "100"
           shared_buffers: 256MB
     backups:

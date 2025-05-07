@@ -71,7 +71,7 @@ spec:
           secretKeyRef:
             name: immich-db
             key: DATABASE_NAME
-      # DB_VECTOR_EXTENSION: pgvector
+      DB_VECTOR_EXTENSION: pgvector
       LOG_LEVEL: verbose
       TZ: Europe/Bucharest
 

@@ -31,7 +31,7 @@ spec:
         dataChecksums: true
         postInitSQL:
           - CREATE EXTENSION IF NOT EXISTS vector;
-      imageName: ghcr.io/cloudnative-pg/postgresql:17.4-standard-bookworm@sha256:3e8275ee44bbe022360417995a6949e4461f7ca4793098e9426a5199b00c5ac3
+      imageName: ghcr.io/cloudnative-pg/postgresql:17.4-minimal-bookworm@sha256:3e8275ee44bbe022360417995a6949e4461f7ca4793098e9426a5199b00c5ac3
       logLevel: warning
       resources:
         requests:

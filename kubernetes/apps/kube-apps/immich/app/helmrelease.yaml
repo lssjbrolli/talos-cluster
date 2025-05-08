@@ -22,6 +22,11 @@ spec:
     remediation:
       strategy: rollback
       retries: 3
+  dependsOn:
+    - name: volsync
+      namespace: storage-system
+    - name: immich
+      namespace: db
   driftDetection:
     mode: warn
   maxHistory: 2

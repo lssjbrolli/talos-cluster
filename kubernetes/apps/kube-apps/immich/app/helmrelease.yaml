@@ -101,12 +101,12 @@ spec:
         limits:
           memory: 2048M
       service:
-      main:
-        controller: main
-        type: ClusterIP
-        ports:
-          http:
-            port: &port 2286
+        main:
+          controller: main
+          type: ClusterIP
+          ports:
+            http:
+              port: &port 2286
       ingress:
         main:
           enabled: true
@@ -130,6 +130,13 @@ spec:
 
     machine-learning:
       # enabled: false
+      service:
+        main:
+          controller: main
+          type: ClusterIP
+          ports:
+            http:
+              port: 3003
       resources:
         requests:
           cpu: 500m

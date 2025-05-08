@@ -129,7 +129,7 @@ spec:
               secretName: immich-web-tls
 
     machine-learning:
-      # enabled: false
+      enabled: true
       service:
         main:
           controller: main

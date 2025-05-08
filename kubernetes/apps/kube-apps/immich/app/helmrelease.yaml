@@ -113,10 +113,10 @@ spec:
           ingressClassName: external
           annotations:
             cert-manager.io/cluster-issuer: letsencrypt-production
-            external-dns.alpha.kubernetes.io/target: "external.${SECRET_DOMAIN}"
+            external-dns.alpha.kubernetes.io/target: external.seganet.org
             nginx.ingress.kubernetes.io/proxy-body-size: "0"
           hosts:
-            - host: photos.${SECRET_DOMAIN}"
+            - host: photos.seganet.org
               paths:
                 - path: /
                   pathType: Prefix
@@ -125,7 +125,7 @@ spec:
                     port: *port
           tls:
             - hosts:
-                - photos.${SECRET_DOMAIN}"
+                - photos.seganet.org
               secretName: immich-web-tls
 
     machine-learning:

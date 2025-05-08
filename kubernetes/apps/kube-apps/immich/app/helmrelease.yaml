@@ -129,12 +129,14 @@ spec:
               secretName: immich-web-tls
 
     machine-learning:
-      enabled: false
-      # resources:
-      #   requests:
-      #     cpu: 500m
-      #     memory: 4096M
-      # persistence:
-      #   cache:
-      #     type: pvc
-      #     existingClaim: immich-machine-learning-cache
+      # enabled: false
+      resources:
+        requests:
+          cpu: 500m
+          memory: 512M
+        limits:
+          memory: 4096M
+      persistence:
+        cache:
+          type: pvc
+          existingClaim: immich-machine-learning-cache

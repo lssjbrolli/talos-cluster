@@ -7,4 +7,5 @@ resources:
   - ./pg.sops.yaml
   - ./pvc.yaml
   - ./restic.sops.yaml
-  # - ./volsync.yaml
+  - ./volsync.yaml
+  - ./volsync-library.yaml

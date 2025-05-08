@@ -5,7 +5,7 @@ metadata:
   name: immich-backup
 spec:
   # The PVC to be backed up
-  sourcePVC: immich
+  sourcePVC: immich-library
   trigger:
     # Take a backup every 6 hours
     schedule: "0 */6 * * *"

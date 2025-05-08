@@ -32,7 +32,7 @@ spec:
         # postInitSQL:
         #   - ALTER SYSTEM SET search_path TO "$user", public, vectors;
         #   - CREATE EXTENSION IF NOT EXISTS "vectors";
-      imageName: ghcr.io/lssjbrolli/cloudnativepgvecto:latest
+      imageName: ghcr.io/lssjbrolli/cloudnativepgvecto:0.3.0
       logLevel: warning
       resources:
         requests:

@@ -3,12 +3,12 @@ kind: Secret
 metadata:
     name: immich-db
 stringData:
-    INIT_POSTGRES_HOST: ENC[AES256_GCM,data:kHJY8pian8TZADiBdSkQnnhuHapvHzHYrcsFbLorV+CE,iv:wrlQW0eeigqE0qOpovux9qGZ7rgkqW86URcLT++bkLQ=,tag:a04QVGdZl/l6Itz1cfm0vQ==,type:str]
+    INIT_POSTGRES_HOST: ENC[AES256_GCM,data:pfF2K0Jt+PFLeWNTOmkkKNQrCEF8c5vmkxbLqcl1,iv:MRvxHvYvA18oi+u5s19Cn2f3o+n8WCAf0U70j493Dbg=,tag:sHNmvKOMmbOXy71t6nWvow==,type:str]
     INIT_POSTGRES_SUPER_PASS: ENC[AES256_GCM,data:W97t0Q==,iv:aL7vweL2SOUVv1cqtyx6i81UCJFwgn2COrXe5hSkeHM=,tag:OeTTmHSYVnK5R0PpILc11g==,type:str]
     INIT_POSTGRES_USER: ENC[AES256_GCM,data:txYEMw==,iv:srz5+UCiDLPQxj05gj/NWwWfinKsv4GGHDaRtqPXqjI=,tag:v1IkXxm7Vzn9t/Q4thsD3A==,type:str]
     INIT_POSTGRES_PASS: ENC[AES256_GCM,data:XNVo0Q==,iv:3w3vSQEIilEvf/yP6DTNwBdJDp9UetAqgfHLQPR+GUA=,tag:DTiTk9HLx9WTt6915Cq1RQ==,type:str]
     INIT_POSTGRES_DBNAME: ENC[AES256_GCM,data:MWnuOFzQ,iv:QhuTUPTQ8RyJHeqXkfvfvYrZbTw3lxtR+JAZuHkl0Q4=,tag:TMSn5vR33hwwobJNUvdUMA==,type:str]
-    HOSTNAME: ENC[AES256_GCM,data:tKWGKq382e2oHNN3BOLi/gIU4xvqSsdZk0jTgV5wlbn1,iv:TAoTGy8VNckYNEnDLNk3xKgtQn2ncxn/dfAM6t+85oI=,tag:rTqsirhvJSy1qbB4H2AWsQ==,type:str]
+    HOSTNAME: ENC[AES256_GCM,data:Ri1mMRx7rDZQuu4YKh6mO+LV52xDPb+HHwi+WpgA,iv:nvXC2IsqizuLzP5E8emZ2G/KobcBtdf04dlfTrE6ZxU=,tag:lvr+yovYV52m4ve6etAfmw==,type:str]
     USERNAME: ENC[AES256_GCM,data:cO35JQ==,iv:qyL6TCNo4g+drEeDgUG5qdlX/94rztHTH0RzR28NRp0=,tag:Ub/h0FvSuVrrqyUuQWf/Fw==,type:str]
     PASSWORD: ENC[AES256_GCM,data:pgpiNQ==,iv:Uyq6ds3imVfBH/SGwxKqIdrbiffghUb5+UQ8I/+DkwY=,tag:GwsINdXvpewHEB31Hk+ilA==,type:str]
     DATABASE_NAME: ENC[AES256_GCM,data:1rVQbNy0,iv:UVLvnh6XZzWM6n52l3q3Cuxy7vRaBuXzpUnItjs4BzE=,tag:7+pWcXQmkRyKXPSBQTulXg==,type:str]
@@ -23,8 +23,8 @@ sops:
             OFk5UUZwQm9hS1JYYWRtOGFWOWhLK0UKMYXcDk8eajCyQPdn/5VxO85Wm9h4O3r5
             NiLmwgk5wPpyf3v+ZyE5gztjnRuXceXcLXGBjvF/E4QJo4vEoFhhrA==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2025-05-06T11:38:46Z"
-    mac: ENC[AES256_GCM,data:rtBx6IyBcqY6l1z2gJo7n6HZTUazM08xiF4a3xxhR+JT9ETXhQjRsHQS/ZnukFy4FlZ1+eCg9aslFkW2AX2cYMMeMp5ymI/2aEdvS08346mIkyB99mK/8c6RNKBTyOScZvyl1FbwbOCKG9DWr81nUvQ4z8GwwfjgHhRIcaVrQ60=,iv:FTo9B4O+diUMZfE5A7fn5UF/jr2GwiZWCbrhBulax2A=,tag:WDwvND+xiQU3m8zIs9/6NA==,type:str]
+    lastmodified: "2025-05-08T10:51:33Z"
+    mac: ENC[AES256_GCM,data:Gz+SBkxvdnR/yKaopFt/VJh5b1wS16b/nH4eetarangrOUmSUu/AY8NHb8eyoefU+PEsQ9zWWpJtusZjKjeGRe4a0wSH0+i6R9rptLn2W0xINrOscj35bQLKhfd/5jjOKTJ1J+mzL7AVFBwfMUFaw2lyUqf7wDUwkNROQRFe8S8=,iv:qbW4TCqe15ZZnbctWPkYz9ZjNNBTYfZ9lnVSBdASrjo=,tag:FVHmpsRXKYjSsv4A8Ero1w==,type:str]
     encrypted_regex: ^(data|stringData)$
     mac_only_encrypted: true
     version: 3.10.2

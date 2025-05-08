@@ -29,9 +29,9 @@ spec:
       # follow https://github.com/cloudnative-pg/charts/issues/424 for externalClusters implementation
       initdb:
         dataChecksums: true
-        # postInitSQL:
-        #   - ALTER SYSTEM SET search_path TO "$user", public, vectors;
-        #   - CREATE EXTENSION IF NOT EXISTS "vectors";
+        postInitSQL:
+          - ALTER SYSTEM SET search_path TO "$user", public, vectors;
+          - CREATE EXTENSION IF NOT EXISTS "vectors";
       imageName: ghcr.io/lssjbrolli/cloudnativepgvecto:17.4
       logLevel: warning
       resources:
@@ -52,6 +52,7 @@ spec:
         enabled: true
       postgresql:
         parameters:
+          shared_preload_libraries: "vectors.so"
           max_connections: "100"
           shared_buffers: 256MB
     backups:

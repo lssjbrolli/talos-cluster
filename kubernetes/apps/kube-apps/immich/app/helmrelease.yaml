@@ -100,6 +100,13 @@ spec:
           memory: 512M
         limits:
           memory: 2048M
+      service:
+      main:
+        controller: main
+        type: ClusterIP
+        ports:
+          http:
+            port: &port 2286
       ingress:
         main:
           enabled: true
@@ -115,7 +122,7 @@ spec:
                   pathType: Prefix
                   service:
                     identifier: main
-                    port: 2283
+                    port: *port
           tls:
             - hosts:
                 - photos.${SECRET_DOMAIN}"

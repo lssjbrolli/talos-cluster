@@ -52,10 +52,10 @@ spec:
         enabled: true
       postgresql:
         parameters:
-          shared_preload_libraries:
-            - "vectors.so"
           max_connections: "100"
           shared_buffers: 256MB
+        shared_preload_libraries:
+            - "vectors.so"
     backups:
       enabled: true
       retentionPolicy: 7d

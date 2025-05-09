@@ -31,6 +31,7 @@ uv = "0.7.2"
 "aqua:kubernetes-sigs/krew" = "0.4.5"
 "aqua:restic/restic" = "0.18.0"
 helm-diff = "3.11.0"
+cmctl = @2.2.0
 
 [tasks.install]
 description = "Install Python dependencies"

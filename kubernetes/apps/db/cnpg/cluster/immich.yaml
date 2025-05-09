@@ -24,9 +24,9 @@ spec:
       namespace: storage-system
   values:
     type: postgresql
-    mode: recovery
+    mode: standalone
     cluster:
-      instances: 1
+      instances: 2
       # follow https://github.com/cloudnative-pg/charts/issues/424 for externalClusters implementation
       initdb:
         dataChecksums: true

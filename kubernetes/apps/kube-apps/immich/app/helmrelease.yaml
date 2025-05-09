@@ -81,6 +81,7 @@ spec:
       TZ: Europe/Bucharest
 
     server:
+      enabled: true
       podAnnotations:
         reloader.stakater.com/auto: "true"
       initContainers:

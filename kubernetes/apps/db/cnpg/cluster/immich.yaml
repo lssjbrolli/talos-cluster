@@ -74,7 +74,7 @@ spec:
         encryption: ''
       s3:
         region: "eu-east"
-        bucket: "immichDB"
+        bucket: "immich-db"
         path: "/v0"
         accessKey: aws-access-key-id
         secretKey: aws-secret-access-key

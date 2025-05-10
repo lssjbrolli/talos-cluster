@@ -12,7 +12,7 @@ spec:
   restic:
     pruneIntervalDays: 7
     # Name of the Secret with the connection information
-    repository: restic-immich
+    repository: restic-immich-library
     # Retention policy for backups
     retain:
       daily: 2

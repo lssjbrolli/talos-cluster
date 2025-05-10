@@ -40,6 +40,8 @@ spec:
     image:
       tag: v1.132.3
     immich:
+      metrics:
+        enabled: false
       persistence:
         library:
           existingClaim: immich-library
@@ -76,13 +78,12 @@ spec:
           secretKeyRef:
             name: immich-db
             key: DATABASE_NAME
-      # DB_VECTOR_EXTENSION: pgvector
-      LOG_LEVEL: verbose
+      LOG_LEVEL: warning
       TZ: Europe/Bucharest
 
     server:
-      podAnnotations:
-        reloader.stakater.com/auto: "true"
+      # podAnnotations:
+      #   reloader.stakater.com/auto: "true"
       # initContainers:
       #   init-db:
       #     image:
@@ -126,7 +127,7 @@ spec:
               secretName: immich-web-tls
 
     machine-learning:
-      enabled: true
+      enabled: false
       service:
         main:
           controller: main

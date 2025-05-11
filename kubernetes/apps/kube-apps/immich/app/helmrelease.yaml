@@ -5,7 +5,7 @@ kind: HelmRelease
 metadata:
   name: immich
 spec:
-  interval: 30m
+  interval: 5m
   chart:
     spec:
       chart: immich
@@ -17,18 +17,18 @@ spec:
   install:
     remediation:
       retries: 3
-  upgrade:
-    cleanupOnFail: true
-    remediation:
-      strategy: rollback
-      retries: 3
-  dependsOn:
-    - name: volsync
-      namespace: storage-system
-    - name: immich
-      namespace: db
-  driftDetection:
-    mode: warn
+  # upgrade:
+  #   cleanupOnFail: true
+  #   remediation:
+  #     strategy: rollback
+  #     retries: 3
+  # dependsOn:
+  #   - name: volsync
+  #     namespace: storage-system
+  #   - name: immich
+  #     namespace: db
+  # driftDetection:
+  #   mode: warn
   maxHistory: 2
   values:
     postgres:
@@ -38,10 +38,11 @@ spec:
       enabled: true
 
     image:
+      # renovate: datasource=github-releases depName=immich-app/immich
       tag: v1.132.3
     immich:
-      metrics:
-        enabled: false
+      # metrics:
+      #   enabled: false
       persistence:
         library:
           existingClaim: immich-library
@@ -57,7 +58,7 @@ spec:
         #   template: "{{y}}/{{y}}-{{MM}}-{{dd}}/{{filename}}"
 
     env:
-      # MACHINE_LEARNING_PRELOAD__CLIP: "ViT-H-14-378-quickgelu__dfn5b"
+      MACHINE_LEARNING_PRELOAD__CLIP: "ViT-H-14-378-quickgelu__dfn5b"
       DB_HOSTNAME:
         valueFrom:
           secretKeyRef:
@@ -126,22 +127,22 @@ spec:
                 - photos.seganet.org
               secretName: immich-web-tls
 
-    machine-learning:
-      enabled: false
-      service:
-        main:
-          controller: main
-          type: ClusterIP
-          ports:
-            http:
-              port: 3003
-      resources:
-        requests:
-          cpu: 500m
-          memory: 512M
-        limits:
-          memory: 4096M
-      persistence:
-        cache:
-          type: pvc
-          existingClaim: immich-machine-learning-cache
+    # machine-learning:
+    #   enabled: false
+    #   service:
+    #     main:
+    #       controller: main
+    #       type: ClusterIP
+    #       ports:
+    #         http:
+    #           port: 3003
+    #   resources:
+    #     requests:
+    #       cpu: 500m
+    #       memory: 512M
+    #     limits:
+    #       memory: 4096M
+    #   persistence:
+    #     cache:
+    #       type: pvc
+    #       existingClaim: immich-machine-learning-cache

@@ -107,9 +107,9 @@ spec:
           type: LoadBalancer
           annotations:
             lbipam.cilium.io/ips: 192.168.1.140
-          ports:
-            http:
-              port: 2283
+          # ports:
+          #   http:
+          #     port: 2283
       # ingress:
       #   main:
       #     enabled: true

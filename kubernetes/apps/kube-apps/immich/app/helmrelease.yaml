@@ -101,33 +101,33 @@ spec:
           memory: 512M
         limits:
           memory: 2048M
-      service:
-        main:
-          controller: main
-          type: ClusterIP
-          ports:
-            http:
-              port: &port 2286
-      ingress:
-        main:
-          enabled: true
-          ingressClassName: external
-          annotations:
-            cert-manager.io/cluster-issuer: letsencrypt-production
-            external-dns.alpha.kubernetes.io/target: external.seganet.org
-            nginx.ingress.kubernetes.io/proxy-body-size: "0"
-          hosts:
-            - host: photos.seganet.org
-              paths:
-                - path: /
-                  pathType: Prefix
-                  service:
-                    identifier: main
-                    port: *port
-          tls:
-            - hosts:
-                - photos.seganet.org
-              secretName: immich-web-tls
+      # service:
+      #   main:
+      #     controller: main
+      #     type: ClusterIP
+      #     ports:
+      #       http:
+      #         port: &port 2286
+      # ingress:
+      #   main:
+      #     enabled: true
+      #     ingressClassName: external
+      #     annotations:
+      #       cert-manager.io/cluster-issuer: letsencrypt-production
+      #       external-dns.alpha.kubernetes.io/target: external.seganet.org
+      #       nginx.ingress.kubernetes.io/proxy-body-size: "0"
+      #     hosts:
+      #       - host: photos.seganet.org
+      #         paths:
+      #           - path: /
+      #             pathType: Prefix
+      #             service:
+      #               identifier: main
+      #               port: *port
+      #     tls:
+      #       - hosts:
+      #           - photos.seganet.org
+      #         secretName: immich-web-tls
 
     machine-learning:
       enabled: false

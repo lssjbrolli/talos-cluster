@@ -101,13 +101,15 @@ spec:
           memory: 512M
         limits:
           memory: 2048M
-      # service:
-      #   main:
-      #     controller: main
-      #     type: ClusterIP
-      #     ports:
-      #       http:
-      #         port: &port 2286
+      service:
+        main:
+          # controller: main
+          type: LoadBalancer
+          annotations:
+            lbipam.cilium.io/ips: 192.168.1.140
+          ports:
+            http:
+              port: 2286
       # ingress:
       #   main:
       #     enabled: true

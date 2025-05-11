@@ -2,7 +2,7 @@
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationSource
 metadata:
-  name: immich-backup
+  name: immich-library-backup
 spec:
   # The PVC to be backed up
   sourcePVC: immich-library
@@ -27,12 +27,12 @@ spec:
 # apiVersion: volsync.backube/v1alpha1
 # kind: ReplicationDestination
 # metadata:
-#   name: immich-restore
+#   name: immich-library-restore
 # spec:
 #   trigger:
 #     manual: init
 #   restic:
-#     repository: restic-immich
+#     repository: restic-immich-library
 #     cleanupCachePVC: true
 #     enableFileDeletion: true
 #     copyMethod: Snapshot

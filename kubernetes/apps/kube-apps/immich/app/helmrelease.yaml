@@ -101,13 +101,13 @@ spec:
           memory: 512M
         limits:
           memory: 2048M
-      service:
-        main:
-          controller: main
-          type: ClusterIP
-          ports:
-            http:
-              port: 2283
+      # service:
+      #   main:
+      #     controller: main
+      #     type: ClusterIP
+      #     ports:
+      #       http:
+      #         port: 2283
       # ingress:
       #   main:
       #     enabled: true

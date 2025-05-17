@@ -108,7 +108,7 @@ spec:
           annotations:
             lbipam.cilium.io/ips: 192.168.1.140
           ports:
-            port: http
+            port: 80
             targetPort: 2283
       # ingress:
       #   main:

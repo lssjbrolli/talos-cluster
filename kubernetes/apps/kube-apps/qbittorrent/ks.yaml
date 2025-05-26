@@ -12,9 +12,6 @@ spec:
       app.kubernetes.io/name: *app
   path: ./kubernetes/apps/kube-apps/qbittorrent/app
   prune: true
-  dependsOn:
-    - name: generic-device-plugin
-      namespace: kube-system
   sourceRef:
     kind: GitRepository
     name: flux-system

@@ -38,10 +38,6 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
-  # dataSourceRef:
-  #   kind: ReplicationDestination
-  #   apiGroup: volsync.backube
-  #   name: immich-restore
   resources:
     requests:
       storage: 50Gi

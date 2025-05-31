@@ -105,14 +105,19 @@ spec:
         className: internal
         annotations:
           external-dns.alpha.kubernetes.io/target: "internal.${SECRET_DOMAIN}"
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
         hosts:
-          - host: "readarr.${SECRET_DOMAIN}"
+          - host: &host "readarr.${SECRET_DOMAIN}"
             paths:
               - path: /
                 pathType: Prefix
                 service:
                   identifier: main
                   port: http
+        tls:
+          - hosts:
+              - *host
+            secretName: readarr-cert
     persistence:
       config:
         type: persistentVolumeClaim

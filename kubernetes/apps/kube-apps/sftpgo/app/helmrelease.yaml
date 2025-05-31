@@ -102,18 +102,16 @@ spec:
         # -- Ingress host configuration.
         # @default -- See [values.yaml](values.yaml).
         hosts:
-          - host: ftp.seganet.org
+          - host: &host "ftp.${SECRET_DOMAIN}"
             # Change httpd.web_root in the sftpgo configuration if you change the path
             paths:
               - path: /
                 pathType: ImplementationSpecific
+        tls:
+          - hosts:
+              - *host
+            secretName: ftp-cert
 
-        # -- Ingress TLS configuration.
-        # @default -- See [values.yaml](values.yaml).
-        tls: []
-        #  - secretName: chart-example-tls
-        #    hosts:
-        #      - chart-example.local
     resources:
         limits:
           memory: 256Mi

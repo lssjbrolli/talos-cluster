@@ -187,7 +187,7 @@ spec:
     service:
       qbt:
         annotations:
-          external-dns.alpha.kubernetes.io/hostname: qbt.${SECRET_DOMAIN}
+          external-dns.alpha.kubernetes.io/hostname: &host qbt.${SECRET_DOMAIN}
         controller: main
         type: ClusterIP
         ports:
@@ -200,13 +200,18 @@ spec:
         className: internal
         annotations:
           external-dns.alpha.kubernetes.io/target: "internal.${SECRET_DOMAIN}"
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
         hosts:
-          - host: qbt.${SECRET_DOMAIN}
+          - host: *host
             paths:
               - path: /
                 service:
                   identifier: qbt
                   port: http
+        tls:
+          - hosts:
+              - *host
+            secretName: qbt-cert
 
     persistence:
       config:

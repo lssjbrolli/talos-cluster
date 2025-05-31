@@ -152,10 +152,10 @@ spec:
           location ~ ^/(?:autotest|occ|issue|indie|db_|console) {
             deny all;
           }
-      tls:
-        - hosts:
-            - *host
-          secretName: cloud-cert
+    tls:
+      - hosts:
+          - *host
+        secretName: cloud-cert
     persistence:
       enabled: true
       existingClaim: nextcloud

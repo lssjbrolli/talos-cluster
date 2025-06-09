@@ -101,6 +101,9 @@ spec:
       - name: freenas-nfs
         defaultClass: true
     driver:
+      image:
+          registry: docker.io/democraticcsi/democratic-csi
+          tag: next
       existingConfigSecret: democratic-csi-secret
       config:
         driver: freenas-nfs

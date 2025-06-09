@@ -24,7 +24,7 @@ spec:
       namespace: storage-system
   values:
     type: postgresql
-    mode: standalone
+    mode: recovery
     cluster:
       instances: 2
       enableSuperuserAccess: true
@@ -86,7 +86,7 @@ spec:
       s3:
         region: "eu-east"
         bucket: "immich-db"
-        path: "/v1"
+        path: "/v3"
         accessKey: aws-access-key-id
         secretKey: aws-secret-access-key
       scheduledBackups:
@@ -101,7 +101,7 @@ spec:
       s3:
         region: "eu-east"
         bucket: "immich-db"
-        path: "/v0"
+        path: "/v1"
         accessKey: aws-access-key-id
         secretKey: aws-secret-access-key
       secret:

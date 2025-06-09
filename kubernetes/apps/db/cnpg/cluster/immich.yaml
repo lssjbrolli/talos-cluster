@@ -24,7 +24,7 @@ spec:
       namespace: storage-system
   values:
     type: postgresql
-    mode: recovery
+    mode: standalone
     cluster:
       instances: 2
       enableSuperuserAccess: true

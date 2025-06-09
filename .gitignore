@@ -25,4 +25,7 @@ wiki
 # Bootstrap
 /config.yaml
 
-speedtest.yaml
+# extra
+cloudflare-tunnel.json
+github-push-token.txt
+kubernetes-talos-cluster.yaml

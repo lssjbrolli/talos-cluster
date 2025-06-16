@@ -6,10 +6,10 @@ stringData:
     username: ENC[AES256_GCM,data:TqWTj8nFmQ0=,iv:tuxZ2/+S+BYrSNrgziaJr1s3q9Lraz+u/JxyY4yv67Y=,tag:9TEMNodfYaKZA1OBnbnPHw==,type:str]
     password: ENC[AES256_GCM,data:6YD103baLMaUTfyi,iv:F7RVLjX+fXCYYfCOmu+aoAvKeRap1A95XzpY4j9VKpY=,tag:dlX/d1wOiMVkJN1NaaS1vw==,type:str]
     server: ENC[AES256_GCM,data:s3ZEp596T4MJ7g==,iv:UUXwDqkJB0+kvY0VRLdcnlufIr9AcEwFZh2uVv6izhM=,tag:48PsfBrCTE6DhGlIFQOrMQ==,type:str]
-    endip: ENC[AES256_GCM,data:wD475LNYIa2giM5Fnw==,iv:tKG9wL1OTyhoFwmJXWigfsgChjQJPbL7SrRDJyxYkQg=,tag:ae0fkWK+hcjZXOndxpFDiw==,type:str]
-    pubkey: ENC[AES256_GCM,data:3RP5axEAKq0ntM9k55724Ps213UN5E2j7lrURbCvtQU2q4TDOQWmnS9wR/U=,iv:nLl5sedwkhM0z5FJLyWv7CvfrezsmqAZ1h5676Z80J8=,tag:VxERMETk/rqQYcMk9Erdtw==,type:str]
-    privkey: ENC[AES256_GCM,data:u9CZh7FJueQ/2K7sEGkOeVKl8xo8Ifb28ocEZx15F3NdwWjYw+Vfz9vFeMw=,iv:3T32YOoipBYJg4y+3toD5vNHXGdtwLMNNWvaWMlW158=,tag:N5DQDFcX06MlQHvnIUynPw==,type:str]
-    wgaddress: ENC[AES256_GCM,data:WplRrED/iGlO5NHp,iv:jxP6gVZFSRc+q8vPdcfsX4jDCQfk/nvEc4QpnMCGmME=,tag:cbRUn5mjb/1ZGY43bKWm/g==,type:str]
+    endip: ENC[AES256_GCM,data:Ew4tfQv4RZpZFTTxXQ==,iv:A761Fb6RuyzqLoheZJBDrXPswPpH9XlkEmPqAtASz6I=,tag:0Pvt5dwcU+I2SNg/WJQuEQ==,type:str]
+    pubkey: ENC[AES256_GCM,data:j/xfzBJSm5G2EKs8yslW87w8T3MGqrZmT6OEsCRUaDexaeSN+V1IEeT1f8g=,iv:hHHL2+dG3bjCw1iD3tcdFRHMPkmgp5r6pIJKfOl0ZXg=,tag:b+WF58BkVvI9593X5ou51Q==,type:str]
+    privkey: ENC[AES256_GCM,data:IPNb4R3ConSNWEcSY5yvwyZxBmXd4AXQ8bBqCua9+bCEhX5THdLCyRB1h60=,iv:1dyNgh6Vw1goeII9wp+yM6SEkpB6LioGVL4b5wcWeIs=,tag:QR0M35yNY7FPwvRcmcq8PA==,type:str]
+    wgaddress: ENC[AES256_GCM,data:yZwCF7pmEgbS1y8=,iv:a9lA6Dez6LoYZ/nrbQAMcaTHGJAXmNExrweyWwTo1VI=,tag:GPuzBK8llcLQGqmDtL47WA==,type:str]
     dns: ENC[AES256_GCM,data:zRXv1S6o7qfJvA==,iv:/CDhga3yW8gS8R3TbvN2MW2/rj01OAWjYXatpMCVnKM=,tag:x+nM/x57E7tzYJvxBlQutQ==,type:str]
 sops:
     age:
@@ -22,7 +22,7 @@ sops:
             MVIwNCs0SlpKQ2JhaktjSm50anFxVlEK3HmAKnNB8GfqPcA2QUGC63qsyTak+s65
             i1qg5fIr56dgCkmBffi8xtgqMzhMWnlLO4ECCcxVUdbTR6ARebZ6nA==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2025-06-16T17:22:20Z"
-    mac: ENC[AES256_GCM,data:rv6qpOzkuQAmUYUkWuY5k42Ykbw7NERlOSfMMi3MZ2lzsTGEeFFjywfBHhyXZr57LDwvd3j9romQ8vxEaOLEAaoKmihC40g1ITt615Bm50nEL+gUcNNKSG6mg94K20FsfdOrbFGCcamddfc+oFZQpKD6vW/cTCmd+6VM0tMRHKc=,iv:s8w19zMrRiSo/zBBsvTDwXz0qXVd4ANOZB7Q89/zqE4=,tag:g3cRmEsS8wMDaQ3Ip2CqSQ==,type:str]
+    lastmodified: "2025-06-16T17:25:53Z"
+    mac: ENC[AES256_GCM,data:8yx/vqx0zl/pl4B+S87Ru9LpWU+0vk7qmMNojIRkfmHfhG41tRDDUxb56XUZivCh8hVq2OWrlXvV82+NUdysLT4kiRQKXw8K6JmxSo1w8WhntyAhLPvydWoesNdiJKiZwhuq/7szgykFj+Wvs5hZ1MBqnHTdnAASXiytRtXKmvs=,iv:F3OMOpm+G9ftpiHBgh4T2dBCFO4HbdWfwZb4ygG6y5Q=,tag:ZVOluEov0aBOCZ7dIHLsEg==,type:str]
     encrypted_regex: ^(data|stringData)$
     version: 3.10.2

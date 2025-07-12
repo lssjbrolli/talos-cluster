@@ -12,7 +12,7 @@ run = "uv pip install -r requirements.txt"
 
 [tools]
 python = "3.13.5"
-uv = "0.7.19"
+uv = "0.7.20"
 "aqua:budimanjojo/talhelper" = "3.0.30"
 "aqua:charmbracelet/gum" = "0.16.2"
 "aqua:cloudflare/cloudflared" = "2025.7.0"

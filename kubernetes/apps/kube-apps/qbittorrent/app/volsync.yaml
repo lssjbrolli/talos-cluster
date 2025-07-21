@@ -45,5 +45,5 @@ spec:
     enableFileDeletion: true
     copyMethod: Snapshot
     accessModes: [ReadWriteOnce]
-    capacity: 200Mi
+    capacity: 512Mi
     volumeSnapshotClassName: freenas-nfs

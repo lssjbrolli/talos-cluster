@@ -12,7 +12,7 @@ spec:
     name: qbittorrent-restore
   resources:
     requests:
-      storage: 200Mi
+      storage: 512Mi
 
 ---
 apiVersion: v1

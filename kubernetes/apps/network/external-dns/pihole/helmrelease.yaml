@@ -24,9 +24,6 @@ spec:
   values:
     provider:
       name: pihole
-    image:
-      repository: gcr.io/k8s-staging-external-dns/external-dns
-      tag: v20250729-v0.18.0-65-g0d1309c7
     env:
       - name: EXTERNAL_DNS_PIHOLE_SERVER
         valueFrom:

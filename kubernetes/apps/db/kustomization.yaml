@@ -5,6 +5,6 @@ kind: Kustomization
 namespace: db
 components:
   - ../../flux/components/common
-resources:
-  - ./cnpg/ks.yaml
+resources: []
+  # - ./cnpg/ks.yaml
   # - ./pgadmin/ks.yaml

@@ -3,7 +3,7 @@ kind: StorageClass
 metadata:
   name: zfs-apps
   annotations:
-    "storageclass.kubernetes.io/is-default-class": "true"
+    storageclass.kubernetes.io/is-default-class: "true"
 allowVolumeExpansion: true
 
 parameters:

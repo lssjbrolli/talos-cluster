@@ -26,6 +26,6 @@ spec:
           operator: In
           values:
           - talos-cluster # change the hostname where volume is present
-  persistentVolumeReclaimPolicy: Delete
+  persistentVolumeReclaimPolicy: Retain
   storageClassName: zfs-storage
   volumeMode: Filesystem

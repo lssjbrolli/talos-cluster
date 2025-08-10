@@ -9,5 +9,5 @@ resources:
   - ./storage/minio-volume.yaml
   - ./apps-sc.yaml
   - ./helmrelease.yaml
-  - ./snapshotclass.yaml
+  # - ./snapshotclass.yaml
   - ./storage-sc.yaml

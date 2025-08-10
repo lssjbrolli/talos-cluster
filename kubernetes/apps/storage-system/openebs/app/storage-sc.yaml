@@ -6,5 +6,6 @@ allowVolumeExpansion: true
 reclaimPolicy: Retain
 parameters:
   poolname: "storage"
+  shared: "yes"
   fstype: "zfs"
 provisioner: zfs.csi.openebs.io

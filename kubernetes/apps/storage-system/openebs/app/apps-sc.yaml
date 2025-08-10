@@ -4,6 +4,7 @@ metadata:
   name: zfs-apps
 allowVolumeExpansion: true
 parameters:
-  poolname: "apps"
+  poolname: "apps/data/"
   fstype: "zfs"
+  thinprovision: "no"
 provisioner: zfs.csi.openebs.io

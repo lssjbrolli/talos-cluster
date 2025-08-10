@@ -3,7 +3,7 @@ kind: ZFSVolume
 metadata:
   finalizers:
   - zfs.openebs.io/finalizer
-  name: backup/minio  # should be same as zfs volume name
+  name: minio  # should be same as zfs volume name
   namespace: openebs
 spec:
   capacity: "161061273600" # size of the volume in bytes

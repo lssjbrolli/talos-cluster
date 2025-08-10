@@ -129,8 +129,7 @@ spec:
 
     persistence:
       config:
-        type: nfs
-        server: 192.168.1.150
-        path: /mnt/storage/backup/minio
+        type: persistentVolumeClaim
+        existingClaim: minio-data
         globalMounts:
           - path: /data

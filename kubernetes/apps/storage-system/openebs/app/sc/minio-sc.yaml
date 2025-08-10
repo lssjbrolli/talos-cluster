@@ -1,0 +1,9 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: zfs-minio
+allowVolumeExpansion: true
+parameters:
+  poolname: "storage"
+  fstype: "zfs"
+provisioner: zfs.csi.openebs.io

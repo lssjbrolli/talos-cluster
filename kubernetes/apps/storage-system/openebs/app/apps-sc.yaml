@@ -3,7 +3,6 @@ kind: StorageClass
 metadata:
   name: zfs-apps
 allowVolumeExpansion: true
-reclaimPolicy: Retain
 parameters:
   poolname: "apps"
   fstype: "zfs"

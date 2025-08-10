@@ -1,9 +1,9 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/budimanjojo/talhelper/master/pkg/config/schemas/talconfig.json
 ---
-# renovate: datasource=docker depName=ghcr.io/siderolabs/installer
-talosVersion: v1.10.6
-# renovate: datasource=docker depName=ghcr.io/siderolabs/kubelet
-kubernetesVersion: v1.33.3
+clusterName: kubernetes
+
+talosVersion: "${talosVersion}"
+kubernetesVersion: "${kubernetesVersion}"
 
 endpoint: https://192.168.1.101:6443
 additionalApiServerCertSans: &sans
@@ -21,14 +21,14 @@ cniConfig:
 nodes:
   - hostname: "talos-cluster"
     ipAddress: "192.168.1.100"
-    installDisk: "/dev/vdb"
+    installDisk: "/dev/disk/by-id/ata-ADATA_SP550_2G3620040820"
     machineSpec:
       secureboot: false
-    talosImageURL: factory.talos.dev/installer/376567988ad370138ad8b2698212367b8edcb69b5fd68c80be1f2ec7d603b4ba
+    talosImageURL: factory.talos.dev/metal-installer/4dd8e3a8b6203d3c14f049da8db4d3bb0d6d3e70c5e89dfcc1e709e81914f63c
     controlPlane: true
     networkInterfaces:
       - deviceSelector:
-          hardwareAddr: "00:16:3e:7e:35:34"
+          hardwareAddr: "a8:a1:59:4a:16:c8"
         dhcp: false
         addresses:
           - "192.168.1.100/24"
@@ -42,6 +42,7 @@ nodes:
 # Global patches
 patches:
   - "@./patches/global/machine-files.yaml"
+  - "@./patches/global/machine-kernel.yaml"
   - "@./patches/global/machine-kubelet.yaml"
   - "@./patches/global/machine-network.yaml"
   - "@./patches/global/machine-sysctls.yaml"

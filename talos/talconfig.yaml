@@ -24,7 +24,7 @@ nodes:
     installDisk: "/dev/disk/by-id/ata-ADATA_SP550_2G3620040820"
     machineSpec:
       secureboot: false
-    talosImageURL: factory.talos.dev/metal-installer/08be0fd5c578f1dcf42cecace37d370f9c63c2c7036d818c4b83c655385b07b8
+    talosImageURL: factory.talos.dev/metal-installer/2715fe03b8d1f672d42639c6a2c1123e8665d91e0d2d6a9d9f4243df1d09e375
     controlPlane: true
     networkInterfaces:
       - deviceSelector:

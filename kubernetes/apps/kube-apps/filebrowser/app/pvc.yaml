@@ -4,6 +4,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: filebrowser-config
 spec:
+  storageClassName: openebs-hostpath
   accessModes:
     - ReadWriteOnce
   dataSourceRef:

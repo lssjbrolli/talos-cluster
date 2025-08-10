@@ -5,11 +5,11 @@ kind: Kustomization
 namespace: kube-apps
 components:
   - ../../components/common
-resources: []
+resources:
   # - ./audiobookshelf/ks.yaml
   # - ./ctcadmin/ks.yaml
   # - ./filebrowser/ks.yaml
-  # - ./flaresolverr/ks.yaml
+  - ./flaresolverr/ks.yaml
   # - ./immich/ks.yaml
   # - ./nextcloud/ks.yaml
   # - ./overseerr/ks.yaml

@@ -40,11 +40,11 @@ spec:
           memory: 1Gi
       storage:
         size: 10Gi
-        storageClass: freenas-nfs
+        storageClass: openebs-hostpath
       walStorage:
         enabled: true
         size: 2Gi
-        storageClass: freenas-nfs
+        storageClass: openebs-hostpath
       superuserSecret: cloudnative-pg-secret
       monitoring:
         enabled: true

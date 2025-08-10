@@ -9,7 +9,7 @@ spec:
   capacity: "161061273600" # size of the volume in bytes
   fsType: zfs
   ownerNodeID: talos-cluster # should be the nodename where ZPOOL is running
-  poolName: storage # poolname where the volume is present
+  poolName: storage/backup # poolname where the volume is present
   volumeType: DATASET # whether it is a DATASET or ZVOL
   shared: "no" # whether or not the volume can be shared across pods
 status:

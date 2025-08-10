@@ -93,6 +93,5 @@ spec:
       transcode:
         type: emptyDir
       data:
-        type: nfs
-        server: 192.168.1.150
-        path: /mnt/storage/media/library
+        type: persistentVolumeClaim
+        existingClaim: plex-data

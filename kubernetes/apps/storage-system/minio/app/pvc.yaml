@@ -3,7 +3,7 @@ apiVersion: v1
 metadata:
   name: minio-data
 spec:
-  storageClassName: minio-zfs
+  storageClassName: zfs-storage
   accessModes:
     - ReadWriteOnce
   resources:

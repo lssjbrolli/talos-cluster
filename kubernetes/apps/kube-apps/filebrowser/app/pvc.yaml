@@ -13,3 +13,16 @@ spec:
   resources:
     requests:
       storage: 200Mi
+
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: filebrowser-media
+spec:
+  storageClassName: zfs-storage
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 24Ti

@@ -88,6 +88,5 @@ spec:
         type: persistentVolumeClaim
         existingClaim: filebrowser-config
       data:
-        type: nfs
-        server: 192.168.1.150
-        path: /mnt/storage/media
+        type: persistentVolumeClaim
+        existingClaim: filebrowser-media

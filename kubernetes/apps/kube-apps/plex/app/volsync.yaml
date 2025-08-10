@@ -25,7 +25,7 @@ spec:
     # point-in-time image.
     copyMethod: Clone
     # The VSC to use if the copy method is Snapshot (default if omitted)
-    volumeSnapshotClassName: freenas-nfs
+    volumeSnapshotClassName: zfspv
     cacheCapacity: 4Gi
 
 ---
@@ -48,4 +48,4 @@ spec:
     cacheCapacity: 2Gi
     accessModes: [ReadWriteOnce]
     capacity: 50Gi
-    volumeSnapshotClassName: freenas-nfs
+    volumeSnapshotClassName: zfspv

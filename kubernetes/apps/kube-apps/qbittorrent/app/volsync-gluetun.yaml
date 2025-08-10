@@ -19,7 +19,7 @@ spec:
     # point-in-time image.
     copyMethod: Clone
     # The VSC to use if the copy method is Snapshot (default if omitted)
-    volumeSnapshotClassName: freenas-nfs
+    volumeSnapshotClassName: zfspv
 
 ---
 apiVersion: volsync.backube/v1alpha1
@@ -36,4 +36,4 @@ spec:
     copyMethod: Snapshot
     accessModes: [ReadWriteOnce]
     capacity: 50Mi
-    volumeSnapshotClassName: freenas-nfs
+    volumeSnapshotClassName: zfspv

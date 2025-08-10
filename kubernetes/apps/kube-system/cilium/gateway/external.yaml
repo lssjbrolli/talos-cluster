@@ -10,6 +10,7 @@ spec:
   gatewayClassName: cilium
   addresses:
     - type: IPAddress
+    #cloudflare_gateway_addr - external
       value: "192.168.1.110"
   infrastructure:
     annotations:

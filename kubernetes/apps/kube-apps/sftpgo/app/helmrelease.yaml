@@ -17,7 +17,7 @@ spec:
   dependsOn:
     - name: ingress-nginx-internal
       namespace: network
-    - name: democratic-csi
+    - name: openebs
       namespace: storage-system
   values:
     initContainers:

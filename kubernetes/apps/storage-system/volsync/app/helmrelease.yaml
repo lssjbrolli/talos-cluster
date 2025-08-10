@@ -25,6 +25,8 @@ spec:
   dependsOn:
     - name: minio
       namespace: storage-system
+    - name: snapshot-controller
+      namespace: storage-system
   values:
     manageCRDs: true
     metrics:

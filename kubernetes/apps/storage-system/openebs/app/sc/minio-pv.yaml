@@ -17,7 +17,7 @@ spec:
     fsType: zfs
     volumeAttributes:
       openebs.io/poolname: storage # change the pool name accordingly
-    volumeHandle: minio # This should be same as the zfs volume name
+    volumeHandle: backup/minio # This should be same as the zfs volume name
   nodeAffinity:
     required:
       nodeSelectorTerms:

@@ -3,6 +3,7 @@ kind: StorageClass
 metadata:
   name: zfs-minio
 allowVolumeExpansion: true
+reclaimPolicy: Retain
 parameters:
   poolname: "storage"
   fstype: "zfs"

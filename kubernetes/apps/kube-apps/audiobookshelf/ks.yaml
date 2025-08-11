@@ -6,25 +6,24 @@ metadata:
   name: &app audiobookshelf
   namespace: flux-system
 spec:
+  commonMetadata:
+    labels:
+      app.kubernetes.io/name: *app
   targetNamespace: kube-apps
   decryption:
     provider: sops
     secretRef:
       name: sops-age
+  interval: 30m
+  path: ./kubernetes/apps/kube-apps/audiobookshelf/app
   postBuild:
     substituteFrom:
       - name: cluster-secrets
         kind: Secret
-  commonMetadata:
-    labels:
-      app.kubernetes.io/name: *app
-  path: ./kubernetes/apps/kube-apps/audiobookshelf/app
   prune: true
   sourceRef:
     kind: GitRepository
     name: flux-system
     namespace: flux-system
-  wait: true
-  interval: 30m
-
+  wait: false
   timeout: 5m

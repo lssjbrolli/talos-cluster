@@ -31,12 +31,12 @@ spec:
         fsGroup: 568
         fsGroupChangePolicy: OnRootMismatch
     controllers:
-      main:
+      app:
         strategy: Recreate
         annotations:
           reloader.stakater.com/auto: "true"
         containers:
-          main:
+          app:
             image:
               repository: docker.io/filebrowser/filebrowser
               tag: v2.32.0@sha256:593478e3c24c5ea9f5d7478dc549965b7bc7030707291006ce8d0b6162d3454b
@@ -59,6 +59,7 @@ spec:
               FB_PORT: &port 80
     service:
       app:
+        controller: app
         ports:
           http:
             port: *port

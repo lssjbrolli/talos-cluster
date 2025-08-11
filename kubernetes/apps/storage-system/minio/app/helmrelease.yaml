@@ -111,7 +111,7 @@ spec:
 
     route:
       app:
-        hostnames: ["https://minio.${SECRET_DOMAIN}","https://s3.${SECRET_DOMAIN}"]
+        hostnames: ["minio.${SECRET_DOMAIN}","s3.${SECRET_DOMAIN}"]
         parentRefs:
           - name: external
             namespace: kube-apps

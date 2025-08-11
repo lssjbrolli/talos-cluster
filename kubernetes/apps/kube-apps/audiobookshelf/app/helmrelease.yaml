@@ -27,11 +27,11 @@ spec:
   maxHistory: 2
   values:
     controllers:
-      main:
+      app:
         annotations:
           reloader.stakater.com/auto: "true"
         containers:
-          main:
+          app:
             image:
               repository: ghcr.io/advplyr/audiobookshelf
               tag: 2.27.0@sha256:f60a19bb94a9fc763212be0116502b0c2cee1da655c9320137a3020fb1ed2dca
@@ -71,31 +71,18 @@ spec:
                 enabled: true
                 path: "/ping"
     service:
-      main:
-        controller: main
-        type: ClusterIP
+      app:
+        controller: app
         ports:
           http:
             port: *port
-    ingress:
-      # Configure an Ingress for the main application
-      main:
-        className: external
-        annotations:
-          external-dns.alpha.kubernetes.io/target: "external.${SECRET_DOMAIN}"
-          cert-manager.io/cluster-issuer: "letsencrypt-production"
-        hosts:
-          - host: &host "abs.${SECRET_DOMAIN}"
-            paths:
-              - path: /
-                pathType: Prefix
-                service:
-                  identifier: main
-                  port: http
-        tls:
-          - hosts:
-              - *host
-            secretName: abs-cert
+    route:
+      app:
+        hostnames: ["{{ .Release.Name }}.${SECRET_DOMAIN}"]
+        parentRefs:
+          - name: external
+            namespace: kube-apps
+            sectionName: https
     persistence:
       config:
         type: persistentVolumeClaim

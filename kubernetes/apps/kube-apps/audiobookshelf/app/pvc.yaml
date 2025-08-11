@@ -29,3 +29,16 @@ spec:
   resources:
     requests:
       storage: 2Gi
+
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: audiobookshelf-books
+spec:
+  storageClassName: zfs-storage
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 24Ti

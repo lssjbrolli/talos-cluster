@@ -114,6 +114,5 @@ spec:
       tmp:
         type: emptyDir
       audiobooks:
-        type: nfs
-        server: 192.168.1.150
-        path: /mnt/storage/media/library/books
+        type: persistentVolumeClaim
+        existingClaim: audiobookshelf-books

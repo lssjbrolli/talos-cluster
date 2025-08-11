@@ -61,6 +61,7 @@ spec:
           enabled: true
         csi:
           volumeSnapshots:
+            # Installed with the Snapshot Controller
             enabled: false
     openebs-crds:
       csi:

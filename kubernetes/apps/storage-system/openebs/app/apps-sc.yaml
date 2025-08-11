@@ -5,9 +5,9 @@ metadata:
   annotations:
     storageclass.kubernetes.io/is-default-class: "true"
 allowVolumeExpansion: true
-
 parameters:
   poolname: "apps/data/"
   fstype: "zfs"
   thinprovision: "no"
+  shared: yes
 provisioner: zfs.csi.openebs.io

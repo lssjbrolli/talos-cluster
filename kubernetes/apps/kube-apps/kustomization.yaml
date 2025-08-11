@@ -6,7 +6,7 @@ namespace: kube-apps
 components:
   - ../../components/common
 resources:
-  # - ./audiobookshelf/ks.yaml
+  - ./audiobookshelf/ks.yaml
   - ./ctcadmin/ks.yaml
   - ./filebrowser/ks.yaml
   - ./flaresolverr/ks.yaml

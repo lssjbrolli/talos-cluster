@@ -1,0 +1,12 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: media-data
+spec:
+  storageClassName: zfs-storage
+  volumeName: media-pv
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 24Ti

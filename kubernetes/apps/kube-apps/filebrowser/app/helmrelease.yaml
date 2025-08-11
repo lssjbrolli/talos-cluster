@@ -76,4 +76,4 @@ spec:
         existingClaim: filebrowser-config
       data:
         type: persistentVolumeClaim
-        existingClaim: filebrowser-media
+        existingClaim: media-data

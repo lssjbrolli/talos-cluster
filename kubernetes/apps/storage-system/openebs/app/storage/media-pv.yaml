@@ -10,7 +10,7 @@ spec:
   claimRef:
     apiVersion: v1
     kind: PersistentVolumeClaim
-    name: media # name of pvc which can claim this PV
+    name: media-data # name of pvc which can claim this PV
     namespace: storage-system # namespace for the pvc
   csi:
     driver: zfs.csi.openebs.io

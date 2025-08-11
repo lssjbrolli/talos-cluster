@@ -11,6 +11,14 @@ spec:
     labels:
       app.kubernetes.io/name: *app
   path: ./kubernetes/apps/storage-system/minio/app
+  decryption:
+    provider: sops
+    secretRef:
+      name: sops-age
+  postBuild:
+    substituteFrom:
+      - name: cluster-secrets
+        kind: Secret
   prune: true
   sourceRef:
     kind: GitRepository

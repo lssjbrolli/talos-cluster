@@ -52,10 +52,10 @@ spec:
 
             env:
               MINIO_UPDATE: "off"
-              MINIO_BROWSER_REDIRECT_URL: "https://minio.seganet.org"
-              MINIO_API_CORS_ALLOW_ORIGIN: https://minio.seganet.org,https://s3.seganet.org
+              MINIO_BROWSER_REDIRECT_URL: "https://minio.${SECRET_DOMAIN}"
+              MINIO_API_CORS_ALLOW_ORIGIN: https://minio.${SECRET_DOMAIN},https://s3.${SECRET_DOMAIN}
               MINIO_PROMETHEUS_JOB_ID: minio
-              MINIO_PROMETHEUS_URL: https://prometheus.seganet.org
+              MINIO_PROMETHEUS_URL: https://prometheus.${SECRET_DOMAIN}
               MINIO_PROMETHEUS_AUTH_TYPE: public
 
             envFrom:
@@ -109,26 +109,13 @@ spec:
             interval: 1m
             scrapeTimeout: 10s
 
-    ingress:
+    route:
       app:
-        className: internal
-        annotations:
-          external-dns.alpha.kubernetes.io/target: "internal.seganet.org"
-        hosts:
-          - host: "minio.seganet.org"
-            paths:
-              - path: /
-                pathType: Prefix
-                service:
-                  identifier: app
-                  port: http
-          - host: s3.seganet.org
-            paths:
-              - path: /
-                pathType: Prefix
-                service:
-                  identifier: app
-                  port: s3
+        hostnames: ["https://minio.${SECRET_DOMAIN}","https://s3.${SECRET_DOMAIN}"]
+        parentRefs:
+          - name: external
+            namespace: kube-apps
+            sectionName: https
 
     persistence:
       config:

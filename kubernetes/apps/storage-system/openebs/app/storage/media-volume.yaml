@@ -6,7 +6,7 @@ metadata:
   name: media  # should be same as zfs volume name
   namespace: openebs
 spec:
-  capacity: "2.63882790666e+13" # size of the volume in bytes
+  capacity: "2.30897441833e+13" # size of the volume in bytes
   fsType: zfs
   ownerNodeID: talos-cluster # should be the nodename where ZPOOL is running
   poolName: storage # poolname where the volume is present

@@ -52,31 +52,31 @@ spec:
         parameters:
           max_connections: "100"
           shared_buffers: 256MB
-    # backups:
-    #   enabled: true
-    #   retentionPolicy: 7d
-    #   provider: s3
-    #   endpointURL: http://minio.storage-system.svc.cluster.local:9000
-    #   secret:
-    #     create: false
-    #     name: s3-secret
-    #   data:
-    #     compression: bzip2
-    #     encryption: ''
-    #   wal:
-    #     compression: bzip2
-    #     maxParallel: 8
-    #     encryption: ''
-    #   s3:
-    #     region: "eu-east"
-    #     bucket: "cnpg"
-    #     path: "/v6"
-    #     accessKey: aws-access-key-id
-    #     secretKey: aws-secret-access-key
-    #   scheduledBackups:
-    #     - name: cnpg-backup
-    #       schedule: "0 0 */6 * * *"
-    #       backupOwnerReference: self
+    backups:
+      enabled: true
+      retentionPolicy: 7d
+      provider: s3
+      endpointURL: http://minio.storage-system.svc.cluster.local:9000
+      secret:
+        create: false
+        name: s3-secret
+      data:
+        compression: bzip2
+        encryption: ''
+      wal:
+        compression: bzip2
+        maxParallel: 8
+        encryption: ''
+      s3:
+        region: "eu-east"
+        bucket: "cnpg"
+        path: "/v1"
+        accessKey: aws-access-key-id
+        secretKey: aws-secret-access-key
+      scheduledBackups:
+        - name: cnpg-backup
+          schedule: "0 0 */6 * * *"
+          backupOwnerReference: self
     # recovery:
     #   clusterName: cluster17
     #   endpointURL: http://minio.storage-system.svc.cluster.local:9000

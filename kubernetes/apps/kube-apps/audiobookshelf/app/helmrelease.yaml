@@ -102,4 +102,4 @@ spec:
         type: emptyDir
       audiobooks:
         type: persistentVolumeClaim
-        existingClaim: audiobookshelf-books
+        existingClaim: media

@@ -6,13 +6,13 @@ resources:
   # - ./storage/ctcadmin-pv.yaml
   # - ./storage/ctcadmin-pvc.yaml
   # - ./storage/ctcadmin-volume.yaml
-  - ./storage/media-pv.yaml
-  - ./storage/media-pvc.yaml
-  - ./storage/media-volume.yaml
-  - ./storage/minio-pv.yaml
-  - ./storage/minio-pvc.yaml
-  - ./storage/minio-volume.yaml
-  - ./apps-sc.yaml
+  # - ./storage/media-pv.yaml
+  # - ./storage/media-pvc.yaml
+  # - ./storage/media-volume.yaml
+  # - ./storage/minio-pv.yaml
+  # - ./storage/minio-pvc.yaml
+  # - ./storage/minio-volume.yaml
+  # - ./apps-sc.yaml
   - ./helmrelease.yaml
   - ./snapshotclass.yaml
-  - ./storage-sc.yaml
+  # - ./storage-sc.yaml

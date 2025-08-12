@@ -42,6 +42,8 @@ spec:
       app.kubernetes.io/name: *app
   dependsOn:
     - name: cnpg
+    - name: openebs
+      namespace: storage-system
   path: ./kubernetes/apps/db/cnpg/cluster
   prune: true
   sourceRef:

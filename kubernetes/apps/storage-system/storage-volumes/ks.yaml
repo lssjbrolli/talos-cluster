@@ -13,13 +13,46 @@ spec:
     - name: openebs
       namespace: storage-system
   healthChecks:
-    - apiVersion: helm.toolkit.fluxcd.io/v2
-      kind: HelmRelease
-      name: *app
+    - apiVersion: v1
+      kind: PersistentVolume
+      name: ctcadmin-pv
+      namespace: *namespace
+    - apiVersion: v1
+      kind: PersistentVolume
+      name: media-pv
+      namespace: *namespace
+    - apiVersion: v1
+      kind: PersistentVolume
+      name: minio-pv
+      namespace: *namespace
+    - apiVersion: v1
+      kind: PersistentVolumeClaim
+      name: ctcadmin-data
+      namespace: *namespace
+    - apiVersion: v1
+      kind: PersistentVolumeClaim
+      name: media-data
+      namespace: *namespace
+    - apiVersion: v1
+      kind: PersistentVolumeClaim
+      name: minio-data
+      namespace: *namespace
+    - apiVersion: zfs.openebs.io/v1
+      kind: ZFSVolume
+      name: ctcadmin
+      namespace: *namespace
+    - apiVersion: zfs.openebs.io/v1
+      kind: ZFSVolume
+      name: media
+      namespace: *namespace
+    - apiVersion: zfs.openebs.io/v1
+      kind: ZFSVolume
+      name: minio
       namespace: *namespace
   interval: 1h
   path: ./kubernetes/apps/storage-system/storage-volumes/crds
   prune: true
+  force: true
   retryInterval: 2m
   sourceRef:
     kind: GitRepository

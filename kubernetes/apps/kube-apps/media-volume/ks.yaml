@@ -3,8 +3,8 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: &app storage-volumes
-  namespace: &namespace storage-system
+  name: &app media-volume
+  namespace: &namespace kube-apps
 spec:
   commonMetadata:
     labels:
@@ -27,7 +27,7 @@ spec:
       current: apiVersion == "zfs.openebs.io/v1"
 
   interval: 1h
-  path: ./kubernetes/apps/storage-system/storage-volumes/crds
+  path: ./kubernetes/apps/kube-apps/media-volume/crds
   prune: true
   force: true
   retryInterval: 2m

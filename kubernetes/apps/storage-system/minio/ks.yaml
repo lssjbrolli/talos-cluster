@@ -11,7 +11,7 @@ spec:
     labels:
       app.kubernetes.io/name: *app
   dependsOn:
-    - name: storage-volumes
+    - name: openebs
       namespace: storage-system
   path: ./kubernetes/apps/storage-system/minio/app
   decryption:

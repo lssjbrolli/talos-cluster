@@ -11,6 +11,7 @@ resources:
   - ./filebrowser/ks.yaml
   - ./flaresolverr/ks.yaml
   # - ./immich/ks.yaml
+  - ./media-volume/ks.yaml
   # - ./nextcloud/ks.yaml
   # - ./overseerr/ks.yaml
   # - ./plex/ks.yaml

@@ -17,7 +17,7 @@ spec:
   dependsOn:
     - name: cluster17
       namespace: db
-    - name: volume-storage
+    - name: openebs
       namespace: storage-system
   path: ./kubernetes/apps/kube-apps/ctcadmin/app
   prune: true

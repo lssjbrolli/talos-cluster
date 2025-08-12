@@ -4,7 +4,7 @@ metadata:
   finalizers:
   - zfs.openebs.io/finalizer
   name: ctcadmin  # should be same as zfs volume name
-  namespace: storage-system
+  namespace: kube-apps
 spec:
   capacity: "10737418240" # size of the volume in bytes
   fsType: zfs

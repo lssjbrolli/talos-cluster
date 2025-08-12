@@ -4,7 +4,7 @@ metadata:
   finalizers:
   - zfs.openebs.io/finalizer
   name: media  # should be same as zfs volume name
-  namespace: openebs
+  namespace: kube-apps
 spec:
   capacity: "2.30897441833e+13" # size of the volume in bytes
   fsType: zfs

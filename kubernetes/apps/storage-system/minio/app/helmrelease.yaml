@@ -113,7 +113,11 @@ spec:
         parentRefs:
           - name: internal
             namespace: kube-apps
-            port: *http
+            sectionName: http
+        rules:
+          - backendRefs:
+              - name: app
+                port: *http
 
     persistence:
       config:

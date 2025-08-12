@@ -3,12 +3,12 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - ./storage/ctcadmin-pv.yaml
-  - ./storage/ctcadmin-pvc.yaml
-  - ./storage/ctcadmin-volume.yaml
-  - ./storage/media-pv.yaml
-  - ./storage/media-pvc.yaml
-  - ./storage/media-volume.yaml
-  - ./storage/minio-pv.yaml
-  - ./storage/minio-pvc.yaml
-  - ./storage/minio-volume.yaml
+  - ./ctcadmin-pv.yaml
+  - ./ctcadmin-pvc.yaml
+  - ./ctcadmin-volume.yaml
+  - ./media-pv.yaml
+  - ./media-pvc.yaml
+  - ./media-volume.yaml
+  - ./minio-pv.yaml
+  - ./minio-pvc.yaml
+  - ./minio-volume.yaml

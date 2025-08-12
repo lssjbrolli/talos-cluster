@@ -92,7 +92,7 @@ spec:
         controller: minio
         ports:
           http:
-            port: 9001
+            port: &http 9001
           s3:
             port: 9000
 
@@ -115,7 +115,11 @@ spec:
           - name: internal
             namespace: kube-apps
             sectionName: http
-            port: 9001
+            port: *http
+        rules:
+          - backendRefs:
+              - identifier: app
+                port: *http
 
     persistence:
       config:

@@ -6,14 +6,9 @@ metadata:
   name: immich
 spec:
   interval: 5m
-  chart:
-    spec:
-      chart: immich
-      version: 0.9.3
-      sourceRef:
-        kind: HelmRepository
-        name: immich
-        namespace: flux-system
+  chartRef:
+    kind: OCIRepository
+    name: app-template
   install:
     remediation:
       retries: 3

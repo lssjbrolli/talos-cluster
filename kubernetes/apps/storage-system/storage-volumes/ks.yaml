@@ -12,43 +12,20 @@ spec:
   dependsOn:
     - name: openebs
       namespace: storage-system
-  healthChecks:
+  wait: true
+  healthCheckExprs:
     - apiVersion: v1
       kind: PersistentVolume
-      name: ctcadmin-pv
-      namespace: *namespace
-    - apiVersion: v1
-      kind: PersistentVolume
-      name: media-pv
-      namespace: *namespace
-    - apiVersion: v1
-      kind: PersistentVolume
-      name: minio-pv
-      namespace: *namespace
+      current: has(status.phase) && status.phase == "Bound"
+
     - apiVersion: v1
       kind: PersistentVolumeClaim
-      name: ctcadmin-data
-      namespace: *namespace
-    - apiVersion: v1
-      kind: PersistentVolumeClaim
-      name: media-data
-      namespace: *namespace
-    - apiVersion: v1
-      kind: PersistentVolumeClaim
-      name: minio-data
-      namespace: *namespace
+      current: has(status.phase) && status.phase == "Bound"
+
     - apiVersion: zfs.openebs.io/v1
       kind: ZFSVolume
-      name: ctcadmin
-      namespace: *namespace
-    - apiVersion: zfs.openebs.io/v1
-      kind: ZFSVolume
-      name: media
-      namespace: *namespace
-    - apiVersion: zfs.openebs.io/v1
-      kind: ZFSVolume
-      name: minio
-      namespace: *namespace
+      current: apiVersion == "zfs.openebs.io/v1"
+
   interval: 1h
   path: ./kubernetes/apps/storage-system/storage-volumes/crds
   prune: true

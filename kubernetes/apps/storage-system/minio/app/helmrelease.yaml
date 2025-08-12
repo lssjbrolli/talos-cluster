@@ -110,11 +110,11 @@ spec:
       app:
         hostnames:
           - "minio.${SECRET_DOMAIN}"
-          - "s3.${SECRET_DOMAIN}"
         parentRefs:
           - name: internal
             namespace: kube-apps
             sectionName: http
+            port: *http
 
     persistence:
       config:

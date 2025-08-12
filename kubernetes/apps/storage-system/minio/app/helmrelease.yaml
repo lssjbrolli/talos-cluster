@@ -115,10 +115,6 @@ spec:
           - name: internal
             namespace: kube-apps
             sectionName: http
-        rules:
-          - backendRefs:
-              - identifier: app
-                port: *http
 
     persistence:
       config:

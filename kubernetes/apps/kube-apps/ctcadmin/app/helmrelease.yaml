@@ -114,8 +114,7 @@ spec:
           - hosts:
               - *host
             secretName: ctc-cert
-    # persistence:
-    #   storage:
-    #     type: nfs
-    #     server: 192.168.1.150
-    #     path: /mnt/storage/backup/ctc_storage/files
+    persistence:
+      storage:
+        type: persistentVolumeClaim
+        existingClaim: ctcadmin-data

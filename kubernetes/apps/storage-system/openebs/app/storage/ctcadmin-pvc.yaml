@@ -1,11 +1,11 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: media-data
+  name: ctcadmin-data
 spec:
   storageClassName: zfs-storage
   accessModes:
     - ReadWriteMany
   resources:
     requests:
-      storage: 24Ti
+      storage: 5Gi

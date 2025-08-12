@@ -1,0 +1,16 @@
+apiVersion: zfs.openebs.io/v1
+kind: ZFSVolume
+metadata:
+  finalizers:
+  - zfs.openebs.io/finalizer
+  name: ctcadmin  # should be same as zfs volume name
+  namespace: openebs
+spec:
+  capacity: "5368709120" # size of the volume in bytes
+  fsType: zfs
+  ownerNodeID: talos-cluster # should be the nodename where ZPOOL is running
+  poolName: storage/backup # poolname where the volume is present
+  volumeType: DATASET # whether it is a DATASET or ZVOL
+  shared: "yes" # whether or not the volume can be shared across pods
+status:
+  state: Ready # state should be Ready as volume is already present

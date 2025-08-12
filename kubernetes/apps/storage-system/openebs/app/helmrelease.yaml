@@ -38,7 +38,7 @@ spec:
         name: localpv
         image:
           registry: quay.io/
-        basePath: &hostPath /var/mnt/local-hostpath
+        basePath: /var/mnt/local-hostpath
         resources:
           limits:
             memory: 128Mi
@@ -46,27 +46,34 @@ spec:
             cpu: 100m
             memory: 128Mi
       hostpathClass:
-        enabled: true
         name: localpv
         isDefaultClass: false
-        basePath: *hostPath
       helperPod:
         image:
           registry: quay.io/
     zfs-localpv:
       zfsNode:
         encrKeysDir: "/var/openebs/keys"
+        resources:
+          limits:
+              memory: 128Mi
+          requests:
+            cpu: 100m
+            memory: 128Mi
       crds:
         zfsLocalPv:
-          enabled: true
+          # -- Keep CRDs on chart uninstall
+          keep: false
         csi:
           volumeSnapshots:
-            # Installed with the Snapshot Controller
+            # Don't install Volume Snapshot CRDs
             enabled: false
+            keep: false
     openebs-crds:
       csi:
         volumeSnapshots:
-          enabled: true
+          # Installed with the Snapshot Controller
+          enabled: false
           keep: false
     lvm-localpv:
       enabled: false

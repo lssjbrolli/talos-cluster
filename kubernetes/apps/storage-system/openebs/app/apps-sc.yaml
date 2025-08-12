@@ -7,7 +7,8 @@ metadata:
 allowVolumeExpansion: true
 parameters:
   poolname: "apps/data"
-  csi.storage.k8s.io/fstype: "zfs"
+  fstype: "zfs"
+  recordsize: "4k"
   thinprovision: "no"
   shared: yes
 provisioner: zfs.csi.openebs.io

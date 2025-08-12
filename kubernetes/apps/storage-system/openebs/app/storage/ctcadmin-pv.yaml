@@ -4,7 +4,7 @@ metadata:
   name: ctcadmin-pv # some unique name
 spec:
   accessModes:
-  - ReadWriteMany
+  - ReadWriteOnce
   capacity:
     storage: 10Gi # size of the volume
   claimRef:

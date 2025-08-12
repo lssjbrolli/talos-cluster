@@ -7,6 +7,10 @@ metadata:
   namespace: flux-system
 spec:
   targetNamespace: db
+  decryption:
+    provider: sops
+    secretRef:
+      name: sops-age
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
@@ -29,6 +33,10 @@ metadata:
   namespace: flux-system
 spec:
   targetNamespace: db
+  decryption:
+    provider: sops
+    secretRef:
+      name: sops-age
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app

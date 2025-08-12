@@ -14,6 +14,11 @@ spec:
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
+  dependsOn:
+    - name: cluster17
+      namespace: db
+    - name: volume-storage
+      namespace: storage-system
   path: ./kubernetes/apps/kube-apps/ctcadmin/app
   prune: true
   sourceRef:

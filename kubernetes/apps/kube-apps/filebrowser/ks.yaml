@@ -18,6 +18,10 @@ spec:
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
+  dependsOn:
+    - name: volsync
+      namespace: storage-system
+
   path: ./kubernetes/apps/kube-apps/filebrowser/app
   prune: true
   sourceRef:

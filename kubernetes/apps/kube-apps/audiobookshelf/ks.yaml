@@ -15,6 +15,11 @@ spec:
     secretRef:
       name: sops-age
   interval: 30m
+  dependsOn:
+    - name: volsync
+      namespace: storage-system
+    - name: cluster17
+      namespace: db
   path: ./kubernetes/apps/kube-apps/audiobookshelf/app
   postBuild:
     substituteFrom:

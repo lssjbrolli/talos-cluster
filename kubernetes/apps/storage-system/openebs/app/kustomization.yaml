@@ -7,12 +7,4 @@ resources:
   - ./snapshotclass.yaml
   - ./apps-sc.yaml
   - ./storage-sc.yaml
-  - ./storage/ctcadmin-volume.yaml
-  - ./storage/ctcadmin-pv.yaml
-  - ./storage/ctcadmin-pvc.yaml
-  - ./storage/media-volume.yaml
-  - ./storage/media-pv.yaml
-  - ./storage/media-pvc.yaml
-  - ./storage/minio-volume.yaml
-  - ./storage/minio-pv.yaml
-  - ./storage/minio-pvc.yaml
+

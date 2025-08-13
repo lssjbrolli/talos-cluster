@@ -18,7 +18,7 @@ spec:
   dependsOn:
     - name: volsync
       namespace: storage-system
-    - name: cluster17
+    - name: cnpg-cluster
       namespace: db
   path: ./kubernetes/apps/kube-apps/audiobookshelf/app
   postBuild:

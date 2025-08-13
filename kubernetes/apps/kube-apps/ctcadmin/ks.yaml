@@ -16,7 +16,7 @@ spec:
       name: sops-age
   interval: 30m
   dependsOn:
-    - name: cluster17
+    - name: cnpg-cluster
       namespace: db
     - name: storage-volumes
       namespace: storage-system

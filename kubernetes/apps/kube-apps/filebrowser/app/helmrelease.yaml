@@ -63,8 +63,12 @@ spec:
         hostnames: ["{{ .Release.Name }}.${SECRET_DOMAIN}"]
         parentRefs:
           - name: internal
-            namespace: kube-apps
-            sectionName: https
+            namespace: kube-system
+            sectionName: http
+        rules:
+          - backendRefs:
+              - identifier: app
+                port: *http
     persistence:
       config:
         type: persistentVolumeClaim

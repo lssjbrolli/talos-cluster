@@ -2,9 +2,9 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: ctcadmin-data
-  namespace: kube-apps
 spec:
   storageClassName: zfs-storage
+  volume-name: ctcadmin-pv
   accessModes:
     - ReadWriteOnce
   resources:

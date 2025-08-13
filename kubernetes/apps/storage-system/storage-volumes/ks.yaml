@@ -18,10 +18,6 @@ spec:
       kind: PersistentVolume
       current: has(status.phase) && status.phase == "Bound"
 
-    - apiVersion: v1
-      kind: PersistentVolumeClaim
-      current: has(status.phase) && status.phase == "Bound"
-
     - apiVersion: zfs.openebs.io/v1
       kind: ZFSVolume
       current: apiVersion == "zfs.openebs.io/v1"

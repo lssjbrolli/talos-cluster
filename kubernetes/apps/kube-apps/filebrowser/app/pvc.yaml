@@ -13,3 +13,17 @@ spec:
   resources:
     requests:
       storage: 200Mi
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: fb-data
+spec:
+  storageClassName: zfs-storage
+  volume-name: media-pv
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 21Ti

@@ -6,8 +6,6 @@ resources:
   - ./ctcadmin-pv.yaml
   - ./ctcadmin-volume.yaml
   - ./media-pv.yaml
-  - ./media-pvc.yaml
   - ./media-volume.yaml
   - ./minio-pv.yaml
-  - ./minio-pvc.yaml
   - ./minio-volume.yaml

@@ -2,9 +2,9 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: minio-data
-  namespace: storage-system
 spec:
   storageClassName: zfs-storage
+  volume-name: minio-pv
   accessModes:
     - ReadWriteOnce
   resources:

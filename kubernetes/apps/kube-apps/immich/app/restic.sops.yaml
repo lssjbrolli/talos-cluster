@@ -10,8 +10,8 @@ stringData:
     RESTIC_PASSWORD: ENC[AES256_GCM,data:WE/I1g==,iv:6Xo1/vSxl1jz8RCccyIFrl86D4Zn0dpxwUgzL3x4gmc=,tag:n5SMBtWFrmy7DU5N+EnY3g==,type:str]
     #ENC[AES256_GCM,data:6qoNbUfJ3LiIi6fwteXU0HC+z8may4qfZZTkKLxX9eFBmdLtPbQm4Hg=,iv:D5OoPq6eaw17tQ46G8RrMuBCY/BSYp5RFuORoMoSY6I=,tag:E7AwYNjDM9ajMljWjrCDRQ==,type:comment]
     #ENC[AES256_GCM,data:6Y1g7+LbYEPbtwIK0fnbIh2quDXwYssJU084p8Um0Yf99F1vvy7Sk2+wAGWJRDEHABMbFEBAVWTgkQiFNgTyUYiXg0FHtQ==,iv:F2bvuONc6/OTU3aJvvGuVRRsAmkq0aXlOnH/SF/6L6A=,tag:UL4INNhPOK3S3K9mAlLqxA==,type:comment]
-    AWS_ACCESS_KEY_ID: ENC[AES256_GCM,data:Du7iGXBdCglS2hz8FYnjoHS07ps=,iv:nAS4pBHhMgK/pi3YFNnteUaWonFpN+2ILm1SCOmUxvI=,tag:9tdvolGVgqtuJPTDVn9QZw==,type:str]
-    AWS_SECRET_ACCESS_KEY: ENC[AES256_GCM,data:TEeIxWL0x78lwc8xiUMHC0hWHgWkGNfypPHeme5QdcoDmJvF0FeHKg==,iv:t0dlBBf5Suf91fwxwDJSkknSPTWEIkLHVcRx4ttEkZs=,tag:0GZegeGothok4S+ceDjY6g==,type:str]
+    AWS_ACCESS_KEY_ID: ENC[AES256_GCM,data:aM7jqwJWdhQHR2bUGvrI5rXIHfI=,iv:duptdpOZmG9l8Afj8DYIXDLGJwNORevSEoGnK7WyFt8=,tag:6S85VQuIMNdv2dwpj+s+/w==,type:str]
+    AWS_SECRET_ACCESS_KEY: ENC[AES256_GCM,data:BiVm+N8CYp2WPXklS+1XtIvTVJAca/QQkjc1I+ZJn4AgqPoqv+SlXg==,iv:IqfF9xkejmJAjCMln9pecsh0hSZkSKjZJcZiY+ECxsU=,tag:NcjHOS6mOS6Qx9ZFmouP3A==,type:str]
 sops:
     age:
         - recipient: age1k5cr4cvs4atdm3gse77vq4glnv9q49gq5wl49p9806gfyfld7p3setz3tw
@@ -23,7 +23,7 @@ sops:
             Tm9NYVNVZjUrZUFLbS9WQmNVcjFpVGsKrZyCYx3InSl9BAfOLP/8Nb4Bt9skNjmi
             ywg6GNEEN0qS/W/1TKVCwLZ/TAbbyeyKXWiq/WzCiDtxrNg0YWT35g==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2025-04-19T04:13:01Z"
-    mac: ENC[AES256_GCM,data:HmYCQsOKHWbY2GL0NNRdMTmstNytH/sUZ53JMPAl3WdVA56upBmZ6LB9hIGw/HtIIlHB77Oi0Fye4PpLZTprURol+ETIrGi4b4UWNasDM53zVcymLpibphPfLIACxnsKFJPxY7y/qWO5AOW/nir8y17Yyi4n5xQiNrnd3T2OfAQ=,iv:s12qCpP8V3sbX11SM7mkZvLdJejOKShBU9JBUpSSl6g=,tag:Ql+MfxOToes50CurIjb1jQ==,type:str]
+    lastmodified: "2025-08-13T15:42:55Z"
+    mac: ENC[AES256_GCM,data:yGMdDRCEUQJVLW55lN0AcnfszfqDxlfOHI4ZZD1ejZmuSBzL+uFyF+ofLD3nJO1yumj+NHuo1gmGq3uFp6q9H2yYw2S/EsCKi/oC8RJ9yhikvj5Av3yPHAypdeVFT2fMDrUpvzbHao7kQMTCTFZ6Nd2WWTExGHqydtWR0o9NEMo=,iv:mdd4KPQo442iKuWafLpDbJYMVszZDGX/OJl3KmMTN8k=,tag:f/cXwYZbNJ68bnEHn+KwOA==,type:str]
     encrypted_regex: ^(data|stringData)$
     version: 3.10.2

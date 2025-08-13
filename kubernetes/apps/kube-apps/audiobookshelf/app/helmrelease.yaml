@@ -75,9 +75,13 @@ spec:
       app:
         hostnames: ["{{ .Release.Name }}.${SECRET_DOMAIN}"]
         parentRefs:
-          - name: external
-            namespace: kube-apps
-            sectionName: https
+          - name: internal
+            namespace: kube-system
+            sectionName: http
+        rules:
+          - backendRefs:
+              - identifier: app
+                port: *port
     persistence:
       config:
         type: persistentVolumeClaim
@@ -97,4 +101,4 @@ spec:
         type: emptyDir
       audiobooks:
         type: persistentVolumeClaim
-        existingClaim: media-data
+        existingClaim: abs-data

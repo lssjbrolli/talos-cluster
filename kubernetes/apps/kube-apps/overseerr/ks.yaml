@@ -10,6 +10,9 @@ spec:
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
+  dependsOn:
+    - name: volsync
+      namespace: storage-system
   path: ./kubernetes/apps/kube-apps/overseerr/app
   prune: true
   sourceRef:

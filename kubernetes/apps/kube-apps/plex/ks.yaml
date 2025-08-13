@@ -10,6 +10,11 @@ spec:
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
+  dependsOn:
+    - name: volsync
+      namespace: storage-system
+    - name: storage-volumes
+      namespace: storage-system
   path: ./kubernetes/apps/kube-apps/plex/app
   prune: true
   sourceRef:

@@ -71,4 +71,4 @@ spec:
         existingClaim: filebrowser-config
       data:
         type: persistentVolumeClaim
-        existingClaim: media-data
+        existingClaim: fb-data

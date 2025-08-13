@@ -3,9 +3,6 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - ./volume/ctcadmin-pv.yaml
-  - ./volume/ctcadmin-pvc.yaml
-  - ./volume/ctcadmin-volume.yaml
   - ./cnpg.sops.yaml
   - ./ctc.sops.yaml
   - ./helmrelease.yaml

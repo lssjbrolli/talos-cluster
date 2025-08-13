@@ -4,7 +4,7 @@ metadata:
   finalizers:
   - zfs.openebs.io/finalizer
   name: minio  # should be same as zfs volume name
-  namespace: openebs
+  namespace: storage-system
 spec:
   capacity: "161061273600" # size of the volume in bytes
   fsType: zfs

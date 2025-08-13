@@ -106,8 +106,8 @@ spec:
           - "minio.${SECRET_DOMAIN}"
         parentRefs:
           - name: external
-            namespace: kube-apps
-            sectionName: https
+            namespace: kube-system
+            sectionName: http
         rules:
           - backendRefs:
               - identifier: app

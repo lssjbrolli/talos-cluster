@@ -6,10 +6,10 @@ metadata:
   name: &app audiobookshelf
   namespace: flux-system
 spec:
+  targetNamespace: kube-apps
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
-  targetNamespace: kube-apps
   decryption:
     provider: sops
     secretRef:
@@ -26,6 +26,7 @@ spec:
       - name: cluster-secrets
         kind: Secret
   prune: true
+  retryInterval: 2m
   sourceRef:
     kind: GitRepository
     name: flux-system

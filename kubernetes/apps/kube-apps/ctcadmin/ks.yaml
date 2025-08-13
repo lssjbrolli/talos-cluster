@@ -7,25 +7,25 @@ metadata:
   namespace: flux-system
 spec:
   targetNamespace: kube-apps
+  commonMetadata:
+    labels:
+      app.kubernetes.io/name: *app
   decryption:
     provider: sops
     secretRef:
       name: sops-age
-  commonMetadata:
-    labels:
-      app.kubernetes.io/name: *app
+  interval: 30m
   dependsOn:
     - name: cluster17
       namespace: db
-    - name: openebs
+    - name: storage-volumes
       namespace: storage-system
   path: ./kubernetes/apps/kube-apps/ctcadmin/app
   prune: true
+  retryInterval: 2m
   sourceRef:
     kind: GitRepository
     name: flux-system
     namespace: flux-system
-  wait: true
-  interval: 30m
-
+  wait: false
   timeout: 5m

@@ -105,7 +105,7 @@ spec:
         hostnames:
           - "minio.${SECRET_DOMAIN}"
         parentRefs:
-          - name: external
+          - name: internal
             namespace: kube-system
             sectionName: http
         rules:

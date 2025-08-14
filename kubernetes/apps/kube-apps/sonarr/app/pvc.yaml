@@ -21,7 +21,7 @@ metadata:
   name: sonarr-data
 spec:
   storageClassName: zfs-storage
-  volume-name: media-pv
+  volumeName: media-pv
   accessModes:
     - ReadWriteMany
   resources:

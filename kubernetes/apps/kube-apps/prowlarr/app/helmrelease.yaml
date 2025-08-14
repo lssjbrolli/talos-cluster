@@ -19,11 +19,6 @@ spec:
       retries: 3
   driftDetection:
     mode: enabled
-  dependsOn:
-    - name: volsync
-      namespace: storage-system
-    - name: cluster17
-      namespace: db
   values:
     defaultPodOptions:
       securityContext:
@@ -98,25 +93,17 @@ spec:
         ports:
           http:
             port: *port
-    ingress:
-      # Configure an Ingress for the main application
-      main:
-        className: internal
-        annotations:
-          external-dns.alpha.kubernetes.io/target: "internal.${SECRET_DOMAIN}"
-          cert-manager.io/cluster-issuer: "letsencrypt-production"
-        hosts:
-          - host: &host prowlarr.${SECRET_DOMAIN}
-            paths:
-              - path: /
-                pathType: Prefix
-                service:
-                  identifier: main
-                  port: http
-        tls:
-          - hosts:
-              - *host
-            secretName: prowlarr-cert
+    route:
+      app:
+        hostnames: ["{{ .Release.Name }}.${SECRET_DOMAIN}"]
+        parentRefs:
+          - name: internal
+            namespace: kube-system
+            sectionName: http
+        rules:
+          - backendRefs:
+              - identifier: app
+                port: *port
     persistence:
       config:
         type: persistentVolumeClaim

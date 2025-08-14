@@ -10,13 +10,26 @@ spec:
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
+  decryption:
+    provider: sops
+    secretRef:
+      name: sops-age
+  interval: 30m
+  dependsOn:
+    - name: volsync
+      namespace: storage-system
+    - name: cnpg-cluster
+      namespace: db
   path: ./kubernetes/apps/kube-apps/vaultwarden/app
+  postBuild:
+    substituteFrom:
+      - name: cluster-secrets
+        kind: Secret
   prune: true
+  retryInterval: 2m
   sourceRef:
     kind: GitRepository
     name: flux-system
     namespace: flux-system
-  wait: true
-  interval: 30m
-
+  wait: false
   timeout: 5m

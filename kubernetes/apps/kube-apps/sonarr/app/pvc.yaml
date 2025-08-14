@@ -6,10 +6,10 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
-  dataSourceRef:
-    kind: ReplicationDestination
-    apiGroup: volsync.backube
-    name: sonarr-restore
+  # dataSourceRef:
+  #   kind: ReplicationDestikube
+  #   name: sonarr-restorenation
+  #   apiGroup: volsync.bac
   resources:
     requests:
       storage: 5Gi

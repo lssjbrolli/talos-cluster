@@ -135,7 +135,7 @@ spec:
             sectionName: http
         rules:
           - backendRefs:
-              - identifier: app
+              - identifier: main
                 port: *port
     persistence:
       config:

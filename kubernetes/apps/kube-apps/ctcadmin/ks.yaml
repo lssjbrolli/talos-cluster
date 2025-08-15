@@ -18,7 +18,7 @@ spec:
   dependsOn:
     - name: cnpg-cluster
       namespace: db
-    - name: storage-volumes
+    - name: openebs
       namespace: storage-system
   path: ./kubernetes/apps/kube-apps/ctcadmin/app
   prune: true

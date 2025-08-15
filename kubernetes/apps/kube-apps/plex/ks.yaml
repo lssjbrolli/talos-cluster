@@ -13,7 +13,7 @@ spec:
   dependsOn:
     - name: volsync
       namespace: storage-system
-    - name: storage-volumes
+    - name: openebs
       namespace: storage-system
   path: ./kubernetes/apps/kube-apps/plex/app
   prune: true

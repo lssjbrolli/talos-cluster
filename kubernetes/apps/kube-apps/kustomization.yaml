@@ -14,9 +14,9 @@ resources:
   # - ./nextcloud/ks.yaml
   - ./overseerr/ks.yaml
   - ./plex/ks.yaml
-  # - ./prowlarr/ks.yaml
-  # - ./qbittorrent/ks.yaml
-  # - ./radarr/ks.yaml
+  - ./prowlarr/ks.yaml
+  - ./qbittorrent/ks.yaml
+  - ./radarr/ks.yaml
   # - ./readarr/ks.yaml
   # - ./sftpgo/ks.yaml
   # - ./sonarr/ks.yaml

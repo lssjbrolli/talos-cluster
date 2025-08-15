@@ -97,30 +97,22 @@ spec:
           http:
             port: *port
 
-    ingress:
-      # Configure an Ingress for the main application
-      main:
-        className: internal
-        annotations:
-          external-dns.alpha.kubernetes.io/target: "internal.${SECRET_DOMAIN}"
-          cert-manager.io/cluster-issuer: "letsencrypt-production"
-        hosts:
-          - host: &host radarr.${SECRET_DOMAIN}
-            paths:
-              - path: /
-                pathType: Prefix
-                service:
-                  identifier: main
-                  port: http
-        tls:
-          - hosts:
-              - *host
-            secretName: radarr-cert
+    route:
+      app:
+        hostnames: ["{{ .Release.Name }}.${SECRET_DOMAIN}"]
+        parentRefs:
+          - name: internal
+            namespace: kube-system
+            sectionName: http
+        rules:
+          - backendRefs:
+              - identifier: main
+                port: *port
+
     persistence:
       config:
         type: persistentVolumeClaim
         existingClaim: radarr-config
       media:
-        type: nfs
-        server: 192.168.1.150
-        path: /mnt/storage/media
+        type: persistentVolumeClaim
+        existingClaim: radarr-data

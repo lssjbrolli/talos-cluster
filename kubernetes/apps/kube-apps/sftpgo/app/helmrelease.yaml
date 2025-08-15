@@ -137,4 +137,4 @@ spec:
         resources:
           requests:
             storage: 100Mi
-        storageClassName: freenas-nfs
+        storageClassName: zfs-apps

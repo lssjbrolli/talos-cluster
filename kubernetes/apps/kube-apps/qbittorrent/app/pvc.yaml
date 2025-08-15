@@ -29,3 +29,16 @@ spec:
   resources:
     requests:
       storage: 50Mi
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: qbittorrent-data
+spec:
+  storageClassName: zfs-storage
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 21Ti

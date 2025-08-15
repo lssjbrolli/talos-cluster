@@ -1,8 +1,6 @@
 apiVersion: zfs.openebs.io/v1
 kind: ZFSVolume
 metadata:
-  finalizers:
-  - zfs.openebs.io/finalizer
   name: minio  # should be same as zfs volume name
 spec:
   capacity: "161061273600" # size of the volume in bytes

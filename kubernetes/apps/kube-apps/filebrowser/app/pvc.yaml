@@ -21,7 +21,6 @@ metadata:
   name: fb-data
 spec:
   storageClassName: zfs-storage
-  volumeName: filebrowser-pv
   accessModes:
     - ReadWriteMany
   resources:

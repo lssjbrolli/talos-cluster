@@ -1,8 +1,6 @@
 apiVersion: zfs.openebs.io/v1
 kind: ZFSVolume
 metadata:
-  finalizers:
-  - zfs.openebs.io/finalizer
   name: media  # should be same as zfs volume name
 spec:
   capacity: "23089744183296" # size of the volume in bytes

@@ -21,7 +21,6 @@ metadata:
   name: plex-data
 spec:
   storageClassName: zfs-storage
-  volumeName: media-pv
   accessModes:
     - ReadWriteMany
   resources:

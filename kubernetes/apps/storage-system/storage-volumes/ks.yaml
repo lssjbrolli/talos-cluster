@@ -14,13 +14,9 @@ spec:
       namespace: storage-system
   wait: true
   healthCheckExprs:
-    - apiVersion: v1
-      kind: PersistentVolume
-      current: has(status.phase) && status.phase == "Bound"
-
     - apiVersion: zfs.openebs.io/v1
       kind: ZFSVolume
-      current: apiVersion == "zfs.openebs.io/v1"
+      current: has(status).state == "Ready"
 
   interval: 1h
   path: ./kubernetes/apps/storage-system/storage-volumes/crds

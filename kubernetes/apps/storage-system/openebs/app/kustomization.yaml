@@ -3,6 +3,9 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
+  - ./zv/ctcadmin.yaml
+  - ./zv/media.yaml
+  - ./zv/minio.yaml
   - ./helmrelease.yaml
   - ./snapshotclass.yaml
   - ./apps-sc.yaml

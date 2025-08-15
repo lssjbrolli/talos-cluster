@@ -6,19 +6,19 @@ namespace: kube-apps
 components:
   - ../../components/common
 resources:
-  - ./audiobookshelf/ks.yaml
-  - ./ctcadmin/ks.yaml
-  - ./filebrowser/ks.yaml
+  # - ./audiobookshelf/ks.yaml
+  # - ./ctcadmin/ks.yaml
+  # - ./filebrowser/ks.yaml
   - ./flaresolverr/ks.yaml
   # - ./immich/ks.yaml
   # - ./nextcloud/ks.yaml
-  - ./overseerr/ks.yaml
-  - ./plex/ks.yaml
-  - ./prowlarr/ks.yaml
+  # - ./overseerr/ks.yaml
+  # - ./plex/ks.yaml
+  # - ./prowlarr/ks.yaml
   # - ./qbittorrent/ks.yaml
   # - ./radarr/ks.yaml
   # - ./readarr/ks.yaml
   # - ./sftpgo/ks.yaml
-  - ./sonarr/ks.yaml
+  # - ./sonarr/ks.yaml
   # - ./tautulli/ks.yaml
-  - ./vaultwarden/ks.yaml
+  # - ./vaultwarden/ks.yaml

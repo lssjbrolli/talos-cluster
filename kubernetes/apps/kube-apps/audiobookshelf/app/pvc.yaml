@@ -37,9 +37,9 @@ metadata:
   name: abs-data
 spec:
   storageClassName: zfs-storage
-  volumeName: media-pv
+  volumeName: audiobooks-pv
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce
   resources:
     requests:
       storage: 21Ti

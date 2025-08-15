@@ -21,8 +21,9 @@ metadata:
   name: fb-data
 spec:
   storageClassName: zfs-storage
+  volumeName: media-pv
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   resources:
     requests:
       storage: 21Ti

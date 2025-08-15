@@ -4,6 +4,7 @@ metadata:
   name: minio-data
 spec:
   storageClassName: zfs-storage
+  volumeName: minio-pv
   accessModes:
     - ReadWriteOnce
   resources:

@@ -4,6 +4,7 @@ metadata:
   name: ctcadmin-data
 spec:
   storageClassName: zfs-storage
+  volumeName: ctcadmin-pv
   accessModes:
     - ReadWriteOnce
   resources:

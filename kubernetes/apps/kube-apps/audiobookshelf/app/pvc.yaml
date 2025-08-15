@@ -37,6 +37,7 @@ metadata:
   name: abs-data
 spec:
   storageClassName: zfs-storage
+  volumeName: media-pv
   accessModes:
     - ReadWriteMany
   resources:

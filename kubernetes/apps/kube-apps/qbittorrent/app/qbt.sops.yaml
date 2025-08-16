@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: qbt-secret
+stringData:
+  username: ENC[AES256_GCM,data:gw2giQw=,iv:xeSLrr7p6vTxHIs4vd7kbnf6NPRP3IErrKMlfYsEpOo=,tag:JFZcfR6yEFTSKtQRNrRrOw==,type:str]
+  password: ENC[AES256_GCM,data:ygeu49kP7st1hg==,iv:p8QIlJnaTcVnVjN6Ux7qUl2sBXLpO61Uzlm4mF0NYvM=,tag:9h47SQdKElReK+aPqd1Szw==,type:str]
+sops:
+  age:
+    - recipient: age1k5cr4cvs4atdm3gse77vq4glnv9q49gq5wl49p9806gfyfld7p3setz3tw
+      enc: |
+        -----BEGIN AGE ENCRYPTED FILE-----
+        YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSA5SW9XTVNVSjZxSzhHaWND
+        NDJBazZzblVKSXFCR29DT1JSWDRydnVialhjCnZRcXFYTy9McFRtWnBWME5OcEU1
+        OUpuNTVBTHFwSllrRm5QdXNPSHhaQ1EKLS0tIEgyd01lS1ZQWDU4VUc0QTdXNTB3
+        NU1XNUpJV1B4N2xISXNhQ2FwSnNpSHMKJ7ZkjEv/AJjKVzKnaKGi3Nu++kOOsZiT
+        ZQUuzarmBZpCR/z3geUxH1t+u1chblOe9njH2GA9IfiYXpqFKQJC0g==
+        -----END AGE ENCRYPTED FILE-----
+  lastmodified: "2025-08-16T16:37:43Z"
+  mac: ENC[AES256_GCM,data:5TLClXjVcTfPrCBtkvNnf0G/FltGVhZtX3WYMUASTcz6QHdJ98ONVDhSQU6Vw/aTtvKhbFdpcDyk7qr9diDRu2zywaXB14u6KV13nfsXpbC7TO7JRYEf7/cczJe2MRub/tlVLlDJoqnH4an6vKrq7rdieIWYWYF0bp5aIMAZwfA=,iv:F6e+fojSBu+osXmZXprYnadECaQGYGILHxV2vcWkYdw=,tag:zbBAYcA6sLKsXggK9IJ38w==,type:str]
+  encrypted_regex: ^(data|stringData)$
+  mac_only_encrypted: true
+  version: 3.10.2

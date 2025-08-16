@@ -6,6 +6,7 @@ resources:
   - ./helmrelease.yaml
   - ./pv.yaml
   - ./pvc.yaml
+  - ./qbt.sops.yaml
   - ./restic-gluetun.sops.yaml
   - ./restic-qbt.sops.yaml
   - ./vpnconfig.sops.yaml

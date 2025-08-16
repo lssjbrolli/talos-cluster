@@ -65,3 +65,8 @@ spec:
         existingClaim: overseerr-config
         globalMounts:
           - path: /app/config
+      tmp:
+        enabled: true
+        type: persistentVolumeClaim
+        accessMode: ReadWriteOnce
+        size: 500Gi

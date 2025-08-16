@@ -21,6 +21,8 @@ spec:
   dependsOn:
     - name: volsync
       namespace: storage-system
+    - name: storage-volumes
+      namespace: storage-system
 
   path: ./kubernetes/apps/kube-apps/filebrowser/app
   prune: true

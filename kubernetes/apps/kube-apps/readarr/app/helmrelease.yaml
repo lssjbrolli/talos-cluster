@@ -25,7 +25,6 @@ spec:
   values:
     defaultPodOptions:
       securityContext:
-        runAsNonRoot: true
         fsGroup: 568
         fsGroupChangePolicy: OnRootMismatch
     controllers:
@@ -47,6 +46,7 @@ spec:
               repository: ghcr.io/elfhosted/readarr-develop
               tag: 0.4.18.2805@sha256:ed51f754b6baeb58d86b4fae4872dbcc8e9799c01788a9023c3d7704ae549333
             securityContext:
+              runAsNonRoot: true
               runAsUser: 568
               runAsGroup: 568
               allowPrivilegeEscalation: false

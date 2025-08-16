@@ -27,7 +27,6 @@ spec:
   values:
     defaultPodOptions:
       securityContext:
-        runAsNonRoot: true
         fsGroup: 568
         fsGroupChangePolicy: OnRootMismatch
     controllers:
@@ -49,10 +48,11 @@ spec:
               repository: vaultwarden/server
               tag: 1.34.3@sha256:84fd8a47f58d79a1ad824c27be0a9492750c0fa5216b35c749863093bfa3c3d7
             securityContext:
+              runAsNonRoot: true
               runAsUser: 568
               runAsGroup: 568
               allowPrivilegeEscalation: false
-              readOnlyRootFilesystem: false
+              readOnlyRootFilesystem: true
               capabilities: { drop: ["ALL"] }
             resources:
               requests:

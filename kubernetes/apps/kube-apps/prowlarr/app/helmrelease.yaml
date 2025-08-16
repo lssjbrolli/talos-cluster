@@ -22,12 +22,8 @@ spec:
   values:
     defaultPodOptions:
       securityContext:
-        runAsNonRoot: true
-        runAsUser: 568
-        runAsGroup: 568
         fsGroup: 568
         fsGroupChangePolicy: OnRootMismatch
-        seccompProfile: { type: RuntimeDefault }
     controllers:
       main:
         strategy: Recreate
@@ -47,6 +43,9 @@ spec:
               repository: ghcr.io/elfhosted/prowlarr-develop
               tag: 2.0.3.5130@sha256:cda041bd567c0e4dad312a0eb636299bd727de1b9c6556d615584160e6bcf3a9
             securityContext:
+              runAsNonRoot: true
+              runAsUser: 568
+              runAsGroup: 568
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: true
               capabilities: { drop: ["ALL"] }

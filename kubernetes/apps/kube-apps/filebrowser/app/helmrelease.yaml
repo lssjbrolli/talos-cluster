@@ -37,7 +37,7 @@ spec:
               runAsUser: 568
               runAsGroup: 568
               allowPrivilegeEscalation: false
-              readOnlyRootFilesystem: false
+              readOnlyRootFilesystem: true
               capabilities: { drop: ["ALL"] }
             resources:
               requests:

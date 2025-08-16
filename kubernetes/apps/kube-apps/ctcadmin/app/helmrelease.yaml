@@ -20,9 +20,6 @@ spec:
   values:
     defaultPodOptions:
       securityContext:
-        runAsNonRoot: true
-        runAsUser: 568
-        runAsGroup: 568
         fsGroup: 568
         fsGroupChangePolicy: OnRootMismatch
     controllers:
@@ -44,6 +41,9 @@ spec:
               repository: ghcr.io/ctcadmin2/remixctc
               tag: 0.9.18@sha256:6376568d1afcfb63a9d40f37617512572a67b989bd3d777559f41bc1265683bc
             securityContext:
+              runAsNonRoot: true
+              runAsUser: 568
+              runAsGroup: 568
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: false
               capabilities: { drop: ["ALL"] }

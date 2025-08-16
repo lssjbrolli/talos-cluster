@@ -20,7 +20,6 @@ spec:
   values:
     defaultPodOptions:
       securityContext:
-        runAsNonRoot: true
         fsGroup: 568
         fsGroupChangePolicy: OnRootMismatch
     controllers:
@@ -40,10 +39,11 @@ spec:
               "--port", "80"
             ]
             securityContext:
+              runAsNonRoot: true
               runAsUser: 568
               runAsGroup: 568
               allowPrivilegeEscalation: false
-              readOnlyRootFilesystem: false
+              readOnlyRootFilesystem: true
               capabilities: { drop: ["ALL"] }
             resources:
               requests:

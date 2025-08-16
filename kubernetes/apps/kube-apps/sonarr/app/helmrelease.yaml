@@ -25,7 +25,6 @@ spec:
   values:
     defaultPodOptions:
       securityContext:
-        runAsNonRoot: true
         fsGroup: 568
         fsGroupChangePolicy: OnRootMismatch
     controllers:
@@ -47,10 +46,11 @@ spec:
               repository: ghcr.io/elfhosted/sonarr-develop
               tag: 4.0.14.2938@sha256:228725bd80405f45576d9d202ad69e0fa8b9e8c4120247f6518d066382310224
             securityContext:
+              runAsNonRoot: true
               runAsUser: 568
               runAsGroup: 568
               allowPrivilegeEscalation: false
-              readOnlyRootFilesystem: false
+              readOnlyRootFilesystem: true
               capabilities: { drop: ["ALL"] }
             resources:
               requests:

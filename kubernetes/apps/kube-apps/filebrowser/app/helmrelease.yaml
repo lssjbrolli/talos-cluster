@@ -20,9 +20,6 @@ spec:
   values:
     defaultPodOptions:
       securityContext:
-        runAsNonRoot: true
-        runAsUser: 568
-        runAsGroup: 568
         fsGroup: 568
         fsGroupChangePolicy: OnRootMismatch
     controllers:
@@ -36,8 +33,11 @@ spec:
               repository: docker.io/filebrowser/filebrowser
               tag: v2.32.0@sha256:593478e3c24c5ea9f5d7478dc549965b7bc7030707291006ce8d0b6162d3454b
             securityContext:
+              runAsNonRoot: true
+              runAsUser: 568
+              runAsGroup: 568
               allowPrivilegeEscalation: false
-              readOnlyRootFilesystem: true
+              readOnlyRootFilesystem: false
               capabilities: { drop: ["ALL"] }
             resources:
               requests:

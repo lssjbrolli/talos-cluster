@@ -23,6 +23,7 @@ spec:
   storageClassName: zfs-storage
   accessModes:
     - ReadWriteOnce
+  volumeName: plex-data
   resources:
     requests:
       storage: 21Ti

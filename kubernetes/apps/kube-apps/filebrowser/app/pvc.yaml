@@ -22,7 +22,8 @@ metadata:
 spec:
   storageClassName: zfs-storage
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce
+  volumeName: filebrowser-pv
   resources:
     requests:
       storage: 21Ti

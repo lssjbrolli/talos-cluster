@@ -5,6 +5,6 @@ kind: Kustomization
 namespace: observability
 components:
   - ../../components/common
-resources: []
-  # - ./kubernetes-dashboard/ks.yaml
-  # - ./robusta/ks.yaml
+resources:
+  - ./kubernetes-dashboard/ks.yaml
+  - ./robusta/ks.yaml

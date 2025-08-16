@@ -7,6 +7,14 @@ metadata:
   namespace: flux-system
 spec:
   targetNamespace: observability
+  decryption:
+    provider: sops
+    secretRef:
+      name: sops-age
+  postBuild:
+    substituteFrom:
+      - name: cluster-secrets
+        kind: Secret
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app

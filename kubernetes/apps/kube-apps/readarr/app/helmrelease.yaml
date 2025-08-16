@@ -26,11 +26,8 @@ spec:
     defaultPodOptions:
       securityContext:
         runAsNonRoot: true
-        runAsUser: 568
-        runAsGroup: 568
         fsGroup: 568
         fsGroupChangePolicy: OnRootMismatch
-        seccompProfile: { type: RuntimeDefault }
     controllers:
       main:
         strategy: Recreate
@@ -50,6 +47,8 @@ spec:
               repository: ghcr.io/elfhosted/readarr-develop
               tag: 0.4.18.2805@sha256:ed51f754b6baeb58d86b4fae4872dbcc8e9799c01788a9023c3d7704ae549333
             securityContext:
+              runAsUser: 568
+              runAsGroup: 568
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: true
               capabilities: { drop: ["ALL"] }
@@ -94,32 +93,23 @@ spec:
         ports:
           http:
             port: *port
-    ingress:
-      # Configure an Ingress for the main application
-      main:
-        className: internal
-        annotations:
-          external-dns.alpha.kubernetes.io/target: "internal.${SECRET_DOMAIN}"
-          cert-manager.io/cluster-issuer: "letsencrypt-production"
-        hosts:
-          - host: &host "readarr.${SECRET_DOMAIN}"
-            paths:
-              - path: /
-                pathType: Prefix
-                service:
-                  identifier: main
-                  port: http
-        tls:
-          - hosts:
-              - *host
-            secretName: readarr-cert
+    route:
+      app:
+        hostnames: ["{{ .Release.Name }}.${SECRET_DOMAIN}"]
+        parentRefs:
+          - name: internal
+            namespace: kube-system
+            sectionName: http
+        rules:
+          - backendRefs:
+              - identifier: main
+                port: *port
     persistence:
       config:
         type: persistentVolumeClaim
         existingClaim: readarr-config
       media:
-        type: nfs
-        server: 192.168.1.150
-        path: /mnt/storage/media
+        type: persistentVolumeClaim
+        existingClaim: readarr-data
       tmp:
         type: emptyDir

@@ -13,3 +13,17 @@ spec:
   resources:
     requests:
       storage: 500Mi
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: readarr-data
+spec:
+  storageClassName: zfs-storage
+  accessModes:
+    - ReadWriteOnce
+  volumeName: readarr-pv
+  resources:
+    requests:
+      storage: 21Ti

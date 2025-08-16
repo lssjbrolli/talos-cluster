@@ -110,8 +110,8 @@ spec:
                 value: 'warn'
               - name: EXPERIMENTAL_CLIENT_FEATURE_FLAGS
                 value: 'autofill-v2,ssh-key-vault-item,ssh-agent'
-              - name: ADMIN_TOKEN
-                value: 'sega'
+              # - name: ADMIN_TOKEN
+              #   value: 'sega'
               # TODO: configure smtp
               # - name: SMTP_HOST
               #   value: smtp-relay.default.svc.cluster.local.

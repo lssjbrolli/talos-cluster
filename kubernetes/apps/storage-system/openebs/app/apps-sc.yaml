@@ -9,6 +9,7 @@ parameters:
   poolname: "apps/data"
   fstype: "zfs"
   recordsize: "4k"
-  thinprovision: "no"
-  shared: yes
+  thinprovision: "yes"
+  compression: 'zstd'
+  shared: no
 provisioner: zfs.csi.openebs.io

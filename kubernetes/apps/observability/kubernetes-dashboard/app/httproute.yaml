@@ -12,6 +12,6 @@ spec:
       sectionName: https
   rules:
     - backendRefs:
-        - name: kubernetes-dashboard
+        - name: kubernetes-dashboard-web
           namespace: observability
           port: 8000

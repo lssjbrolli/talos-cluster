@@ -7,8 +7,3 @@ resources:
   - ./snapshotclass.yaml
   - ./apps-sc.yaml
   - ./storage-sc.yaml
-patches:
-  # - path: ./patch_csidriver.yaml
-  - path: ./zv/ctcadmin.yaml
-  - path: ./zv/media.yaml
-  - path: ./zv/minio.yaml

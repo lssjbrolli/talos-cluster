@@ -142,8 +142,6 @@ spec:
               - name: FIREWALL_INPUT_PORTS
                 value: 80
             securityContext:
-              allowPrivilegeEscalation: false
-              readOnlyRootFilesystem: true
               capabilities:
                 add:
                   - NET_ADMIN

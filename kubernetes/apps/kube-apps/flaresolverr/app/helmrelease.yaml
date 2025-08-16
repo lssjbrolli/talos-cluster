@@ -20,7 +20,7 @@ spec:
   values:
     defaultPodOptions:
       securityContext:
-        fsGroup: 568
+        fsGroup: 1000
         fsGroupChangePolicy: OnRootMismatch
     controllers:
       main:
@@ -34,8 +34,6 @@ spec:
               tag: v3.3.25@sha256:68160ec125e5cde23bc45549a443da0da0223cf4f0de7571ed2c6851cf6e1561
             securityContext:
               runAsNonRoot: true
-              runAsUser: 568
-              runAsGroup: 568
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: false
               capabilities: { drop: ["ALL"] }

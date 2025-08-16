@@ -93,7 +93,7 @@ spec:
         parentRefs:
           - name: external
             namespace: kube-system
-            sectionName: https
+            sectionName: ctc
         rules:
           - backendRefs:
               - identifier: main

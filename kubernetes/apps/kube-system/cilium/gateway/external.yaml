@@ -23,6 +23,13 @@ spec:
       allowedRoutes:
         namespaces:
           from: Same
+    - name: ctc
+      protocol: HTTP
+      port: 80
+      hostname: "admin.cozmatransport.eu"
+      allowedRoutes:
+        namespaces:
+          from: All
     - name: https
       protocol: HTTPS
       port: 443

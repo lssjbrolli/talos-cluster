@@ -21,6 +21,11 @@ spec:
     mode: warn
   maxHistory: 2
   values:
+    defaultPodOptions:
+      securityContext:
+        fsGroup: 568
+        fsGroupChangePolicy: OnRootMismatch
+        runAsNonRoot: true
     controllers:
       app:
         annotations:
@@ -32,12 +37,9 @@ spec:
               tag: 2.28.0@sha256:b854ec08b1a7bee67c3274f1df5dce2143f48e05cbce5ada356c38662694f7fe
             securityContext:
               readOnlyRootFilesystem: true
-              runAsNonRoot: true
+              allowPrivilegeEscalation: false
               runAsUser: 568
               runAsGroup: 568
-              fsGroup: 568
-              fsGroupChangePolicy: OnRootMismatch
-              seccompProfile: { type: RuntimeDefault }
               capabilities: { drop: ["ALL"] }
             resources:
               requests:

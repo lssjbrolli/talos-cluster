@@ -38,16 +38,7 @@ spec:
         - --token-ttl=43200 # seconds time to expire
 
       ingress:
-        enabled: true
-        ingressClassName: internal
-        annotations:
-          external-dns.alpha.kubernetes.io/target: "internal.${SECRET_DOMAIN}"
-          nginx.ingress.kubernetes.io/proxy-body-size: "100m"
-          nginx.ingress.kubernetes.io/configuration-snippet: |
-            auth_request_set $required_groups 'kubernetes_dashboard';
-        hosts:
-          - "dashboard.${SECRET_DOMAIN}"
-        pathType: Prefix
+        enabled: false
     auth:
       resources:
         requests:

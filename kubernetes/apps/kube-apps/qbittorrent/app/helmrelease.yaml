@@ -26,8 +26,6 @@ spec:
   values:
     defaultPodOptions:
       securityContext:
-        runAsUser: 568
-        runAsGroup: 568
         fsGroup: 568
         fsGroupChangePolicy: OnRootMismatch
         seccompProfile: { type: RuntimeDefault }
@@ -43,6 +41,8 @@ spec:
               repository: ghcr.io/home-operations/qbittorrent
               tag: 5.1.2@sha256:9dd0164cc23e9c937e0af27fd7c3f627d1df30c182cf62ed34d3f129c55dc0e8
             securityContext:
+              runAsUser: 568
+              runAsGroup: 568
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: true
               runAsNonRoot: true

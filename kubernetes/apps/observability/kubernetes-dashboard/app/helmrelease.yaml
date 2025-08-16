@@ -39,6 +39,8 @@ spec:
 
       ingress:
         enabled: false
+    kong:
+      enabled: false
     auth:
       resources:
         requests:

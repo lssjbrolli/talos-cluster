@@ -3,12 +3,8 @@ kind: Secret
 metadata:
     name: plexconfig
 stringData:
-    claim: ENC[AES256_GCM,data:Xhw7aFJ9A6LUlEA7CeO2TtOJq2txUA8q214=,iv:xnKHlwgpiNXMh2twytPcY3ZxHKApdkKOzx2WE3ZlDqg=,tag:gcISc+Rb3N8TT0r3CaQmeQ==,type:str]
+    claim: ENC[AES256_GCM,data:YnAdtVNTdQRTtyG3Ik4Nc6ltsICs+DXCOak=,iv:O5Waci5VzdAjBpBGTHc4zG0hpuO4fAdfFX4GfUmV57Y=,tag:9RTpNOFUSXc4j9KwPTHtoA==,type:str]
 sops:
-    kms: []
-    gcp_kms: []
-    azure_kv: []
-    hc_vault: []
     age:
         - recipient: age1k5cr4cvs4atdm3gse77vq4glnv9q49gq5wl49p9806gfyfld7p3setz3tw
           enc: |
@@ -19,8 +15,7 @@ sops:
             UkFKMDZZb202SGtoTDdTRG1KWWxwRW8Kz7K2vq0EEyo/+035IzS5Buw8JEgjxT34
             zT503wOGVYxbAFmNfoGs2v00+4csDdCtCGDcrIP/lsj0W2WaDu3vHA==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-09-14T21:11:11Z"
-    mac: ENC[AES256_GCM,data:CTUVGMdpcOXbOfJT8BnhUB0rcnzuvFFwqMgkwljqL2qjqki70bXro4TF/G07uNeXV9uIkGggmZhjK6iZlMiK3+tTxPKocGBPy7l5smVCE6QhGweVD4gXQ1hMXlf2b+tYY9CVnYpDp7/wYjoNWXbv8tk5Y0hhE22RCIpNB8yG2E4=,iv:E0wCtUWACOEjIWixdS6RsHMJmFgHcZOlpKCDITFPQUc=,tag:sIFX6CCgTbUW6RjO5sCTsA==,type:str]
-    pgp: []
+    lastmodified: "2025-08-17T02:12:39Z"
+    mac: ENC[AES256_GCM,data:6VjTQ6/s3prbmkKJi5/7ZnjP5EM4e8hegHyu8jFc+fdGZ92qsTnePkqzp8dk0niGJ0v2mq2o1gFQfSyP907KdCXmzKeRdLMN34opHhM+yDsiyiecFgLJOeHn30IVDNGmbYzUNIZfVwdi/+1s/NEsVjGoqituXFFw/RUCTGwgrrg=,iv:O6JhY1HWfvq3sSSTD0C8m5h+MctHaUAHuIP2jdsRuRk=,tag:W1KFz4fMrrTuBE6pmu1tyg==,type:str]
     encrypted_regex: ^(data|stringData)$
-    version: 3.9.0
+    version: 3.10.2

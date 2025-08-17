@@ -74,8 +74,7 @@ spec:
       cache:
         type: persistentVolumeClaim
         accessMode: ReadWriteOnce
-        retain: true
-        storageClass: zfs-apps
+        retain: false
         size: 10Gi
         globalMounts:
           - path: /config/Library/Application Support/Plex Media Server/Cache

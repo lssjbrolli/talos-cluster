@@ -54,6 +54,6 @@ spec:
         ports:
           http:
             port: 80
-    persistence:
-      tmp:
-        type: emptyDir
+    # persistence:
+    #   tmp:
+    #     type: emptyDir

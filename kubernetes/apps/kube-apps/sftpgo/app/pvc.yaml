@@ -1,0 +1,12 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: sftpgo-data
+spec:
+  storageClassName: zfs-storage
+  accessModes:
+    - ReadWriteOnce
+  volumeName: sftpgo-pv
+  resources:
+    requests:
+      storage: 10Gi

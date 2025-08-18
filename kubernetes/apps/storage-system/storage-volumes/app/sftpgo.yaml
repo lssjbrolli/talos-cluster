@@ -1,0 +1,13 @@
+apiVersion: zfs.openebs.io/v1
+kind: ZFSVolume
+metadata:
+  name: sftpgo  # should be same as zfs volume name
+spec:
+  capacity: "10737418240" # size of the volume in bytes
+  fsType: zfs
+  poolName: apps/vms # poolname where the volume is present
+  ownerNodeID: talos-cluster
+  volumeType: DATASET # whether it is a DATASET or ZVOL
+  shared: "no" # whether or not the volume can be shared across pods
+status:
+  state: Ready # state should be Ready as volume is already present

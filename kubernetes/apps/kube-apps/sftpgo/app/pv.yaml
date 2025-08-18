@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: sftpgo-pv # some unique name
+spec:
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 10Gi # size of the volume
+  claimRef:
+    apiVersion: v1
+    kind: PersistentVolumeClaim
+    name: sftpgo-data # name of pvc which can claim this PV
+    namespace: kube-apps # namespace for the pvc
+  csi:
+    driver: zfs.csi.openebs.io
+    fsType: zfs
+    volumeAttributes:
+      openebs.io/poolname: apps/vms # change the pool name accordingly
+    volumeHandle: sftpgo # This should be same as the zfs volume name
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - talos-cluster # change the hostname where volume is present
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: zfs-storage
+  volumeMode: Filesystem

@@ -6,3 +6,4 @@ resources:
   - ./ctcadmin.yaml
   - ./media.yaml
   - ./minio.yaml
+  - ./sftpgo.yaml

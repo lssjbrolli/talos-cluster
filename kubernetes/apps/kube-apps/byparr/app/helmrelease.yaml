@@ -18,10 +18,10 @@ spec:
       strategy: rollback
       retries: 3
   values:
-    defaultPodOptions:
-      securityContext:
-        fsGroup: 1000
-        fsGroupChangePolicy: OnRootMismatch
+    # defaultPodOptions:
+    #   securityContext:
+    #     fsGroup: 1000
+    #     fsGroupChangePolicy: OnRootMismatch
     controllers:
       main:
         strategy: Recreate
@@ -33,11 +33,11 @@ spec:
               repository: ghcr.io/thephaseless/byparr
               tag: 1.2.1@sha256:2f444712578eae74508dc1e100900114b08e4421e708cb13b07f3dce76a7d956
             securityContext:
-              runAsNonRoot: true
-              runAsUser: 1000
+              runAsNonRoot: false
+              # runAsUser: 1000
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: false
-              capabilities: { drop: ["ALL"] }
+              # capabilities: { drop: ["ALL"] }
             resources:
               requests:
                 cpu: 10m

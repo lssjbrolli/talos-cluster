@@ -8076,7 +8076,10 @@ spec:
         resources:
           requests:
             cpu: 10m
-            memory: 450Mi
+            memory: 256Mi
+          limits:
+            cpu: 100m
+            memory: 512Mi
         securityContext:
           allowPrivilegeEscalation: false
           capabilities:

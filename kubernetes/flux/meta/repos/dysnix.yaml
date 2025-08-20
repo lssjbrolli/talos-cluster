@@ -3,9 +3,8 @@
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
-  name: bjw-s
+  name: dysnix
   namespace: flux-system
 spec:
-  type: oci
   interval: 6h
-  url: oci://ghcr.io/bjw-s/helm
+  url: https://dysnix.github.io/charts

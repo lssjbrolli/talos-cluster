@@ -2,7 +2,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: kubevirt-testvm
+  name: win10
   namespace: virt
 spec:
   interval: 30m
@@ -30,7 +30,7 @@ spec:
       - apiVersion: kubevirt.io/v1
         kind: VirtualMachine
         metadata:
-          name: testvm
+          name: win10
           namespace: virt
         spec:
           runStrategy: Halted
@@ -38,30 +38,24 @@ spec:
             metadata:
               labels:
                 kubevirt.io/size: small
-                kubevirt.io/domain: testvm
+                kubevirt.io/domain: win10
             spec:
               domain:
                 devices:
                   disks:
-                    - name: containerdisk
+                    - name: root
                       disk:
                         bus: virtio
-                    - name: cloudinitdisk
-                      disk:
-                        bus: virtio
-                  interfaces:
-                  - name: default
-                    masquerade: {}
-                resources:
-                  requests:
-                    memory: 64M
-              networks:
-              - name: default
-                pod: {}
+                    - name: cdrom
+                      cdrom:
+                        bus: sata
+                resources: {}
+                memory:
+                  guest: 8Gi
               volumes:
-                - name: containerdisk
-                  containerDisk:
-                    image: quay.io/kubevirt/cirros-container-disk-demo
-                - name: cloudinitdisk
-                  cloudInitNoCloud:
-                    userDataBase64: SGkuXG4=
+                - name: root
+                  persistentVolumeClaim:
+                    claimName: win10-root
+                - name: cdrom
+                  persistentVolumeClaim:
+                    claimName: winiso

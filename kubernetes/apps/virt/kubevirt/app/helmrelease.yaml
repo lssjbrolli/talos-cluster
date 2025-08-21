@@ -3,7 +3,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: kubevirt
-  namespace: flux-system
+  namespace: virt
 spec:
   interval: 30m
   chart:
@@ -15,7 +15,6 @@ spec:
         name: dysnix
         namespace: flux-system
       interval: 30m
-  targetNamespace: kubevirt
   install:
     createNamespace: true
     remediation:
@@ -29,7 +28,7 @@ spec:
         kind: KubeVirt
         metadata:
           name: kubevirt
-          namespace: kubevirt
+          namespace: virt
         spec:
           certificateRotateStrategy:
             selfSigned:

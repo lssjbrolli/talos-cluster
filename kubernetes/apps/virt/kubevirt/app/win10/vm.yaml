@@ -46,9 +46,9 @@ spec:
                     - name: root
                       disk:
                         bus: virtio
-                    - name: cdrom
-                      cdrom:
-                        bus: sata
+                    # - name: cdrom
+                    #   cdrom:
+                    #     bus: sata
                 resources: {}
                 memory:
                   guest: 8Gi
@@ -56,6 +56,6 @@ spec:
                 - name: root
                   persistentVolumeClaim:
                     claimName: win10-root
-                - name: cdrom
-                  persistentVolumeClaim:
-                    claimName: winiso
+                # - name: cdrom
+                #   persistentVolumeClaim:
+                #     claimName: winiso

@@ -3,6 +3,7 @@ kind: StorageClass
 metadata:
   name: vm-apps
 allowVolumeExpansion: true
+reclaimPolicy: Retain
 parameters:
   poolname: "apps/vms"
   recordsize: "16k"

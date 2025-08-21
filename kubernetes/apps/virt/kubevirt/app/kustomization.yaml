@@ -7,4 +7,3 @@ resources:
   - ./win10/vm.yaml
   - ./helmrelease.yaml
   - ./kubevirt-operator.yaml
-  - ./win10.yaml

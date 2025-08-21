@@ -41,8 +41,6 @@ spec:
             metadata:
               labels:
                 kubevirt.io/os: win10
-                kubevirt.io/size: small
-                kubevirt.io/domain: win10
             spec:
               domain:
                 devices:

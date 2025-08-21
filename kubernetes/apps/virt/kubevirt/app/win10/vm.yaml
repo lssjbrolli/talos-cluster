@@ -33,10 +33,14 @@ spec:
           name: win10
           namespace: virt
         spec:
+          instancetype:
+            kind: virtualmachineinstancetype
+            name: win10-instance
           runStrategy: Halted
           template:
             metadata:
               labels:
+                kubevirt.io/os: win10
                 kubevirt.io/size: small
                 kubevirt.io/domain: win10
             spec:
@@ -59,3 +63,12 @@ spec:
                 # - name: cdrom
                 #   persistentVolumeClaim:
                 #     claimName: winiso
+      - apiVersion: instancetype.kubevirt.io/v1beta1
+        kind: VirtualMachineInstancetype
+        metadata:
+          name: win10-instance
+        spec:
+          cpu:
+            guest: 2
+          memory:
+            guest: 4Gi

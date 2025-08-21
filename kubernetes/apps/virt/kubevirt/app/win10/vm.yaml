@@ -71,4 +71,4 @@ spec:
           cpu:
             guest: 2
           memory:
-            guest: 4Gi
+            guest: 8Gi

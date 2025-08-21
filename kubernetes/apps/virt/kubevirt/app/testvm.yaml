@@ -15,7 +15,6 @@ spec:
         name: dysnix
         namespace: flux-system
       interval: 30m
-  targetNamespace: kubevirt
   install:
     createNamespace: true
     remediation:
@@ -32,7 +31,7 @@ spec:
         kind: VirtualMachine
         metadata:
           name: testvm
-          namespace: kubevirt
+          namespace: virt
         spec:
           runStrategy: Halted
           template:

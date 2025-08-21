@@ -1,0 +1,15 @@
+apiVersion: cdi.kubevirt.io/v1beta1
+kind: DataVolume
+metadata:
+  name: win10
+spec:
+  source:
+    pvc:
+      namespace: SOURCE_PROJECT
+      name: SOURCE_PVC
+  pvc:
+    accessModes:
+      - ReadWriteOnce
+    resources:
+      requests:
+        storage: 30GI

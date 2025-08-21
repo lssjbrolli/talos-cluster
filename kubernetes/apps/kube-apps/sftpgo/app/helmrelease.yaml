@@ -14,9 +14,6 @@ spec:
         name: sftpgo
         namespace: flux-system
       interval: 5m
-  dependsOn:
-    - name: storage-volumes
-      namespace: storage-system
   values:
     initContainers:
       - name: init-db

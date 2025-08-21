@@ -18,6 +18,9 @@ spec:
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
+  dependsOn:
+    - name: storage-volumes
+      namespace: storage-system
   path: ./kubernetes/apps/kube-apps/sftpgo/app
   prune: true
   sourceRef:

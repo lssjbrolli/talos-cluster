@@ -33,9 +33,6 @@ spec:
           name: win10
           namespace: virt
         spec:
-          instancetype:
-            kind: virtualmachineinstancetype
-            name: win10-instance
           runStrategy: Halted
           template:
             metadata:
@@ -51,9 +48,12 @@ spec:
                     # - name: cdrom
                     #   cdrom:
                     #     bus: sata
+                firmware:
+                uuid: 5d307ca9-b3ef-428c-8861-06e72d69f223
                 resources: {}
                 memory:
                   guest: 8Gi
+              terminationGracePeriodSeconds: 0
               volumes:
                 - name: root
                   persistentVolumeClaim:
@@ -61,12 +61,54 @@ spec:
                 # - name: cdrom
                 #   persistentVolumeClaim:
                 #     claimName: winiso
-      - apiVersion: instancetype.kubevirt.io/v1beta1
-        kind: VirtualMachineInstancetype
+      - apiVersion: kubevirt.io/v1
+        kind: VirtualMachineInstance
         metadata:
-          name: win10-instance
+          labels:
+            special: vmi-windows
+          name: vmi-windows
         spec:
-          cpu:
-            guest: 2
-          memory:
-            guest: 8Gi
+          domain:
+            clock:
+              timer:
+                hpet:
+                  present: false
+                hyperv: {}
+                pit:
+                  tickPolicy: delay
+                rtc:
+                  tickPolicy: catchup
+              utc: {}
+            cpu:
+              cores: 2
+            devices:
+              interfaces:
+              - masquerade: {}
+                model: e1000
+                name: default
+              tpm: {}
+            features:
+              acpi: {}
+              apic: {}
+              hyperv:
+                relaxed: {}
+                spinlocks:
+                  spinlocks: 8191
+                vapic: {}
+              smm: {}
+            firmware:
+              bootloader:
+                efi:
+                  secureBoot: true
+              uuid: 5d307ca9-b3ef-428c-8861-06e72d69f223
+            memory:
+              guest: 8Gi
+            resources: {}
+          networks:
+          - name: default
+            pod: {}
+          terminationGracePeriodSeconds: 0
+          volumes:
+          - name: root
+            persistentVolumeClaim:
+              claimName: win10-root

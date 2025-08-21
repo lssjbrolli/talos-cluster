@@ -1,0 +1,12 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: vm-apps
+allowVolumeExpansion: true
+parameters:
+  poolname: "apps/vms"
+  recordsize: "16k"
+  thinprovision: "yes"
+  compression: 'zstd'
+  shared: no
+provisioner: zfs.csi.openebs.io

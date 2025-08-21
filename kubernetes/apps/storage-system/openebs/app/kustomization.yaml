@@ -7,3 +7,4 @@ resources:
   - ./snapshotclass.yaml
   - ./apps-sc.yaml
   - ./storage-sc.yaml
+  - ./vm-sc.yaml

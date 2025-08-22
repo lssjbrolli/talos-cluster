@@ -45,9 +45,9 @@ spec:
                     - name: root
                       disk:
                         bus: virtio
-                    # - name: cdrom
-                    #   cdrom:
-                    #     bus: sata
+                    - name: cdrom
+                      cdrom:
+                        bus: sata
                 firmware:
                 uuid: 5d307ca9-b3ef-428c-8861-06e72d69f223
                 resources: {}
@@ -58,9 +58,9 @@ spec:
                 - name: root
                   persistentVolumeClaim:
                     claimName: win10-root
-                # - name: cdrom
-                #   persistentVolumeClaim:
-                #     claimName: winiso
+                - name: cdrom
+                  persistentVolumeClaim:
+                    claimName: win10cd-pvc
       - apiVersion: kubevirt.io/v1
         kind: VirtualMachineInstance
         metadata:
@@ -82,10 +82,14 @@ spec:
             cpu:
               cores: 2
             devices:
+              disks:
+                - cdrom:
+                    bus: sata
+                    name: virtio
               interfaces:
-              - masquerade: {}
-                model: e1000
-                name: default
+                - masquerade: {}
+                  model: e1000
+                  name: default
               tpm: {}
             features:
               acpi: {}
@@ -112,3 +116,6 @@ spec:
           - name: root
             persistentVolumeClaim:
               claimName: win10-root
+          - containerDisk:
+              image: kubevirt/virtio-container-disk
+              name: virtio

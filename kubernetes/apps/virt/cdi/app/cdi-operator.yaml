@@ -5765,7 +5765,7 @@ spec:
   hostnames: ["cdi-proxy.${SECRET_DOMAIN}"]
   parentRefs:
     - name: internal
-      namespace: kube-system
+      namespace: virt
       sectionName: https
   rules:
     - backendRefs:

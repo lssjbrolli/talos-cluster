@@ -49,7 +49,7 @@ spec:
                       cdrom:
                         bus: sata
                 firmware:
-                uuid: 5d307ca9-b3ef-428c-8861-06e72d69f223
+                  uuid: 5d307ca9-b3ef-428c-8861-06e72d69f223
                 resources: {}
                 memory:
                   guest: 8Gi
@@ -65,8 +65,8 @@ spec:
         kind: VirtualMachineInstance
         metadata:
           labels:
-            special: vmi-windows
-          name: vmi-windows
+            special: inelo
+          name: inelo
         spec:
           domain:
             clock:

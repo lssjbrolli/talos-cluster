@@ -5770,4 +5770,4 @@ spec:
       protocol: TCP
       targetPort: 8443
   selector:
-    cdi.kubevirt.io=cdi-uploadproxy
+    cdi.kubevirt.io: cdi-uploadproxy

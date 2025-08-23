@@ -5760,7 +5760,7 @@ spec:
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
-  name: cdi-proxy
+  name: cdi-uploadproxy
 spec:
   hostnames: ["cdi-proxy.${SECRET_DOMAIN}"]
   parentRefs:
@@ -5769,6 +5769,6 @@ spec:
       sectionName: https
   rules:
     - backendRefs:
-        - name: cdi-proxy
+        - name: cdi-uploadproxy
           namespace: virt
           port: 8080

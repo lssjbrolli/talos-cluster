@@ -38,7 +38,7 @@ spec:
         containers:
           main:
             image:
-              repository: gblampe/rreading-glasses
+              repository: blampe/rreading-glasses
               tag: hardcover@sha256:4933d78749cb0912ba71ee21cd64582085386cea2f5d46b58191bc6cc496d936
             securityContext:
               runAsNonRoot: true

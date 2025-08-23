@@ -5756,19 +5756,18 @@ spec:
       - key: CriticalAddonsOnly
         operator: Exists
 ---
-# yaml-language-server: $schema=https://github.com/datreeio/CRDs-catalog/raw/refs/heads/main/gateway.networking.k8s.io/httproute_v1.json
-apiVersion: gateway.networking.k8s.io/v1
-kind: HTTPRoute
+apiVersion: v1
+kind: Service
 metadata:
-  name: cdi-uploadproxy
+  name: cdi-proxy
+  annotations:
+    lbipam.cilium.io/ips: 192.168.1.135
 spec:
-  hostnames: ["cdi-proxy.${SECRET_DOMAIN}"]
-  parentRefs:
-    - name: internal
-      namespace: virt
-      sectionName: https
-  rules:
-    - backendRefs:
-        - name: cdi-uploadproxy
-          namespace: virt
-          port: 443
+  type: LoadBalancer
+  ports:
+    - name: cdi-proxy
+      port: 443
+      protocol: TCP
+      targetPort: 8443
+  selector:
+    cdi.kubevirt.io=cdi-uploadproxy

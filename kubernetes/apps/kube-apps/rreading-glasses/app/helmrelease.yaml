@@ -40,6 +40,15 @@ spec:
             image:
               repository: blampe/rreading-glasses
               tag: hardcover@sha256:4933d78749cb0912ba71ee21cd64582085386cea2f5d46b58191bc6cc496d936
+            command: ["/main", "serve"]
+            # args:
+            #   - --postgres-host=$(INIT_POSTGRES_HOST)
+            #   - --postgres-user=$(INIT_POSTGRES_USER)
+            #   - --postgres-password=$(INIT_POSTGRES_PASS)
+            #   - --postgres-database=$(INIT_POSTGRES_DBNAME)
+            #   - --verbose
+            #   - --port=80
+
             securityContext:
               runAsNonRoot: true
               runAsUser: 568

@@ -7,6 +7,17 @@ metadata:
   namespace: flux-system
 spec:
   targetNamespace: db
+  decryption:
+    provider: sops
+    secretRef:
+      name: sops-age
+  postBuild:
+    substituteFrom:
+      - name: cluster-secrets
+        kind: Secret
+  dependsOn:
+    - name: volsync
+      namespace: storage-system
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app

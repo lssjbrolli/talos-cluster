@@ -94,7 +94,7 @@ spec:
         serviceName: minio
         endpoints:
           - port: s3
-            scheme: http
+            scheme: https
             path: /minio/v2/metrics/cluster
             interval: 1m
             scrapeTimeout: 10s

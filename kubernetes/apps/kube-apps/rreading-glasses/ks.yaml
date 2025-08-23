@@ -15,6 +15,9 @@ spec:
     substituteFrom:
       - name: cluster-secrets
         kind: Secret
+  dependsOn:
+    - name: cnpg-cluster
+      namespace: db
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app

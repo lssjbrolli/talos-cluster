@@ -32,7 +32,7 @@ spec:
             image:
               repository: ghcr.io/home-operations/postgres-init
               tag: 17.5.0@sha256:e0c87ce7df39d06b93f27cf2cc6a056611f13faaa88cc07ab4dc8bf7a85d0b11
-            envFrom:
+            envFrom: &envFrom
               - secretRef:
                   name: rg-secrets
         containers:
@@ -42,13 +42,28 @@ spec:
               tag: hardcover@sha256:4933d78749cb0912ba71ee21cd64582085386cea2f5d46b58191bc6cc496d936
             command: ["/main", "serve"]
             args:
-            #   - --postgres-host=$(INIT_POSTGRES_HOST)
-            #   - --postgres-user=$(INIT_POSTGRES_USER)
-            #   - --postgres-password=$(INIT_POSTGRES_PASS)
-            #   - --postgres-database=$(INIT_POSTGRES_DBNAME)
+              - --postgres-host=$(INIT_POSTGRES_HOST)
+              - --postgres-user=$(INIT_POSTGRES_USER)
+              - --postgres-password=$(INIT_POSTGRES_PASS)
+              - --postgres-database=$(INIT_POSTGRES_DBNAME)
+              - --hardcover-auth=$(HARDCOVER_AUTH)
               - --verbose
-            #   - --port=80
-
+              - --port=80
+            envFrom: *envFrom
+            probes:
+              # TODO: application is very alpha, enable when a real health route is exposed
+              liveness: &probes
+                enabled: false
+                custom: true
+                spec:
+                  httpGet:
+                    path: /
+                    port: &port 80
+                  initialDelaySeconds: 0
+                  periodSeconds: 10
+                  timeoutSeconds: 1
+                  failureThreshold: 3
+              readiness: *probes
             securityContext:
               runAsNonRoot: true
               runAsUser: 568
@@ -62,29 +77,6 @@ spec:
                 memory: 64Mi
               limits:
                 memory: 256Mi
-            env:
-              - name: HARDCOVER_AUTH
-                secretKeyRef:
-                  name: rg-secrets
-                  key: HARDCOVER_AUTH
-              - name: POSTGRES_HOST
-                secretKeyRef:
-                  name: rg-secrets
-                  key: INIT_POSTGRES_HOST
-              - name: POSTGRES_DATABASE
-                secretKeyRef:
-                  name: rg-secrets
-                  key: INIT_POSTGRES_DBNAME
-              - name: POSTGRES_USER
-                secretKeyRef:
-                  name: rg-secrets
-                  key: INIT_POSTGRES_USER
-              - name: POSTGRES_PASSWORD
-                secretKeyRef:
-                  name: rg-secrets
-                  key: INIT_POSTGRES_PASS
-              - name: TZ
-                value: Europe/Bucharest
 
     service:
       main:
@@ -92,8 +84,5 @@ spec:
         type: ClusterIP
         ports:
           http:
-            port: 80
-            targetPort: 8788
-    # persistence:
-    #   tmp:
-    #     type: emptyDir
+            port: *port
+

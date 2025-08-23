@@ -23,10 +23,10 @@ spec:
     - name: cluster17
       namespace: db
   values:
-    defaultPodOptions:
-      securityContext:
-        fsGroup: 568
-        fsGroupChangePolicy: OnRootMismatch
+    # defaultPodOptions:
+    #   securityContext:
+    #     # fsGroup: 568
+    #     fsGroupChangePolicy: OnRootMismatch
     controllers:
       main:
         strategy: Recreate
@@ -46,11 +46,11 @@ spec:
               repository: ghcr.io/pennydreadful/bookshelf
               tag: hardcover-v0.4.19@sha256:827b5a896172fbf0188f37db4a8ea9b82d4b601060b54893a00ce9df12f0632e
             securityContext:
-              runAsNonRoot: true
-              runAsUser: 568
-              runAsGroup: 568
-              allowPrivilegeEscalation: false
-              readOnlyRootFilesystem: false
+              # runAsNonRoot: true
+              # runAsUser: 568
+              # runAsGroup: 568
+              # allowPrivilegeEscalation: false
+              # readOnlyRootFilesystem: false
               capabilities: { drop: ["ALL"] }
             resources:
               requests:
@@ -72,8 +72,8 @@ spec:
               READARR__UPDATE__BRANCH: develop
               READARR__UPDATE__MECHANISM: docker
               READARR__UPDATE__AUTOMATICALLY: False
-              S6_YES_I_WANT_A_WORLD_WRITABLE_RUN_BECAUSE_KUBERNETES: "1"
-              S6_READ_ONLY_ROOT: "0"
+              # S6_YES_I_WANT_A_WORLD_WRITABLE_RUN_BECAUSE_KUBERNETES: "1"
+              # S6_READ_ONLY_ROOT: "0"
               S6_VERBOSITY: "5"
             envFrom: *envFrom
             probes:

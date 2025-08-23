@@ -6,6 +6,6 @@ resources:
   - ./helmrelease.yaml
   - ./pv.yaml
   - ./pvc.yaml
-  - ./readarr.sops.yaml
+  - ./bookshelf.sops.yaml
   - ./restic.sops.yaml
   - ./volsync.yaml

@@ -113,3 +113,5 @@ spec:
         existingClaim: bookshelf-data
       tmp:
         type: emptyDir
+      run:
+        type: emptyDir

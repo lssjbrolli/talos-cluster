@@ -84,7 +84,7 @@ spec:
         ports:
           http:
             port: 80
-            targetPort: 8191
+            targetPort: 8788
     # persistence:
     #   tmp:
     #     type: emptyDir

@@ -6,10 +6,10 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
-  # dataSourceRef:
-  #   kind: ReplicationDestination
-  #   apiGroup: volsync.backube
-  #   name: audiobookshelf-restore
+  dataSourceRef:
+    kind: ReplicationDestination
+    apiGroup: volsync.backube
+    name: audiobookshelf-restore
   resources:
     requests:
       storage: 200Mi
@@ -22,10 +22,10 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
-  # dataSourceRef:
-  #   kind: ReplicationDestination
-  #   apiGroup: volsync.backube
-  #   name: audiobookshelf-metadata-restore
+  dataSourceRef:
+    kind: ReplicationDestination
+    apiGroup: volsync.backube
+    name: audiobookshelf-metadata-restore
   resources:
     requests:
       storage: 2Gi

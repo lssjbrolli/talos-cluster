@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Secret
+metadata:
+    name: restic-bookshelf
+    namespace: kube-apps
+stringData:
+    #ENC[AES256_GCM,data:v/rqDm3BYT1G7Li+NAfj5WZWJw==,iv:piXYLG+01JqYS+G6/ZFggNVsZt5NgDuv6EUU6Oh+sbQ=,tag:CqqT7wJgEXOLSgrJhQClqw==,type:comment]
+    RESTIC_REPOSITORY: ENC[AES256_GCM,data:/GbpQ8S+DGPZ61CaOErYGnGqu6iOO9KL34IsO8Pu7GPR6TuTKQWsNEt1jdzJMujNqjA0/uNBp+UcnTfajMo64fSSlxXDBDs=,iv:DnnieLNDmYsaw67zVUnV6PhrZUYADZIVHjp40EKwdM8=,tag:t1zchGtmlzjOloGbp2iwjA==,type:str]
+    #ENC[AES256_GCM,data:7AAND4QuKTwkUSA1Hn4d+UevZCQLjxYD+SSJ8DPi,iv:8InNm5Sxaxa7IFYYwM7OapFI1e7rGa8rO2tb+2yFcR8=,tag:HjMSFBVAf8PcJBq9ybLD/w==,type:comment]
+    RESTIC_PASSWORD: ENC[AES256_GCM,data:WE/I1g==,iv:6Xo1/vSxl1jz8RCccyIFrl86D4Zn0dpxwUgzL3x4gmc=,tag:n5SMBtWFrmy7DU5N+EnY3g==,type:str]
+    #ENC[AES256_GCM,data:6qoNbUfJ3LiIi6fwteXU0HC+z8may4qfZZTkKLxX9eFBmdLtPbQm4Hg=,iv:D5OoPq6eaw17tQ46G8RrMuBCY/BSYp5RFuORoMoSY6I=,tag:E7AwYNjDM9ajMljWjrCDRQ==,type:comment]
+    #ENC[AES256_GCM,data:6Y1g7+LbYEPbtwIK0fnbIh2quDXwYssJU084p8Um0Yf99F1vvy7Sk2+wAGWJRDEHABMbFEBAVWTgkQiFNgTyUYiXg0FHtQ==,iv:F2bvuONc6/OTU3aJvvGuVRRsAmkq0aXlOnH/SF/6L6A=,tag:UL4INNhPOK3S3K9mAlLqxA==,type:comment]
+    AWS_ACCESS_KEY_ID: ENC[AES256_GCM,data:YgCV9J0TtZEGu8vDDNmLnCDZRjw=,iv:JjjhpAm64lAOtXQEHy6GDY/2dPQTJrxnoORn8oqmdcY=,tag:FNm+EY9sC11YndUIGiYb5g==,type:str]
+    AWS_SECRET_ACCESS_KEY: ENC[AES256_GCM,data:c3DdUDwMbMYonzNBugzdWdskvLg51MLHOvoFz55wo5sGxH2gwOJA6g==,iv:CoIijSlutBx6P45LNRZTuz/CvC7mCjDiJHEySh4xZuA=,tag:0i58CxpFcrDwdJevk2QvXw==,type:str]
+sops:
+    age:
+        - recipient: age1k5cr4cvs4atdm3gse77vq4glnv9q49gq5wl49p9806gfyfld7p3setz3tw
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSA4ZGUvMzJmKytPb2d5NG4x
+            REo5ZEc4UDFwcmQxdnBRUUZIbDI2dzN4TFFZCnJrWjR4aUxoc2JqNVh4WjBTKzFI
+            VFd4SlpTQVRxUnFiZjdxVnJ2MGFmS3MKLS0tIGp0L0xmMVkxWVJlaUFwTzlTazRt
+            Tm9NYVNVZjUrZUFLbS9WQmNVcjFpVGsKrZyCYx3InSl9BAfOLP/8Nb4Bt9skNjmi
+            ywg6GNEEN0qS/W/1TKVCwLZ/TAbbyeyKXWiq/WzCiDtxrNg0YWT35g==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2025-08-23T10:38:42Z"
+    mac: ENC[AES256_GCM,data:NOVKIe3f+NCI5xAOZWymKKCQvNcjTpfIes3SIbxCC4GyXwh/Zq3VYalakbsYbh7PXonafQHBdpJxiGIbKTXsMMHhppGSX1GV+AJekUDh1Y55dgxnGG0TdhRVOZ9Myhi/OhKlodOtNUUngsoqtVbe7e9/H6NM/IbCqoQV7Y7IrrQ=,iv:1W+QCMmcdtsSmuKTr408B3L5XogYs+8lTIO7bAsOZpY=,tag:0SSDCszR5rau/3R01olbBA==,type:str]
+    encrypted_regex: ^(data|stringData)$
+    version: 3.10.2

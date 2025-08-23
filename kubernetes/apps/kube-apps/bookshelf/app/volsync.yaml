@@ -1,0 +1,50 @@
+---
+apiVersion: volsync.backube/v1alpha1
+kind: ReplicationSource
+metadata:
+  name: bookshelf-backup
+spec:
+  # The PVC to be backed up
+  sourcePVC: bookshelf-config
+  trigger:
+    # Take a backup every 30 minutes
+    schedule: "0 */6 * * *"
+  restic:
+    moverSecurityContext:
+      runAsUser: 568
+      runAsGroup: 568
+      fsGroup: 568
+
+    pruneIntervalDays: 2
+    # Name of the Secret with the connection information
+    repository: restic-bookshelf
+    # Retention policy for backups
+    retain:
+      daily: 1
+      weekly: 1
+    # Clone the source volume prior to taking a backup to ensure a
+    # point-in-time image.
+    copyMethod: Snapshot
+    # The VSC to use if the copy method is Snapshot (default if omitted)
+    volumeSnapshotClassName: zfspv
+
+---
+apiVersion: volsync.backube/v1alpha1
+kind: ReplicationDestination
+metadata:
+  name: bookshelf-restore
+spec:
+  trigger:
+    manual: init
+  restic:
+    moverSecurityContext:
+      runAsUser: 568
+      runAsGroup: 568
+      fsGroup: 568
+    repository: restic-bookshelf
+    cleanupCachePVC: true
+    enableFileDeletion: true
+    copyMethod: Snapshot
+    accessModes: [ReadWriteOnce]
+    capacity: 500Mi
+    volumeSnapshotClassName: zfspv

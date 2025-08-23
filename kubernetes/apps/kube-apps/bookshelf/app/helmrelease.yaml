@@ -72,6 +72,9 @@ spec:
               READARR__UPDATE__BRANCH: develop
               READARR__UPDATE__MECHANISM: docker
               READARR__UPDATE__AUTOMATICALLY: False
+              S6_YES_I_WANT_A_WORLD_WRITABLE_RUN_BECAUSE_KUBERNETES: "1"
+              S6_READ_ONLY_ROOT: "1"
+              S6_VERBOSITY: "2"
             envFrom: *envFrom
             probes:
               liveness: &probes

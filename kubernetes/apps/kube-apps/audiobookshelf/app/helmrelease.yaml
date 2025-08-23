@@ -101,6 +101,6 @@ spec:
           - path: /metadata/tmp
       tmp:
         type: emptyDir
-      audiobooks:
+      media:
         type: persistentVolumeClaim
         existingClaim: abs-data

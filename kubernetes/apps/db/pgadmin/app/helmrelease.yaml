@@ -81,20 +81,17 @@ spec:
         ports:
           http:
             port: 80
-    ingress:
-      # Configure an Ingress for the main application
-      main:
-        className: internal
-        annotations:
-          external-dns.alpha.kubernetes.io/target: "internal.${SECRET_DOMAIN}"
-        hosts:
-          - host: "pgadmin.${SECRET_DOMAIN}"
-            paths:
-              - path: /
-                pathType: Prefix
-                service:
-                  identifier: main
-                  port: http
+    route:
+      app:
+        hostnames: ["{{ .Release.Name }}.${SECRET_DOMAIN}"]
+        parentRefs:
+          - name: internal
+            namespace: kube-system
+            sectionName: https
+        rules:
+          - backendRefs:
+              - identifier: main
+                port: *port
     persistence:
       config:
         type: persistentVolumeClaim

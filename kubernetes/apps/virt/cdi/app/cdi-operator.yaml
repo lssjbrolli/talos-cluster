@@ -5771,4 +5771,4 @@ spec:
     - backendRefs:
         - name: cdi-uploadproxy
           namespace: virt
-          port: 8080
+          port: 443

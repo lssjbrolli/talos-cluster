@@ -1,0 +1,90 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/bernd-schorgers/helm-charts/main/charts/other/app-template/schemas/helmrelease-helm-v2.schema.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: rreading-glasses
+spec:
+  interval: 30m
+  chartRef:
+    kind: OCIRepository
+    name: app-template
+  install:
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      strategy: rollback
+      retries: 3
+  values:
+    defaultPodOptions:
+      securityContext:
+        fsGroup: 568
+        fsGroupChangePolicy: OnRootMismatch
+    controllers:
+      main:
+        strategy: Recreate
+        annotations:
+          reloader.stakater.com/auto: "true"
+        initContainers:
+          init-db:
+            image:
+              repository: ghcr.io/home-operations/postgres-init
+              tag: 17.5.0@sha256:e0c87ce7df39d06b93f27cf2cc6a056611f13faaa88cc07ab4dc8bf7a85d0b11
+            envFrom:
+              - secretRef:
+                  name: rg-secrets
+        containers:
+          main:
+            image:
+              repository: gblampe/rreading-glasses
+              tag: hardcover@sha256:4933d78749cb0912ba71ee21cd64582085386cea2f5d46b58191bc6cc496d936
+            securityContext:
+              runAsNonRoot: true
+              runAsUser: 568
+              runAsGroup: 568
+              allowPrivilegeEscalation: false
+              readOnlyRootFilesystem: true
+              capabilities: { drop: ["ALL"] }
+            resources:
+              requests:
+                cpu: 10m
+                memory: 128Mi
+              limits:
+                memory: 256Mi
+            env:
+              - name: HARDCOVER_AUTH
+                secretKeyRef:
+                  name: rg-secrets
+                  key: HARDCOVER_AUTH
+              - name: POSTGRES_HOST
+                secretKeyRef:
+                  name: rg-secrets
+                  key: INIT_POSTGRES_HOST
+              - name: POSTGRES_DATABASE
+                secretKeyRef:
+                  name: rg-secrets
+                  key: INIT_POSTGRES_DBNAME
+              - name: POSTGRES_USER
+                secretKeyRef:
+                  name: rg-secrets
+                  key: INIT_POSTGRES_USER
+              - name: POSTGRES_PASSWORD
+                secretKeyRef:
+                  name: rg-secrets
+                  key: INIT_POSTGRES_PASS
+              - name: TZ
+                value: Europe/Bucharest
+
+    service:
+      main:
+        controller: main
+        type: ClusterIP
+        ports:
+          http:
+            port: 80
+            targetPort: 8191
+    # persistence:
+    #   tmp:
+    #     type: emptyDir

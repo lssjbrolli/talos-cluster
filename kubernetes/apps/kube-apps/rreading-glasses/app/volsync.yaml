@@ -2,10 +2,10 @@
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationSource
 metadata:
-  name: bookshelf-backup
+  name: rg-backup
 spec:
   # The PVC to be backed up
-  sourcePVC: bookshelf-config
+  sourcePVC: rg-config
   trigger:
     # Take a backup every 30 minutes
     schedule: "0 */6 * * *"
@@ -17,7 +17,7 @@ spec:
 
     pruneIntervalDays: 2
     # Name of the Secret with the connection information
-    repository: restic-bookshelf
+    repository: restic-rg
     # Retention policy for backups
     retain:
       daily: 1
@@ -32,7 +32,7 @@ spec:
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationDestination
 metadata:
-  name: bookshelf-restore
+  name: rg-restore
 spec:
   trigger:
     manual: init
@@ -41,7 +41,7 @@ spec:
       runAsUser: 568
       runAsGroup: 568
       fsGroup: 568
-    repository: restic-bookshelf
+    repository: restic-rg
     cleanupCachePVC: true
     enableFileDeletion: true
     copyMethod: Snapshot

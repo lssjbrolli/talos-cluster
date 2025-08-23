@@ -7,7 +7,6 @@ components:
   - ../../components/common
 resources:
   - ./audiobookshelf/ks.yaml
-  - ./bookshelf/ks.yaml
   - ./byparr/ks.yaml
   - ./ctcadmin/ks.yaml
   - ./filebrowser/ks.yaml
@@ -20,6 +19,7 @@ resources:
   - ./qbittorrent/ks.yaml
   - ./radarr/ks.yaml
   - ./readarr/ks.yaml
+  - ./rreading-glasses/ks.yaml
   - ./sftpgo/ks.yaml
   - ./sonarr/ks.yaml
   - ./tautulli/ks.yaml

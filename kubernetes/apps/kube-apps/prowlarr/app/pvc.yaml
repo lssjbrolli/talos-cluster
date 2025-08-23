@@ -6,10 +6,10 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
-  dataSourceRef:
-    kind: ReplicationDestination
-    apiGroup: volsync.backube
-    name: prowlarr-restore
+  # dataSourceRef:
+  #   kind: ReplicationDestination
+  #   apiGroup: volsync.backube
+  #   name: prowlarr-restore
   resources:
     requests:
       storage: 5Gi

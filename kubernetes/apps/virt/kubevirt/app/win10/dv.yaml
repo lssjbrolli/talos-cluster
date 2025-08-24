@@ -13,6 +13,7 @@ spec:
     storageClassName: vm-apps
     accessModes:
       - ReadWriteOnce
+    volumeMode: Block
     resources:
       requests:
         storage: 10Gi

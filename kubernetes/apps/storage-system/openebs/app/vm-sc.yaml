@@ -2,6 +2,8 @@ apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
   name: vm-apps
+  annotations:
+    storageclass.kubevirt.io/is-default-virt-class: "true"
 allowVolumeExpansion: true
 reclaimPolicy: Retain
 parameters:

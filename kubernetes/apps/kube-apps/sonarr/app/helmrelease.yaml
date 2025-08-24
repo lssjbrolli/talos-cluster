@@ -44,7 +44,7 @@ spec:
           main:
             image:
               repository: ghcr.io/elfhosted/sonarr-develop
-              tag: 4.0.14.2938@sha256:228725bd80405f45576d9d202ad69e0fa8b9e8c4120247f6518d066382310224
+              tag: 4.0.14.2938@sha256:04f7792bece18f5ae0e898633441d26e94aa612bd5cda883dab68f2cf5d50804
             securityContext:
               runAsNonRoot: true
               runAsUser: 568

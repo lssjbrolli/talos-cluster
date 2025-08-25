@@ -59,10 +59,10 @@ spec:
                     - name: root
                       disk:
                         bus: virtio
-                    - name: cdrom
+                    - name: iso
                       cdrom:
                         bus: sata
-                        name: win10iso
+                        name: iso
                 firmware:
                   uuid: 5d307ca9-b3ef-428c-8861-06e72d69f223
                 resources: {}
@@ -73,8 +73,9 @@ spec:
                 - name: root
                   persistentVolumeClaim:
                     claimName: win10-root
-                - dataVolume:
-                    claimName: win10iso
+                - name: iso
+                  dataVolume:
+                    name: win10iso
       - apiVersion: kubevirt.io/v1
         kind: VirtualMachineInstance
         metadata:

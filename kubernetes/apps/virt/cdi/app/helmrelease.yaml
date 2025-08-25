@@ -35,6 +35,7 @@ spec:
             featureGates:
             - HonorWaitForFirstConsumer
             - WebhookPvcRendering
+            - BlockVolume
           imagePullPolicy: IfNotPresent
           infra:
             nodeSelector:

@@ -74,8 +74,7 @@ spec:
                   persistentVolumeClaim:
                     claimName: win10-root
                 - dataVolume:
-                    name: win10iso-dv
-                  name: win10iso
+                    claimName: win10iso
       - apiVersion: kubevirt.io/v1
         kind: VirtualMachineInstance
         metadata:

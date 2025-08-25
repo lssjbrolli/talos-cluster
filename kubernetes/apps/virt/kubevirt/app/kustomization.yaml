@@ -3,7 +3,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  # - ./win10/dv.yaml
+  - ./win10/dv.yaml
   - ./win10/root-pvc.yaml
   - ./win10/vm.yaml
   - ./helmrelease.yaml

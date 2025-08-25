@@ -34,20 +34,6 @@ spec:
           namespace: virt
         spec:
           runStrategy: Halted
-          dataVolumeTemplates:
-            - metadata:
-                creationTimestamp: null
-                name: win10iso-dv
-              spec:
-                storage:
-                  accessModes:
-                  - ReadWriteOnce
-                  resources:
-                    requests:
-                      storage: 10Gi
-                source:
-                  http:
-                    url: https://software.download.prss.microsoft.com/dbazure/Win10_22H2_EnglishInternational_x64v1.iso?t=b547b31b-32c4-4d59-bf9e-a05115d69d62&P1=1756137582&P2=601&P3=2&P4=gIF1atFGL%2fJFw5U3MX15YaPcTicvV76CVUvav%2bJU3vnVA0xG9pcSV3fHvcUvvIY9dOK07UdANr0UqwLUaK2A976kUqeXM8DrrilAWxa%2buo1IUBHzPPuhm%2bTG0VIKCR6OE9x1Hw349G5ph8LMepM2KJvsRvC7BUB0%2fiIO3%2bsGjVWXNc0goe3YipyvpuCHgPBTKgM5Z5QZOGsC6SodLqxa9oBuE8NvLW9rQ5nMX3dfdrlky5SwlMxfkKGGQCox6Xl0gBVNjjPnHTkIkcuaJmcV%2fL%2bcqDi0Y8O7xOsHNtzjMNo2ML9m33frszEwVbv7nm0N%2fSEcofmM%2f8CwVRbFjqi4Pw%3d%3d
           template:
             metadata:
               labels:

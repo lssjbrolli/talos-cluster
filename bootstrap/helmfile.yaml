@@ -6,10 +6,6 @@ helmDefaults:
   wait: true
   waitForJobs: true
 
-repositories:
-  - name: cilium
-    url: https://helm.cilium.io
-
 releases:
   - name: cilium
     namespace: kube-system
@@ -40,7 +36,7 @@ releases:
     atomic: true
     chart: oci://ghcr.io/controlplaneio-fluxcd/charts/flux-operator
     version: 0.28.0
-    values: ['../kubernetes/apps/flux-system/flux-operator/app/helm/values.yaml']
+    values: ['./values.yaml.gotmpl']
     needs: ['cert-manager/cert-manager']
 
   - name: flux-instance
@@ -48,5 +44,5 @@ releases:
     atomic: true
     chart: oci://ghcr.io/controlplaneio-fluxcd/charts/flux-instance
     version: 0.28.0
-    values: ['../kubernetes/apps/flux-system/flux-instance/app/helm/values.yaml']
+    values: ['./values.yaml.gotmpl']
     needs: ['flux-system/flux-operator']

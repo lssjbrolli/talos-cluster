@@ -33,7 +33,7 @@ spec:
           name: win10
           namespace: virt
         spec:
-          runStrategy: Halted
+          runStrategy: Manual
           template:
             metadata:
               labels:

@@ -15,6 +15,8 @@ spec:
     substituteFrom:
       - name: cluster-secrets
         kind: Secret
+      - name: env-conf
+        kind: ConfigMap
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app

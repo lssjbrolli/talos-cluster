@@ -39,7 +39,7 @@ spec:
           main:
             image:
               repository: blampe/rreading-glasses
-              tag: hardcover@sha256:41425bd81dc95835fcc6e0942d602f95bd93d786cdeec073d5d3fee47275d797
+              tag: hardcover@sha256:ecdfd6606bc3b9953e97e6ac23e31604ba8af4fe32fb5583388b2e309bf457f0
             command: ["/main", "serve"]
             args:
               - --postgres-host=$(INIT_POSTGRES_HOST)

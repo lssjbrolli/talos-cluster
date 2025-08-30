@@ -1,0 +1,42 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: win10iso
+  namespace: &namespace virt
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: raw
+      version: v0.3.2
+      sourceRef:
+        kind: HelmRepository
+        name: dysnix-charts
+        namespace: flux-system
+      interval: 30m
+  targetNamespace: *namespace
+  install:
+    createNamespace: true
+    remediation:
+      retries: 10
+  upgrade:
+    remediation:
+      retries: 10
+  dependsOn:
+    - name: cdi
+      namespace: virt
+  values:
+    resources:
+      - apiVersion: cdi.kubevirt.io/v1beta1
+        kind: DataVolume
+        metadata:
+          name: "win10iso"
+        spec:
+          storage:
+            resources:
+              requests:
+                storage: 10Gi
+          source:
+            http:
+              url: "https://software.download.prss.microsoft.com/dbazure/Win10_22H2_EnglishInternational_x64v1.iso?t=fc72f868-ad53-4e89-97fe-33d84260744a&P1=1756680249&P2=601&P3=2&P4=l7llGkE%2biPgOp1e1slyx6EGMA9gQjMTgIg6QhZKDVlrgSQvW7m3hLTSAG8LhyqPtjzJ560D2fNhVKeoua1x%2f0ApAyiZd8d8v%2bx18zb%2fPOFdfLehiyV4pm8tzTP5pqbDNKgfk9io9OnUCO41f8QmiSOaY%2bFPXprYagCeG9gYFH5MswWKBH1enz8JxE6NJz%2bOQSebf5hUJGA9iqw2HgBnByZpZVSa2vicQWC2eQrMxbDzO4Cxf786S4w%2bFg5TgxVm2f2z9ky528ffhcVBvrwY8B9aNSrXmAbnAK5gQE21QhM3iWYLtx1AQbzbOERj9Rdi3tpDPg3xK%2bUoiIsiSFI45%2bw%3d%3d"

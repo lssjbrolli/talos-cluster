@@ -35,6 +35,7 @@ spec:
         spec:
           storage:
             accessMode: ReadWriteOnce
+            volumeMode: Block
             resources:
               requests:
                 storage: 10Gi

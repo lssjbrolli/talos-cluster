@@ -34,6 +34,7 @@ spec:
           name: "win10iso"
         spec:
           storage:
+            accessMode: ReadWriteOnce
             resources:
               requests:
                 storage: 10Gi

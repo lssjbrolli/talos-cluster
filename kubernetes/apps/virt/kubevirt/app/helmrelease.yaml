@@ -50,4 +50,8 @@ spec:
               family: "kvm"
           customizeComponents: {}
           imagePullPolicy: IfNotPresent
+          infra:
+            replicas: 1
+          workloads:
+            replicas: 1
           workloadUpdateStrategy: {}

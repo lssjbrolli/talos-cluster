@@ -73,8 +73,8 @@ spec:
                   persistentVolumeClaim:
                     claimName: win10-root
                 - name: iso
-                  dataVolume:
-                    name: win10iso
+                  persistentVolumeClaim:
+                    claimName: win10iso
                 - containerDisk:
                     image: kubevirt/virtio-container-disk
                   name: virtio

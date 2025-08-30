@@ -76,5 +76,5 @@ spec:
                   dataVolume:
                     name: win10iso
                 - containerDisk:
-                    image: quay.io/kubevirt/virtio-container-disk
+                    image: kubevirt/virtio-container-disk
                   name: virtio

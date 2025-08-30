@@ -34,7 +34,8 @@ spec:
           name: "win10iso"
         spec:
           storage:
-            accessMode: ReadWriteOnce
+            accessModes:
+              - ReadWriteOnce
             volumeMode: Block
             resources:
               requests:

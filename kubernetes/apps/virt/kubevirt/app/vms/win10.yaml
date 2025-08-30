@@ -53,12 +53,12 @@ spec:
               domain:
                 devices:
                   disks:
-                    - name: root
-                      disk:
-                        bus: virtio
                     - name: iso
                       cdrom:
                         bus: sata
+                    - name: root
+                      disk:
+                        bus: virtio
                     - name: virtio
                       cdrom:
                         bus: sata

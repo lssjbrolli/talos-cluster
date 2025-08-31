@@ -57,7 +57,7 @@ spec:
                   model: host-passthrough
                   sockets: 1
                   cores: 2
-                  threads: 4
+                  threads: 2
                 devices:
                   hostDevices:
                   - deviceName: kubevirt.io/inelo
@@ -65,16 +65,9 @@ spec:
                   - deviceName: kubevirt.io/token
                     name: token
                   disks:
-                    - name: iso
-                      cdrom:
-                        bus: sata
-                      bootOrder: 1
                     - name: root
                       disk:
                         bus: virtio
-                    - name: virtio
-                      cdrom:
-                        bus: sata
                 firmware:
                   uuid: 5d307ca9-b3ef-428c-8861-06e72d69f223
                   bootloader:
@@ -84,13 +77,7 @@ spec:
                 memory:
                   guest: 8Gi
               volumes:
-                - name: iso
-                  persistentVolumeClaim:
-                    claimName: win10iso
                 - name: root
                   persistentVolumeClaim:
                     claimName: win10-root
-                - name: virtio
-                  containerDisk:
-                    image: kubevirt/virtio-container-disk
 

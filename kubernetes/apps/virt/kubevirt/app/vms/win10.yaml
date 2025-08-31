@@ -51,7 +51,19 @@ spec:
                 kubevirt.io/os: win10
             spec:
               domain:
+                clock:
+                  timezone: ${TIMEZONE}
+                cpu:
+                  model: host-passthrough
+                  sockets: 1
+                  cores: 2
+                  threads: 4
                 devices:
+                  hostDevices:
+                  - deviceName: kubevirt.io/inelo
+                    name: inelo
+                  - deviceName: kubevirt.io/token
+                    name: token
                   disks:
                     - name: iso
                       cdrom:
@@ -65,10 +77,12 @@ spec:
                         bus: sata
                 firmware:
                   uuid: 5d307ca9-b3ef-428c-8861-06e72d69f223
+                  bootloader:
+                    efi:
+                      secureBoot: false
                 resources: {}
                 memory:
                   guest: 8Gi
-              terminationGracePeriodSeconds: 0
               volumes:
                 - name: iso
                   persistentVolumeClaim:

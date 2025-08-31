@@ -41,7 +41,17 @@ spec:
           configuration:
             developerConfiguration:
               featureGates:
-                - LiveMigration
+                - HostDevices
+            permittedHostDevices:
+              usb:
+                - resourceName: kubevirt.io/inelo
+                  selectors:
+                    - vendor: "0403"
+                      product: "f6c8"
+                - resourceName: kubevirt.io/token
+                  selectors:
+                    - vendor: "096e"
+                      product: "0807"
             smbios:
               sku: "${CLUSTER_NAME}"
               version: "1.0.0"

@@ -49,6 +49,7 @@ spec:
             metadata:
               labels:
                 kubevirt.io/os: win10
+                kubevirt.io/vm: win10
             spec:
               domain:
                 clock:

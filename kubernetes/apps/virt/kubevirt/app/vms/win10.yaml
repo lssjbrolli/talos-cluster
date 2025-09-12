@@ -88,7 +88,6 @@ spec:
             lbipam.cilium.io/ips: 192.168.1.140
           labels:
             kubevirt.io/vm: win10
-            vm.kubevirt.io/name: win10
           name: win10
         spec:
           ports:
@@ -98,5 +97,5 @@ spec:
             targetPort: 4000
             NodePort: 4000
           selector:
-            kubevirt.io/vm: win10
+            vm.kubevirt.io/name: win10
           type: LoadBalancer

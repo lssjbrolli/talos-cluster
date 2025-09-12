@@ -106,16 +106,6 @@ spec:
               #optional
               - name: VPN_PORT_FORWARDING
                 value: on
-              - name: VPN_PORT_FORWARDING_PROVIDER
-                value: protonvpn
-              - name: VPN_PORT_FORWARDING_USERNAME
-                secretKeyRef:
-                  name: vpnconfig
-                  key: username
-              - name: VPN_PORT_FORWARDING_PASSWORD
-                secretKeyRef:
-                  name: vpnconfig
-                  key: password
               - name: UPDATER_PERIOD
                 value: 24h
               - name: TZ

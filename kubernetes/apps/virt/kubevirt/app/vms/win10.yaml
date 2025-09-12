@@ -83,14 +83,12 @@ spec:
       - apiVersion: v1
         kind: Service
         metadata:
+          annotations:
+            lbipam.cilium.io/ips: 192.168.1.140
           labels:
             kubevirt.io/vm: win10
           name: win10
         spec:
-          ipFamilyPolicy: SingleStack
-          ipFamilies:
-            - IPv4
-          externalTrafficPolicy: Local
           ports:
           - name: nx
             port: 4000

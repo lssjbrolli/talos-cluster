@@ -38,7 +38,7 @@ spec:
             dependsOn: gluetun
             image:
               repository: ghcr.io/home-operations/qbittorrent
-              tag: 5.1.2@sha256:31ac39705e31f7cdcc04dc46c1c0b0cdf8dc6f9865d4894efc097a33adc41524
+              tag: 5.1.2@sha256:9dd0164cc23e9c937e0af27fd7c3f627d1df30c182cf62ed34d3f129c55dc0e8
             securityContext:
               runAsUser: 568
               runAsGroup: 568
@@ -106,6 +106,8 @@ spec:
               #optional
               - name: VPN_PORT_FORWARDING
                 value: on
+              - name: VPN_PORT_FORWARDING_PROVIDER
+                value: protonvpn
               - name: UPDATER_PERIOD
                 value: 24h
               - name: TZ

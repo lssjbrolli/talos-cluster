@@ -94,6 +94,7 @@ spec:
             port: 4000
             protocol: TCP
             targetPort: 4000
+            NodePort: 4000
           selector:
             kubevirt.io/vm: win10
           type: LoadBalancer

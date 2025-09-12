@@ -106,8 +106,6 @@ spec:
               #optional
               - name: VPN_PORT_FORWARDING
                 value: on
-              - name: VPN_PORT_FORWARDING_PROVIDER
-                value: hide.me
               - name: VPN_PORT_FORWARDING_USERNAME
                 secretKeyRef:
                   name: vpnconfig

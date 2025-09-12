@@ -80,4 +80,22 @@ spec:
                 - name: root
                   persistentVolumeClaim:
                     claimName: win10-root
-
+      - apiVersion: v1
+        kind: Service
+        metadata:
+          labels:
+            kubevirt.io/vm: win10
+          name: win10
+        spec:
+          ipFamilyPolicy: SingleStack
+          ipFamilies:
+            - IPv4
+          externalTrafficPolicy: Local
+          ports:
+          - name: nx
+            port: 4000
+            protocol: TCP
+            targetPort: 4000
+          selector:
+            kubevirt.io/vm: win10
+          type: LoadBalancer

@@ -84,7 +84,7 @@ spec:
                   name: vpnconfig
                   key: endip
               - name: WIREGUARD_ENDPOINT_PORT
-                value: 428
+                value: 1337
               - name: WIREGUARD_PUBLIC_KEY
                 secretKeyRef:
                   name: vpnconfig

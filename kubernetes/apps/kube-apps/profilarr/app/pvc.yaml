@@ -9,7 +9,7 @@ spec:
   # dataSourceRef:
   #   kind: ReplicationDestination
   #   apiGroup: volsync.backube
-  #   name: prowlarr-restore
+  #   name: profilarr-restore
   resources:
     requests:
       storage: 512Mi

@@ -85,3 +85,7 @@ spec:
       config:
         type: persistentVolumeClaim
         existingClaim: profilarr-config
+      app:
+        type: emptyDir
+      tmp:
+        type: emptyDir

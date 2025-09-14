@@ -20,10 +20,10 @@ spec:
   driftDetection:
     mode: enabled
   values:
-    defaultPodOptions:
-      securityContext:
-        fsGroup: 568
-        fsGroupChangePolicy: OnRootMismatch
+    # defaultPodOptions:
+    #   securityContext:
+    #     fsGroup: 568
+    #     fsGroupChangePolicy: OnRootMismatch
     controllers:
       main:
         strategy: Recreate
@@ -33,13 +33,13 @@ spec:
           main:
             image:
               repository: santiagosayshey/profilarr
-              tag: v1.1.2@sha256:da7883be74c1b69ac1735ce4238b1a77e12117e94c64355704bf27bac0aa34de
+              tag: v1.1.3@sha256:c8ad91a8e5d60b3816321b3a1f68332b29a23f910f6bd2c2d7b4a83f881f032f
             securityContext:
-              runAsNonRoot: true
-              runAsUser: 568
-              runAsGroup: 568
-              allowPrivilegeEscalation: false
-              readOnlyRootFilesystem: true
+              # runAsNonRoot: true
+              # runAsUser: 568
+              # runAsGroup: 568
+              # allowPrivilegeEscalation: false
+              # readOnlyRootFilesystem: true
               capabilities: { drop: ["ALL"] }
             resources:
               requests:
@@ -85,7 +85,3 @@ spec:
       config:
         type: persistentVolumeClaim
         existingClaim: profilarr-config
-      app:
-        type: emptyDir
-      tmp:
-        type: emptyDir

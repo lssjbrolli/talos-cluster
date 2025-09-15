@@ -20,10 +20,10 @@ spec:
   driftDetection:
     mode: enabled
   values:
-    # defaultPodOptions:
-    #   securityContext:
+    defaultPodOptions:
+      securityContext:
     #     fsGroup: 568
-    #     fsGroupChangePolicy: OnRootMismatch
+        fsGroupChangePolicy: OnRootMismatch
     controllers:
       main:
         strategy: Recreate
@@ -35,7 +35,7 @@ spec:
               repository: santiagosayshey/profilarr
               tag: beta
             securityContext:
-              # runAsNonRoot: true
+              runAsNonRoot: false
               # runAsUser: 568
               # runAsGroup: 568
               # allowPrivilegeEscalation: false

@@ -49,7 +49,6 @@ spec:
                 memory: 256Mi
             env:
               TZ: ${TIMEZONE}
-              PROFILARR__SERVER__PORT: &port 80
             probes:
               liveness: &probes
                 enabled: true
@@ -57,7 +56,7 @@ spec:
                 spec:
                   httpGet:
                     path: /ping
-                    port: *port
+                    port: &port 6868
                   initialDelaySeconds: 0
                   periodSeconds: 10
                   timeoutSeconds: 1
@@ -69,7 +68,8 @@ spec:
         type: ClusterIP
         ports:
           http:
-            port: *port
+            port: 80
+            targetPort: *port
     route:
       app:
         hostnames: ["{{ .Release.Name }}.${SECRET_DOMAIN}"]
@@ -80,7 +80,7 @@ spec:
         rules:
           - backendRefs:
               - identifier: main
-                port: *port
+                port: 80
     persistence:
       config:
         type: persistentVolumeClaim

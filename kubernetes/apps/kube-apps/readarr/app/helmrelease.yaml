@@ -43,8 +43,8 @@ spec:
         containers:
           main:
             image:
-              repository: ghcr.io/elfhosted/readarr-develop
-              tag: 0.4.18.2805@sha256:ed51f754b6baeb58d86b4fae4872dbcc8e9799c01788a9023c3d7704ae549333
+              repository: ghcr.io/home-operations/readarr
+              tag: 0.4.18.2805@sha256:8f7551205fbdccd526db23a38a6fba18b0f40726e63bb89be0fb2333ff4ee4cd
             securityContext:
               runAsNonRoot: true
               runAsUser: 568

@@ -43,8 +43,8 @@ spec:
         containers:
           main:
             image:
-              repository: ghcr.io/elfhosted/radarr-develop
-              tag: 5.22.0.9808@sha256:08ea252ba4403ca4bc95ec2d61fe8994d09ebfc818ca6351f42f126678d397e1
+              repository: ghcr.io/home-operations/radarr
+              tag: 5.28.0.10205@sha256:80dec94f1eea0715471853011efdf2c49cf92f8fe3b17b722ad8f8a637e3fead
             securityContext:
               runAsNonRoot: true
               runAsUser: 568

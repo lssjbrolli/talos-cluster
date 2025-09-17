@@ -43,8 +43,8 @@ spec:
         containers:
           main:
             image:
-              repository: ghcr.io/elfhosted/sonarr-develop
-              tag: 4.0.15.2941@sha256:beb8ba8c1f3704e4fa526b2951f1630d5174a8ce3f2222c64b18db10cccad818
+              repository: ghcr.io/home-operations/sonarr
+              tag: 4.0.15.2940@sha256:ca6c735014bdfb04ce043bf1323a068ab1d1228eea5bab8305ca0722df7baf78
             securityContext:
               runAsNonRoot: true
               runAsUser: 568

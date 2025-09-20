@@ -29,3 +29,4 @@ wiki
 cloudflare-tunnel.json
 github-push-token.txt
 kubernetes-talos-cluster.yaml
+latest_sha

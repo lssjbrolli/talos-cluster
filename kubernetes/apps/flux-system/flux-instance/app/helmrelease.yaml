@@ -35,7 +35,7 @@ spec:
       sync:
         kind: GitRepository
         url: "https://github.com/lssjbrolli/talos-cluster.git"
-        ref: "refs/heads/#{ repository_branch }#"
+        ref: "refs/heads/main"
         path: kubernetes/flux/cluster
       commonMetadata:
         labels:

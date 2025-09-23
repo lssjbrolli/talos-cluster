@@ -115,3 +115,5 @@ spec:
       media:
         type: persistentVolumeClaim
         existingClaim: radarr-data
+      tmp:
+        type: emptyDir

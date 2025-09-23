@@ -107,3 +107,5 @@ spec:
       config:
         type: persistentVolumeClaim
         existingClaim: prowlarr-config
+      tmp:
+        type: emptyDir

@@ -68,6 +68,10 @@ spec:
                 secretKeyRef:
                   name: ctcsecrets
                   key: openapi
+              - name: ANAF_OAUTH
+                secretKeyRef:
+                  name: ctcsecrets
+                  key: anaf
               - name: CSRF_SECRET
                 secretKeyRef:
                   name: ctcsecrets

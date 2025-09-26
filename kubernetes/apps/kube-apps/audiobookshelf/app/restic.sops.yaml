@@ -1,17 +1,17 @@
 apiVersion: v1
 kind: Secret
 metadata:
-    name: restic-readarr
+    name: restic-audiobookshelf
     namespace: kube-apps
 stringData:
     #ENC[AES256_GCM,data:v/rqDm3BYT1G7Li+NAfj5WZWJw==,iv:piXYLG+01JqYS+G6/ZFggNVsZt5NgDuv6EUU6Oh+sbQ=,tag:CqqT7wJgEXOLSgrJhQClqw==,type:comment]
-    RESTIC_REPOSITORY: ENC[AES256_GCM,data:2ZUOsOjp4FJggIn+YEd+YyNm6z39SSBP2chzvW/ICZtkXZ1PT+vlZksk5uPM4mqJFA/BrW32zlZfsDb61rTuQ/g9DtuiAmCUuF+w2iBh,iv:4mx//Ud656V8UcgR8cZNQQMS2Dow5QN5uvHG5O///8g=,tag:IlG3Z3we6ZzSRKILYpM7pw==,type:str]
+    RESTIC_REPOSITORY: ENC[AES256_GCM,data:G8yualSyBWUjubfzSlzg3OUhFpk2WMQ62ACoBwJoij8GPIXlD2U3yMH8E1Gxiw13MUkRzFm3F5nt/OMp3BuDAiCLFpErr4nxKj776w==,iv:AMKSexAFMquyBN77lP/n1JAGZVzVhgZhXmgW5S+RQb4=,tag:5cL8RVQF+gKrAkwh4qOQ0w==,type:str]
     #ENC[AES256_GCM,data:7AAND4QuKTwkUSA1Hn4d+UevZCQLjxYD+SSJ8DPi,iv:8InNm5Sxaxa7IFYYwM7OapFI1e7rGa8rO2tb+2yFcR8=,tag:HjMSFBVAf8PcJBq9ybLD/w==,type:comment]
     RESTIC_PASSWORD: ENC[AES256_GCM,data:WE/I1g==,iv:6Xo1/vSxl1jz8RCccyIFrl86D4Zn0dpxwUgzL3x4gmc=,tag:n5SMBtWFrmy7DU5N+EnY3g==,type:str]
     #ENC[AES256_GCM,data:6qoNbUfJ3LiIi6fwteXU0HC+z8may4qfZZTkKLxX9eFBmdLtPbQm4Hg=,iv:D5OoPq6eaw17tQ46G8RrMuBCY/BSYp5RFuORoMoSY6I=,tag:E7AwYNjDM9ajMljWjrCDRQ==,type:comment]
     #ENC[AES256_GCM,data:6Y1g7+LbYEPbtwIK0fnbIh2quDXwYssJU084p8Um0Yf99F1vvy7Sk2+wAGWJRDEHABMbFEBAVWTgkQiFNgTyUYiXg0FHtQ==,iv:F2bvuONc6/OTU3aJvvGuVRRsAmkq0aXlOnH/SF/6L6A=,tag:UL4INNhPOK3S3K9mAlLqxA==,type:comment]
-    AWS_ACCESS_KEY_ID: ENC[AES256_GCM,data:YgCV9J0TtZEGu8vDDNmLnCDZRjw=,iv:JjjhpAm64lAOtXQEHy6GDY/2dPQTJrxnoORn8oqmdcY=,tag:FNm+EY9sC11YndUIGiYb5g==,type:str]
-    AWS_SECRET_ACCESS_KEY: ENC[AES256_GCM,data:c3DdUDwMbMYonzNBugzdWdskvLg51MLHOvoFz55wo5sGxH2gwOJA6g==,iv:CoIijSlutBx6P45LNRZTuz/CvC7mCjDiJHEySh4xZuA=,tag:0i58CxpFcrDwdJevk2QvXw==,type:str]
+    AWS_ACCESS_KEY_ID: ENC[AES256_GCM,data:xqn4O3zjBF08rrSyeGCzCKM+bv4=,iv:3/9rMeHjcUOVbnBjKDT7Nbc67kUJ9OrK2inLAiFXSoo=,tag:qLtLEwVM/Hd+EFH7X8qt/A==,type:str]
+    AWS_SECRET_ACCESS_KEY: ENC[AES256_GCM,data:FhTtFoAPITMC38EPxFOBQXxQ73oYnifgNiGWtbPlspkRMvoqmuSI7w==,iv:TyFdud2rzuhfXAIctUZyiArlDGuRB/zeP/znMECoXik=,tag:6mckY80+X5MfSBoTN9zlNg==,type:str]
 sops:
     age:
         - recipient: age1k5cr4cvs4atdm3gse77vq4glnv9q49gq5wl49p9806gfyfld7p3setz3tw
@@ -23,7 +23,7 @@ sops:
             Tm9NYVNVZjUrZUFLbS9WQmNVcjFpVGsKrZyCYx3InSl9BAfOLP/8Nb4Bt9skNjmi
             ywg6GNEEN0qS/W/1TKVCwLZ/TAbbyeyKXWiq/WzCiDtxrNg0YWT35g==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2025-08-23T13:39:36Z"
-    mac: ENC[AES256_GCM,data:YjFpKIkQi2SyMAG2h4nj2BDoBIYLMG8pmuGdQoWpwWea17LG+acKqVNfEY02ZYanjKcY+tc+VXOFSe0ra04CUCymWdGhIgPcTunn63Qdn1ouo0tHCD+mEOoUXuml3eG9B3n+0U9bYZwEhtHFpplVyDtHJrTurPPaXk+k2ByBJC4=,iv:sXKkoHJsJd7s2V3iVeWjDCZ1FH5B5WF/GFuS4r2m5FA=,tag:hYARzsVXcbVRJDhvfOQNYg==,type:str]
+    lastmodified: "2025-09-26T16:02:21Z"
+    mac: ENC[AES256_GCM,data:uQRnl0cJs3ViLCxCKwzU8u/1BQxcc0Qz9ZyGmjp2IG5GBrcv++VnvBo4swzJUJ15DW44vOyossZfCU5sJB1efC/ldlo6GTu5+dmvQvKyHv3a/iJkmSR0SRh/y3KftYGF1Z09xgeeoTTY7xzjB1qm0HdRE6doWqEJ9BY3FRKVpKE=,iv:v8C20huW2T/CnfRzn4ZvC+vEB6FqY/nW0EmSzw6/Log=,tag:JzI6/DRn+ea7pmUtOD4hmw==,type:str]
     encrypted_regex: ^(data|stringData)$
     version: 3.10.2

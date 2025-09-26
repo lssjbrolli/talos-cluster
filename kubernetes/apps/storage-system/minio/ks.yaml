@@ -4,9 +4,9 @@ apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
   name: &app minio
-  namespace: flux-system
+  namespace: &ns storage-system
 spec:
-  targetNamespace: storage-system
+  targetNamespace: *ns
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app

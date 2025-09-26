@@ -1,0 +1,13 @@
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: ${APP}-data
+spec:
+  storageClassName: zfs-storage
+  volumeName: ${APP}-pv
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 21Ti

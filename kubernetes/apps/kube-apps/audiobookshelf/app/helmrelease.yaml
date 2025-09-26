@@ -50,7 +50,7 @@ spec:
             env:
               AUDIOBOOKSHELF_GID: 568
               AUDIOBOOKSHELF_UID: 568
-              TZ: ${CONFIG_TIMEZONE}
+              TZ: ${TIMEZONE}
               PORT: &port 80
             probes:
               startup:

@@ -47,7 +47,7 @@ spec:
                 memory: 4Gi
             env:
               - name: TZ
-                value: ${CONFIG_TIMEZONE}
+                value: ${TIMEZONE}
               - name: PLEX_NO_AUTH_NETWORKS
                 value: 192.168.1.0/24,10.0.10.0/24
               - name: ADVERTISE_IP

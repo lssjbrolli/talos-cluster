@@ -50,7 +50,7 @@ spec:
               FB_CONFIG: /config/filebrowser.json
               FB_ROOT: /data
               FB_LOG: stdout
-              TZ: ${CONFIG_TIMEZONE}
+              TZ: ${TIMEZONE}
               FB_PORT: &port 80
     service:
       app:
@@ -75,4 +75,4 @@ spec:
         existingClaim: filebrowser-config
       data:
         type: persistentVolumeClaim
-        existingClaim: fb-data
+        existingClaim: filebrowser-data

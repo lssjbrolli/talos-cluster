@@ -59,7 +59,7 @@ spec:
               limits:
                 memory: 512Mi
             env:
-              TZ: ${CONFIG_TIMEZONE}
+              TZ: ${TIMEZONE}
               READARR__APP__INSTANCENAME: Readarr
               READARR__APP__THEME: auto
               READARR__LOG__LEVEL: info

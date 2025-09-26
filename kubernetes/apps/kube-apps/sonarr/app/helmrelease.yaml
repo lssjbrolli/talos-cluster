@@ -59,7 +59,7 @@ spec:
               limits:
                 memory: 1Gi
             env:
-              TZ: ${CONFIG_TIMEZONE}
+              TZ: ${TIMEZONE}
               SONARR__APP__INSTANCENAME: Sonarr
               SONARR__APP__THEME: auto
               SONARR__APP__LAUNCHBROWSER: False

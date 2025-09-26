@@ -54,7 +54,7 @@ spec:
               - name: PGADMIN_DISABLE_POSTFIX
                 value: "False"
               - name: TZ
-                value: ${CONFIG_TIMEZONE}
+                value: ${TIMEZONE}
             envFrom:
               - secretRef:
                   name: pgadmin-secret

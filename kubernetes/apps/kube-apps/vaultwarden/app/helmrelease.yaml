@@ -87,7 +87,7 @@ spec:
               - name: DOMAIN
                 value: "https://vaultwarden.${SECRET_EXTERNAL_DOMAIN}"
               - name: TZ
-                value:  "${CONFIG_TIMEZONE}"
+                value:  "${TIMEZONE}"
               - name: SIGNUPS_ALLOWED
                 value: 'false'
               - name: PUSH_ENABLED

@@ -55,7 +55,7 @@ spec:
               limits:
                 memory: 2Gi
             env:
-              TZ: ${CONFIG_TIMEZONE}
+              TZ: ${TIMEZONE}
             args:
               - --webui-port=80
             probes:
@@ -123,7 +123,7 @@ spec:
               - name: UPDATER_PERIOD
                 value: 24h
               - name: TZ
-                value: ${CONFIG_TIMEZONE}
+                value: ${TIMEZONE}
               - name: VERSION_INFORMATION
                 value: off
               - name: DOT

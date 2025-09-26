@@ -4,9 +4,24 @@ apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
   name: &app pgadmin
-  namespace: flux-system
+  namespace: &ns db
 spec:
-  targetNamespace: db
+  targetNamespace: *ns
+  commonMetadata:
+    labels:
+      app.kubernetes.io/name: *app
+  interval: 30m
+  path: ./kubernetes/apps/db/pgadmin/app
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+    namespace: flux-system
+  timeout: 5m
+  prune: true
+  wait: true
+  dependsOn:
+    - name: volsync
+      namespace: storage-system
   decryption:
     provider: sops
     secretRef:
@@ -15,19 +30,5 @@ spec:
     substituteFrom:
       - name: cluster-secrets
         kind: Secret
-  dependsOn:
-    - name: volsync
-      namespace: storage-system
-  commonMetadata:
-    labels:
-      app.kubernetes.io/name: *app
-  path: ./kubernetes/apps/db/pgadmin/app
-  prune: true
-  sourceRef:
-    kind: GitRepository
-    name: flux-system
-    namespace: flux-system
-  wait: true
-  interval: 30m
-
-  timeout: 5m
+      - name: env-conf
+        kind: ConfigMap

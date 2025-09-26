@@ -28,7 +28,7 @@ spec:
   values:
     app:
       env:
-        TZ: "${CONFIG_TIMEZONE}"
+        TZ: "${TIMEZONE}"
       image:
         pullPolicy: IfNotPresent
       extraArgs:

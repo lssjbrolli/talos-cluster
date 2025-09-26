@@ -1,0 +1,24 @@
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/volsync.backube/replicationdestination_v1alpha1.json
+apiVersion: volsync.backube/v1alpha1
+kind: ReplicationDestination
+metadata:
+  name: "${APP}-restore"
+  labels:
+    kustomize.toolkit.fluxcd.io/ssa: IfNotPresent
+spec:
+  trigger:
+    manual: init
+  restic:
+    cacheCapacity: ${VOLSYNC_CAPACITY:=1Gi}
+    capacity: ${VOLSYNC_CAPACITY:=1Gi}
+    cleanupCachePVC: true
+    cleanupTempPVC: true
+    copyMethod: Snapshot
+    enableFileDeletion: true
+    moverSecurityContext:
+      runAsUser: ${VOLSYNC_PUID:=568}
+      runAsGroup: ${VOLSYNC_PGID:=568}
+      fsGroup: ${VOLSYNC_PGID:=568}
+    repository: restic-${APP}
+    volumeSnapshotClassName: zfspv

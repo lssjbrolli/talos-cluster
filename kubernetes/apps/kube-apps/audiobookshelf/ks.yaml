@@ -4,32 +4,40 @@ apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
   name: &app audiobookshelf
-  namespace: flux-system
+  namespace: &ns kube-apps
 spec:
-  targetNamespace: kube-apps
+  targetNamespace: *ns
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
-  decryption:
-    provider: sops
-    secretRef:
-      name: sops-age
+  components:
+    - '../../../components/archive'
+    - '../../../components/volsync'
   interval: 30m
+  path: ./kubernetes/apps/kube-apps/audiobookshelf/app
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+    namespace: flux-system
+  timeout: 5m
+  prune: true
+  wait: true
   dependsOn:
     - name: volsync
       namespace: storage-system
     - name: cnpg-cluster
       namespace: db
-  path: ./kubernetes/apps/kube-apps/audiobookshelf/app
+  decryption:
+    provider: sops
+    secretRef:
+      name: sops-age
   postBuild:
     substituteFrom:
       - name: cluster-secrets
         kind: Secret
-  prune: true
-  retryInterval: 2m
-  sourceRef:
-    kind: GitRepository
-    name: flux-system
-    namespace: flux-system
-  wait: false
-  timeout: 5m
+      - name: env-conf
+        kind: ConfigMap
+    substitute:
+      APP: *app
+      VOLSYNC_CAPACITY: 200Mi
+      RETAIN_D: "2"

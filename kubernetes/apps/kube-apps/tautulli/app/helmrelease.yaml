@@ -52,7 +52,7 @@ spec:
               limits:
                 memory: 512Mi
             env:
-              TZ: ${CONFIG_TIMEZONE}
+              TZ: ${TIMEZONE}
 
     service:
       main:
@@ -78,7 +78,8 @@ spec:
         existingClaim: tautulli-config
       cache:
         type: persistentVolumeClaim
-        existingClaim: tautulli-cache
+        accessMode: ReadWriteOnce
+        size: 1Gi
         globalMounts:
           - path: /config/cache
 

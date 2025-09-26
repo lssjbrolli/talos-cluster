@@ -81,7 +81,7 @@ spec:
                   name: ctcsecrets
                   key: cookie
               - name: TZ
-                value: ${CONFIG_TIMEZONE}
+                value: ${TIMEZONE}
               - name: PORT
                 value: &port 80
     service:

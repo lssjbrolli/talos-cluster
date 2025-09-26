@@ -4,53 +4,50 @@ apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
   name: &app cnpg
-  namespace: flux-system
+  namespace: &ns db
 spec:
-  targetNamespace: db
-  decryption:
-    provider: sops
-    secretRef:
-      name: sops-age
+  targetNamespace: *ns
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
+  interval: 30m
   path: ./kubernetes/apps/db/cnpg/app
-  prune: false # never should be deleted
   sourceRef:
     kind: GitRepository
     name: flux-system
     namespace: flux-system
-  wait: false
-  interval: 30m
-
   timeout: 5m
+  prune: false # never should be deleted
+  decryption:
+    provider: sops
+    secretRef:
+      name: sops-age
 ---
 # yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/kustomize.toolkit.fluxcd.io/kustomization_v1.json
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
   name: &app cnpg-cluster
-  namespace: flux-system
+  namespace: &ns db
 spec:
-  targetNamespace: db
-  decryption:
-    provider: sops
-    secretRef:
-      name: sops-age
+  targetNamespace: *ns
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
-  dependsOn:
-    - name: cnpg
-    - name: openebs
-      namespace: storage-system
+  interval: 30m
   path: ./kubernetes/apps/db/cnpg/cluster
-  prune: true
   sourceRef:
     kind: GitRepository
     name: flux-system
     namespace: flux-system
-  wait: true
-  interval: 30m
-
   timeout: 5m
+  prune: true
+  wait: true
+  dependsOn:
+    - name: cnpg
+    - name: openebs
+      namespace: storage-system
+  decryption:
+    provider: sops
+    secretRef:
+      name: sops-age

@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: audiobooks-pv # some unique name
+  name: ${APP}-pv # some unique name
 spec:
   accessModes:
   - ReadWriteOnce
@@ -10,8 +10,7 @@ spec:
   claimRef:
     apiVersion: v1
     kind: PersistentVolumeClaim
-    name: abs-data # name of pvc which can claim this PV
-    namespace: kube-apps # namespace for the pvc
+    name: ${APP}-data # name of pvc which can claim this PV
   csi:
     driver: zfs.csi.openebs.io
     fsType: zfs

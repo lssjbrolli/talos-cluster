@@ -4,8 +4,9 @@ apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
   name: &app kubevirt
-  namespace: &namespace virt
+  namespace: &ns virt
 spec:
+  targetNamespace: *ns
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
@@ -13,11 +14,12 @@ spec:
     substituteFrom:
       - name: env-conf
         kind: ConfigMap
+        optional: true
   healthChecks:
     - apiVersion: helm.toolkit.fluxcd.io/v2
       kind: HelmRelease
       name: *app
-      namespace: *namespace
+      namespace: *ns
   interval: 1h
   path: ./kubernetes/apps/virt/kubevirt/app
   prune: true
@@ -26,5 +28,4 @@ spec:
     kind: GitRepository
     name: flux-system
     namespace: flux-system
-  targetNamespace: *namespace
   timeout: 5m

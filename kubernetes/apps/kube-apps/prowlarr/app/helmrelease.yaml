@@ -56,7 +56,7 @@ spec:
               limits:
                 memory: 512Mi
             env:
-              TZ: ${CONFIG_TIMEZONE}
+              TZ: ${TIMEZONE}
               PROWLARR__APP__INSTANCENAME: Prowlarr
               PROWLARR__APP__THEME: auto
               PROWLARR__APP__LAUNCHBROWSER: False

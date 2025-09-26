@@ -9,6 +9,10 @@ spec:
   trigger:
     schedule: ${VOLSYNC_SCHED:="0 */6 * * *"}
   restic:
+    accessModes:
+      - ReadWriteOnce
+    cacheAccessModes:
+      - ReadWriteOnce
     cacheCapacity: ${VOLSYNC_CAPACITY:=1Gi}
     copyMethod: Snapshot
     moverSecurityContext:

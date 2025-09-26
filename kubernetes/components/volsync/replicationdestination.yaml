@@ -10,6 +10,10 @@ spec:
   trigger:
     manual: init
   restic:
+    accessModes:
+      - ReadWriteOnce
+    cacheAccessModes:
+      - ReadWriteOnce
     cacheCapacity: ${VOLSYNC_CAPACITY:=1Gi}
     capacity: ${VOLSYNC_CAPACITY:=1Gi}
     cleanupCachePVC: true

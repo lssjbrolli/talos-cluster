@@ -21,6 +21,8 @@ spec:
   dependsOn:
     - name: storage-volumes
       namespace: storage-system
+    - name: cnpg-cluster
+      namespace: db
   path: ./kubernetes/apps/kube-apps/sftpgo/app
   prune: true
   sourceRef:

@@ -11,8 +11,8 @@ spec:
     labels:
       app.kubernetes.io/name: *app
   components:
-    - '../../../components/archive'
-    - '../../../components/volsync'
+    - '../../../../components/archive'
+    - '../../../../components/volsync'
   interval: 30m
   path: ./kubernetes/apps/kube-apps/readarr/app
   sourceRef:

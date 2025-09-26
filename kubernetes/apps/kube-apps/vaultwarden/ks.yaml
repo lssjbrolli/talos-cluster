@@ -24,7 +24,7 @@ spec:
   dependsOn:
     - name: volsync
       namespace: storage-system
-    - name: cluster17
+    - name: cnpg-cluster
       namespace: db
   decryption:
     provider: sops

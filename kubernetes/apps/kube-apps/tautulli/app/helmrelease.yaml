@@ -79,7 +79,7 @@ spec:
       cache:
         type: persistentVolumeClaim
         accessMode: ReadWriteOnce
-        forceRename: tautulli-cache
+        suffix: cache
         size: 1Gi
         globalMounts:
           - path: /config/cache

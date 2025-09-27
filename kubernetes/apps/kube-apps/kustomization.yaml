@@ -13,7 +13,7 @@ resources:
   - ./flaresolverr/ks.yaml
   - ./huntarr/ks.yaml
   # - ./immich/ks.yaml
-  # - ./nextcloud/ks.yaml
+  - ./nextcloud/ks.yaml
   - ./overseerr/ks.yaml
   - ./plex/ks.yaml
   - ./profilarr/ks.yaml

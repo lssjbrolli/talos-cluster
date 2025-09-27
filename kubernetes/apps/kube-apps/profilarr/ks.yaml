@@ -39,3 +39,4 @@ spec:
     substitute:
       APP: *app
       VOLSYNC_CAPACITY: 512Mi
+      VOLSYNC_SCHED: "0 0 * * *"

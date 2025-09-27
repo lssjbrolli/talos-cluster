@@ -38,7 +38,7 @@ spec:
         - --token-ttl=43200 # seconds time to expire
 
       ingress:
-        enabled: false
+        enabled: true
     kong:
       enabled: false
     auth:

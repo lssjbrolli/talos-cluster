@@ -74,7 +74,7 @@ spec:
       cache:
         type: persistentVolumeClaim
         accessMode: ReadWriteOnce
-        retain: true
+        forceRename: plex-cache
         size: 10Gi
         globalMounts:
           - path: /config/Library/Application Support/Plex Media Server/Cache

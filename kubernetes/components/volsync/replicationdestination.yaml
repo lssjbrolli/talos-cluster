@@ -8,7 +8,7 @@ metadata:
     kustomize.toolkit.fluxcd.io/ssa: IfNotPresent
 spec:
   trigger:
-    manual: init
+    manual: ${INIT:=init}
   restic:
     accessModes:
       - ReadWriteOnce

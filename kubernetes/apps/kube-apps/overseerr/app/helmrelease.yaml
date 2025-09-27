@@ -18,6 +18,10 @@ spec:
       strategy: rollback
       retries: 3
   values:
+    defaultPodOptions:
+      securityContext:
+        fsGroup: 568
+        fsGroupChangePolicy: OnRootMismatch
     controllers:
       main:
         strategy: Recreate
@@ -29,6 +33,10 @@ spec:
               repository: ghcr.io/sct/overseerr
               tag: 1.34.0@sha256:4f38f58d68555004d3f487a4c5cbe2823e6a0942d946a25a2d9391d8492240a4
             securityContext:
+              runAsNonRoot: true
+              runAsUser: 568
+              runAsGroup: 568
+              allowPrivilegeEscalation: false
               readOnlyRootFilesystem: true
               capabilities: { drop: ["ALL"] }
             resources:

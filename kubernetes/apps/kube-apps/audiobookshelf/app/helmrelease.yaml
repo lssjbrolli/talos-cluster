@@ -103,4 +103,4 @@ spec:
         type: emptyDir
       media:
         type: persistentVolumeClaim
-        existingClaim: abs-data
+        existingClaim: audiobookshelf-data

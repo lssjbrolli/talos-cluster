@@ -39,5 +39,6 @@ spec:
         kind: ConfigMap
     substitute:
       APP: *app
+      NS: *ns
       VOLSYNC_CAPACITY: 50Gi
       VOLSYNC_SCHED: "0 */12 * * *"

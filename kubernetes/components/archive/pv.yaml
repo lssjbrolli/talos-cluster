@@ -11,6 +11,7 @@ spec:
     apiVersion: v1
     kind: PersistentVolumeClaim
     name: ${APP}-data # name of pvc which can claim this PV
+    namespace: ${NS}
   csi:
     driver: zfs.csi.openebs.io
     fsType: zfs

@@ -39,5 +39,6 @@ spec:
         kind: ConfigMap
     substitute:
       APP: *app
+      NS: *ns
       VOLSYNC_CAPACITY: 512Mi
       RETAIN_D: "2"

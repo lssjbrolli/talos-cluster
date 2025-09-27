@@ -37,4 +37,5 @@ spec:
         kind: Secret
     substitute:
       APP: *app
+      NS: *ns
       VOLSYNC_SCHED: "0 */3 * * *"

@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Secret
 metadata:
-    name: restic-qbt
+    name: restic-qbittorrent
     namespace: kube-apps
 stringData:
     #ENC[AES256_GCM,data:v/rqDm3BYT1G7Li+NAfj5WZWJw==,iv:piXYLG+01JqYS+G6/ZFggNVsZt5NgDuv6EUU6Oh+sbQ=,tag:CqqT7wJgEXOLSgrJhQClqw==,type:comment]
@@ -23,7 +23,7 @@ sops:
             Tm9NYVNVZjUrZUFLbS9WQmNVcjFpVGsKrZyCYx3InSl9BAfOLP/8Nb4Bt9skNjmi
             ywg6GNEEN0qS/W/1TKVCwLZ/TAbbyeyKXWiq/WzCiDtxrNg0YWT35g==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2025-08-13T15:43:37Z"
-    mac: ENC[AES256_GCM,data:rv07NupSUQUAkBDcqeGfK571EVUA9+KZ8grvpd7BCqmA36or+i8NO1vqs3a4trb4IiX8aAm7RnteHbhPxc3WGBWyWtCE2KNvMVZYZ6bddPa7zU2Qz+fbyZelZmFS/bnx3CQAkoWOEUo/WrAxjqYJWkgB/yc1GGEZHcH7jVQnPI8=,iv:xAIxxH/yMchTnAM0wbMo0EGoFYtP33X8UqF7d11oTCs=,tag:NGaTLkcyABZhY6GWwd3NYA==,type:str]
+    lastmodified: "2025-09-27T17:04:28Z"
+    mac: ENC[AES256_GCM,data:/JfuNkggQU/Pnd3FRC9zUV5X/Db3c06Q5Tn34HsGDYuvWtnS3MDVx2s92WqLDhWdsniUj0XAc/0eH3r5FypamyuOdRiBM8GcoWuhcZKeSxEiCg1WJ56yNfGIi1F40B8H3L4CRu8QY0/NJNebhYJNRJc1HWeaPzccIvkvcs4uD/4=,iv:E5unzbJmKfNF1XbBIY6qQ4JMXamZLtkxoc21/GFtx1M=,tag:nuzgUMk847qF5QNYLzSZfg==,type:str]
     encrypted_regex: ^(data|stringData)$
     version: 3.10.2

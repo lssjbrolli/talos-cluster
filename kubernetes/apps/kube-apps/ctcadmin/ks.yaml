@@ -16,7 +16,7 @@ spec:
       name: sops-age
   postBuild:
     substituteFrom:
-      - name: env-conf
+      - name: cluster-settings
         kind: ConfigMap
   interval: 30m
   wait: true

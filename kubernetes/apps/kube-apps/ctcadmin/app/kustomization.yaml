@@ -6,5 +6,6 @@ resources:
   - ./cnpg.sops.yaml
   - ./ctc.sops.yaml
   - ./helmrelease.yaml
+  - ./ocirepository.yaml
   - ./pv.yaml
   - ./pvc.yaml

@@ -1,6 +1,6 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-    name: env-conf
+    name: cluster-settings
 data:
     TIMEZONE: "Europe/Bucharest"

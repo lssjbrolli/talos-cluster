@@ -32,7 +32,7 @@ spec:
     substituteFrom:
       - name: cluster-secrets
         kind: Secret
-      - name: env-conf
+      - name: cluster-settings
         kind: ConfigMap
     substitute:
       APP: *app

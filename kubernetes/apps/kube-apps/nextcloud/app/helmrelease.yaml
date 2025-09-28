@@ -99,8 +99,7 @@ spec:
           $CONFIG = array (
             'trusted_proxies' => array(
               0 => '127.0.0.1',
-              1 => '${NETWORK_K8S_POD_CIDR}',
-              2 => '${NETWORK_K8S_POD_CIDR_V6}',
+              1 => '172.16.0.0/16',
             ),
             'overwrite.cli.url' => 'https://nextcloud.${SECRET_DOMAIN}',
             'overwriteprotocol' => 'https',

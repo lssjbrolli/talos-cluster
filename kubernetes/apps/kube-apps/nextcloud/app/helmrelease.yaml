@@ -32,42 +32,57 @@ spec:
     image:
       tag: 31.0.4-fpm-alpine@sha256:a111d5b748a259936b075575879c621dd387b18fb8a864a2ed8f3f4f9c288f3f
       flavor: fpm-alpine
+    deploymentAnnotations:
+      secret.reloader.stakater.com/reload: auto
     nginx:
       enabled: true
       image:
         repository: nginx
         tag: 1.29.1-alpine@sha256:42a516af16b852e33b7682d5ef8acbd5d13fe08fecadc7ed98605ba5e3b26ab8
+      securityContext:
+        runAsUser: 568
+        runAsGroup: 568
+        runAsNonRoot: true
+        readOnlyRootFilesystem: true
     nextcloud:
+      host: "cloud.${SECRET_DOMAIN}"
       extraInitContainers:
         - name: init-db
           image: ghcr.io/home-operations/postgres-init:17.6.0@sha256:86a1992d46273c58fd4ad95b626081dfaabfe16bd56944675169e406d1a660dd
           envFrom:
             - secretRef:
                 name: nextcloud-db
-      datadir: /var/www/data
       existingSecret:
         enabled: true
         secretName: nextcloud-secret
         usernameKey: user
         passwordKey: pass
-      extraEnv:
-        - name: REDIS_HOST
-          value: dragonfly.db.svc.cluster.local
-        - name: REDIS_HOST_PORT
-          value: "6379"
-      host: &host "cloud.${SECRET_DOMAIN}"
-      # mail:
-      #   enabled: true
-        # fromAddress: admin
-        # domain: ${CLUSTER_DOMAIN}
-        # smtp:
-        #   host: smtp.${CLUSTER_DOMAIN}
-        #   port: 25
-        #   authtype: NONE
-        #   name: ""
-        #   password: ""
-      # securityContext:
-      #   runAsNonRoot: true
+      objectStore:
+        s3:
+          enabled: true
+          ssl: true
+          port: "9000"
+          region: "eu-east"
+          existingSecret: "nextcloud-secret"
+          secretKeys:
+            # key in nextcloud.objectStore.s3.existingSecret to use for s3 endpoint
+            host: "host"
+            # key in nextcloud.objectStore.s3.existingSecret to use for s3 accessKeyID
+            accessKey: "accessKey"
+            # key in nextcloud.objectStore.s3.existingSecret to use for s3 secretAccessKey
+            secretKey: "secretKey"
+            # key in nextcloud.objectStore.s3.existingSecret to use for the s3 bucket
+            bucket: "bucket"
+      securityContext:
+        runAsUser: 568
+        runAsGroup: 568
+        runAsNonRoot: true
+        readOnlyRootFilesystem: false
+      podSecurityContext:
+        runAsUser: 568
+        runAsGroup: 568
+        runAsNonRoot: true
+        readOnlyRootFilesystem: false
       configs:
         logging.config.php: |-
           <?php
@@ -107,32 +122,31 @@ spec:
         secretName: nextcloud-db
         usernameKey: INIT_POSTGRES_USER
         passwordKey: INIT_POSTGRES_PASS
+    externalRedis:
+      enabled: true
+      host: "dragonfly.db.svc.cluster.local"
+      port: "6379"
+      existingSecret:
+        enabled: true
+        secretName: nextcloud-secret
+        passwordKey: redis
     persistence:
       enabled: true
       existingClaim: nextcloud-config
-      nextcloudData:
-        enabled: true
-        existingClaim: nextcloud-data
     metrics:
       enabled: false
       image:
-        tag: 0.7.0@sha256:85d412884b6cc14c0cfc03d68bc1d15a6f5a2144a4152ba333ce902ade681c8b
+        tag: 0.8.0@sha256:a4163ed0041217dde749d398b98a8ec9961b493714f6042e03223dca1bdb68af
       serviceMonitor:
         enabled: false
-    # this seems to be required for nextcloud initialization which takes a long time
-    livenessProbe:
-      enabled: false
-    readinessProbe:
-      enabled: false
-    startupProbe:
-      enabled: false
-      initialDelaySeconds: 30
-      periodSeconds: 10
-      timeoutSeconds: 5
-      failureThreshold: 30
-      successThreshold: 2
     cronjob:
       enabled: true
+      sidecar:
+        securityContext:
+        runAsUser: 568
+        runAsGroup: 568
+        runAsNonRoot: true
+        readOnlyRootFilesystem: false
     resources:
       requests:
         cpu: 500m

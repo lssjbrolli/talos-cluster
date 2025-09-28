@@ -1,5 +1,4 @@
 ---
-# yaml-language-server: $schema=https://raw.githubusercontent.com/bjw-s-labs/helm-charts/main/charts/other/app-template/schemas/helmrelease-helm-v2.schema.json
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
@@ -18,85 +17,35 @@ spec:
       strategy: rollback
       retries: 3
   values:
-    controllers:
-      dragonfly-operator:
-        replicas: 1
-        strategy: RollingUpdate
-        containers:
-          app:
-            image:
-              repository: ghcr.io/dragonflydb/operator
-              tag: v1.2.1@sha256:6aa4f9e21d7b5d1f17856e25e110d1c6762bdda27640ddfb33684b269fa826f7
-            command: ["/manager"]
-            args:
-              - --health-probe-bind-address=:8081
-              - --metrics-bind-address=:8080
-            probes:
-              liveness:
-                enabled: true
-                custom: true
-                spec:
-                  httpGet:
-                    path: /healthz
-                    port: &port 8081
-                  initialDelaySeconds: 15
-                  periodSeconds: 20
-                  timeoutSeconds: 1
-                  failureThreshold: 3
-              readiness:
-                enabled: true
-                custom: true
-                spec:
-                  httpGet:
-                    path: /readyz
-                    port: *port
-                  initialDelaySeconds: 5
-                  periodSeconds: 10
-                  timeoutSeconds: 1
-                  failureThreshold: 3
-            resources:
-              requests:
-                cpu: 10m
-              limits:
-                memory: 128Mi
-            securityContext:
-              allowPrivilegeEscalation: false
-              readOnlyRootFilesystem: true
-              capabilities: { drop: ["ALL"] }
-        serviceAccount:
-          identifier: *app
-        pod:
-          securityContext:
-            runAsUser: 568
-            runAsGroup: 568
-            runAsNonRoot: true
-          topologySpreadConstraints:
-            - maxSkew: 1
-              topologyKey: kubernetes.io/hostname
-              whenUnsatisfiable: DoNotSchedule
-              labelSelector:
-                matchLabels:
-                  app.kubernetes.io/name: *app
-
-    service:
-      app:
-        controller: *app
-        ports:
-          http:
-            port: *port
-          metrics:
-            port: 8080
-
+    image:
+      tag: v1.34.1@sha256:99eb2dd14ca00b983c302d0a15d15176dccd5a9e85a375bcc5157e1cadd73099
+    podSecurityContext:
+      fsGroup: 568
+      fsGroupChangePolicy: OnRootMismatch
+    securityContext:
+      readOnlyRootFilesystem: true
+      allowPrivilegeEscalation: false
+      runAsNonRoot: true
+      runAsUser: 568
+      runAsGroup: 568
+      capabilities: { drop: ["ALL"] }
+    storage:
+      enabled: true
+    passwordFromSecret:
+      enable: false
+      existingSecret:
+        name: "dragonfly-secret"
+        key: "password"
     serviceMonitor:
-      app:
-        serviceName: *app
-        endpoints:
-          - port: metrics
-            scheme: http
-            path: /metrics
-            interval: 1m
-            scrapeTimeout: 10s
-
-    serviceAccount:
-      dragonfly-operator:
-        enabled: true
+      enabled: true
+    prometheusRule:
+      enabled: true
+      spec:
+        - alert: DragonflyMissing
+          expr: absent(dragonfly_uptime_in_seconds) == 1
+          for: 0m
+          labels:
+            severity: critical
+          annotations:
+            summary: Dragonfly is missing
+            description: "Dragonfly is missing"

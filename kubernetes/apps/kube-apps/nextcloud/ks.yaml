@@ -20,6 +20,12 @@ spec:
     namespace: flux-system
   timeout: 5m
   prune: true
+  wait: true
+  dependsOn:
+    - name: minio
+      namespace: storage-system
+    - name: cnpg-cluster
+      namespace: db
   decryption:
     provider: sops
     secretRef:

@@ -43,7 +43,7 @@ spec:
         runAsUser: 568
         runAsGroup: 568
         runAsNonRoot: true
-        readOnlyRootFilesystem: true
+        readOnlyRootFilesystem: false
     nextcloud:
       host: "cloud.${SECRET_DOMAIN}"
       extraInitContainers:

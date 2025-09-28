@@ -83,6 +83,8 @@ spec:
         runAsGroup: 568
         runAsNonRoot: true
         readOnlyRootFilesystem: false
+        fsGroup: 568
+        fsGroupChangePolicy: OnRootMismatch
       configs:
         logging.config.php: |-
           <?php

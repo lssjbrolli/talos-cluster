@@ -155,3 +155,9 @@ spec:
         memory: 256Mi
       limits:
         memory: 512Mi
+    livenessProbe:
+      enabled: false
+    readinessProbe:
+      enabled: false
+    startupProbe:
+      enabled: false

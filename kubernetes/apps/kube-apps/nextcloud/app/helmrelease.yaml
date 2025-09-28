@@ -125,7 +125,7 @@ spec:
         passwordKey: INIT_POSTGRES_PASS
     externalRedis:
       enabled: true
-      host: "dragonfly.db.svc.cluster.local"
+      host: "dragonfly-operator.db.svc.cluster.local"
       port: "6379"
       existingSecret:
         enabled: true

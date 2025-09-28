@@ -60,7 +60,7 @@ spec:
       objectStore:
         s3:
           enabled: true
-          ssl: true
+          ssl: false
           port: "9000"
           region: "eu-east"
           existingSecret: "nextcloud-secret"

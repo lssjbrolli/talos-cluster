@@ -109,7 +109,7 @@ spec:
         passwordKey: INIT_POSTGRES_PASS
     persistence:
       enabled: true
-      existingClaim: nextcloud
+      existingClaim: nextcloud-config
       nextcloudData:
         enabled: true
         existingClaim: nextcloud-data

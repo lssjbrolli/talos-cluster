@@ -6,9 +6,5 @@ resources:
   - ./db.sops.yaml
   - ./helmrelease.yaml
   - ./httproute.yaml
-  - ./pvc.yaml
-  - ./restic-root.sops.yaml
-  - ./restic-data.sops.yaml
+  - ./restic.sops.yaml
   - ./secret.sops.yaml
-  - ./volsync-root.yaml
-  - ./volsync-data.yaml

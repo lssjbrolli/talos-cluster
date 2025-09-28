@@ -10,8 +10,8 @@ spec:
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
-  # components:
-  #   - '../../../../components/volsync'
+  components:
+    - '../../../../components/volsync'
   interval: 30m
   path: ./kubernetes/apps/kube-apps/nextcloud/app
   sourceRef:
@@ -28,6 +28,7 @@ spec:
     substituteFrom:
       - name: cluster-secrets
         kind: Secret
-    # substitute:
-    #   APP: *app
-    #   VOLSYNC_SCHED: "0 */3 * * *"
+    substitute:
+      APP: *app
+      VOLSYNC_SCHED: "0 */3 * * *"
+      # VOLSYNC_CAPACITY: 200Mi

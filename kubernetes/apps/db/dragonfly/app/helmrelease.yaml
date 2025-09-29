@@ -33,6 +33,7 @@ spec:
       enabled: true
     extraArgs:
       - --maxmemory=1Gi
+      - --proactor_threads=3
     resources:
       requests:
         cpu: 100m

@@ -31,6 +31,13 @@ spec:
       capabilities: { drop: ["ALL"] }
     storage:
       enabled: true
+    extraArgs:
+      - --maxmemory=1Gi
+    resources:
+      requests:
+        cpu: 100m
+      limits:
+        memory: 512Mi
     passwordFromSecret:
       enable: false
       existingSecret:

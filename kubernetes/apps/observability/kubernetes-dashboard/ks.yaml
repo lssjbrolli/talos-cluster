@@ -6,10 +6,6 @@ metadata:
   namespace: &ns observability
 spec:
   targetNamespace: *ns
-  decryption:
-    provider: sops
-    secretRef:
-      name: sops-age
   postBuild:
     substituteFrom:
       - name: cluster-secrets
@@ -27,6 +23,5 @@ spec:
     namespace: flux-system
   wait: false
   interval: 30m
-
   timeout: 5m
 

@@ -27,10 +27,6 @@ spec:
       namespace: storage-system
     - name: cluster17
       namespace: db
-  decryption:
-    provider: sops
-    secretRef:
-      name: sops-age
   postBuild:
     substituteFrom:
       - name: cluster-secrets

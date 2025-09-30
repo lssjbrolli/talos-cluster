@@ -22,7 +22,3 @@ spec:
     - name: cnpg
     - name: openebs
       namespace: storage-system
-  decryption:
-    provider: sops
-    secretRef:
-      name: sops-age

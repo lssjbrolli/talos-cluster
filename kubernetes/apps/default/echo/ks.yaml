@@ -18,10 +18,6 @@ spec:
     namespace: flux-system
   timeout: 5m
   prune: true
-  decryption:
-    provider: sops
-    secretRef:
-      name: sops-age
   postBuild:
     substituteFrom:
       - name: cluster-secrets

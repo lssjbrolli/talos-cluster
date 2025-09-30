@@ -7,10 +7,6 @@ metadata:
   namespace: &ns observability
 spec:
   targetNamespace: *ns
-  decryption:
-    provider: sops
-    secretRef:
-      name: sops-age
   postBuild:
     substituteFrom:
       - name: cluster-secrets

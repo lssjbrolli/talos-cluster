@@ -14,10 +14,6 @@ spec:
     - name: openebs
       namespace: storage-system
   path: ./kubernetes/apps/storage-system/minio/app
-  decryption:
-    provider: sops
-    secretRef:
-      name: sops-age
   postBuild:
     substituteFrom:
       - name: cluster-secrets

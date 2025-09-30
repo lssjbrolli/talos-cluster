@@ -24,10 +24,6 @@ spec:
   dependsOn:
     - name: volsync
       namespace: storage-system
-  decryption:
-    provider: sops
-    secretRef:
-      name: sops-age
   postBuild:
     substituteFrom:
       - name: cluster-secrets

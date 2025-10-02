@@ -7,7 +7,7 @@ spec:
   interval: 1h
   chart:
     spec:
-      chart: cluster
+      chart: plugin-barman-cloud
       version: 0.1.0
       sourceRef:
         kind: HelmRepository
@@ -29,12 +29,6 @@ spec:
       registry: ghcr.io
       repository: cloudnative-pg/plugin-barman-cloud-sidecar
       tag: v0.7.0@sha256:6c0023cce6a21cabbf3019c0a53f66dab18617871e63c38afbb9bef87e4daf62
-    crds:
-      # -- Specifies whether the CRDs should be created when installing the chart.
-      create: true
-    rbac:
-      # -- Specifies whether Role and RoleBinding should be created.
-      create: true
     containerSecurityContext:
       allowPrivilegeEscalation: false
       readOnlyRootFilesystem: true

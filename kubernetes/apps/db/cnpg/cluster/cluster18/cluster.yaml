@@ -1,0 +1,65 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/cloudnative-pg/charts/refs/heads/main/charts/cluster/values.schema.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: cluster18
+  namespace: db
+spec:
+  releaseName: cluster18
+  chart:
+    spec:
+      chart: cluster
+      version: 0.3.1
+      sourceRef:
+        kind: HelmRepository
+        name: cnpg
+        namespace: flux-system
+  interval: 30m
+  install:
+    remediation:
+      retries: 3
+  values:
+    type: postgresql
+    mode: recovery
+    cluster:
+      instances: 2
+      # follow https://github.com/cloudnative-pg/charts/issues/424 for externalClusters implementation
+      initdb:
+        dataChecksums: true
+      imageName: ghcr.io/cloudnative-pg/postgresql:18.0-standard-trixie@sha256:84bb62b90566b5363c0fb2356d729bc8aa7a130797c1ca3d9a8d313760a8370f
+      logLevel: warning
+      resources:
+        requests:
+          cpu: 150m
+          memory: 512Mi
+        limits:
+          memory: 1Gi
+      storage:
+        size: 10Gi
+        storageClass: localpv
+      walStorage:
+        enabled: true
+        size: 2Gi
+        storageClass: localpv
+      superuserSecret: cloudnative-pg-secret
+      monitoring:
+        enabled: true
+      postgresql:
+        parameters:
+          max_connections: "100"
+          shared_buffers: 256MB
+      recovery:
+        clusterName: cluster18
+        endpointURL: http://minio.storage-system.svc.cluster.local:9000
+        method: object_store
+        provider: s3
+        s3:
+          region: "eu-east"
+          bucket: "cnpg"
+          path: "/v3"
+          accessKey: aws-access-key-id
+          secretKey: aws-secret-access-key
+        secret:
+          create: false
+          name: s3-secret

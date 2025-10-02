@@ -49,17 +49,17 @@ spec:
         parameters:
           max_connections: "100"
           shared_buffers: 256MB
-      recovery:
-        clusterName: cluster18
-        endpointURL: http://minio.storage-system.svc.cluster.local:9000
-        method: object_store
-        provider: s3
-        s3:
-          region: "eu-east"
-          bucket: "cnpg"
-          path: "/v3"
-          accessKey: aws-access-key-id
-          secretKey: aws-secret-access-key
-        secret:
-          create: false
-          name: s3-secret
+    recovery:
+      clusterName: cluster18
+      endpointURL: http://minio.storage-system.svc.cluster.local:9000
+      method: object_store
+      provider: s3
+      s3:
+        region: "eu-east"
+        bucket: "cnpg"
+        path: "/v3"
+        accessKey: aws-access-key-id
+        secretKey: aws-secret-access-key
+      secret:
+        create: false
+        name: s3-secret

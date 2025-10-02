@@ -50,7 +50,7 @@ spec:
           max_connections: "100"
           shared_buffers: 256MB
     recovery:
-      clusterName: cluster18
+      clusterName: cluster17
       endpointURL: http://minio.storage-system.svc.cluster.local:9000
       method: object_store
       provider: s3

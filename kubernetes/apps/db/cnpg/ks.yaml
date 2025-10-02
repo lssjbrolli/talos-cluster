@@ -52,27 +52,27 @@ spec:
     secretRef:
       name: sops-age
 
----
+# ---
 # yaml-language-server: $schema=https://schemas.tholinka.dev/kustomize.toolkit.fluxcd.io/kustomization_v1.json
-apiVersion: kustomize.toolkit.fluxcd.io/v1
-kind: Kustomization
-metadata:
-  name: &app plugin-barman-cloud
-  namespace: &ns db
-spec:
-  targetNamespace: *ns
-  commonMetadata:
-    labels:
-      app.kubernetes.io/name: *app
-  interval: 1h
-  path: ./kubernetes/apps/db/cnpg/plugin-barman-cloud
-  sourceRef:
-    kind: GitRepository
-    name: flux-system
-    namespace: flux-system
-  timeout: 5m
-  prune: true
-  wait: true
-  dependsOn:
-    - name: cnpg
-      namespace: *ns
+# apiVersion: kustomize.toolkit.fluxcd.io/v1
+# kind: Kustomization
+# metadata:
+#   name: &app plugin-barman-cloud
+#   namespace: &ns db
+# spec:
+#   targetNamespace: *ns
+#   commonMetadata:
+#     labels:
+#       app.kubernetes.io/name: *app
+#   interval: 1h
+#   path: ./kubernetes/apps/db/cnpg/plugin-barman-cloud
+#   sourceRef:
+#     kind: GitRepository
+#     name: flux-system
+#     namespace: flux-system
+#   timeout: 5m
+#   prune: true
+#   wait: true
+#   dependsOn:
+#     - name: cnpg
+#       namespace: *ns

@@ -5,6 +5,7 @@ kind: Kustomization
 resources:
   - ./cluster17/cluster.yaml
   - ./cluster17/minio.yaml
+  - ./cluster17/schedule.yaml
   # - ./immich.yaml
   - ./prometheusrule.yaml
   - ./s3.sops.yaml

@@ -1,9 +1,8 @@
-# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/kustomize.toolkit.fluxcd.io/kustomization_v1.json
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: &app cnpg
+  name: &app cluster17
   namespace: &ns db
 spec:
   targetNamespace: *ns
@@ -11,13 +10,18 @@ spec:
     labels:
       app.kubernetes.io/name: *app
   interval: 30m
-  path: ./kubernetes/apps/db/cnpg/app
+  path: ./kubernetes/apps/db/cluster17/app
   sourceRef:
     kind: GitRepository
     name: flux-system
     namespace: flux-system
   timeout: 5m
-  prune: false # never should be deleted
+  prune: true
+  wait: true
+  dependsOn:
+    - name: cnpg
+    - name: openebs
+      namespace: storage-system
   decryption:
     provider: sops
     secretRef:

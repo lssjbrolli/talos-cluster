@@ -3,13 +3,9 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - ./cluster17/cluster.yaml
-  - ./cluster17/minio.yaml
-  - ./cluster17/schedule.yaml
-  - ./cluster18/cluster.yaml
-  - ./cluster18/minio.yaml
-  - ./cluster18/schedule.yaml
-  # - ./immich.yaml
+  - ./cluster.yaml
+  - ./minio.yaml
   - ./prometheusrule.yaml
   - ./s3.sops.yaml
+  - ./schedule.yaml
   - ./service.yaml

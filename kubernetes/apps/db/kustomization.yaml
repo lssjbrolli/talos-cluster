@@ -6,6 +6,9 @@ namespace: db
 components:
   - ../../components/common
 resources:
+  - ./cluster17/ks.yaml
+  - ./cluster18/ks.yaml
   - ./cnpg/ks.yaml
   - ./dragonfly/ks.yaml
   - ./pgadmin/ks.yaml
+  - ./plugin-barman-cloud/ks.yaml

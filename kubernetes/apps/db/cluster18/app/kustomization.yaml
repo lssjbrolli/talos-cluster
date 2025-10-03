@@ -5,6 +5,5 @@ kind: Kustomization
 resources:
   - ./cluster.yaml
   - ./minio.yaml
-  - ./prometheusrule.yaml
   - ./s3.sops.yaml
   - ./schedule.yaml

@@ -21,7 +21,7 @@ spec:
       retries: 3
   values:
     type: postgresql
-    mode: standalone
+    mode: recovery
     cluster:
       instances: 2
       initdb:

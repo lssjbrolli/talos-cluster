@@ -20,8 +20,6 @@ spec:
   dependsOn:
     - name: volsync
       namespace: storage-system
-    - name: immich
-      namespace: db
   driftDetection:
     mode: warn
   maxHistory: 2

@@ -20,5 +20,6 @@ spec:
   wait: true
   dependsOn:
     - name: cnpg
+    - name: plugin-barman-cloud
     - name: openebs
       namespace: storage-system

@@ -139,6 +139,10 @@ spec:
                 value: "172.16.0.0/16,172.17.0.0/16,192.168.1.0/24"
               - name: FIREWALL_INPUT_PORTS
                 value: 80
+            securityContext:
+              capabilities:
+                add:
+                  - NET_ADMIN
             resources:
               requests:
                 cpu: 250m

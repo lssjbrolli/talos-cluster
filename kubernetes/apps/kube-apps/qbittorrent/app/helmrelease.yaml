@@ -148,6 +148,9 @@ spec:
               capabilities:
                 add:
                   - NET_ADMIN
+                  # - DAC_OVERRIDE
+                  # - FOWNER
+                  - SYS_ADMIN
             resources:
               requests:
                 cpu: 250m

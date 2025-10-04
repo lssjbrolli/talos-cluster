@@ -142,9 +142,9 @@ spec:
             securityContext:
               runAsUser: 568
               runAsGroup: 568
-              allowPrivilegeEscalation: false
+              allowPrivilegeEscalation: true
               readOnlyRootFilesystem: false
-              runAsNonRoot: true
+              runAsNonRoot: false
               capabilities:
                 add:
                   - NET_ADMIN

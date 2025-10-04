@@ -33,4 +33,4 @@ spec:
     substitute:
       APP: *app
       VOLSYNC_SCHED: "0 */3 * * *"
-      VOLSYNC_CAPACITY: 2Gi
+      VOLSYNC_CAPACITY: 5Gi

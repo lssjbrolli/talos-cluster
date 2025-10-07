@@ -49,19 +49,19 @@ spec:
                 memory: 256Mi
             env:
               TZ: ${TIMEZONE}
-            probes:
-              liveness: &probes
-                enabled: true
-                custom: true
-                spec:
-                  httpGet:
-                    path: /ping
-                    port: &port 6868
-                  initialDelaySeconds: 0
-                  periodSeconds: 10
-                  timeoutSeconds: 1
-                  failureThreshold: 3
-              readiness: *probes
+            # probes:
+            #   liveness: &probes
+            #     enabled: true
+            #     custom: true
+            #     spec:
+            #       httpGet:
+            #         path: /ping
+            #         port: &port 6868
+            #       initialDelaySeconds: 0
+            #       periodSeconds: 10
+            #       timeoutSeconds: 1
+            #       failureThreshold: 3
+            #   readiness: *probes
     service:
       main:
         controller: main
@@ -69,7 +69,7 @@ spec:
         ports:
           http:
             port: 80
-            targetPort: *port
+            targetPort: 6868
     route:
       app:
         hostnames: ["{{ .Release.Name }}.${SECRET_DOMAIN}"]

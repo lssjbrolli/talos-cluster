@@ -69,7 +69,7 @@ spec:
         ports:
           http:
             port: 80
-            targetPort: *port
+            targetPort: 6868
     route:
       app:
         hostnames: ["{{ .Release.Name }}.${SECRET_DOMAIN}"]

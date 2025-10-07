@@ -7,10 +7,8 @@ components:
   - ../../components/common
 resources:
   - ./audiobookshelf/ks.yaml
-  - ./byparr/ks.yaml
   - ./ctcadmin/ks.yaml
   - ./filebrowser/ks.yaml
-  - ./flaresolverr/ks.yaml
   - ./huntarr/ks.yaml
   - ./immich/ks.yaml
   - ./nextcloud/ks.yaml

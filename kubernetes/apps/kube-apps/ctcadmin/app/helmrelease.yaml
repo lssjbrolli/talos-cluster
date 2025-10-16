@@ -88,7 +88,7 @@ spec:
         hostnames: ["admin.cozmatransport.eu"]
         parentRefs:
           - name: external
-            namespace: kube-system
+            namespace: network
             sectionName: ctc
         rules:
           - backendRefs:

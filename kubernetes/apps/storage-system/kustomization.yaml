@@ -11,3 +11,4 @@ resources:
   - ./snapshot-controller/ks.yaml
   - ./storage-volumes/ks.yaml
   - ./volsync/ks.yaml
+  - ./namespace.yaml

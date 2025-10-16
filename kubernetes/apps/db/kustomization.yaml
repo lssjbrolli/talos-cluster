@@ -11,3 +11,4 @@ resources:
   - ./dragonfly/ks.yaml
   - ./pgadmin/ks.yaml
   - ./plugin-barman-cloud/ks.yaml
+  - ./namespace.yaml

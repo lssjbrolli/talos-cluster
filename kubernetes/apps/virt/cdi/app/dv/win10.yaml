@@ -3,7 +3,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: win10iso
-  namespace: &namespace virt
+  namespace: virt
 spec:
   interval: 30m
   chart:
@@ -15,14 +15,6 @@ spec:
         name: dysnix
         namespace: flux-system
       interval: 30m
-  targetNamespace: *namespace
-  install:
-    createNamespace: true
-    remediation:
-      retries: 10
-  upgrade:
-    remediation:
-      retries: 10
   dependsOn:
     - name: cdi
       namespace: virt

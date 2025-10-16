@@ -9,19 +9,6 @@ spec:
   chartRef:
     kind: OCIRepository
     name: huntarr
-  install:
-    remediation:
-      retries: 3
-  upgrade:
-    cleanupOnFail: true
-    remediation:
-      strategy: rollback
-      retries: 3
-  dependsOn:
-    - name: volsync
-      namespace: storage-system
-    - name: cluster17
-      namespace: db
   values:
     defaultPodOptions:
       securityContext:

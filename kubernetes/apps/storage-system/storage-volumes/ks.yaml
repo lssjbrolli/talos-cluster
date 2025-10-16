@@ -3,22 +3,15 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: &app storage-volumes
-  namespace: &ns storage-system
+  name: storage-volumes
 spec:
-  targetNamespace: *ns
-  commonMetadata:
-    labels:
-      app.kubernetes.io/name: *app
-  dependsOn:
-    - name: openebs
-      namespace: storage-system
   interval: 1h
   path: ./kubernetes/apps/storage-system/storage-volumes/app
   prune: true
-  retryInterval: 2m
+  dependsOn:
+    - name: openebs
   sourceRef:
     kind: GitRepository
     name: flux-system
     namespace: flux-system
-  timeout: 1m
+  targetNamespace: storage-system

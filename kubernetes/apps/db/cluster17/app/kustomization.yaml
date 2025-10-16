@@ -5,6 +5,7 @@ kind: Kustomization
 resources:
   - ./cluster.yaml
   - ./minio.yaml
+  - ./ocirepository.yaml
   - ./prometheusrule.yaml
   - ./schedule.yaml
   - ./service.yaml

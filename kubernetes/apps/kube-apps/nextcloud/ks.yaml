@@ -4,21 +4,11 @@ apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
   name: &app nextcloud
-  namespace: &ns kube-apps
 spec:
-  targetNamespace: *ns
-  commonMetadata:
-    labels:
-      app.kubernetes.io/name: *app
   components:
     - '../../../../components/volsync'
   interval: 30m
   path: ./kubernetes/apps/kube-apps/nextcloud/app
-  sourceRef:
-    kind: GitRepository
-    name: flux-system
-    namespace: flux-system
-  timeout: 5m
   prune: true
   wait: true
   dependsOn:
@@ -34,3 +24,8 @@ spec:
       APP: *app
       VOLSYNC_SCHED: "0 */3 * * *"
       VOLSYNC_CAPACITY: 5Gi
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+    namespace: flux-system
+  targetNamespace: kube-apps

@@ -9,20 +9,6 @@ spec:
   chartRef:
     kind: OCIRepository
     name: immich
-  install:
-    remediation:
-      retries: 3
-  upgrade:
-    cleanupOnFail: true
-    remediation:
-      strategy: rollback
-      retries: 3
-  dependsOn:
-    - name: volsync
-      namespace: storage-system
-  driftDetection:
-    mode: warn
-  maxHistory: 2
   values:
     postgres:
       enabled: false

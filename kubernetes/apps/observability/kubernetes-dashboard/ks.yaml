@@ -2,26 +2,19 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: &app kubernetes-dashboard
-  namespace: &ns observability
+  name: kubernetes-dashboard
 spec:
-  targetNamespace: *ns
+  interval: 30m
+  path: ./kubernetes/apps/observability/kubernetes-dashboard/app
+  prune: true
   postBuild:
     substituteFrom:
       - name: cluster-secrets
         kind: Secret
       - name: cluster-settings
         kind: ConfigMap
-  commonMetadata:
-    labels:
-      app.kubernetes.io/name: *app
-  path: ./kubernetes/apps/observability/kubernetes-dashboard/app
-  prune: true
   sourceRef:
     kind: GitRepository
     name: flux-system
     namespace: flux-system
-  wait: false
-  interval: 30m
-  timeout: 5m
-
+  targetNamespace: observability

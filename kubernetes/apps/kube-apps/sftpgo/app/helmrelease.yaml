@@ -5,15 +5,9 @@ metadata:
   name: sftpgo
 spec:
   interval: 5m
-  chart:
-    spec:
-      chart: sftpgo
-      version: 0.41.0
-      sourceRef:
-        kind: HelmRepository
-        name: sftpgo
-        namespace: flux-system
-      interval: 5m
+  chartRef:
+    kind: OCIRepository
+    name: sftpgo
   values:
     initContainers:
       - name: init-db

@@ -2,20 +2,13 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: &app generic-device-plugin
-  namespace: &ns kube-system
+  name: generic-device-plugin
 spec:
-  targetNamespace: *ns
-  commonMetadata:
-    labels:
-      app.kubernetes.io/name: *app
+  interval: 30m
   path: ./kubernetes/apps/kube-system/generic-device-plugin/app
   prune: true
   sourceRef:
     kind: GitRepository
     name: flux-system
     namespace: flux-system
-  wait: false
-  interval: 30m
-
-  timeout: 5m
+  targetNamespace: kube-system

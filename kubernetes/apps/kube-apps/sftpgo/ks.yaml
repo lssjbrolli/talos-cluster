@@ -3,29 +3,24 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: &app sftpgo
-  namespace: &ns kube-apps
+  name: sftpgo
 spec:
-  targetNamespace: *ns
-  postBuild:
-    substituteFrom:
-      - name: cluster-secrets
-        kind: Secret
-  commonMetadata:
-    labels:
-      app.kubernetes.io/name: *app
+  interval: 30m
+  path: ./kubernetes/apps/kube-apps/sftpgo/app
+  prune: true
+  wait: true
   dependsOn:
     - name: storage-volumes
       namespace: storage-system
     - name: cluster17
       namespace: db
-  path: ./kubernetes/apps/kube-apps/sftpgo/app
-  prune: true
+  postBuild:
+    substituteFrom:
+      - name: cluster-secrets
+        kind: Secret
   sourceRef:
     kind: GitRepository
     name: flux-system
     namespace: flux-system
-  wait: true
-  interval: 30m
+  targetNamespace: kube-apps
 
-  timeout: 5m

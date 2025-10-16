@@ -4,22 +4,12 @@ apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
   name: &app qbittorrent
-  namespace: &ns kube-apps
 spec:
-  targetNamespace: *ns
-  commonMetadata:
-    labels:
-      app.kubernetes.io/name: *app
   components:
     - '../../../../components/archive'
     - '../../../../components/volsync'
   interval: 30m
   path: ./kubernetes/apps/kube-apps/qbittorrent/app
-  sourceRef:
-    kind: GitRepository
-    name: flux-system
-    namespace: flux-system
-  timeout: 5m
   prune: true
   wait: true
   dependsOn:
@@ -35,6 +25,10 @@ spec:
         kind: ConfigMap
     substitute:
       APP: *app
-      NS: *ns
       VOLSYNC_CAPACITY: 512Mi
       RETAIN_D: "2"
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+    namespace: flux-system
+  targetNamespace: kube-apps

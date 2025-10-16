@@ -3,23 +3,17 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: &app robusta
-  namespace: &ns observability
+  name: robusta
 spec:
-  targetNamespace: *ns
+  interval: 30m
+  path: ./kubernetes/apps/observability/robusta/app
+  prune: true
   postBuild:
     substituteFrom:
       - name: cluster-secrets
         kind: Secret
-  commonMetadata:
-    labels:
-      app.kubernetes.io/name: *app
-  path: ./kubernetes/apps/observability/robusta/app
-  prune: true
   sourceRef:
     kind: GitRepository
     name: flux-system
     namespace: flux-system
-  wait: false
-  interval: 30m
-  timeout: 5m
+  targetNamespace: observability

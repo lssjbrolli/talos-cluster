@@ -4,27 +4,23 @@ apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
   name: &app cdi
-  namespace: &ns virt
 spec:
-  targetNamespace: *ns
-  commonMetadata:
-    labels:
-      app.kubernetes.io/name: *app
-  postBuild:
-    substituteFrom:
-      - name: cluster-secrets
-        kind: Secret
+  interval: 1h
+  path: ./kubernetes/apps/virt/cdi/app
+  prune: true
   healthChecks:
     - apiVersion: helm.toolkit.fluxcd.io/v2
       kind: HelmRelease
       name: *app
-      namespace: *ns
-  interval: 1h
-  path: ./kubernetes/apps/virt/cdi/app
-  prune: true
-  retryInterval: 2m
+  dependsOn:
+    - name: kubevirt
+      namespace: virt
+  postBuild:
+    substituteFrom:
+      - name: cluster-secrets
+        kind: Secret
   sourceRef:
     kind: GitRepository
     name: flux-system
     namespace: flux-system
-  timeout: 5m
+  targetNamespace: virt

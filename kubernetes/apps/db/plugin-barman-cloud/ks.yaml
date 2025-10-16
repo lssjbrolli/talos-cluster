@@ -2,23 +2,16 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: &app plugin-barman-cloud
-  namespace: &ns db
+  name: plugin-barman-cloud
 spec:
-  targetNamespace: *ns
-  commonMetadata:
-    labels:
-      app.kubernetes.io/name: *app
   interval: 1h
   path: ./kubernetes/apps/db/plugin-barman-cloud/app
+  prune: true
+  wait: true
+  dependsOn:
+    - name: cnpg
   sourceRef:
     kind: GitRepository
     name: flux-system
     namespace: flux-system
-  timeout: 5m
-  prune: true
-
-  wait: true
-  dependsOn:
-    - name: cnpg
-      namespace: *ns
+  targetNamespace: db

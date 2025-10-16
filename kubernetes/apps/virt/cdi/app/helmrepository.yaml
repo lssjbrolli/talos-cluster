@@ -3,8 +3,8 @@
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
-  name: gabe565
+  name: cdi
   namespace: flux-system
 spec:
   interval: 6h
-  url: https://charts.gabe565.com
+  url: https://dysnix.github.io/charts

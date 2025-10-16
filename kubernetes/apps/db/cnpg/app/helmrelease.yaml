@@ -7,21 +7,10 @@ metadata:
   namespace: db
 spec:
   releaseName: cnpg
-  chart:
-    spec:
-      chart: cloudnative-pg
-      version: 0.26.1
-      sourceRef:
-        kind: HelmRepository
-        name: cnpg
-        namespace: flux-system
+  chartRef:
+    kind: OCIRepository
+    name: cnpg
   interval: 30m
-  install:
-    remediation:
-      retries: 3
-  dependsOn:
-    - name: openebs
-      namespace: storage-system
   values:
     crds:
       create: true

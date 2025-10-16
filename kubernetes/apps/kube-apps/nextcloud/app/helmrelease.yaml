@@ -7,27 +7,9 @@ metadata:
 spec:
   timeout: 5m
   interval: 10m
-  chart:
-    spec:
-      chart: nextcloud
-      version: 8.5.1
-      sourceRef:
-        kind: HelmRepository
-        name: nextcloud
-        namespace: flux-system
-  install:
-    remediation:
-      retries: -3
-  upgrade:
-    cleanupOnFail: true
-    remediation:
-      strategy: rollback
-      retries: -3
-  dependsOn:
-    - name: volsync
-      namespace: storage-system
-    - name: cluster17
-      namespace: db
+  chartRef:
+    kind: OCIRepository
+    name: nextcloud
   values:
     image:
       tag: 31.0.4-fpm-alpine@sha256:a111d5b748a259936b075575879c621dd387b18fb8a864a2ed8f3f4f9c288f3f

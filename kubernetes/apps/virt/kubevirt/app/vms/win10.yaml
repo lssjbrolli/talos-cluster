@@ -15,13 +15,6 @@ spec:
         name: dysnix
         namespace: flux-system
       interval: 30m
-  install:
-    createNamespace: true
-    remediation:
-      retries: 10
-  upgrade:
-    remediation:
-      retries: 10
   dependsOn:
     - name: kubevirt
       namespace: virt

@@ -9,20 +9,6 @@ spec:
   chartRef:
     kind: OCIRepository
     name: qbittorent
-  driftDetection:
-    mode: enabled
-  install:
-    remediation:
-      retries: 3
-  upgrade:
-    cleanupOnFail: true
-    remediation:
-      retries: 3
-  dependsOn:
-  - name: generic-device-plugin
-    namespace: kube-system
-  - name: volsync
-    namespace: storage-system
   values:
     defaultPodOptions:
       securityContext:

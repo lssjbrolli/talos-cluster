@@ -45,6 +45,7 @@ spec:
             image:
               repository: blampe/rreading-glasses
               tag: hardcover@sha256:ecdfd6606bc3b9953e97e6ac23e31604ba8af4fe32fb5583388b2e309bf457f0
+            command: ["/main", "serve"]
             securityContext:
               runAsNonRoot: true
               runAsUser: 568
@@ -60,6 +61,12 @@ spec:
                 memory: 512Mi
             env:
               TZ: ${TIMEZONE}
+              HARDCOVER_AUTH:
+                valueFrom:
+                  secretKeyRef:
+                    name: rg-secrets
+                    key: HARDCOVER
+
     service:
       main:
         controller: main
@@ -67,7 +74,7 @@ spec:
         ports:
           http:
             port: &port 80
-            targetPort: 9705
+            targetPort: 8788
 
 
     route:
@@ -83,6 +90,6 @@ spec:
                 port: *port
 
     persistence:
-      config:
+      data:
         type: persistentVolumeClaim
         existingClaim: rreading-glasses-config

@@ -66,6 +66,26 @@ spec:
                   secretKeyRef:
                     name: rg-secrets
                     key: HARDCOVER
+              POSTGRES_HOST:
+                valueFrom:
+                  secretKeyRef:
+                    name: rg-secrets
+                    key: INIT_POSTGRES_HOST
+              POSTGRES_DATABASE:
+                valueFrom:
+                  secretKeyRef:
+                    name: rg-secrets
+                    key: INIT_POSTGRES_DBNAME
+              POSTGRES_USER:
+                valueFrom:
+                  secretKeyRef:
+                    name: rg-secrets
+                    key: INIT_POSTGRES_USER
+              POSTGRES_PASSWORD:
+                valueFrom:
+                  secretKeyRef:
+                    name: rg-secrets
+                    key: INIT_POSTGRES_PASS
 
     service:
       main:

@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Secret
 metadata:
-    name: readarr-secrets
+    name: bookshelf-secrets
     namespace: kube-apps
 stringData:
     READARR__AUTH__APIKEY: ENC[AES256_GCM,data:dW0h3LnmFzLlrICoaVdU4YfCJxXOfv3HkiGet/t2Hgw=,iv:9SdmkeRh8WMXKAcSv8xmiws3A9W1+uHg3wA4bOJFzx8=,tag:PwupM7s+iKGrosl/aCevTw==,type:str]
@@ -28,7 +28,7 @@ sops:
             K3c3dlNlQ0l3VjhacVFONVdIM3BSOXcKwEfiPvFzy9ju8XHXYJLXJpG9El9SlQXc
             XUNzp6zHHcCEIflIpEJssLFuq9zxCFXk3CoFpk/2PNi8MiOIKIl/qw==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2025-10-03T19:27:43Z"
-    mac: ENC[AES256_GCM,data:/QHC36dMtRkAFwUeVSDI3nXe8NwvE9eKCZjvGc+vDN5Vh6V3XpOOfgqEvvqZGr/uqb05YHsrcmBt0s7TT4NfD2r0YhkIPgBnXhwtXkxULr0zARRYSymkAlpPgF63JZniHFQ4XYSVyYA0ew6AwJuMsJW+HUmfDtg9fur2vTttH/I=,iv:ANo9VaqR5o98qaBFQT/b8LAkJicHvNZ0FypMDDMu2gk=,tag:VBYEhHh7/wDVa+DwtD8zUA==,type:str]
+    lastmodified: "2025-10-22T12:31:23Z"
+    mac: ENC[AES256_GCM,data:1zMIlMBVhYXLWI7fuqChSng4W+LpWoqBQRkS1ujadqk+Cpg8qta8a4+ytYLz65q/yaCGHsU+xxCGDtWAxPFVf6kO6xPMlcTuYfCN8J+Wf4hVgSKpgGlbluAOkyf0W+wxrqVCjwAvCPY1nePlr8COa5RmelKi7c1e7AWmVHRh0M4=,iv:cB2VMxAGP6vZjNKStKlE9Q3Qj9Y9oLF5pCz+kR0VaUo=,tag:13Dga1WdXN049Ym2//tDXA==,type:str]
     encrypted_regex: ^(data|stringData)$
     version: 3.11.0

@@ -27,6 +27,7 @@ spec:
         kind: ConfigMap
     substitute:
       APP: *app
+      NS: kube-apps
       VOLSYNC_CAPACITY: 500Mi
   sourceRef:
     kind: GitRepository

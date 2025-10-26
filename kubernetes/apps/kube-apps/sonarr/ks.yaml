@@ -25,6 +25,7 @@ spec:
         kind: Secret
     substitute:
       APP: *app
+      NS: kube-apps
       VOLSYNC_SCHED: "0 */3 * * *"
   sourceRef:
     kind: GitRepository

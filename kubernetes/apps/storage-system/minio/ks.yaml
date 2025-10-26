@@ -10,7 +10,7 @@ spec:
   prune: true
   wait: true
   dependsOn:
-    - name: openebs
+    - name: storage-volumes
   postBuild:
     substituteFrom:
       - name: cluster-secrets

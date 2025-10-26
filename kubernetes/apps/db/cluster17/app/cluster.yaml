@@ -2,8 +2,12 @@ apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
   annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"postgresql.cnpg.io/v1","kind":"Cluster","metadata":{"annotations":{"meta.helm.sh/release-name":"cluster17","meta.helm.sh/release-namespace":"db"},"creationTimestamp":"2025-10-26T19:15:53Z","generation":3,"labels":{"app.kubernetes.io/instance":"cluster17","app.kubernetes.io/managed-by":"Helm","app.kubernetes.io/name":"cluster","app.kubernetes.io/part-of":"cloudnative-pg","helm.sh/chart":"cluster-0.3.1","helm.toolkit.fluxcd.io/name":"cluster17","helm.toolkit.fluxcd.io/namespace":"db"},"name":"cluster17","namespace":"db","resourceVersion":"44685","uid":"26937c29-9fc9-4914-9940-c724e45c336d"},"spec":{"affinity":{"podAntiAffinityType":"preferred","topologyKey":"topology.kubernetes.io/zone"},"bootstrap":{"recovery":{"database":"app","owner":"app","source":"source"}},"enablePDB":true,"enableSuperuserAccess":true,"externalClusters":[{"name":"source","plugin":{"enabled":true,"isWALArchiver":false,"name":"barman-cloud.cloudnative-pg.io","parameters":{"barmanObjectName":"cluste17","serverName":"cluster17"}}}],"failoverDelay":0,"imageName":"ghcr.io/cloudnative-pg/postgresql:18.0-standard-trixie@sha256:84bb62b90566b5363c0fb2356d729bc8aa7a130797c1ca3d9a8d313760a8370f","imagePullPolicy":"IfNotPresent","instances":2,"logLevel":"warning","maxSyncReplicas":0,"minSyncReplicas":0,"monitoring":{"customQueriesConfigMap":[{"key":"queries","name":"cnpg-default-monitoring"}],"disableDefaultQueries":false,"enablePodMonitor":true},"plugins":[{"enabled":true,"isWALArchiver":true,"name":"barman-cloud.cloudnative-pg.io","parameters":{"barmanObjectName":"cluster17"}}],"postgresGID":26,"postgresUID":26,"postgresql":{"parameters":{"archive_mode":"on","archive_timeout":"5min","dynamic_shared_memory_type":"posix","full_page_writes":"on","log_destination":"csvlog","log_directory":"/controller/log","log_filename":"postgres","log_rotation_age":"0","log_rotation_size":"0","log_truncate_on_rotation":"false","logging_collector":"on","max_connections":"100","max_parallel_workers":"32","max_replication_slots":"32","max_worker_processes":"32","shared_buffers":"256MB","shared_memory_type":"mmap","shared_preload_libraries":"","ssl_max_protocol_version":"TLSv1.3","ssl_min_protocol_version":"TLSv1.3","wal_keep_size":"512MB","wal_level":"logical","wal_log_hints":"on","wal_receiver_timeout":"5s","wal_sender_timeout":"5s"},"syncReplicaElectionConstraint":{"enabled":false}},"primaryUpdateMethod":"switchover","primaryUpdateStrategy":"unsupervised","probes":{"liveness":{"isolationCheck":{"connectionTimeout":1000,"enabled":true,"requestTimeout":1000}}},"replicationSlots":{"highAvailability":{"enabled":true,"slotPrefix":"_cnpg_"},"synchronizeReplicas":{"enabled":true},"updateInterval":30},"resources":{"limits":{"memory":"1Gi"},"requests":{"cpu":"150m","memory":"512Mi"}},"smartShutdownTimeout":180,"startDelay":3600,"stopDelay":1800,"storage":{"resizeInUseVolumes":true,"size":"10Gi","storageClass":"localpv"},"superuserSecret":{"name":"cloudnative-pg-secret"},"switchoverDelay":3600,"walStorage":{"resizeInUseVolumes":true,"size":"2Gi","storageClass":"localpv"}},"status":{"availableArchitectures":[{"goArch":"amd64","hash":"433bae32a2e3e459a2a181d67ed2b0dfcf67f359480b9646bbdc8ad8e2dd4ef1"},{"goArch":"arm64","hash":"981f8452ecf423a37802c14018b7a73bfd25c1c2e82ec19de9c85cd54912adb7"}],"certificates":{"clientCASecret":"cluster17-ca","expirations":{"cluster17-ca":"2026-01-24 19:10:53 +0000 UTC","cluster17-replication":"2026-01-24 19:10:53 +0000 UTC","cluster17-server":"2026-01-24 19:10:53 +0000 UTC"},"replicationTLSSecret":"cluster17-replication","serverAltDNSNames":["cluster17-rw","cluster17-rw.db","cluster17-rw.db.svc","cluster17-rw.db.svc.cluster.local","cluster17-r","cluster17-r.db","cluster17-r.db.svc","cluster17-r.db.svc.cluster.local","cluster17-ro","cluster17-ro.db","cluster17-ro.db.svc","cluster17-ro.db.svc.cluster.local"],"serverCASecret":"cluster17-ca","serverTLSSecret":"cluster17-server"},"cloudNativePGCommitHash":"8b442dcc3","cloudNativePGOperatorHash":"433bae32a2e3e459a2a181d67ed2b0dfcf67f359480b9646bbdc8ad8e2dd4ef1","conditions":[{"lastTransitionTime":"2025-10-26T19:15:53Z","message":"No instances are present in the cluster to report a system ID.","reason":"NotFound","status":"False","type":"ConsistentSystemID"},{"lastTransitionTime":"2025-10-26T19:15:53Z","message":"Cluster Is Not Ready","reason":"ClusterIsNotReady","status":"False","type":"Ready"}],"configMapResourceVersion":{"metrics":{"cnpg-default-monitoring":"3528"}},"image":"ghcr.io/cloudnative-pg/postgresql:18.0-standard-trixie@sha256:84bb62b90566b5363c0fb2356d729bc8aa7a130797c1ca3d9a8d313760a8370f","initializingPVC":["cluster17-1","cluster17-1-wal"],"instanceNames":["cluster17-1"],"instances":1,"jobCount":1,"latestGeneratedNode":1,"managedRolesStatus":{},"pgDataImageInfo":{"image":"ghcr.io/cloudnative-pg/postgresql:18.0-standard-trixie@sha256:84bb62b90566b5363c0fb2356d729bc8aa7a130797c1ca3d9a8d313760a8370f","majorVersion":18},"phase":"Setting up primary","phaseReason":"Creating primary instance cluster17-1","pluginStatus":[{"capabilities":["TYPE_RECONCILER_HOOKS","TYPE_LIFECYCLE_SERVICE"],"name":"barman-cloud.cloudnative-pg.io","version":"0.7.0"}],"poolerIntegrations":{"pgBouncerIntegration":{}},"pvcCount":2,"readService":"cluster17-r","secretsResourceVersion":{"applicationSecretVersion":"34476","clientCaSecretVersion":"34471","replicationSecretVersion":"34474","serverCaSecretVersion":"34471","serverSecretVersion":"34472","superuserSecretVersion":"3166"},"switchReplicaClusterStatus":{},"targetPrimary":"cluster17-1","targetPrimaryTimestamp":"2025-10-26T19:15:53.850902Z","topology":{"successfullyExtracted":true},"writeService":"cluster17-rw"}}
     meta.helm.sh/release-name: cluster17
     meta.helm.sh/release-namespace: db
+  creationTimestamp: "2025-10-26T19:36:51Z"
+  generation: 1
   labels:
     app.kubernetes.io/instance: cluster17
     app.kubernetes.io/managed-by: Helm
@@ -14,6 +18,8 @@ metadata:
     helm.toolkit.fluxcd.io/namespace: db
   name: cluster17
   namespace: db
+  resourceVersion: "48666"
+  uid: 418ed7aa-bb0c-4a2e-bfa3-03640b7a8833
 spec:
   affinity:
     podAntiAffinityType: preferred
@@ -119,3 +125,61 @@ spec:
     resizeInUseVolumes: true
     size: 2Gi
     storageClass: localpv
+status:
+  availableArchitectures:
+  - goArch: amd64
+    hash: 433bae32a2e3e459a2a181d67ed2b0dfcf67f359480b9646bbdc8ad8e2dd4ef1
+  - goArch: arm64
+    hash: 981f8452ecf423a37802c14018b7a73bfd25c1c2e82ec19de9c85cd54912adb7
+  certificates:
+    clientCASecret: cluster17-ca
+    expirations:
+      cluster17-ca: 2026-01-24 19:31:51 +0000 UTC
+      cluster17-replication: 2026-01-24 19:31:51 +0000 UTC
+      cluster17-server: 2026-01-24 19:31:51 +0000 UTC
+    replicationTLSSecret: cluster17-replication
+    serverAltDNSNames:
+    - cluster17-rw
+    - cluster17-rw.db
+    - cluster17-rw.db.svc
+    - cluster17-rw.db.svc.cluster.local
+    - cluster17-r
+    - cluster17-r.db
+    - cluster17-r.db.svc
+    - cluster17-r.db.svc.cluster.local
+    - cluster17-ro
+    - cluster17-ro.db
+    - cluster17-ro.db.svc
+    - cluster17-ro.db.svc.cluster.local
+    serverCASecret: cluster17-ca
+    serverTLSSecret: cluster17-server
+  cloudNativePGCommitHash: 8b442dcc3
+  cloudNativePGOperatorHash: 433bae32a2e3e459a2a181d67ed2b0dfcf67f359480b9646bbdc8ad8e2dd4ef1
+  configMapResourceVersion:
+    metrics:
+      cnpg-default-monitoring: "3528"
+  image: ghcr.io/cloudnative-pg/postgresql:18.0-standard-trixie@sha256:84bb62b90566b5363c0fb2356d729bc8aa7a130797c1ca3d9a8d313760a8370f
+  managedRolesStatus: {}
+  pgDataImageInfo:
+    image: ghcr.io/cloudnative-pg/postgresql:18.0-standard-trixie@sha256:84bb62b90566b5363c0fb2356d729bc8aa7a130797c1ca3d9a8d313760a8370f
+    majorVersion: 18
+  pluginStatus:
+  - capabilities:
+    - TYPE_RECONCILER_HOOKS
+    - TYPE_LIFECYCLE_SERVICE
+    name: barman-cloud.cloudnative-pg.io
+    version: 0.7.0
+  poolerIntegrations:
+    pgBouncerIntegration: {}
+  readService: cluster17-r
+  secretsResourceVersion:
+    applicationSecretVersion: "48641"
+    clientCaSecretVersion: "48638"
+    replicationSecretVersion: "48640"
+    serverCaSecretVersion: "48638"
+    serverSecretVersion: "48639"
+    superuserSecretVersion: "3166"
+  switchReplicaClusterStatus: {}
+  topology:
+    successfullyExtracted: true
+  writeService: cluster17-rw

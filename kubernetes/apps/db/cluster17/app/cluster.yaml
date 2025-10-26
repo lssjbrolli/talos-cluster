@@ -13,7 +13,7 @@ spec:
   interval: 30m
   values:
     type: postgresql
-    mode: standalone
+    mode: recovery
     cluster:
       instances: 2
       initdb:

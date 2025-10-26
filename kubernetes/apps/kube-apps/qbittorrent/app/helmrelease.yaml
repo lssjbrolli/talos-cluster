@@ -207,10 +207,9 @@ spec:
             port-forward:
               - path: /tmp/gluetun
                 readOnly: true
-      # Configure a pvc for gluetun server list
+      # Configure an emptyDir for gluetun server list
       gluetun-list:
-        type: persistentVolumeClaim
-        existingClaim: gluetun
+        type: emptyDir
         advancedMounts:
           main:
             gluetun:

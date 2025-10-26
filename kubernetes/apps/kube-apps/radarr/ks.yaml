@@ -17,6 +17,8 @@ spec:
       namespace: storage-system
     - name: cluster17
       namespace: db
+    - name: storage-volumes
+      namespace: storage-system
   postBuild:
     substituteFrom:
       - name: cluster-secrets

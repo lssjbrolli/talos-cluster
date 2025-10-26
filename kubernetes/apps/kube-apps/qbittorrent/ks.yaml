@@ -17,6 +17,8 @@ spec:
       namespace: storage-system
     - name: generic-device-plugin
       namespace: kube-system
+    - name: storage-volumes
+      namespace: storage-system
   postBuild:
     substituteFrom:
       - name: cluster-secrets

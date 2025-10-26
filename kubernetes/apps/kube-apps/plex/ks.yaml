@@ -15,7 +15,7 @@ spec:
   dependsOn:
     - name: volsync
       namespace: storage-system
-    - name: openebs
+    - name: storage-volumes
       namespace: storage-system
   postBuild:
     substituteFrom:

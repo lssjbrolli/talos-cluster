@@ -14,8 +14,6 @@ spec:
   dependsOn:
     - name: volsync
       namespace: storage-system
-    - name: cluster17
-      namespace: db
   postBuild:
     substituteFrom:
       - name: cluster-secrets

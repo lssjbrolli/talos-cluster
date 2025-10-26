@@ -48,7 +48,7 @@ spec:
       s3:
         region: "eu-east"
         bucket: "cnpg"
-        path: "/v1"
+        path: "/v2"
         accessKey: aws-access-key-id
         secretKey: aws-secret-access-key
       secret:

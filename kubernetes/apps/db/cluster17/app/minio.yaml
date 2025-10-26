@@ -7,7 +7,7 @@ spec:
     data:
       compression: bzip2
       jobs: 2
-    destinationPath: s3://cnpg/v2
+    destinationPath: s3://cnpg/v4
     endpointURL: http://minio.storage-system.svc.cluster.local:9000
     s3Credentials:
       accessKeyId:

@@ -5,9 +5,6 @@ kind: Kustomization
 resources:
   - ./helmrelease.yaml
   - ./ocirepository.yaml
-  - ./pvc.yaml
   - ./qbt.sops.yaml
-  - ./restic-gluetun.sops.yaml
   - ./restic-qbt.sops.yaml
   - ./vpnconfig.sops.yaml
-  - ./volsync-gluetun.yaml

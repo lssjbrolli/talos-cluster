@@ -21,8 +21,8 @@ spec:
     # The VSC to use if the copy method is Snapshot (default if omitted)
     volumeSnapshotClassName: zfspv
     moverSecurityContext:
-      runAsUser: 1000
-      runAsGroup: 1000
+      runAsUser: 0
+      runAsGroup: 0
 ---
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationDestination

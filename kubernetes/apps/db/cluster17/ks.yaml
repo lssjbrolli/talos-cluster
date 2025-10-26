@@ -10,7 +10,7 @@ spec:
   dependsOn:
     - name: cnpg
     - name: plugin-barman-cloud
-    - name: openebs
+    - name: minio
       namespace: storage-system
   sourceRef:
     kind: GitRepository

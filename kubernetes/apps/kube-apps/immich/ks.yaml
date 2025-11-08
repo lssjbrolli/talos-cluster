@@ -28,6 +28,7 @@ spec:
       APP: *app
       PVC_NAME: 'library'
       VOLSYNC_SCHED: "0 */12 * * *"
+      VOLSYNC_CAPACITY: 100Gi
   sourceRef:
     kind: GitRepository
     name: flux-system

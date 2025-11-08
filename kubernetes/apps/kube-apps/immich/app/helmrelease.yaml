@@ -76,6 +76,17 @@ spec:
                 requests:
                   cpu: 500m
                   memory: 2048M
+      route:
+        app:
+          hostnames: ["photos.${SECRET_DOMAIN}"]
+          parentRefs:
+            - name: external
+              namespace: network
+              sectionName: https
+          rules:
+            - backendRefs:
+                - identifier: main
+                  port: 2283
 
     machine-learning:
       enabled: true
@@ -86,14 +97,4 @@ spec:
           accessMode: ReadWriteOnce
           type: persistentVolumeClaim
 
-    route:
-      main:
-        hostnames: ["photos.${SECRET_DOMAIN}"]
-        parentRefs:
-          - name: external
-            namespace: network
-            sectionName: https
-        rules:
-          - backendRefs:
-              - identifier: main
-                port: 2283
+

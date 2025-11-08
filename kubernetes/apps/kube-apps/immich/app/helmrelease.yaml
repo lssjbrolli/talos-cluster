@@ -96,4 +96,4 @@ spec:
         rules:
           - backendRefs:
               - identifier: main
-                port: 80
+                port: 2283

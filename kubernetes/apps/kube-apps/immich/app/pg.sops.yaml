@@ -3,7 +3,7 @@ kind: Secret
 metadata:
     name: immich-db
 stringData:
-    INIT_POSTGRES_HOST: ENC[AES256_GCM,data:QebFkS995D96qYmd8rzsgvXr1s5dW7KQuyIpJenUhrfe,iv:qGJv9KyV8ajNX7FvdjEJ2P5Y0ByZ9a8ceaZ1DF/o/wk=,tag:3I8cdoGzQ06IPqp4e/4Ruw==,type:str]
+    INIT_POSTGRES_HOST: ENC[AES256_GCM,data:5M4BbJpmral+FTqUJcIXcpfXvRMlK/61bfNsnjwMgYEQ,iv:FqFEX9BUtZxc4MywHG9FNMgSRllMh55uHlkjd4DQjSo=,tag:Bo+FuMu1UXlvG8qzFCsCQA==,type:str]
     INIT_POSTGRES_SUPER_PASS: ENC[AES256_GCM,data:W97t0Q==,iv:aL7vweL2SOUVv1cqtyx6i81UCJFwgn2COrXe5hSkeHM=,tag:OeTTmHSYVnK5R0PpILc11g==,type:str]
     INIT_POSTGRES_USER: ENC[AES256_GCM,data:txYEMw==,iv:srz5+UCiDLPQxj05gj/NWwWfinKsv4GGHDaRtqPXqjI=,tag:v1IkXxm7Vzn9t/Q4thsD3A==,type:str]
     INIT_POSTGRES_PASS: ENC[AES256_GCM,data:XNVo0Q==,iv:3w3vSQEIilEvf/yP6DTNwBdJDp9UetAqgfHLQPR+GUA=,tag:DTiTk9HLx9WTt6915Cq1RQ==,type:str]
@@ -23,8 +23,8 @@ sops:
             OFk5UUZwQm9hS1JYYWRtOGFWOWhLK0UKMYXcDk8eajCyQPdn/5VxO85Wm9h4O3r5
             NiLmwgk5wPpyf3v+ZyE5gztjnRuXceXcLXGBjvF/E4QJo4vEoFhhrA==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2025-11-08T14:32:48Z"
-    mac: ENC[AES256_GCM,data:OAN4gd6plnUC1NsQ0SO5T0zaSIb89jtwXF6eNR/4IM/vjbmjbCe49ZowwH4AmVx1dQaj9ZAABEmUTLYMWxG0HuOCJwfj+Uu72maJi10Ni8GlP2oDotcAi7EF4NVZ/5o5hVjYsRfozicSUoxgUIYZwzQoMHtuJ5Q3k0LucQ3HLFQ=,iv:nTM6wxW8AlMI/FTfUjyAXriv1votsZhUaadArxv7770=,tag:Zm62aAVPh3bYsZcKxGJF4g==,type:str]
+    lastmodified: "2025-11-08T15:10:36Z"
+    mac: ENC[AES256_GCM,data:Ew7MU7OP8c/YhJacg2jlqCWa1T1Kj2/NhThUiqEkU1FZ2sUqVPiIPeTpP8R8BRRL5+R+8IzFudXxfpPazGomPFzerw33CLWiEYA/Zs36xX0QLdcetYfwql0SWXAvECMxZDXE3PP/U0mTpYJcreIiygxVsF2API1AmuK2avpgoZM=,iv:rRnEwkAauqZkRyoVo64VAJyzkGhucPRJuf8izCV1ph0=,tag:QT7dOMhHXNJBtmR50c//gQ==,type:str]
     encrypted_regex: ^(data|stringData)$
     mac_only_encrypted: true
     version: 3.11.0

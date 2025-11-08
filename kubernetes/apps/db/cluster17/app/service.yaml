@@ -4,7 +4,7 @@ kind: Service
 metadata:
   name: cluster17-db-lb
   annotations:
-    external-dns.alpha.kubernetes.io/hostname: cluster17.${SECRET_DOMAIN}
+    external-dns.alpha.kubernetes.io/hostname: pg-cluster17.${SECRET_DOMAIN}
     lbipam.cilium.io/ips: 192.168.1.130
 spec:
   type: LoadBalancer

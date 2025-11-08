@@ -5,7 +5,7 @@ kind: ReplicationSource
 metadata:
   name: ${APP}-backup
 spec:
-  sourcePVC: ${APP}-config
+  sourcePVC: ${APP}-${PVC_NAME:=config}
   trigger:
     schedule: ${VOLSYNC_SCHED:="0 */6 * * *"}
   restic:

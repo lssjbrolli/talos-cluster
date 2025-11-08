@@ -41,7 +41,7 @@ spec:
                   secretKeyRef:
                     name: immich-db
                     key: DATABASE_NAME
-              LOG_LEVEL: verbose
+              LOG_LEVEL: warning
               TZ: ${TIMEZONE}
 
     immich:

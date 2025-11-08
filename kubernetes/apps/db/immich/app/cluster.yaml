@@ -3,10 +3,10 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: cluster17
+  name: immich-db
   namespace: db
 spec:
-  releaseName: cluster17
+  releaseName: immich-db
   chartRef:
     kind: OCIRepository
     name: cluster
@@ -18,7 +18,7 @@ spec:
       instances: 2
       initdb:
         dataChecksums: true
-      imageName: ghcr.io/cloudnative-pg/postgresql:18.0-system-trixie@sha256:714fddccd2749fa258a5cd8551849f0e83f92222a004616c9ba76a5b970ead87
+      imageName: ghcr.io/tensorchord/cloudnative-vectorchord:17.5-0.4.3@sha256:acebb38ca309938bc05ce268b019c98aa718cb554dd54e4443654d9d00a0d498
       logLevel: warning
       resources:
         requests:
@@ -37,7 +37,10 @@ spec:
       monitoring:
         enabled: true
       postgresql:
+        shared_preload_libraries: ["vchord.so"]
         parameters:
+          pg_stat_statements.max: "10000"
+          pg_stat_statements.track: all
           max_connections: "100"
           shared_buffers: 256MB
     backups:
@@ -58,22 +61,22 @@ spec:
       s3:
         region: "eu-east"
         bucket: "cnpg"
-        path: "/v4"
+        path: "/v1"
         accessKey: aws-access-key-id
         secretKey: aws-secret-access-key
       scheduledBackups:
-        - name: cnpg-backup
+        - name: immich-db-backup
           schedule: "0 0 */6 * * *"
           backupOwnerReference: self
     recovery:
-      clusterName: cluster17
+      clusterName: immich-db
       endpointURL: http://minio.storage-system.svc.cluster.local:9000
       method: object_store
       provider: s3
       s3:
         region: "eu-east"
         bucket: "cnpg"
-        path: "/v2"
+        path: "/v1"
         accessKey: aws-access-key-id
         secretKey: aws-secret-access-key
       secret:

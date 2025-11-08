@@ -7,5 +7,3 @@ resources:
   - ./ocirepository.yaml
   - ./pg.sops.yaml
   - ./restic.sops.yaml
-  - ./volsync.yaml
-  - ./volsync-library.yaml

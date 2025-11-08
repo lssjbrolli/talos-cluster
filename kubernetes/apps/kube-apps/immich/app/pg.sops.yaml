@@ -8,7 +8,7 @@ stringData:
     INIT_POSTGRES_USER: ENC[AES256_GCM,data:txYEMw==,iv:srz5+UCiDLPQxj05gj/NWwWfinKsv4GGHDaRtqPXqjI=,tag:v1IkXxm7Vzn9t/Q4thsD3A==,type:str]
     INIT_POSTGRES_PASS: ENC[AES256_GCM,data:XNVo0Q==,iv:3w3vSQEIilEvf/yP6DTNwBdJDp9UetAqgfHLQPR+GUA=,tag:DTiTk9HLx9WTt6915Cq1RQ==,type:str]
     INIT_POSTGRES_DBNAME: ENC[AES256_GCM,data:MWnuOFzQ,iv:QhuTUPTQ8RyJHeqXkfvfvYrZbTw3lxtR+JAZuHkl0Q4=,tag:TMSn5vR33hwwobJNUvdUMA==,type:str]
-    HOSTNAME: ENC[AES256_GCM,data:UyLcDM9rco+37X9GOk+X12lbr6TD9n6+41D9pmG6jKmhd5Aoepw=,iv:NyN7iLeY+taeiSOeX18N4xheMHZkPehawtnFj83XxCY=,tag:XYSY0ouB44AxvfftsSPdgA==,type:str]
+    HOSTNAME: ENC[AES256_GCM,data:1L4blk5pqwYZp0SfAsNCkZyW4054b+nXK+4frxg/gebN,iv:hIKa/gHfLdRT9xlYY/HxmLn5qPGXxhL8oUHb8QuP1+A=,tag:JKbtcLFQ1r7FpsrHl1H68A==,type:str]
     USERNAME: ENC[AES256_GCM,data:cO35JQ==,iv:qyL6TCNo4g+drEeDgUG5qdlX/94rztHTH0RzR28NRp0=,tag:Ub/h0FvSuVrrqyUuQWf/Fw==,type:str]
     PASSWORD: ENC[AES256_GCM,data:pgpiNQ==,iv:Uyq6ds3imVfBH/SGwxKqIdrbiffghUb5+UQ8I/+DkwY=,tag:GwsINdXvpewHEB31Hk+ilA==,type:str]
     DATABASE_NAME: ENC[AES256_GCM,data:1rVQbNy0,iv:UVLvnh6XZzWM6n52l3q3Cuxy7vRaBuXzpUnItjs4BzE=,tag:7+pWcXQmkRyKXPSBQTulXg==,type:str]
@@ -23,8 +23,8 @@ sops:
             OFk5UUZwQm9hS1JYYWRtOGFWOWhLK0UKMYXcDk8eajCyQPdn/5VxO85Wm9h4O3r5
             NiLmwgk5wPpyf3v+ZyE5gztjnRuXceXcLXGBjvF/E4QJo4vEoFhhrA==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2025-10-04T20:10:46Z"
-    mac: ENC[AES256_GCM,data:GsAjFeYFuYhDe8BVyNkPdWFzPpHpIcxXDIS4cRK3ECwDWbRG4J18vm6k9wskXmJvGYMYpa1NocZICdIkoH3KVKajuXRIe3AKyexX7ibW0LTxfdnh/MMiAIdcPdK/yS56zWMUKTjrqC+qgBZVhAvUdX0p9SMD7+WDRzcUE20xErE=,iv:a/r1kK1V445jUnuSuiX0qlKOdop14B2IHn6YsMRGM1g=,tag:g5+RrBSnBpEE8vN1K+OGNA==,type:str]
+    lastmodified: "2025-11-08T14:32:48Z"
+    mac: ENC[AES256_GCM,data:OAN4gd6plnUC1NsQ0SO5T0zaSIb89jtwXF6eNR/4IM/vjbmjbCe49ZowwH4AmVx1dQaj9ZAABEmUTLYMWxG0HuOCJwfj+Uu72maJi10Ni8GlP2oDotcAi7EF4NVZ/5o5hVjYsRfozicSUoxgUIYZwzQoMHtuJ5Q3k0LucQ3HLFQ=,iv:nTM6wxW8AlMI/FTfUjyAXriv1votsZhUaadArxv7770=,tag:Zm62aAVPh3bYsZcKxGJF4g==,type:str]
     encrypted_regex: ^(data|stringData)$
     mac_only_encrypted: true
     version: 3.11.0

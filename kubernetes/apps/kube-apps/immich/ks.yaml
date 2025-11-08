@@ -3,8 +3,10 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: immich
+  name: &app immich
 spec:
+  components:
+    - '../../../../components/volsync'
   interval: 30m
   path: ./kubernetes/apps/kube-apps/immich/app
   prune: true
@@ -12,10 +14,20 @@ spec:
   dependsOn:
     - name: volsync
       namespace: storage-system
+    - name: cluster17
+      namespace: db
+    - name: dragonfly
+      namespace: db
   postBuild:
     substituteFrom:
       - name: cluster-secrets
         kind: Secret
+      - name: cluster-settings
+        kind: ConfigMap
+    substitute:
+      APP: *app
+      PVC_NAME: 'library'
+      VOLSYNC_SCHED: "0 */12 * * *"
   sourceRef:
     kind: GitRepository
     name: flux-system

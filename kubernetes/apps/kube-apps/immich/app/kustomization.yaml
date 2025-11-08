@@ -6,7 +6,6 @@ resources:
   - ./helmrelease.yaml
   - ./ocirepository.yaml
   - ./pg.sops.yaml
-  - ./pvc.yaml
   - ./restic.sops.yaml
   - ./volsync.yaml
   - ./volsync-library.yaml

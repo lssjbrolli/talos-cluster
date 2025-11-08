@@ -26,6 +26,7 @@ spec:
     extraArgs:
       - --maxmemory=1Gi
       - --proactor_threads=3
+      - "--default_lua_flags=allow-undeclared-keys"
     resources:
       requests:
         cpu: 100m

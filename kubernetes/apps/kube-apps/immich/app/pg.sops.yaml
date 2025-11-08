@@ -3,7 +3,7 @@ kind: Secret
 metadata:
     name: immich-db
 stringData:
-    HOSTNAME: ENC[AES256_GCM,data:wqZ+zbhJaFeubJnUo+5O4sVih27v2IE0I9TjdHl994yq,iv:DozIRw2W9Yej7PPgKFKLVypaZc6PNNu0g9SAyxg6fmg=,tag:qav8hf9ES4/ctCr21MniSw==,type:str]
+    HOSTNAME: ENC[AES256_GCM,data:dLGX2R0pR2NzCiaQB67ozNPSVxlHxJWN0gCHGrVtVnWFs7u8LQDSKlQ=,iv:Wo/rjOo/WaQWAVvRGjJEazdUeZ/MbzBi0O5LYkp7qqI=,tag:GLCwkmR/aszqNMqvFEWEKA==,type:str]
     USERNAME: ENC[AES256_GCM,data:cO35JQ==,iv:qyL6TCNo4g+drEeDgUG5qdlX/94rztHTH0RzR28NRp0=,tag:Ub/h0FvSuVrrqyUuQWf/Fw==,type:str]
     PASSWORD: ENC[AES256_GCM,data:pgpiNQ==,iv:Uyq6ds3imVfBH/SGwxKqIdrbiffghUb5+UQ8I/+DkwY=,tag:GwsINdXvpewHEB31Hk+ilA==,type:str]
     DATABASE_NAME: ENC[AES256_GCM,data:1rVQbNy0,iv:UVLvnh6XZzWM6n52l3q3Cuxy7vRaBuXzpUnItjs4BzE=,tag:7+pWcXQmkRyKXPSBQTulXg==,type:str]
@@ -18,8 +18,8 @@ sops:
             OFk5UUZwQm9hS1JYYWRtOGFWOWhLK0UKMYXcDk8eajCyQPdn/5VxO85Wm9h4O3r5
             NiLmwgk5wPpyf3v+ZyE5gztjnRuXceXcLXGBjvF/E4QJo4vEoFhhrA==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2025-11-08T15:34:26Z"
-    mac: ENC[AES256_GCM,data:6rNXfrAM99NfU0atMY2rSmnMiYchUBX1JD0GIF7DDKeoPeTMDQ0o62f9863XxY1B2EoNCImYMR6HrFa9SffY/Zwe2pmRo9YEtcBSVX6at3zP7oiOncHuUAfpgC6iRqeTjWUjnN+9ksG/9wdT9cN27/Y1b62scmLEFqhOImm6GsM=,iv:pu7F8+RWd83S2qqEccoo2XbMTTMtSL4sMX37NTr+IzU=,tag:JkuSGqbZnC5kgB/7U18F4A==,type:str]
+    lastmodified: "2025-11-08T15:39:19Z"
+    mac: ENC[AES256_GCM,data:E0wg6iEF2B9IVX+NK6Qvb9JKZMlFn/wdpcgLMEcdqpKNSUoIosJJpGR70cBFhBXzTIcBQj5cg4V03kUcrHGT5euji7rDAiA8DpxI5RtPTfyt/VmM75rjc6c89Ansd2qBxE36y0vxzRDqA75pSBYSRJjDGmUASjtOn+iFFngBfaQ=,iv:9bYrzOT/BvIOyy4N+Jbkd+4NDGu8Arpuiz9JznzXDqw=,tag:fB+tRxeQ5kqNhAB6hxeZqw==,type:str]
     encrypted_regex: ^(data|stringData)$
     mac_only_encrypted: true
     version: 3.11.0

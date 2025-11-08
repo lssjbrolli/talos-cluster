@@ -76,17 +76,7 @@ spec:
                 requests:
                   cpu: 500m
                   memory: 2048M
-
-    machine-learning:
-      enabled: true
-      persistence:
-        cache:
-          enabled: true
-          size: 10Gi
-          accessMode: ReadWriteOnce
-          type: persistentVolumeClaim
-
-    route:
+      route:
       main:
         hostnames: ["photos.${SECRET_DOMAIN}"]
         parentRefs:
@@ -97,3 +87,14 @@ spec:
           - backendRefs:
               - identifier: main
                 port: 2283
+
+    machine-learning:
+      enabled: true
+      persistence:
+        cache:
+          enabled: true
+          size: 10Gi
+          accessMode: ReadWriteOnce
+          type: persistentVolumeClaim
+
+

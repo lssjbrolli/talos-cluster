@@ -59,6 +59,10 @@ spec:
             image:
               repository: ghcr.io/qdm12/gluetun
               tag: v3.40.3@sha256:ef4a44819a60469682c7b5e69183e6401171891feaa60186652d292c59e41b30
+            lifecycle:
+              postStart:
+                exec:
+                  command: ["/bin/sh", "-c", "(ip rule del table 51820; ip -6 rule del table 51820) || true"]
             env:
               #required
               - name: VPN_SERVICE_PROVIDER

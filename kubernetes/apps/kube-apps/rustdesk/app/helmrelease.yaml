@@ -15,7 +15,7 @@ spec:
         fsGroup: 568
         fsGroupChangePolicy: OnRootMismatch
     controllers:
-      hbbr:
+      app:
         containers:
           hbbr:
             image:
@@ -24,8 +24,11 @@ spec:
             env:
               TZ: ${TIMEZONE}
             command: ["hbbr"]
-      hbbs:
-        containers:
+            ports:
+              - containerPort: 21117
+                name: rustdesk-5
+              - containerPort: 21117
+                name: rustdesk-6
           hbbs:
             image:
               repository: ghcr.io/rustdesk/rustdesk-server
@@ -36,6 +39,22 @@ spec:
               ENCRYPTED_ONLY: "1"
               RELAY: "10.10.30.20:21117"
             command: ["hbbs", "-r 10.10.30.20:21117"]
+            ports:
+              - containerPort: 21114
+                name: rustdesk-1
+              - containerPort: 21115
+                name: rustdesk-2
+              - containerPort: 21116
+                name: rustdesk-3
+              - containerPort: 21116
+                name: rustdesk-4
+                protocol: UDP
+              - containerPort: 21117
+                name: rustdesk-5-relay
+              - containerPort: 21118
+                name: rustdesk-6
+              - containerPort: 21119
+                name: rustdesk-7-relay
     # 21114 TCP for web console, only available in Pro version
     # 21115 TCP for NAT type test
     # 21116 TCP TCP hole punching
@@ -43,8 +62,8 @@ spec:
     # 21117 TCP relay
     # 21118/21119 TCP for web socket if you want to run web client
     service:
-      relay:
-        controller: hbbr
+      hbbr:
+        controller: main
         ports:
           rustdesk-5:
             enabled: true
@@ -54,8 +73,8 @@ spec:
             enabled: true
             port: 21119
             protocol: "TCP"
-      server:
-        controller: hbbs
+      hbbs:
+        controller: main
         ports:
           rustdesk-1:
             port: 21114
@@ -72,22 +91,6 @@ spec:
             port: 21118
           rustdesk-7-relay:
             port: 21119
-          # rustdesk-1:
-          #   enabled: true
-          #   port: 21115
-          #   protocol: "TCP"
-          # rustdesk-2:
-          #   enabled: true
-          #   port: 21116 # ID server
-          #   protocol: "TCP"
-          # rustdesk-3:
-          #   enabled: true
-          #   port: 21116
-          #   protocol: "UDP"
-          # rustdesk-4:
-          #   enabled: true
-          #   port: 21118
-          #   protocol: "TCP"
 
     route:
       hbbr:

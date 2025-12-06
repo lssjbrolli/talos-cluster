@@ -102,7 +102,7 @@ spec:
         rules:
           - backendRefs:
               - port: 21117
-                name: hbbr
+                name: rustdesk-hbbr
       hbbs:
         hostnames: ["hbbs.${SECRET_DOMAIN}"]
         parentRefs:
@@ -112,7 +112,7 @@ spec:
         rules:
           - backendRefs:
               - port: 21116
-                name: hbbs
+                name: rustdesk-hbbs
     persistence:
       config:
         type: persistentVolumeClaim

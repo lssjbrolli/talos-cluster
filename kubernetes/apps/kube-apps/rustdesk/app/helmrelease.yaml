@@ -56,19 +56,6 @@ spec:
           rd-ws:
             port: 21118
 
-    route:
-      main:
-        hostnames: ["rd.${SECRET_DOMAIN}"]
-        parentRefs:
-          - name: external
-            namespace: network
-            sectionName: rustdesk
-        rules:
-          - backendRefs:
-              - port: 21116
-                identifier: main
-                name: rustdesk
-
     persistence:
       config:
         type: persistentVolumeClaim

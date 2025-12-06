@@ -13,12 +13,13 @@ spec:
   interval: 30m
   values:
     type: postgresql
+    version: "18"
     mode: standalone
     cluster:
       instances: 2
       initdb:
         dataChecksums: true
-      imageName: ghcr.io/cloudnative-pg/postgresql:18.0-system-trixie@sha256:714fddccd2749fa258a5cd8551849f0e83f92222a004616c9ba76a5b970ead87
+      imageName: ghcr.io/cloudnative-pg/postgresql:18.1-system-trixie@sha256:5c4bcb16240bdfdc3455ef7e655da4ae78518899426b83f22e2731820f518785
       logLevel: warning
       resources:
         requests:

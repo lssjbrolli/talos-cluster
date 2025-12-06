@@ -70,6 +70,14 @@ spec:
       allowedRoutes:
         namespaces:
           from: All
+    - name: rustdesk
+      protocol: TCP
+      port: 21116
+      allowedRoutes:
+        namespaces:
+          from: All
+        kinds:
+          - kind: TCPRoute
     - name: https
       protocol: HTTPS
       port: 443

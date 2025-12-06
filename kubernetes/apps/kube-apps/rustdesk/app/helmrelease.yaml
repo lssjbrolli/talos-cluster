@@ -108,7 +108,7 @@ spec:
         parentRefs:
           - name: external
             namespace: network
-            sectionName: https
+            sectionName: rustdesk
         rules:
           - backendRefs:
               - port: 21116

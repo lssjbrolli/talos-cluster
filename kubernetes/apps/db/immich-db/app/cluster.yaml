@@ -13,7 +13,8 @@ spec:
   interval: 30m
   values:
     type: postgresql
-    version: "17"
+    version:
+      postgresql: "17"
     mode: standalone
     cluster:
       instances: 2

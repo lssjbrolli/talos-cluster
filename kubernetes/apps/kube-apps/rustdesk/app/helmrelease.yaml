@@ -86,3 +86,8 @@ spec:
       config:
         type: persistentVolumeClaim
         existingClaim: rustdesk-config
+        globalMounts:
+          - path: /db
+            subPath: hbbs
+          - path: /root
+            subPath: root

@@ -4,8 +4,6 @@ kind: UDPRoute
 metadata:
   name: rd-udp
 spec:
-  hostnames:
-    - "rd.${SECRET_DOMAIN}"
   parentRefs:
     - name: external
       sectionName: rd-udp

@@ -93,7 +93,7 @@ spec:
       hbbr:
         hostnames: ["hbbr.${SECRET_DOMAIN}"]
         parentRefs:
-          - name: envoy-internal
+          - name: external
             namespace: network
             sectionName: https
         rules:
@@ -103,7 +103,7 @@ spec:
       hbbs:
         hostnames: ["hbbs.${SECRET_DOMAIN}"]
         parentRefs:
-          - name: envoy-internal
+          - name: external
             namespace: network
             sectionName: https
         rules:

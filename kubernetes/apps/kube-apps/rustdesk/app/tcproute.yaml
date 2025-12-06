@@ -4,6 +4,8 @@ kind: TCPRoute
 metadata:
   name: rd-tcp
 spec:
+  hostnames:
+    - "rd.${SECRET_DOMAIN}"
   parentRefs:
     - name: external
       sectionName: rd-udp

@@ -16,20 +16,10 @@ spec:
         fsGroupChangePolicy: OnRootMismatch
     controllers:
       main:
+        annotations:
+          reloader.stakater.com/auto: "true"
         containers:
-          hbbr:
-            image:
-              repository: ghcr.io/rustdesk/rustdesk-server
-              tag: 1.1.12@sha256:9b1197d116f7bb4d3ad93a50bc1bc59ddb388de267df221a351f5ce10fac3dcf
-            env:
-              TZ: ${TIMEZONE}
-            command: ["hbbr"]
-            ports:
-              - containerPort: 21117
-                name: rd-5
-              - containerPort: 21117
-                name: rd-6
-          hbbs:
+          main:
             image:
               repository: ghcr.io/rustdesk/rustdesk-server
               tag: 1.1.12@sha256:9b1197d116f7bb4d3ad93a50bc1bc59ddb388de267df221a351f5ce10fac3dcf
@@ -37,74 +27,38 @@ spec:
               TZ: ${TIMEZONE}
               DB_URL: /db/db_v2.sqlite3
               ENCRYPTED_ONLY: "1"
-              RELAY: "rustdesk-hbbr.kube-apps.svc.cluster.local:21117"
-            command: ["hbbs", "-r 10.10.30.20:21117"]
+            command: ["hbbs"]
             ports:
-              - containerPort: 21114
-                name: rd-1
               - containerPort: 21115
-                name: rd-2
+                name: rd-nat
               - containerPort: 21116
-                name: rd-3
+                name: rd-hole
               - containerPort: 21116
-                name: rd-4
+                name: rd-id
                 protocol: UDP
-              - containerPort: 21117
-                name: rd-5-relay
               - containerPort: 21118
-                name: rd-6
-              - containerPort: 21119
-                name: rd-7-relay
-    # 21114 TCP for web console, only available in Pro version
+                name: rd-ws
     # 21115 TCP for NAT type test
     # 21116 TCP TCP hole punching
     # 21116 UDP heartbeat/ID server
-    # 21117 TCP relay
-    # 21118/21119 TCP for web socket if you want to run web client
+    # 21118 TCP for web socket if you want to run web client
     service:
-      hbbr:
+      main:
         controller: main
         ports:
-          rustdesk-5:
-            enabled: true
-            port: 21117 # Relay server
-            protocol: "TCP"
-          rustdesk-6:
-            enabled: true
-            port: 21119
-            protocol: "TCP"
-      hbbs:
-        controller: main
-        ports:
-          rd-1:
-            port: 21114
-          rd-2:
+          rd-nat:
             port: 21115
-          rd-3:
+          rd-hole:
             port: &port 21116 # ID server
-          rd-4:
+          rd-id:
             port: *port
             protocol: UDP
-          rd-5-relay:
-            port: 21117
-          rd-6:
+          rd-ws:
             port: 21118
-          rd-7-relay:
-            port: 21119
 
     route:
-      hbbr:
-        hostnames: ["hbbr.${SECRET_DOMAIN}"]
-        parentRefs:
-          - name: external
-            namespace: network
-            sectionName: https
-        rules:
-          - backendRefs:
-              - port: 21117
-                name: rustdesk-hbbr
-      hbbs:
-        hostnames: ["hbbs.${SECRET_DOMAIN}"]
+      main:
+        hostnames: ["rd.${SECRET_DOMAIN}"]
         parentRefs:
           - name: external
             namespace: network
@@ -112,7 +66,9 @@ spec:
         rules:
           - backendRefs:
               - port: 21116
-                name: rustdesk-hbbs
+                identifier: main
+                name: rustdesk
+
     persistence:
       config:
         type: persistentVolumeClaim

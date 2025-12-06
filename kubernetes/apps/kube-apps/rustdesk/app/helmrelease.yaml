@@ -38,7 +38,7 @@ spec:
               DB_URL: /db/db_v2.sqlite3
               ENCRYPTED_ONLY: "1"
               RELAY: "rustdesk-hbbr.kube-apps.svc.cluster.local:21117"
-            command: ["hbbs", "-r 10.10.30.20:21117"]
+            command: ["hbbs", "-r 192.168.1.159:21117"]
             ports:
               - containerPort: 21114
                 name: rd-1
@@ -75,6 +75,9 @@ spec:
             protocol: "TCP"
       hbbs:
         controller: main
+        type: LoadBalancer
+        annotations:
+          lbipam.cilium.io/ips: "192.168.1.159"
         ports:
           rd-1:
             port: 21114

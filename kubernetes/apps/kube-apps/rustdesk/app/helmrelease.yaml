@@ -15,7 +15,7 @@ spec:
         fsGroup: 568
         fsGroupChangePolicy: OnRootMismatch
     controllers:
-      app:
+      main:
         containers:
           hbbr:
             image:

@@ -76,20 +76,20 @@ spec:
       hbbs:
         controller: main
         ports:
-          rustdesk-1:
+          rd-1:
             port: 21114
-          rustdesk-2:
+          rd-2:
             port: 21115
-          rustdesk-3:
+          rd-3:
             port: &port 21116 # ID server
-          rustdesk-4:
+          rd-4:
             port: *port
             protocol: UDP
-          rustdesk-5-relay:
+          rd-5-relay:
             port: 21117
-          rustdesk-6:
+          rd-6:
             port: 21118
-          rustdesk-7-relay:
+          rd-7-relay:
             port: 21119
 
     route:

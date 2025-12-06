@@ -15,73 +15,101 @@ spec:
         fsGroup: 568
         fsGroupChangePolicy: OnRootMismatch
     controllers:
-      main:
-        strategy: Recreate
-        annotations:
-          reloader.stakater.com/auto: "true"
-        initContainers:
-          init-db:
-            image:
-              repository: ghcr.io/home-operations/postgres-init
-              tag: 18.1.0@sha256:866f15038ed5185a2b8118821f470bb7ca0df8c4231b8e277446e681ebb1ed84
-            envFrom:
-              - secretRef:
-                  name: rustdesk-secrets
+      hbbr:
         containers:
-          main:
+          hbbr:
             image:
               repository: ghcr.io/rustdesk/rustdesk-server
               tag: 1.1.12@sha256:9b1197d116f7bb4d3ad93a50bc1bc59ddb388de267df221a351f5ce10fac3dcf
-            command:
-              - hbbs
-              - -r ${LB_RUSTDESK}:21117
             env:
-              ENCRYPTED_ONLY: "1"
-              DB_URL: /db/db_v2.sqlite3
-            probes:
-              startup:
-                enabled: false
-              liveness:
-                enabled: false
-              readiness:
-                enabled: false
-            resources:
-              requests:
-                cpu: 10m
-              limits:
-                memory: 256Mi
-          relay:
+              TZ: ${TIMEZONE}
+            command: ["hbbr"]
+      hbbs:
+        containers:
+          hbbs:
             image:
               repository: ghcr.io/rustdesk/rustdesk-server
               tag: 1.1.12@sha256:9b1197d116f7bb4d3ad93a50bc1bc59ddb388de267df221a351f5ce10fac3dcf
-            command:
-              - hbbr
-            probes:
-              startup:
-                enabled: false
-              liveness:
-                enabled: false
-              readiness:
-                enabled: false
+            env:
+              TZ: ${TIMEZONE}
+              DB_URL: /db/db_v2.sqlite3
+              ENCRYPTED_ONLY: "1"
+              RELAY: "10.10.30.20:21117"
+            command: ["hbbs", "-r 10.10.30.20:21117"]
+    # 21114 TCP for web console, only available in Pro version
+    # 21115 TCP for NAT type test
+    # 21116 TCP TCP hole punching
+    # 21116 UDP heartbeat/ID server
+    # 21117 TCP relay
+    # 21118/21119 TCP for web socket if you want to run web client
     service:
-      main:
-        controller: main
-        type: ClusterIP
+      relay:
+        controller: hbbr
         ports:
-          http:
-            port: &port 21117
+          rustdesk-5:
+            enabled: true
+            port: 21117 # Relay server
+            protocol: "TCP"
+          rustdesk-6:
+            enabled: true
+            port: 21119
+            protocol: "TCP"
+      server:
+        controller: hbbs
+        ports:
+          rustdesk-1:
+            port: 21114
+          rustdesk-2:
+            port: 21115
+          rustdesk-3:
+            port: &port 21116 # ID server
+          rustdesk-4:
+            port: *port
+            protocol: UDP
+          rustdesk-5-relay:
+            port: 21117
+          rustdesk-6:
+            port: 21118
+          rustdesk-7-relay:
+            port: 21119
+          # rustdesk-1:
+          #   enabled: true
+          #   port: 21115
+          #   protocol: "TCP"
+          # rustdesk-2:
+          #   enabled: true
+          #   port: 21116 # ID server
+          #   protocol: "TCP"
+          # rustdesk-3:
+          #   enabled: true
+          #   port: 21116
+          #   protocol: "UDP"
+          # rustdesk-4:
+          #   enabled: true
+          #   port: 21118
+          #   protocol: "TCP"
 
     route:
-      app:
-        hostnames: ["rd.${SECRET_DOMAIN}"]
+      hbbr:
+        hostnames: ["hbbr.${SECRET_DOMAIN}"]
         parentRefs:
-          - name: external
+          - name: envoy-internal
             namespace: network
             sectionName: https
         rules:
           - backendRefs:
-              - identifier: main
-                port: *port
+              - port: 21117
+                name: hbbr
+      hbbs:
+        hostnames: ["hbbs.${SECRET_DOMAIN}"]
+        parentRefs:
+          - name: envoy-internal
+            namespace: network
+            sectionName: https
+        rules:
+          - backendRefs:
+              - port: 21116
+                name: hbbs
     persistence:
       config:
         type: persistentVolumeClaim

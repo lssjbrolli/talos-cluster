@@ -1,0 +1,88 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/bernd-schorgers/helm-charts/main/charts/other/app-template/schemas/helmrelease-helm-v2.schema.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: rustdesk
+spec:
+  interval: 30m
+  chartRef:
+    kind: OCIRepository
+    name: rustdesk
+  values:
+    defaultPodOptions:
+      securityContext:
+        fsGroup: 568
+        fsGroupChangePolicy: OnRootMismatch
+    controllers:
+      main:
+        strategy: Recreate
+        annotations:
+          reloader.stakater.com/auto: "true"
+        initContainers:
+          init-db:
+            image:
+              repository: ghcr.io/home-operations/postgres-init
+              tag: 18.1.0@sha256:866f15038ed5185a2b8118821f470bb7ca0df8c4231b8e277446e681ebb1ed84
+            envFrom:
+              - secretRef:
+                  name: rustdesk-secrets
+        containers:
+          main:
+            image:
+              repository: ghcr.io/rustdesk/rustdesk-server
+              tag: 1.1.12@sha256:9b1197d116f7bb4d3ad93a50bc1bc59ddb388de267df221a351f5ce10fac3dcf
+            command:
+              - hbbs
+              - -r ${LB_RUSTDESK}:21117
+            env:
+              ENCRYPTED_ONLY: "1"
+              DB_URL: /db/db_v2.sqlite3
+            probes:
+              startup:
+                enabled: false
+              liveness:
+                enabled: false
+              readiness:
+                enabled: false
+            resources:
+              requests:
+                cpu: 10m
+              limits:
+                memory: 256Mi
+          relay:
+            image:
+              repository: ghcr.io/rustdesk/rustdesk-server
+              tag: 1.1.12@sha256:9b1197d116f7bb4d3ad93a50bc1bc59ddb388de267df221a351f5ce10fac3dcf
+            command:
+              - hbbr
+            probes:
+              startup:
+                enabled: false
+              liveness:
+                enabled: false
+              readiness:
+                enabled: false
+    service:
+      main:
+        controller: main
+        type: ClusterIP
+        ports:
+          http:
+            port: &port 21117
+
+    route:
+      app:
+        hostnames: ["rd.${SECRET_DOMAIN}"]
+        parentRefs:
+          - name: external
+            namespace: network
+            sectionName: https
+        rules:
+          - backendRefs:
+              - identifier: main
+                port: *port
+    persistence:
+      config:
+        type: persistentVolumeClaim
+        existingClaim: rustdesk-config

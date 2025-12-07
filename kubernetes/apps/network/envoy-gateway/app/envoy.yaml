@@ -120,6 +120,14 @@ spec:
           from: All
         kinds:
           - kind: TCPRoute
+    - name: rd-tcp-relay
+      protocol: TCP
+      port: 21117
+      allowedRoutes:
+        namespaces:
+          from: All
+        kinds:
+          - kind: TCPRoute
     - name: rd-udp
       protocol: UDP
       port: 21116

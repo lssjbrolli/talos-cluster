@@ -10,6 +10,6 @@ spec:
       sectionName: rd-udp
   rules:
     - backendRefs:
-        - name: rustdesk
+        - name: rustdesk-rd-server
           namespace: kube-apps
           port: 21116

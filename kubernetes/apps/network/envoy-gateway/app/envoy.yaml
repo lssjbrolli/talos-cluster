@@ -70,22 +70,6 @@ spec:
       allowedRoutes:
         namespaces:
           from: All
-    - name: rd-tcp
-      protocol: TCP
-      port: 21116
-      allowedRoutes:
-        namespaces:
-          from: All
-        kinds:
-          - kind: TCPRoute
-    - name: rd-udp
-      protocol: UDP
-      port: 21116
-      allowedRoutes:
-        namespaces:
-          from: All
-        kinds:
-            - kind: UDPRoute
     - name: https
       protocol: HTTPS
       port: 443
@@ -128,6 +112,22 @@ spec:
         certificateRefs:
           - kind: Secret
             name: ${SECRET_DOMAIN/./-}-production-tls
+    - name: rd-tcp
+      protocol: TCP
+      port: 21116
+      allowedRoutes:
+        namespaces:
+          from: All
+        kinds:
+          - kind: TCPRoute
+    - name: rd-udp
+      protocol: UDP
+      port: 21116
+      allowedRoutes:
+        namespaces:
+          from: All
+        kinds:
+            - kind: UDPRoute
 ---
 # yaml-language-server: $schema=https://raw.githubusercontent.com/envoyproxy/gateway/refs/heads/main/charts/gateway-helm/crds/generated/gateway.envoyproxy.io_clienttrafficpolicies.yaml
 apiVersion: gateway.envoyproxy.io/v1alpha1
@@ -187,10 +187,10 @@ metadata:
     external-dns.alpha.kubernetes.io/controller: none
 spec:
   parentRefs:
-    - name: envoy-external
+    - name: external
       namespace: network
       sectionName: http
-    - name: envoy-internal
+    - name: internal
       namespace: network
       sectionName: http
   rules:

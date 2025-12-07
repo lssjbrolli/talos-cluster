@@ -5,8 +5,8 @@ metadata:
   name: rd-tcp
 spec:
   parentRefs:
-    - name: external
-      sectionName: rd-udp
+    - name: internal
+      sectionName: rd-tcp
   rules:
     - backendRefs:
         - name: rd-hole

@@ -5,7 +5,7 @@ metadata:
   name: rd-udp
 spec:
   parentRefs:
-    - name: external
+    - name: internal
       sectionName: rd-udp
   rules:
     - backendRefs:

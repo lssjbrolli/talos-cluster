@@ -10,6 +10,9 @@ spec:
       sectionName: rd-tcp
   rules:
     - backendRefs:
-        - name: rustdesk
+        - name: rd-server
           namespace: kube-apps
           port: 21116
+        - name: rd-relay
+          namespace: kube-apps
+          port: 21117

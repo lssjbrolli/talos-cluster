@@ -19,7 +19,7 @@ spec:
         annotations:
           reloader.stakater.com/auto: "true"
         containers:
-          main:
+          hbbs:
             image:
               repository: ghcr.io/rustdesk/rustdesk-server
               tag: 1.1.12@sha256:9b1197d116f7bb4d3ad93a50bc1bc59ddb388de267df221a351f5ce10fac3dcf
@@ -27,7 +27,8 @@ spec:
               TZ: ${TIMEZONE}
               DB_URL: /db/db_v2.sqlite3
               ENCRYPTED_ONLY: "1"
-            command: ["hbbs"]
+              RELAY: "10.10.30.20:21117"
+            command: ["hbbs", "-r "]
             ports:
               - containerPort: 21115
                 name: rd-nat
@@ -38,12 +39,23 @@ spec:
                 protocol: UDP
               - containerPort: 21118
                 name: rd-ws
+          hbbr:
+            image:
+              repository: ghcr.io/rustdesk/rustdesk-server
+              tag: 1.1.12@sha256:9b1197d116f7bb4d3ad93a50bc1bc59ddb388de267df221a351f5ce10fac3dcf
+            env:
+              TZ: ${TIMEZONE}
+            command: ["hbbr"]
+            ports:
+              - containerPort: 21117
+                name: rd-relay
     # 21115 TCP for NAT type test
     # 21116 TCP TCP hole punching
     # 21116 UDP heartbeat/ID server
+    # 21117 TCP relay server
     # 21118 TCP for web socket if you want to run web client
     service:
-      main:
+      rd-server:
         controller: main
         ports:
           rd-nat:
@@ -55,6 +67,11 @@ spec:
             protocol: UDP
           rd-ws:
             port: 21118
+      rd-relay:
+        controller: main
+        ports:
+          rd-relay:
+            port: 21117
 
     persistence:
       config:

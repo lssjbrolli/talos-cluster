@@ -27,8 +27,8 @@ spec:
               TZ: ${TIMEZONE}
               DB_URL: /db/db_v2.sqlite3
               ENCRYPTED_ONLY: "1"
-              RELAY: "10.10.30.20:21117"
-            command: ["hbbs", "-r "]
+              RELAY: "rustdesk-rd-relay.kube-appp.svc.cluster.local:21117"
+            command: ["hbbs", "-r rustdesk-rd-relay.kube-appp.svc.cluster.local:21117"]
             ports:
               - containerPort: 21115
                 name: rd-nat

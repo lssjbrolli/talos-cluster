@@ -6,8 +6,10 @@ metadata:
 spec:
   parentRefs:
     - name: internal
+      namespace: network
       sectionName: rd-udp
   rules:
     - backendRefs:
-        - name: rd-id
+        - name: rustdesk
+          namespace: kube-apps
           port: 21116

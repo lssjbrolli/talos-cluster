@@ -1,0 +1,157 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/fluxcd-community/flux2-schemas/main/helmrelease-helm-v2.json
+# yaml-language-server: $schema.spec.values=https://raw.githubusercontent.com/authelia/chartrepo/refs/heads/master/charts/authelia/values.schema.json
+
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: authelia
+spec:
+  chartRef:
+    kind: OCIRepository
+    name: authelia
+  interval: 1h
+  values:
+    configMap:
+      theme: auto
+      server:
+        address: tcp://0.0.0.0:9091
+        disable_healthcheck: true
+      log:
+        level: info
+      totp:
+        disable: false
+      webauthn:
+        disable: true
+      ntp:
+        address: time.cloudflare.com
+        version: 3
+        max_desync: 3s
+        disable_startup_check: false
+        disable_failure: false
+      authentication_backend:
+        password_reset:
+          disable: false
+        refresh_interval: 1m
+      access_control:
+        default_policy: deny
+        networks:
+          - name: internal
+            networks:
+              - 192.168.1.0/24
+        rules:
+          - domain: "*.${SECRET_DOMAIN}"
+            policy: bypass
+            networks:
+              - internal
+          - domain: "*.${SECRET_DOMAIN}"
+            policy: two_factor
+      session:
+        name: authelia_session
+        expiration: 1h
+        inactivity: 15m
+        remember_me: 1M
+        cookies:
+          - domain: ${SECRET_DOMAIN}
+            authelia_url: https://auth.${SECRET_DOMAIN}
+            default_redirection_url: https://${SECRET_DOMAIN}
+        redis:
+          host: dragonfly-operator.db.svc.cluster.local
+          port: 6379
+      regulation:
+        max_retries: 3
+        find_time: 2m
+        ban_time: 5m
+      notifier:
+        disable_startup_check: true
+        # smtp:
+        #   address: submission://smtp.gmail.com:587
+        #   username: budimanjojo@gmail.com
+        #   sender: Authelia Admin <admin@budimanjojo.com>
+      definitions:
+        user_attributes:
+          is_nextcloud_admin:
+            expression: '"nextcloud-admins" in groups'
+      identity_providers:
+        oidc:
+          claims_policies:
+            default:
+              id_token:
+                - rat
+                - groups
+                - email
+                - email_verified
+                - alt_emails
+                - preferred_username
+                - name
+            nextcloud_userinfo:
+              custom_claims:
+                is_nextcloud_admin: {}
+          scopes:
+            nextcloud_userinfo:
+              claims:
+                - is_nextcloud_admin
+          jwks:
+            - key: |
+                {{ secret "/config/secret/jwks-0-key.pem" | mindent 10 "|" | msquote }}
+              certificate_chain: |
+                {{ secret "/config/secret/jwks-0-cert.cert" | mindent 10 "|" | msquote }}
+          cors:
+            endpoints:
+              - authorization
+              - token
+              - revocation
+              - introspection
+            allowed_origins_from_client_redirect_uris: true
+          clients:
+            - client_id: minio
+              client_name: Minio
+              client_secret: '{{ secret "/config/secret/oidc-client-minio" }}'
+              public: false
+              authorization_policy: two_factor
+              redirect_uris:
+                - https://minio.${SECRET_DOMAIN}/oauth_callback
+              scopes:
+                - openid
+                - profile
+                - email
+                - groups
+              userinfo_signed_response_alg: none
+              claims_policy: default
+            - client_id: nextcloud
+              client_name: Nextcloud
+              client_secret: '{{ secret "/config/secret/oidc-client-nextcloud" }}'
+              public: false
+              authorization_policy: two_factor
+              require_pkce: true
+              pkce_challenge_method: S256
+              claims_policy: nextcloud_userinfo
+              redirect_uris:
+                - https://nextcloud.${SECRET_DOMAIN}/apps/oidc_login/oidc
+              scopes:
+                - openid
+                - profile
+                - email
+                - groups
+                - nextcloud_userinfo
+              response_types:
+                - code
+              grant_types:
+                - authorization_code
+              access_token_signed_response_alg: none
+              userinfo_signed_response_alg: none
+              token_endpoint_auth_method: client_secret_basic
+            - client_id: immich
+              client_name: Immich
+              client_secret: '{{ secret "/config/secret/oidc-client-immich" }}'
+              public: false
+              authorization_policy: two_factor
+              redirect_uris:
+                - https://photos.${SECRET_DOMAIN}/auth/login
+                - app.immich:/
+              scopes:
+                - openid
+                - profile
+                - email
+              userinfo_signed_response_alg: none
+              token_endpoint_auth_method: client_secret_post

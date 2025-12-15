@@ -20,8 +20,6 @@ spec:
       webauthn:
         disable: true
       authentication_backend:
-        password_reset:
-          disable: false
         refresh_interval: 1m
         file:
           enabled: true
@@ -69,6 +67,11 @@ spec:
             expression: '"nextcloud-admins" in groups'
       identity_providers:
         oidc:
+          enabled: true
+          hmac_secret:
+            secret_name: authelia
+            path: identity_providers.oidc.hmac.key
+          enable_client_debug_messages: false
           claims_policies:
             default:
               id_token:
@@ -87,10 +90,8 @@ spec:
               claims:
                 - is_nextcloud_admin
           jwks:
-            - key: |
-                {{ secret "/config/secret/jwks-0-key.pem" | mindent 10 "|" | msquote }}
-              certificate_chain: |
-                {{ secret "/config/secret/jwks-0-cert.cert" | mindent 10 "|" | msquote }}
+            - key:
+                path: '/secrets/authelia/oidc.jwk.RS256.pem'
           cors:
             endpoints:
               - authorization
@@ -99,10 +100,37 @@ spec:
               - introspection
             allowed_origins_from_client_redirect_uris: true
           clients:
-            - client_id: minio
-              client_name: Minio
+            - client_name: 'Immich'
+              # docker run authelia/authelia:latest authelia crypto rand --length 72 --charset rfc3986
+              client_id: 'BDP8p_LA.rou-Wkl_BcZr1eB1NO0INtFfsPrFMm~.jw0HZo-3VfoeCXo74kO1LYsy_6txYAK'
+              # docker run authelia/authelia:latest authelia crypto hash generate pbkdf2 --variant sha512 --random
               client_secret:
-                path: '{{ secret "/config/secret/oidc-client-minio" }}'
+                path: '/secrets/authelia/oidc.client.immich.value'
+              authorization_policy: 'two_factor'
+              consent_mode: implicit
+              redirect_uris:
+                - 'https://immich.${SECRET_DOMAIN}/auth/login'
+                - 'https://immich.${SECRET_DOMAIN}/user-settings'
+                - 'https://immich.${SECRET_DOMAIN}/api/oauth/mobile-redirect'
+              scopes:
+                - openid
+                - profile
+                - email
+              token_endpoint_auth_method: 'client_secret_post'
+            - client_name: 'SFTPGo'
+              client_id: 'JdcVlzNIeq5wh18Jo0-SWxgSROh_eCW0wHR2tGdNqQDK0~2IVWX_hnJYG1wChxj5ETHes7tF'
+              client_secret:
+                path: '/secrets/authelia/oidc.client.sftpgo.value'
+              authorization_policy: 'two_factor'
+              consent_mode: implicit
+              redirect_uris:
+                - 'https://sftpgo.${SECRET_DOMAIN}/web/oidc/redirect'
+              scopes: [ openid, profile, email, preferred_username ]
+              claims_policy: 'default'
+            - client_name: Minio
+              client_id: '3d~kj20my5Nj1lziB4MoGkVy5Tx~2h.kL0LYNaA5K0kDlLznRH-OeMGWhv2hADEK6DSsOjgQ'
+              client_secret:
+                path: '/secrets/authelia/oidc.client.minio.value'
               public: false
               authorization_policy: two_factor
               redirect_uris:
@@ -114,43 +142,53 @@ spec:
                 - groups
               userinfo_signed_response_alg: none
               claims_policy: default
-            # - client_id: nextcloud
-            #   client_name: Nextcloud
-            #   client_secret: '{{ secret "/config/secret/oidc-client-nextcloud" }}'
-            #   public: false
-            #   authorization_policy: two_factor
-            #   require_pkce: true
-            #   pkce_challenge_method: S256
-            #   claims_policy: nextcloud_userinfo
-            #   redirect_uris:
-            #     - https://nextcloud.${SECRET_DOMAIN}/apps/oidc_login/oidc
-            #   scopes:
-            #     - openid
-            #     - profile
-            #     - email
-            #     - groups
-            #     - nextcloud_userinfo
-            #   response_types:
-            #     - code
-            #   grant_types:
-            #     - authorization_code
-            #   access_token_signed_response_alg: none
-            #   userinfo_signed_response_alg: none
-            #   token_endpoint_auth_method: client_secret_basic
-            # - client_id: immich
-            #   client_name: Immich
-            #   client_secret: '{{ secret "/config/secret/oidc-client-immich" }}'
-            #   public: false
-            #   authorization_policy: two_factor
-            #   redirect_uris:
-            #     - https://photos.${SECRET_DOMAIN}/auth/login
-            #     - app.immich:/
-            #   scopes:
-            #     - openid
-            #     - profile
-            #     - email
-            #   userinfo_signed_response_alg: none
-            #   token_endpoint_auth_method: client_secret_post
+            - client_name: Nextcloud
+              client_id: 'dlZVU05Xm5Vz0eOANbfSkRwxYINdynJhpE8j0rcasZLLyg9bgHpJKodoCiK9oSrywq1Q1cGh'
+              client_secret:
+                path: '/secrets/authelia/oidc.client.nextcloud.value'
+              public: false
+              authorization_policy: two_factor
+              require_pkce: true
+              pkce_challenge_method: S256
+              claims_policy: nextcloud_userinfo
+              redirect_uris:
+                - https://nextcloud.${SECRET_DOMAIN}/apps/oidc_login/oidc
+              scopes:
+                - openid
+                - profile
+                - email
+                - groups
+                - nextcloud_userinfo
+              response_types:
+                - code
+              grant_types:
+                - authorization_code
+              access_token_signed_response_alg: none
+              userinfo_signed_response_alg: none
+              token_endpoint_auth_method: client_secret_basic
+    ingress:
+      gatewayAPI:
+        enabled: true
+        hostnamesOverride:
+          - "auth.${SECRET_DOMAIN}"
+        parentRefs:
+          - name: external
+            namespace: network
+            sectionName: https
+      rulesOverride:
+        - backendRefs:
+          - name: authelia
+            namespace: kube-system
+            port: 80
+    secret:
+      existingSecret: authelia
+      additionalSecrets:
+        authelia:
+          items:
+            - key: 'identity_providers.oidc.hmac.key'
+            - key: 'oidc.jwk.RS256.pem'
+            - key: 'oidc.client.immich.value'
+            - key: 'oidc.client.sftpgo.value'
     persistence:
       enabled: true
       existingClaim: authelia-config

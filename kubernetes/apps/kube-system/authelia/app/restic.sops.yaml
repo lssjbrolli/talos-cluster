@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Secret
 metadata:
     name: restic-authelia
-    namespace: kube-apps
+    namespace: kube-system
 stringData:
     #ENC[AES256_GCM,data:v/rqDm3BYT1G7Li+NAfj5WZWJw==,iv:piXYLG+01JqYS+G6/ZFggNVsZt5NgDuv6EUU6Oh+sbQ=,tag:CqqT7wJgEXOLSgrJhQClqw==,type:comment]
     RESTIC_REPOSITORY: ENC[AES256_GCM,data:xOhl3hde70pZSdKlmbzVrOZ6N4AErtdGyrUZpRpTtefpKnebNdwzVruk1t3C2tnHA9bGrE0eHx55XgaKTFcgsVBg06g83A==,iv:2ShsDqic0KLPK+/oURMPbJLreOLKqwtOysYODGZj2HI=,tag:sae4pWevB7Ndrp++Qx0qRg==,type:str]
@@ -23,7 +23,7 @@ sops:
             Tm9NYVNVZjUrZUFLbS9WQmNVcjFpVGsKrZyCYx3InSl9BAfOLP/8Nb4Bt9skNjmi
             ywg6GNEEN0qS/W/1TKVCwLZ/TAbbyeyKXWiq/WzCiDtxrNg0YWT35g==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2025-12-15T16:54:47Z"
-    mac: ENC[AES256_GCM,data:8VvIQ8YGeYoHO0XbKks+bArt8GJ56LVrV2363o1F5Rk3UF9hUiooA1FWLXtB/BmtBA1GIEmMQcdebtJAsqS6iUgMjashPhTNb17B1X03amcNElsSEX58gng3fCP/6osbH2XW+ZuYIuA/W+/Uj8LVirqW0aE1+kXAZvME3YUxKLM=,iv:MLiX9db1Jtyi7+NGZkrOvhWm/BoAPQ3xp1cd7PMmGT4=,tag:9gJcvJ5z4cyFWpvpPY3WNw==,type:str]
+    lastmodified: "2025-12-15T17:42:07Z"
+    mac: ENC[AES256_GCM,data:ThFF820mGhfn6drEIZ+5w0Dczz5sbCe+PyJEXFwNhVJ+MMHEBF2jCmn2eAGRv3KuRFnH7gKRWt/uRNRelWbYmjhpFfAeVuxGsrMUCAG7hmSE5hXXQ6Ggf+6u+OpPCYSpUg5uAMjqq4u5WVCJQ0OEeYTQ4VV/MCu3VZoXV+dsFjc=,iv:D4FpRFiTXg3wBHxS6gJz7Jb3vac0zeP/43kUAlweVNo=,tag:NIo7f1suX9evYSPkFXvfpA==,type:str]
     encrypted_regex: ^(data|stringData)$
     version: 3.11.0

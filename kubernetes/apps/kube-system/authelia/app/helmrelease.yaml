@@ -63,6 +63,8 @@ spec:
           enabled: true
       notifier:
         disable_startup_check: true
+        filesystem:
+          enabled: true
         # smtp:
         #   address: submission://smtp.gmail.com:587
         #   username: budimanjojo@gmail.com

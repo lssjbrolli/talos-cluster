@@ -38,7 +38,7 @@ spec:
                 LLDAP_HTTP_URL: https://lldap.${CLUSTER_DOMAIN}
                 LLDAP_LDAP_PORT: &ldapPort 389
                 LLDAP_LDAP_BASE_DN: dc=home,dc=arpa
-                LLDAP_LDAPS_OPTIONS__KEY_FILE: ''
+                LLDAP_KEY_FILE: ''
               envFrom: *envFrom
               probes:
                 liveness:

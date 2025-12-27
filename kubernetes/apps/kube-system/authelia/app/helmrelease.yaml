@@ -182,11 +182,11 @@ spec:
           - name: external
             namespace: network
             sectionName: https
-      rulesOverride:
-        - backendRefs:
-          - name: authelia
-            namespace: kube-system
-            port: 80
+      # rulesOverride:
+      #   - backendRefs:
+      #     - name: authelia
+      #       namespace: kube-system
+      #       port: 80
     secret:
       existingSecret: authelia
       additionalSecrets:

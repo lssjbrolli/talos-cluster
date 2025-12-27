@@ -138,7 +138,6 @@ spec:
               client_secret:
                 path: '/secrets/authelia/oidc.client.immich.value'
               authorization_policy: 'one_factor'
-              consent_mode: implicit
               redirect_uris:
                 - 'https://photos.${SECRET_DOMAIN}/auth/login'
                 - 'https://photos.${SECRET_DOMAIN}/user-settings'
@@ -158,7 +157,7 @@ spec:
               client_secret:
                 path: '/secrets/authelia/oidc.client.sftpgo.value'
               authorization_policy: 'one_factor'
-              consent_mode: implicit
+              claims_policy: 'sftpgo'
               redirect_uris:
                 - 'https://ftp.${SECRET_DOMAIN}/web/oidc/redirect'
                 - 'https://ftp.${SECRET_DOMAIN}/web/oauth2/redirect'

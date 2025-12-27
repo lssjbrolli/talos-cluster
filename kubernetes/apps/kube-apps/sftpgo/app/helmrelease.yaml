@@ -70,7 +70,7 @@ spec:
       - name: SFTPGO_HTTPD__BINDINGS__0__OIDC__CONFIG_URL
         value: https://auth.${SECRET_DOMAIN}
       - name: SFTPGO_HTTPD__BINDINGS__0__OIDC__REDIRECT_BASE_URL
-        value: https://sftpgo.${SECRET_DOMAIN}
+        value: https://ftp.${SECRET_DOMAIN}
       - name: SFTPGO_HTTPD__BINDINGS__0__OIDC__SCOPES
         value: openid,profile,email,sftpgo
       - name: SFTPGO_HTTPD__BINDINGS__0__OIDC__USERNAME_FIELD

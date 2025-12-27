@@ -47,7 +47,6 @@ spec:
         value: '0'
       - name: SFTPGO_DATA_PROVIDER__CREATE_DEFAULT_ADMIN
         value: "true"
-
       - name: SFTPGO_DEFAULT_ADMIN_USERNAME
         valueFrom:
           secretKeyRef:
@@ -58,6 +57,26 @@ spec:
           secretKeyRef:
             name: sftpgo-secrets
             key: ADMIN_PASS
+      - name: SFTPGO_HTTPD__BINDINGS__0__OIDC__CLIENT_ID
+        valueFrom:
+          secretKeyRef:
+            name: sftpgo-secrets
+            key: CLIENT_ID
+      - name: SFTPGO_HTTPD__BINDINGS__0__OIDC__CLIENT_SECRET
+        valueFrom:
+          secretKeyRef:
+            name: sftpgo-secrets
+            key: CLIENT_SECRET
+      - name: SFTPGO_HTTPD__BINDINGS__0__OIDC__CONFIG_URL
+        value: https://auth.${SECRET_DOMAIN}
+      - name: SFTPGO_HTTPD__BINDINGS__0__OIDC__REDIRECT_BASE_URL
+        value: https://sftpgo.${SECRET_DOMAIN}
+      - name: SFTPGO_HTTPD__BINDINGS__0__OIDC__SCOPES
+        value: openid,profile,email,sftpgo
+      - name: SFTPGO_HTTPD__BINDINGS__0__OIDC__USERNAME_FIELD
+        value: preferred_username
+      - name: SFTPGO_HTTPD__BINDINGS__0__OIDC__ROLE_FIELD
+        value: sftpgo_role
     httpd:
       # -- Enable HTTP service.
       enabled: true

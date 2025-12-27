@@ -21,10 +21,27 @@ spec:
         disable: true
       authentication_backend:
         refresh_interval: 1m
-        file:
-          enabled: true
+        ldap:
+          address: 'ldap://lldap.kube-system.svc.cluster.local'
+          implementation: 'custom'
+          timeout: '5s'
+          start_tls: false
+          tls:
+            server_name: 'ldap.seganet.org'
+            skip_verify: false
+            minimum_version: 'TLS1.2'
+            maximum_version: 'TLS1.3'
+      password_policy:
+      standard:
+        enabled: false
+        min_length: 8
+        max_length: 0
+        require_uppercase: true
+        require_lowercase: true
+        require_number: true
+        require_special: false
       access_control:
-        default_policy: deny
+        default_policy: one_factor
         rules:
           - domain: "*.${SECRET_DOMAIN}"
             policy: bypass

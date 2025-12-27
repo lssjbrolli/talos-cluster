@@ -22,6 +22,7 @@ spec:
       authentication_backend:
         refresh_interval: 1m
         ldap:
+          enabled: true
           address: 'ldap://lldap.kube-system.svc.cluster.local'
           implementation: 'custom'
           timeout: '5s'

@@ -201,7 +201,7 @@ spec:
             - key: 'oidc.client.sftpgo.value'
         auth-db:
           items:
-            - key: password
+            - key: 'storage.postgres.password'
     persistence:
       enabled: true
       existingClaim: authelia-config

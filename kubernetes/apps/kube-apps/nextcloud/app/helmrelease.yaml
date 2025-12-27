@@ -71,7 +71,7 @@ spec:
         fsGroup: 568
         fsGroupChangePolicy: OnRootMismatch
       configs:
-        config.php: |-
+        oidc.config.php: |-
           <?php
           $CONFIG = array (
             'user_oidc' => [

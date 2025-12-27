@@ -96,8 +96,7 @@ spec:
               claims:
                 - is_nextcloud_admin
           jwks:
-            - key:
-                path: '/secrets/authelia/oidc.jwk.RS256.pem'
+            - key: {{ secret "/authelia/oidc.jwk.RS256.pem" | mindent 10 "|" | msquote }}
           cors:
             endpoints:
               - authorization

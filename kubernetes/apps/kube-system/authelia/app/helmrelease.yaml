@@ -195,11 +195,15 @@ spec:
         authelia:
           items:
             - key: 'identity_providers.oidc.hmac.key'
-            - key: 'oidc.jwk.RS256.pem'
+            - key: 'identity_validation.reset_password.jwt.hmac.key'
             - key: 'oidc.client.immich.value'
             - key: 'oidc.client.minio.value'
             - key: 'oidc.client.nextcloud.value'
             - key: 'oidc.client.sftpgo.value'
+            - key: 'oidc.jwk.RS256.pem'
+            - key: 'session.encryption.key'
+            - key: 'session.redis.password.txt'
+            - key: 'storage.encryption.key'
             - key: 'storage.postgres.password.txt'
     persistence:
       enabled: true

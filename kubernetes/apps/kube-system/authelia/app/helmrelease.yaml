@@ -160,8 +160,8 @@ spec:
               authorization_policy: 'one_factor'
               consent_mode: implicit
               redirect_uris:
-                - 'https://sftpgo.${SECRET_DOMAIN}/web/oidc/redirect'
-                - 'https://sftpgo.${SECRET_DOMAIN}/web/oauth2/redirect'
+                - 'https://ftp.${SECRET_DOMAIN}/web/oidc/redirect'
+                - 'https://ftp.${SECRET_DOMAIN}/web/oauth2/redirect'
               scopes:
                 - openid
                 - profile

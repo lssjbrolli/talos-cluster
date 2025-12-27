@@ -51,8 +51,8 @@ spec:
                 limits:
                   memory: 128M
     service:
-      app:
-        controller: lldap
+      main:
+        controller: main
         ports:
           http:
             port: *port

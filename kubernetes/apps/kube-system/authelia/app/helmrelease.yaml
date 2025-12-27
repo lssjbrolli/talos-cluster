@@ -52,7 +52,6 @@ spec:
         ban_time: 5m
       storage:
         encryption_key:
-          disabled: true
           secret_name: authelia
         postgres:
           enabled: true

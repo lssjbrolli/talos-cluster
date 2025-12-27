@@ -36,6 +36,7 @@ spec:
           additional_groups_dn: ou=groups
           groups_filter: "(member={dn})"
           user: authelia
+          base_dn: 'dc=seganet,dc=org'
           start_tls: false
           tls:
             server_name: 'ldap.seganet.org'

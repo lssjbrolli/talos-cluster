@@ -197,6 +197,9 @@ spec:
             - key: 'oidc.jwk.RS256.pem'
             - key: 'oidc.client.immich.value'
             - key: 'oidc.client.sftpgo.value'
+        auth-db:
+          items:
+            - key: password
     persistence:
       enabled: true
       existingClaim: authelia-config

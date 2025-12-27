@@ -18,7 +18,8 @@ spec:
       totp:
         disable: false
       webauthn:
-        disable: true
+        disable: false
+        enable_passkey_login: true
       authentication_backend:
         refresh_interval: 1m
         ldap:
@@ -53,7 +54,7 @@ spec:
           require_number: true
           require_special: false
       access_control:
-        default_policy: one_factor
+        default_policy: deny
         rules:
           - domain: "*.${SECRET_DOMAIN}"
             policy: bypass
@@ -62,7 +63,7 @@ spec:
               - 172.16.0.0/16
               - 172.17.0.0/16
           - domain: "*.${SECRET_DOMAIN}"
-            policy: two_factor
+            policy: one_factor
       session:
         name: authelia_session
         expiration: 1h
@@ -125,7 +126,7 @@ spec:
               # docker run authelia/authelia:latest authelia crypto hash generate pbkdf2 --variant sha512 --random
               client_secret:
                 path: '/secrets/authelia/oidc.client.immich.value'
-              authorization_policy: 'two_factor'
+              authorization_policy: 'one_factor'
               consent_mode: implicit
               redirect_uris:
                 - 'https://immich.${SECRET_DOMAIN}/auth/login'
@@ -140,7 +141,7 @@ spec:
               client_id: 'JdcVlzNIeq5wh18Jo0-SWxgSROh_eCW0wHR2tGdNqQDK0~2IVWX_hnJYG1wChxj5ETHes7tF'
               client_secret:
                 path: '/secrets/authelia/oidc.client.sftpgo.value'
-              authorization_policy: 'two_factor'
+              authorization_policy: 'one_factor'
               consent_mode: implicit
               redirect_uris:
                 - 'https://sftpgo.${SECRET_DOMAIN}/web/oidc/redirect'
@@ -153,7 +154,7 @@ spec:
               client_secret:
                 path: '/secrets/authelia/oidc.client.minio.value'
               public: false
-              authorization_policy: two_factor
+              authorization_policy: one_factor
               redirect_uris:
                 - https://minio.${SECRET_DOMAIN}/oauth_callback
               scopes:
@@ -167,7 +168,7 @@ spec:
               client_secret:
                 path: '/secrets/authelia/oidc.client.nextcloud.value'
               public: false
-              authorization_policy: two_factor
+              authorization_policy: one_factor
               require_pkce: true
               pkce_challenge_method: S256
               redirect_uris:

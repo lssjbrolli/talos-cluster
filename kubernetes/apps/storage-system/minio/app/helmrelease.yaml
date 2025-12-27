@@ -76,7 +76,7 @@ spec:
           http:
             port: &http 9001
           s3:
-            port: 9000
+            port: &api 9000
 
     serviceMonitor:
       app:
@@ -89,7 +89,7 @@ spec:
             scrapeTimeout: 10s
 
     route:
-      app:
+      console:
         hostnames:
           - "minio.${SECRET_DOMAIN}"
         parentRefs:
@@ -100,6 +100,17 @@ spec:
           - backendRefs:
               - identifier: app
                 port: *http
+      api:
+        hostnames:
+          - "s3.${SECRET_DOMAIN}"
+        parentRefs:
+          - name: internal
+            namespace: network
+            sectionName: http
+        rules:
+          - backendRefs:
+              - identifier: app
+                port: *api
 
     persistence:
       config:

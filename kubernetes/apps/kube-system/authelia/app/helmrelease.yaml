@@ -129,13 +129,18 @@ spec:
               authorization_policy: 'one_factor'
               consent_mode: implicit
               redirect_uris:
-                - 'https://immich.${SECRET_DOMAIN}/auth/login'
-                - 'https://immich.${SECRET_DOMAIN}/user-settings'
-                - 'https://immich.${SECRET_DOMAIN}/api/oauth/mobile-redirect'
+                - 'https://photos.seganet.org/auth/login'
+                - 'https://photos.seganet.org/user-settings'
               scopes:
                 - openid
                 - profile
                 - email
+              response_types:
+                - 'code'
+              grant_types:
+                - 'authorization_code'
+              access_token_signed_response_alg: 'none'
+              userinfo_signed_response_alg: 'none'
               token_endpoint_auth_method: 'client_secret_post'
             - client_name: 'SFTPGo'
               client_id: 'JdcVlzNIeq5wh18Jo0-SWxgSROh_eCW0wHR2tGdNqQDK0~2IVWX_hnJYG1wChxj5ETHes7tF'

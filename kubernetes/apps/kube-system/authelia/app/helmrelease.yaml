@@ -194,7 +194,7 @@ spec:
               require_pkce: true
               pkce_challenge_method: S256
               redirect_uris:
-                - https://nextcloud.${SECRET_DOMAIN}/apps/user_oidc/code
+                - https://cloud.${SECRET_DOMAIN}/apps/user_oidc/code
               scopes:
                 - openid
                 - profile

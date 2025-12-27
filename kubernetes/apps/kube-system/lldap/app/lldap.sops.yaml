@@ -13,7 +13,7 @@ stringData:
     #ENC[AES256_GCM,data:6DIx,iv:X5ijwkW36eB8C0Y9rzOhReg99sT9ic14GgAgdQ8IpWg=,tag:MzVGdf6bVmVKrHIhKPKXMg==,type:comment]
     LLDAP_JWT_SECRET: ENC[AES256_GCM,data:pSF8P/xydiu5VVpo1lsCLcgt2jYDbj+2h+Iz8hjNc84=,iv:FxPp2AcrZ/AsjCHoP05kU9Un5i0LokR6yHNsNmOJMxI=,tag:nobWPiufQgFf044UihToCg==,type:str]
     LLDAP_LDAP_USER_PASS: ENC[AES256_GCM,data:soAXk8OvWuLZ7heNqtLbDQ==,iv:uTVbFAPIlTED+FF5W4k8VAE88sjashlJf6N8EjMXiOw=,tag:eqRIkbovP+dqQp3KL/vBSw==,type:str]
-    LLDAP_USER_DN: ENC[AES256_GCM,data:bKdtvjy0q5Hr6PM96NvpDqo=,iv:1O390YXc+vokoEqngdsWYYMuc8ZWX2VvO+eb4Mm+/v4=,tag:0JE8d8nlFhVIAkd4J5N4KA==,type:str]
+    LLDAP_USER_DN: ENC[AES256_GCM,data:lCh3AGveJg3MVVnGa2oUQl+t,iv:W/cEPJ4XAy6aOrKz+PgtNsoT/yJ0imS/mdk72FfibJg=,tag:myqYQPxUxKrOxBrRplMm2A==,type:str]
     LDAP_USER_EMAIL: ENC[AES256_GCM,data:Kfp9TwXRga+VeSpaGSYgz0Nm+KA=,iv:66XBTlwK1Snekyzy+82ilv/87mIdnv8mFexMyt0hrQg=,tag:62sA3Pe9ewfuThD27HB1+A==,type:str]
     LLDAP_SERVER_KEY_SEED: ENC[AES256_GCM,data:Fk4ELjND25H8omJGXCKA0jhtqR5inFS0SmdLi148le8=,iv:yoWNOc+m3gZjeU4YM4FNC58BtI7l53t2S1sLrtDxT/I=,tag:LRLKm2abJVWZBIQXldyzJQ==,type:str]
     LLDAP_DATABASE_URL: ENC[AES256_GCM,data:vj3nSKFOQr1Jb0PFuOV1oePsILDHu0WOF0N396ZP9wLvh1osqC+bPe0FmvHi+iP7W7V2uJTKQsGxfVwL,iv:jY5e+PDfrAwapJrPiKWTsJOc5StjNNY1xSsupuoEckI=,tag:N2pnkaFvzC+Btct2/j/Ihg==,type:str]
@@ -28,7 +28,7 @@ sops:
             K3c3dlNlQ0l3VjhacVFONVdIM3BSOXcKwEfiPvFzy9ju8XHXYJLXJpG9El9SlQXc
             XUNzp6zHHcCEIflIpEJssLFuq9zxCFXk3CoFpk/2PNi8MiOIKIl/qw==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2025-12-27T18:06:39Z"
-    mac: ENC[AES256_GCM,data:SP47hX839HY6RLbs3X2sq1t2EZ/sjA6AFoS9KC9l2rYaMfP08rdG2QnqzGQrO7LQmRpX3uFh0SmcaWMlaewfSS/drD3/trTF/EAGwb2QSyonaQpemCV8FmGbDXq8dTW5SVmPjA2kMtIb/dFhow8s/WFOl07+vHHHV5C+bnyFo3k=,iv:QVEPDwFRFIar7Rkw8qss/okxDJ2SOuMsS91wQa3HfWg=,tag:m63d8SIg1uuS1v/pWutTzQ==,type:str]
+    lastmodified: "2025-12-27T19:34:28Z"
+    mac: ENC[AES256_GCM,data:9sYGD3RLeAMU6LMU94XzdwCTlrkCEqAscTPXigZjWtxE0VLsR6hqgGLjjiohqNlGFIfge88nlfwBzp35g+oXFk8LWGrkjv5BYNtFB9Yw/4qQb005qs6CJef6hwZtbbPIbbGSGqbyp29qzkmQyqFP3cAlkW9gA3i/QrWPJNs0hAI=,iv:xDNtzNbYUoCltILdVFyVj0auGOKLX1Nm5uo580YVMAo=,tag:ewkQPN9r+xFJwGjMQWS4dA==,type:str]
     encrypted_regex: ^(data|stringData)$
     version: 3.11.0

@@ -37,7 +37,7 @@ spec:
                 LLDAP_HTTP_PORT: &port 80
                 LLDAP_HTTP_URL: https://ldap.${CLUSTER_DOMAIN}
                 LLDAP_LDAP_PORT: &ldapPort 389
-                LLDAP_LDAP_BASE_DN: dc=home,dc=arpa
+                LLDAP_LDAP_BASE_DN: dc=seganet,dc=org
                 LLDAP_KEY_FILE: ''
               envFrom: *envFrom
               probes:

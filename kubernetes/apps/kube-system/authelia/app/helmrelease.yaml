@@ -51,6 +51,9 @@ spec:
         find_time: 2m
         ban_time: 5m
       storage:
+        encryption_key:
+          disabled: true
+          secret_name: authelia
         postgres:
           enabled: true
           address: tcp://cluster17-rw.db.svc.cluster.local:5432

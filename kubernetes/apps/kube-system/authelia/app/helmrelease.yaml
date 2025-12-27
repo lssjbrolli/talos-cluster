@@ -58,6 +58,7 @@ spec:
           username: sega
           password:
             disabled: false
+            secret_name: auth-db
             value: password
       notifier:
         disable_startup_check: true

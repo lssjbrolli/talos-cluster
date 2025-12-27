@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: clients
+  namespace: kube-system
+stringData:
+  oidc.client.immich.plain: ENC[AES256_GCM,data:gfQbt+POZgsO50ODXRiqBjEHCVhNz/AmuGpFiPQX2d4EML9o2159D+HGnw4k6k5IFmCEA4tgyvfLaCaVnC3G+7YjuRnnmz7Q,iv:DIy5rvYyG25voNJl7YXPNfcbCiiOyA40ER9Q2TvQmGk=,tag:p9hUGif60Cg/nZfQpmqYyA==,type:str]
+  oidc.client.minio.plain: ENC[AES256_GCM,data:cSApGDXDG/dUQf/HexFi+JJOpA4yhE7D/WMnjs4bLG0eqpmxSBYvUYHOcWf9+BgyahHvUGJ9e55eAh2XZvYIrH6slZ2glFKV,iv:DpBp9lhktJa0oCLDF6hh1g+nme/CeBqwFfFgAOSuB9A=,tag:q2+VQ1egq6n9QRP1OyGmiQ==,type:str]
+  oidc.client.nextcloud.plain: ENC[AES256_GCM,data:4Z9rJyCGrm5m/QSsI8gL7wjAF5AAtcqwaWw5yHCllkV9D5v7MfPJL5uO8hbZnU6mO2ux9R9ChV73/4KwSAuZmD4TsuwhOXZX,iv:t6ahApqkRIsmGGTZXglt/4dadghY4YnBgi2/Sp70nwI=,tag:ITa1FpekXOC7lnmgfViPTw==,type:str]
+  oidc.client.sftpgo.plain: ENC[AES256_GCM,data:zvwDil7en9ir870oENKts/45saW3wkm+yACT3ylTLzgCW7uQDIbAJmL4FIACcxyfgPzz9xZ28rKPkQiZ86HWIrKXiB1+Sedt,iv:+wdJ50rilACsjreEQ8Ng8ZVtG6IHLS/aPkjL7pnBpic=,tag:hG2JOjsg2KTCVu2HYyLdrA==,type:str]
+sops:
+  age:
+    - recipient: age1k5cr4cvs4atdm3gse77vq4glnv9q49gq5wl49p9806gfyfld7p3setz3tw
+      enc: |
+        -----BEGIN AGE ENCRYPTED FILE-----
+        YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSB2Nkk1bURSZW9JbGhXT0pr
+        ZnZtcXpDTlpMdFVKa01mL0JsUWtENWN2V0ZRClNFcm1vNGJFV2NaWlVHdmxBaWk2
+        dFo1OUU2MDBhaXBaVkw2QklDLzhScHMKLS0tIFNONCthdm92clVyMGxtcHhEczZG
+        SXpHUnRza3NrcnRLejRvUndWaWxraUEK3Qa+jkDwKO/6Yl1DDe/EEaf8hqAdc/II
+        hG0Vh0Tr++HOVfT7UBgPzCkoGIxZQYIAFXXKsEAWumUNjN51GmECvQ==
+        -----END AGE ENCRYPTED FILE-----
+  lastmodified: "2025-12-27T16:35:17Z"
+  mac: ENC[AES256_GCM,data:WWUo7XV0mcdPIj9bkO3cSVufvOe6fDqpEl9BtpU9hYWl7Ys8tOunb4emShTuJXmPloUuC9a0gVWhuD0vq4tbcr0MJxb99OOR0HDEupDCO+txNveUdm3DYtP/VSL1yU1+OOIOrBerD2RanazVgSTR9KSgTQEPc20Rb0rY96n46r8=,iv:V3nxj5bjV0i1owrFIFgLgNeSVSWF/kv2PbaR7z2c0K0=,tag:zQ8lPVbkpK7Kbtis1wo/gQ==,type:str]
+  encrypted_regex: ^(data|stringData)$
+  mac_only_encrypted: true
+  version: 3.11.0

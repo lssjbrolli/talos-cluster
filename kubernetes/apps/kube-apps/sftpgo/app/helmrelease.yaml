@@ -72,7 +72,7 @@ spec:
           sftp: # Only SFTP will be exposed
             port: 22
         #     nodePort:
-        # externalTrafficPolicy:
+        externalTrafficPolicy: Local
         # sessionAffinity:
 
     ui:

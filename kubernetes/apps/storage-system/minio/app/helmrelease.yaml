@@ -77,7 +77,7 @@ spec:
             port: &http 9001
           s3:
             port: &api 9000
-        externalTrafficPolicy: Local
+        # externalTrafficPolicy: Local
 
     serviceMonitor:
       app:

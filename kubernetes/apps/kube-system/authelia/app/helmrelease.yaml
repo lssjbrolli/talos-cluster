@@ -100,8 +100,6 @@ spec:
         #   sender: Authelia Admin <admin@budimanjojo.com>
       definitions:
         user_attributes:
-          is_nextcloud_admin:
-            expression: '"nextcloud-admins" in groups'
           sftpgo_role:
             expression: '"sftpgo_admins" in groups ? "admin" : "sftpgo_managers" in groups ? "manager" : "user"'
       identity_providers:
@@ -173,6 +171,7 @@ spec:
               access_token_signed_response_alg: 'none'
               userinfo_signed_response_alg: 'none'
               token_endpoint_auth_method: 'client_secret_basic'
+            # currently minio has bad oidc implementation so this client is not used
             - client_name: Minio
               client_id: '3d~kj20my5Nj1lziB4MoGkVy5Tx~2h.kL0LYNaA5K0kDlLznRH-OeMGWhv2hADEK6DSsOjgQ'
               client_secret:
@@ -191,12 +190,11 @@ spec:
               client_id: 'dlZVU05Xm5Vz0eOANbfSkRwxYINdynJhpE8j0rcasZLLyg9bgHpJKodoCiK9oSrywq1Q1cGh'
               client_secret:
                 path: '/secrets/authelia/oidc.client.nextcloud.value'
-              public: false
               authorization_policy: one_factor
               require_pkce: true
               pkce_challenge_method: S256
               redirect_uris:
-                - https://nextcloud.${SECRET_DOMAIN}/apps/oidc_login/oidc
+                - https://nextcloud.${SECRET_DOMAIN}/apps/user_oidc/code
               scopes:
                 - openid
                 - profile
@@ -208,7 +206,7 @@ spec:
                 - authorization_code
               access_token_signed_response_alg: none
               userinfo_signed_response_alg: none
-              token_endpoint_auth_method: client_secret_basic
+              token_endpoint_auth_method: client_secret_post
     ingress:
       enabled: true
       gatewayAPI:

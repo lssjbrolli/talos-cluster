@@ -193,6 +193,7 @@ spec:
       additionalSecrets:
         authelia:
           items:
+            - key: 'authentication.ldap.password.txt'
             - key: 'identity_providers.oidc.hmac.key'
             - key: 'identity_validation.reset_password.jwt.hmac.key'
             - key: 'oidc.client.immich.value'

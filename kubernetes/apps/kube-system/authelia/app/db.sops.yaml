@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: auth-db
+  namespace: kube-system
+stringData:
+  password: ENC[AES256_GCM,data:sJM5Ww==,iv:RfZX80vIGF01l+q/lRQMwJ4V3CBKlriO//Q72fojwGY=,tag:VD1nt3Exyd/Us0T1D0Qe3g==,type:str]
+sops:
+  age:
+    - recipient: age1k5cr4cvs4atdm3gse77vq4glnv9q49gq5wl49p9806gfyfld7p3setz3tw
+      enc: |
+        -----BEGIN AGE ENCRYPTED FILE-----
+        YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSAwNmp0Y3l1UkZ6RDczTjJF
+        T2tRdFZIRVlQTjQxOEljaVpnek04c09pZjBFCkc5TVI0RTNOdytZcEN2WkptQkpu
+        cnh0ZFJEYzZpZ2crUWs3TG90ckVLcTgKLS0tIHBIUjJzTEc0R0tqZlcrcGRUTVcz
+        Q2l6M3pGMzNPdHE0SWNmNzJwTzZTdWcK1hiXqxILIeFloFK1flk6ILFwMOGAmIky
+        Hwrpg/d9qFX87OM7Z+eSv1Rwf1C6jIZP4QnI8qnazUZW6ALMjxeXjg==
+        -----END AGE ENCRYPTED FILE-----
+  lastmodified: "2025-12-27T14:48:36Z"
+  mac: ENC[AES256_GCM,data:rkGu4azrgqknSJJbBGpyy3lASbt5ntN0wSIzAv6icPwVvGeDzNlpbHjh7hTV1I1tP1SkIGAcr3FTeMHP0Bm13lQvDO6havMHD+yZVTVu2HFcvnwLsq8TSNBQ9iX+Wz190+qQWmedM/CK9D5rqYVk47cS6F/pmEsNCXztfzb0MNc=,iv:X+DuZ87D42DsdnFLFwtn7HEWruqBNNkMyXZDN6uwXTk=,tag:rfzXR56CielCl/wbebTWfA==,type:str]
+  encrypted_regex: ^(data|stringData)$
+  mac_only_encrypted: true
+  version: 3.11.0

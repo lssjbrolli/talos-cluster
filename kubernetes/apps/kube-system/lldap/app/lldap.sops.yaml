@@ -1,0 +1,34 @@
+apiVersion: v1
+kind: Secret
+metadata:
+    name: lldap-secrets
+    namespace: kube-apps
+stringData:
+    #ENC[AES256_GCM,data:SVo=,iv:jidGwxgCn7KpkcdAfgjwRbA5J6qIe4t6gACPW/AeOzE=,tag:tEwEjOgMFpWI8EeHkF3Zog==,type:comment]
+    INIT_POSTGRES_DBNAME: ENC[AES256_GCM,data:9B1CRAw=,iv:DEU5SMF5ArPnscDHBpXIwsFD1yNRiVridYPOVJcgLnI=,tag:WlPX0sGw/uq/RZeBa7zWvw==,type:str]
+    INIT_POSTGRES_HOST: ENC[AES256_GCM,data:2M9YFKJVv9+PzNdqe6D7MWNpwzJytKMZeSVXEOOehUDO,iv:5oPIk0mhILI8k1rkUwqFuuH8IZTE6Ca2B3s4+iHounM=,tag:HeNRxLb5vybRqLt09h6ihA==,type:str]
+    INIT_POSTGRES_USER: ENC[AES256_GCM,data:q8qQuQ==,iv:FhwLlTKfGwFFfmIWCtXNfcb9cItkMvpgv2KqY4GjcLo=,tag:NF4aiCogOFiaO04F0qy9qQ==,type:str]
+    INIT_POSTGRES_PASS: ENC[AES256_GCM,data:TRbVkQ==,iv:h9meYY54EDG3ElBsPP70tIOkRmwXmlihhtIspH2/6ck=,tag:uO3y0cQft91BwT7ZMZOr1g==,type:str]
+    INIT_POSTGRES_SUPER_PASS: ENC[AES256_GCM,data:mSC5tQ==,iv:4udw5VQlXUnTPa7hsi4CMvSsv9Ye6ozwK8hf50diwa8=,tag:j56oMmIjoNWnfG9odT/biQ==,type:str]
+    #ENC[AES256_GCM,data:6DIx,iv:X5ijwkW36eB8C0Y9rzOhReg99sT9ic14GgAgdQ8IpWg=,tag:MzVGdf6bVmVKrHIhKPKXMg==,type:comment]
+    LLDAP_JWT_SECRET: ENC[AES256_GCM,data:pSF8P/xydiu5VVpo1lsCLcgt2jYDbj+2h+Iz8hjNc84=,iv:FxPp2AcrZ/AsjCHoP05kU9Un5i0LokR6yHNsNmOJMxI=,tag:nobWPiufQgFf044UihToCg==,type:str]
+    LLDAP_LDAP_USER_PASS: ENC[AES256_GCM,data:dJENqFtlQgKonS7QIWl94w==,iv:s1fb+w2jPkZHO0eD13sskVAUwoxPB6aLRbG5qkP56dI=,tag:v16rJ+epggVM87zbqr+MxA==,type:str]
+    LLDAP_USER_DN: ENC[AES256_GCM,data:bKdtvjy0q5Hr6PM96NvpDqo=,iv:1O390YXc+vokoEqngdsWYYMuc8ZWX2VvO+eb4Mm+/v4=,tag:0JE8d8nlFhVIAkd4J5N4KA==,type:str]
+    LLDAP_LDAP_USER_EMAIL: ENC[AES256_GCM,data:GOFWFO/HUVTw5hFqQqwysvmjk6A=,iv:kuYK1exMWr9a6TPy8irltWRAioJVDwyLbsTpoHjNBJM=,tag://jsW1GWPl1GVpQZnSoTOw==,type:str]
+    LLDAP_SERVER_KEY_SEED: ENC[AES256_GCM,data:Fk4ELjND25H8omJGXCKA0jhtqR5inFS0SmdLi148le8=,iv:yoWNOc+m3gZjeU4YM4FNC58BtI7l53t2S1sLrtDxT/I=,tag:LRLKm2abJVWZBIQXldyzJQ==,type:str]
+    LLDAP_DATABASE_URL: ENC[AES256_GCM,data:adzZI/mB5hx2Q9K9wHlZ7uHN9pKYkGsliqwrv4zStsm32PQUP1/d+ezuuDxU4iPLntFjRHFkJgyGibunkE9Cf/iIQtX2eI6pR9eUQ6HvY+/vUfr2SWZF2eb5v3o=,iv:tPNEcrvl9guyUu7lv51g9+gJmkJSdi2aau5MU0kpGHs=,tag:1TxEz6JpwDx0hVHjALSkGQ==,type:str]
+sops:
+    age:
+        - recipient: age1k5cr4cvs4atdm3gse77vq4glnv9q49gq5wl49p9806gfyfld7p3setz3tw
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBweDZZZnNJMFJmUVVRZFlq
+            RlpKMFpyZzRQSk1vV1pvVytkNGJtVVUxRXlVCnZnbEZaZG5Ld2FITDlBa1phOXFk
+            R0Z5UzlZZkh1QWpCdFNWN0F0cG5nejgKLS0tIG1rL3pDMTZ0TTJBblRxdkQxTVpu
+            K3c3dlNlQ0l3VjhacVFONVdIM3BSOXcKwEfiPvFzy9ju8XHXYJLXJpG9El9SlQXc
+            XUNzp6zHHcCEIflIpEJssLFuq9zxCFXk3CoFpk/2PNi8MiOIKIl/qw==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2025-12-27T17:10:19Z"
+    mac: ENC[AES256_GCM,data:0GW0xCXXzqzziViG8QbSTgkY23QZVueZEfV5lOtlEui2DKZCCZTNozUOD/Ln9qmmISlHSUN/CbGA9NjuQBkEHhs5FE+LPez2vBeEtVb+6Wmi3RTiujjfjDYioWZGmUIwLd4mGHE1OVyXkuVGfQAQ38izMlgcEG01KvKIxYgPoNo=,iv:sZX8VhHo+izX3mXxT32IM9zgQZcdYd+XrrOmUtBRoSQ=,tag:3kq7X9OJYZ++gBoUh3/cFw==,type:str]
+    encrypted_regex: ^(data|stringData)$
+    version: 3.11.0

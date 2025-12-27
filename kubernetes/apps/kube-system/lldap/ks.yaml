@@ -6,7 +6,7 @@ metadata:
   name: lldap
 spec:
   interval: 30m
-  path: ./kubernetes/apps/kube-apps/lldap/app
+  path: ./kubernetes/apps/kube-system/lldap/app
   prune: true
   wait: true
   dependsOn:

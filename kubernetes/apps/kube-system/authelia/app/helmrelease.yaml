@@ -24,7 +24,7 @@ spec:
         ldap:
           enabled: true
           address: 'ldap://lldap.kube-system.svc.cluster.local'
-          implementation: 'custom'
+          implementation: 'lldap'
           timeout: '5s'
           attributes:
             username: uid
@@ -35,7 +35,7 @@ spec:
           users_filter: "(&({username_attribute}={input})(objectClass=person))"
           additional_groups_dn: ou=groups
           groups_filter: "(member={dn})"
-          user: authelia
+          user: uid=authelia,ou=people,dc=seganet,dc=org
           base_dn: 'dc=seganet,dc=org'
           start_tls: false
           tls:

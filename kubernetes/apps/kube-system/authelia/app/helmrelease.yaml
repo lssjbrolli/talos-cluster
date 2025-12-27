@@ -59,7 +59,6 @@ spec:
           database: authelia
           username: sega
           password:
-            disabled: true
             secret_name: authelia
       notifier:
         disable_startup_check: true

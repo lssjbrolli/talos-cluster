@@ -83,7 +83,7 @@ spec:
         ports:
           http:
             port: *port
-        externalTrafficPolicy: Local
+        # externalTrafficPolicy: Local
     route:
       app:
         hostnames: ["admin.cozmatransport.eu"]

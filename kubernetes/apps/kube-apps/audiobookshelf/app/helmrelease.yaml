@@ -62,7 +62,7 @@ spec:
         ports:
           http:
             port: *port
-        externalTrafficPolicy: Local
+        # externalTrafficPolicy: Local
     route:
       app:
         hostnames: ["abs.${SECRET_DOMAIN}"]

@@ -60,7 +60,7 @@ spec:
           http:
             port: 80
             targetPort: *port
-        externalTrafficPolicy: Local
+        # externalTrafficPolicy: Local
     route:
       app:
         hostnames: ["{{ .Release.Name }}.${SECRET_DOMAIN}"]

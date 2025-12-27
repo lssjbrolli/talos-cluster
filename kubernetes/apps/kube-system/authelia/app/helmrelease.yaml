@@ -59,7 +59,7 @@ spec:
           password:
             disabled: false
             secret_name: auth-db
-            value: password
+            value: storage.postgres.password
       notifier:
         disable_startup_check: true
         filesystem:
@@ -196,6 +196,8 @@ spec:
             - key: 'identity_providers.oidc.hmac.key'
             - key: 'oidc.jwk.RS256.pem'
             - key: 'oidc.client.immich.value'
+            - key: 'oidc.client.minio.value'
+            - key: 'oidc.client.nextcloud.value'
             - key: 'oidc.client.sftpgo.value'
         auth-db:
           items:

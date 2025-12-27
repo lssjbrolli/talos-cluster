@@ -67,11 +67,13 @@ spec:
             protocol: UDP
           rd-ws:
             port: 21118
+        externalTrafficPolicy: Local
       rd-relay:
         controller: main
         ports:
           rd-relay:
             port: 21117
+        externalTrafficPolicy: Local
 
     persistence:
       config:

@@ -82,7 +82,7 @@ spec:
           http:
             port: &port 80
             targetPort: 8788
-
+        externalTrafficPolicy: Local
 
     route:
       app:

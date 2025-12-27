@@ -55,6 +55,7 @@ spec:
         ports:
           http:
             port: *port
+        externalTrafficPolicy: Local
     serviceMonitor:
       app:
         endpoints:

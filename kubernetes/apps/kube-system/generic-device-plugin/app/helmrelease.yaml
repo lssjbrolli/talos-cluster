@@ -34,6 +34,7 @@ spec:
         ports:
           http:
             port: 80
+        externalTrafficPolicy: Local
     serviceMonitor:
       main:
         enabled: true

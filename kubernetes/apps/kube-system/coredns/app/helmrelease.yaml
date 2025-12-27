@@ -19,6 +19,7 @@ spec:
     service:
       name: kube-dns
       clusterIP: "172.17.0.10"
+      externalTrafficPolicy: Local
     replicaCount: 2
     servers:
       - zones:

@@ -175,6 +175,7 @@ spec:
         ports:
           http:
             port: *port
+        externalTrafficPolicy: Local
     route:
       app:
         hostnames: ["qbt.${SECRET_DOMAIN}"]

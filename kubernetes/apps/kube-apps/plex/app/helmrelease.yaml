@@ -58,6 +58,7 @@ spec:
         ports:
           http:
             port: 32400
+        externalTrafficPolicy: Local
     persistence:
       config:
         type: persistentVolumeClaim

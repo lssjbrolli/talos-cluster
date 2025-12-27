@@ -115,6 +115,8 @@ spec:
         ports:
           http:
             port: *port
+        externalTrafficPolicy: Local
+
     route:
       app:
         hostnames: ["vault.${SECRET_DOMAIN}"]

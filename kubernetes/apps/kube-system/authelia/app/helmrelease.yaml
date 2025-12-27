@@ -79,23 +79,6 @@ spec:
             secret_name: authelia
             path: identity_providers.oidc.hmac.key
           enable_client_debug_messages: false
-          claims_policies:
-            default:
-              id_token:
-                - rat
-                - groups
-                - email
-                - email_verified
-                - alt_emails
-                - preferred_username
-                - name
-            nextcloud_userinfo:
-              custom_claims:
-                is_nextcloud_admin: {}
-          scopes:
-            nextcloud_userinfo:
-              claims:
-                - is_nextcloud_admin
           jwks:
             - key:
                 path: '/secrets/authelia/oidc.jwk.RS256.pem'
@@ -132,8 +115,10 @@ spec:
               consent_mode: implicit
               redirect_uris:
                 - 'https://sftpgo.${SECRET_DOMAIN}/web/oidc/redirect'
-              scopes: [ openid, profile, email, preferred_username ]
-              claims_policy: 'default'
+              scopes:
+                - openid
+                - profile
+                - email
             - client_name: Minio
               client_id: '3d~kj20my5Nj1lziB4MoGkVy5Tx~2h.kL0LYNaA5K0kDlLznRH-OeMGWhv2hADEK6DSsOjgQ'
               client_secret:
@@ -148,7 +133,6 @@ spec:
                 - email
                 - groups
               userinfo_signed_response_alg: none
-              claims_policy: default
             - client_name: Nextcloud
               client_id: 'dlZVU05Xm5Vz0eOANbfSkRwxYINdynJhpE8j0rcasZLLyg9bgHpJKodoCiK9oSrywq1Q1cGh'
               client_secret:
@@ -157,7 +141,6 @@ spec:
               authorization_policy: two_factor
               require_pkce: true
               pkce_challenge_method: S256
-              claims_policy: nextcloud_userinfo
               redirect_uris:
                 - https://nextcloud.${SECRET_DOMAIN}/apps/oidc_login/oidc
               scopes:
@@ -165,7 +148,6 @@ spec:
                 - profile
                 - email
                 - groups
-                - nextcloud_userinfo
               response_types:
                 - code
               grant_types:

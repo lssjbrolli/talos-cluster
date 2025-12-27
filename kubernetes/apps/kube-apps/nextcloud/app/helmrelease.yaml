@@ -71,6 +71,13 @@ spec:
         fsGroup: 568
         fsGroupChangePolicy: OnRootMismatch
       configs:
+        config.php: |-
+          <?php
+          $CONFIG = array (
+            'user_oidc' => [
+              'default_token_endpoint_auth_method' => 'client_secret_post',
+            ]
+          ); ?>
         logging.config.php: |-
           <?php
           $CONFIG = array (
@@ -78,7 +85,7 @@ spec:
             'logfile' => 'nextcloud.log',
             'loglevel' => 0,
             'logdateformat' => 'F d, Y H:i:s'
-            );
+          ); ?>
         proxy.config.php: |-
           <?php
           $CONFIG = array (

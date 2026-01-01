@@ -49,6 +49,7 @@ spec:
                 cpu:
                   model: host-passthrough
                   sockets: 1
+                  maxSockets: 1
                   cores: 2
                   threads: 2
                 devices:
@@ -62,7 +63,7 @@ spec:
                       disk:
                         bus: virtio
                 firmware:
-                  uuid: 5d307ca9-b3ef-428c-8861-06e72d69f223
+                  uuid: 0fc5e6a0-0ef4-4919-8321-07ed0caf3a5c
                   bootloader:
                     efi:
                       secureBoot: false
@@ -73,6 +74,16 @@ spec:
                 - name: root
                   persistentVolumeClaim:
                     claimName: win10-root
+                - name: machine-id
+                  hostPath:
+                    path: /etc/machine-id
+                    type: File
+              containers:
+                - name: compute
+                  volumeMounts:
+                    - name: machine-id
+                      mountPath: /etc/machine-id
+                      readOnly: true
       - apiVersion: v1
         kind: Service
         metadata:

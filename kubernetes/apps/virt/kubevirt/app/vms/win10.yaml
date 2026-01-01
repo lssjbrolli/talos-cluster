@@ -35,6 +35,8 @@ spec:
         metadata:
           name: win10
           namespace: virt
+          annotations:
+            kubevirt.io/keep-launcher-alive-after-failure: "true"
         spec:
           runStrategy: Manual
           template:
@@ -74,16 +76,6 @@ spec:
                 - name: root
                   persistentVolumeClaim:
                     claimName: win10-root
-                - name: machine-id
-                  hostPath:
-                    path: /etc/machine-id
-                    type: File
-              containers:
-                - name: compute
-                  volumeMounts:
-                    - name: machine-id
-                      mountPath: /etc/machine-id
-                      readOnly: true
       - apiVersion: v1
         kind: Service
         metadata:

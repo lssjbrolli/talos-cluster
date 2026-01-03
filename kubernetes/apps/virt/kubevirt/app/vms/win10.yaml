@@ -66,6 +66,12 @@ spec:
                     - name: root
                       disk:
                         bus: virtio
+                    - name: iso
+                      cdrom:
+                        bus: sata
+                    - name: virtio
+                      cdrom:
+                        bus: sata
                 firmware:
                   uuid: 0fc5e6a0-0ef4-4919-8321-07ed0caf3a5c
                   bootloader:
@@ -78,6 +84,13 @@ spec:
                 - name: root
                   persistentVolumeClaim:
                     claimName: win10-root
+                - name: iso
+                  persistentVolumeClaim:
+                    claimName: win10iso
+                - name: virtio
+                  containerDisk:
+                    image: kubevirt/virtio-container-disk
+
       - apiVersion: v1
         kind: Service
         metadata:

@@ -45,9 +45,8 @@ spec:
           parentRefs:
             - name: internal
               namespace: network
-              sectionName: http
+              sectionName: https
           rules:
             - backendRefs:
                 - name: cdi-uploadproxy
                   namespace: virt
-                  port: 443

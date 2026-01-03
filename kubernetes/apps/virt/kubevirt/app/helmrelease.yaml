@@ -35,6 +35,7 @@ spec:
               featureGates:
                 - HostDevices
                 - VSOCK
+                - KubevirtSeccompProfile
             # permittedHostDevices:
             #   usb:
             #     - resourceName: kubevirt.io/inelo

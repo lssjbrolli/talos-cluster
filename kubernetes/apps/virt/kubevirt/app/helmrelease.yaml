@@ -52,7 +52,14 @@ spec:
               manufactorer: "SideroLabs"
               product: "Talos"
               family: "kvm"
-          customizeComponents: {}
+          # Patch the DeamonSet as workaround for https://github.com/kubevirt/kubevirt/issues/16264
+          # Otherwise kubeapi will alert for client cert errors recorded in metric apiserver_client_certificate_expiration_seconds_bucket
+          customizeComponents:
+            patches:
+            - resourceType: DaemonSet
+              resourceName: virt-handler
+              patch: '{"spec":{"template":{"spec":{"containers":[{"name":"virt-handler","volumeMounts":[{"name":"kubevirt-virt-handler-certs-ext","mountPath":"/etc/virt-handler/clientcertificates","readOnly":true}]}],"volumes":[{"name":"kubevirt-virt-handler-certs-ext","secret":{"secretName":"kubevirt-virt-handler-certs"}}]}}}}'
+              type: strategic
           imagePullPolicy: IfNotPresent
           infra:
             replicas: 1

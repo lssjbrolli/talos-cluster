@@ -31,9 +31,10 @@ spec:
                 duration: 72h
                 renewBefore: 48h
           configuration:
-            # developerConfiguration:
-            #   featureGates:
-            #     - HostDevices
+            developerConfiguration:
+              featureGates:
+                - HostDevices
+                - VSOCK
             # permittedHostDevices:
             #   usb:
             #     - resourceName: kubevirt.io/inelo

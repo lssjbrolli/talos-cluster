@@ -57,11 +57,11 @@ spec:
                   threads: 2
                 devices:
                   autoattachVSOCK: true
-                  # hostDevices:
-                  # - deviceName: kubevirt.io/inelo
-                  #   name: inelo
-                  # - deviceName: kubevirt.io/token
-                  #   name: token
+                  hostDevices:
+                  - deviceName: kubevirt.io/inelo
+                    name: inelo
+                  - deviceName: kubevirt.io/token
+                    name: token
                   disks:
                     - name: root
                       disk:

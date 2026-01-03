@@ -33,4 +33,4 @@ spec:
                 storage: 10Gi
           source:
             http:
-              url: "https://software.download.prss.microsoft.com/dbazure/Win10_22H2_EnglishInternational_x64v1.iso?t=dd4c6c00-72c9-40d1-8ea0-4448430dcb93&P1=1767538134&P2=601&P3=2&P4=VJX74ijxRms6QLyJsCUs%2bxW8e6hhLTA6GxKo%2bFw2IzvGxwt0LD1IgDkD16MeBpxDCtOJu4W602gH6VZNNCz%2blXwptbM10NLg1OjfyPxYsPNIS68q7msbgGE9raFbhFKzz%2bMEat4ILppImz6qNyKthbWOI7%2fpfBisnZe6uzBO9AyjSRav8%2f25dWHDpEUfaaZ%2fw38vLj%2b6%2fkwPc1M5EmWTlRySwkXIzvpUxYd3ChjDOULzKwOyS39t1Yg6P9LpBZ6b5Pu%2bp0roEHc9D8Z1L4a4CdFOYbhy0KKvjsIO8kxaKhFwjD9TXmQVzYyefGEuPiCTnaHRVTK91OXbuGrZmP9L%2bA%3d%3d"
+              url: "https://software.download.prss.microsoft.com/dbazure/Win10_22H2_English_x64v1.iso?t=7b99b0df-04a5-4e13-b94b-0f27cee5b764&P1=1767485218&P2=601&P3=2&P4=uozyNYiiG9tsCGMPFKn4QpC%2b%2bjwVJAozc6EiGi9vDZRTHu78Q0CpEm4%2bHURgxT87EDzO0oTfWetfkLhr6TflzXW6rfRqkq5C3jjs016Cgq%2b3xkWD2AsPauM0X9GWp3XyYbY%2fTepjWS4%2f2sHh6iNIQ%2bXV0dk6eQZixRvmzh1MyRh0reB8maZUNbIjVPX78uCdaY8COL%2fNdHU%2fwCQ%2buAqj1kAk6nRc5B5oZDveukdanp%2b7%2b4ryJOl3w6GkqhTSDMCuID17bDjDEqB4QiSpl6dWROlM%2bF4g%2ftIw34kSGWWeuzTstO1PT%2fWwQjseAnKEx5t1PfTa6HmKLwUhuwpyClppjA%3d%3d"

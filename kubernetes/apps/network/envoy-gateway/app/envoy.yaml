@@ -112,6 +112,14 @@ spec:
         certificateRefs:
           - kind: Secret
             name: ${SECRET_DOMAIN/./-}-production-tls
+    - name: rd-nat
+      protocol: TCP
+      port: 21115
+      allowedRoutes:
+        namespaces:
+          from: All
+        kinds:
+          - kind: TCPRoute
     - name: rd-tcp
       protocol: TCP
       port: 21116

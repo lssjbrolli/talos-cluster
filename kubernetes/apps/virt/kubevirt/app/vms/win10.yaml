@@ -56,11 +56,11 @@ spec:
                   cores: 2
                   threads: 2
                 devices:
-                  hostDevices:
-                  - deviceName: kubevirt.io/inelo
-                    name: inelo
-                  - deviceName: kubevirt.io/token
-                    name: token
+                  # hostDevices:
+                  # - deviceName: kubevirt.io/inelo
+                  #   name: inelo
+                  # - deviceName: kubevirt.io/token
+                  #   name: token
                   disks:
                     - name: root
                       disk:

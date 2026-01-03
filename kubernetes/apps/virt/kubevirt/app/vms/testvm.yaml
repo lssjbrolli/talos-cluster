@@ -3,7 +3,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: testvm
-  namespace: flux-system
+  namespace: virt
 spec:
   interval: 30m
   chart:
@@ -14,7 +14,6 @@ spec:
         kind: HelmRepository
         name: kubevirt
       interval: 30m
-  targetNamespace: virt
   install:
     createNamespace: true
     remediation:
@@ -24,14 +23,14 @@ spec:
       retries: 10
   dependsOn:
     - name: kubevirt
-      namespace: flux-system
+      namespace: virt
   values:
     resources:
       - apiVersion: kubevirt.io/v1
         kind: VirtualMachine
         metadata:
           name: testvm
-          namespace: kubevirt
+          namespace: virt
         spec:
           runStrategy: Halted
           template:

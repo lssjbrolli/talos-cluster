@@ -60,19 +60,23 @@ spec:
         ports:
           rd-nat:
             port: 21115
+            protocol: TCP
           rd-hole:
             port: &port 21116 # ID server
+            protocol: TCP
           rd-id:
             port: *port
             protocol: UDP
           rd-ws:
             port: 21118
+            protocol: TCP
         # externalTrafficPolicy: Local
       rd-relay:
         controller: main
         ports:
           rd-relay:
             port: 21117
+            protocol: TCP
         # externalTrafficPolicy: Local
 
     persistence:

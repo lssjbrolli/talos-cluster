@@ -136,6 +136,14 @@ spec:
           from: All
         kinds:
           - kind: TCPRoute
+    - name: rd-ws
+      protocol: TCP
+      port: 21118
+      allowedRoutes:
+        namespaces:
+          from: All
+        kinds:
+          - kind: TCPRoute
     - name: rd-udp
       protocol: UDP
       port: 21116

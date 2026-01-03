@@ -45,3 +45,19 @@ spec:
         - name: rustdesk-rd-relay
           namespace: kube-apps
           port: 21117
+
+---
+apiVersion: gateway.networking.k8s.io/v1alpha2
+kind: TCPRoute
+metadata:
+  name: rd-ws
+spec:
+  parentRefs:
+    - name: internal
+      namespace: network
+      sectionName: rd-tcp-relay
+  rules:
+    - backendRefs:
+        - name: rustdesk-rd-relay
+          namespace: kube-apps
+          port: 21118

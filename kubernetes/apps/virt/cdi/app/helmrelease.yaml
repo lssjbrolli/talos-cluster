@@ -36,18 +36,18 @@ spec:
           workload:
             nodeSelector:
               kubernetes.io/os: linux
-      - apiVersion: v1
-        kind: Service
+      - apiVersion: gateway.networking.k8s.io/v1
+        kind: HTTPRoute
         metadata:
-          annotations:
-            lbipam.cilium.io/ips: 192.168.1.141
-          labels:
-            kubevirt.io/vm: cdi-uploadproxy
-          name: cdi-uploadproxy
+          name: cdi
         spec:
-          ports:
-          - name: https
-            port: 443
-            protocol: TCP
-            targetPort: 8443
-          type: LoadBalancer
+          hostnames: ["cdi.${SECRET_DOMAIN}"]
+          parentRefs:
+            - name: internal
+              namespace: network
+              sectionName: https
+          rules:
+            - backendRefs:
+                - name: cdi-uploadproxy
+                  namespace: virt
+                  port: 443

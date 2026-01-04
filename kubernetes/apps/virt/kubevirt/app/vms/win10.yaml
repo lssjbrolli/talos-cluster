@@ -59,7 +59,7 @@ spec:
                   autoattachVSOCK: true
                   hostDevices:
                   - deviceName: kubevirt.io/peripherals
-                    name: peripherals
+                    name: usb-devices
                   video:
                     type: virtio
                   disks:

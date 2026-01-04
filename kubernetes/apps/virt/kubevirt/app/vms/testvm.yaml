@@ -42,8 +42,10 @@ spec:
               domain:
                 devices:
                   hostDevices:
-                  - deviceName: kubevirt.io/peripherals
-                    name: usb-peripherals
+                    - deviceName: kubevirt.io/inelo
+                      name: inelo
+                    - deviceName: kubevirt.io/token
+                      name: token
                   disks:
                     - name: containerdisk
                       disk:

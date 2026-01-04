@@ -58,8 +58,10 @@ spec:
                 devices:
                   autoattachVSOCK: true
                   hostDevices:
-                  - deviceName: kubevirt.io/peripherals
-                    name: usb-devices
+                  - deviceName: kubevirt.io/inelo
+                    name: inelo
+                  - deviceName: kubevirt.io/token
+                    name: token
                   video:
                     type: virtio
                   disks:

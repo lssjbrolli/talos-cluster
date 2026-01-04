@@ -39,12 +39,10 @@ spec:
                 - VideoConfig
             permittedHostDevices:
               usb:
-                - resourceName: kubevirt.io/inelo
+                - resourceName: kubevirt.io/peripherals
                   selectors:
                     - vendor: "0403"
                       product: "f6c8"
-                - resourceName: kubevirt.io/token
-                  selectors:
                     - vendor: "096e"
                       product: "0807"
             smbios:

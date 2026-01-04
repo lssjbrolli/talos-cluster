@@ -41,6 +41,9 @@ spec:
             spec:
               domain:
                 devices:
+                  hostDevices:
+                  - deviceName: kubevirt.io/peripherals
+                    name: usb-peripherals
                   disks:
                     - name: containerdisk
                       disk:

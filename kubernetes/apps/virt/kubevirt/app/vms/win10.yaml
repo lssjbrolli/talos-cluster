@@ -62,6 +62,8 @@ spec:
                     name: inelo
                   - deviceName: kubevirt.io/token
                     name: token
+                  video:
+                    type: virtio
                   disks:
                     - name: root
                       disk:

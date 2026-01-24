@@ -31,7 +31,7 @@ spec:
           main:
             image:
               repository: ghcr.io/elfhosted/huntarr-dev
-              tag: 8.2.11@sha256:c55afdbd1d19d7e188dd2ab8dccc70fa592ce7a1c529dcbdde1a6f75187273a5
+              tag: 8.2.25@sha256:8ed4622de54ef54cf30ab820c977e72a8e262b678fe4b1a2d2937388b650d6d3
             securityContext:
               runAsNonRoot: true
               runAsUser: 568

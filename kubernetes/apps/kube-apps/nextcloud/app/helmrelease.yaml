@@ -12,7 +12,7 @@ spec:
     name: nextcloud
   values:
     image:
-      tag: 31.0.4-fpm-alpine@sha256:a111d5b748a259936b075575879c621dd387b18fb8a864a2ed8f3f4f9c288f3f
+      tag: 32.0.5-fpm-alpine@sha256:3f37e1bedb143af34b83f2527ef400b3dab111e77ab390c93b1e5f6e75742741
       flavor: fpm-alpine
     deploymentAnnotations:
       secret.reloader.stakater.com/reload: auto

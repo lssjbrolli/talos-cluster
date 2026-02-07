@@ -20,7 +20,7 @@ spec:
       enabled: true
       image:
         repository: ghcr.io/nginx/nginx-unprivileged
-        tag: 1.29.3-alpine@sha256:5aea7cc516b419e3526f47dd1531be31a56a046cfe44754d94f9383e13e2ee99
+        tag: 1.29.5-alpine@sha256:a731ba0194833ae0f80994a4ae08988aa95fdcc88f4f991340ce160770cf2b6d
       securityContext:
         runAsUser: 568
         runAsGroup: 568

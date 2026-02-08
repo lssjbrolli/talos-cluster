@@ -50,13 +50,9 @@ spec:
               TZ: ${TIMEZONE}
               READARR__APP__INSTANCENAME: bookshelf
               READARR__APP__THEME: auto
-              READARR__LOG__LEVEL: info
               READARR__LOG__DBENABLED: False
-              READARR__AUTH__REQUIRED: DisabledForLocalAddresses
-              READARR__AUTH__METHOD: Basic
               READARR__SERVER__PORT: &port 80
               READARR__SERVER__BINDADDRESS: "*"
-              READARR__SERVER__ENABLESSL: False
               READARR__UPDATE__BRANCH: develop
               READARR__UPDATE__MECHANISM: docker
               READARR__UPDATE__AUTOMATICALLY: False

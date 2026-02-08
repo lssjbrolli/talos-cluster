@@ -33,6 +33,8 @@ spec:
               repository: blampe/rreading-glasses
               tag: hardcover@sha256:1148c8ce40ce6ae68f22a9164ac682e20334b9104778503dcfaa7eec5bd95454
             command: ["/main", "serve"]
+            args:
+              - --hardcover-auth=${HARDCOVER}
             securityContext:
               runAsNonRoot: true
               runAsUser: 568

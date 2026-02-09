@@ -20,40 +20,40 @@ spec:
         annotations:
           reloader.stakater.com/auto: "true"
         containers:
-          # qbt:
-          #   dependsOn: gluetun
-          #   image:
-          #     repository: ghcr.io/home-operations/qbittorrent
-          #     tag: 5.1.4@sha256:56ecd30a7f5e1357daf5eea2a6935134d329b7b268a3a9b9c67041b65fb87fc6
-          #   securityContext:
-          #     runAsUser: 568
-          #     runAsGroup: 568
-          #     allowPrivilegeEscalation: false
-          #     readOnlyRootFilesystem: true
-          #     runAsNonRoot: true
-          #     capabilities:
-          #       drop:
-          #         - ALL
-          #   resources:
-          #     requests:
-          #       cpu: 50m
-          #       memory: 1Gi
-          #     limits:
-          #       memory: 2Gi
-          #   env:
-          #     TZ: ${TIMEZONE}
-          #   args:
-          #     - --webui-port=80
-          #   probes:
-          #     startup:
-          #       enabled: true
-          #       spec:
-          #         failureThreshold: 30
-          #         periodSeconds: 5
-          #     liveness:
-          #       enabled: true
-          #     readiness:
-          #       enabled: true
+          qbt:
+            dependsOn: gluetun
+            image:
+              repository: ghcr.io/home-operations/qbittorrent
+              tag: 5.1.4@sha256:56ecd30a7f5e1357daf5eea2a6935134d329b7b268a3a9b9c67041b65fb87fc6
+            securityContext:
+              runAsUser: 568
+              runAsGroup: 568
+              allowPrivilegeEscalation: false
+              readOnlyRootFilesystem: true
+              runAsNonRoot: true
+              capabilities:
+                drop:
+                  - ALL
+            resources:
+              requests:
+                cpu: 50m
+                memory: 1Gi
+              limits:
+                memory: 2Gi
+            env:
+              TZ: ${TIMEZONE}
+            args:
+              - --webui-port=80
+            probes:
+              startup:
+                enabled: true
+                spec:
+                  failureThreshold: 30
+                  periodSeconds: 5
+              liveness:
+                enabled: true
+              readiness:
+                enabled: true
           gluetun:
             dependsOn: pia-wg-refresh
             image:
@@ -189,26 +189,26 @@ spec:
                 port: *port
     persistence:
       # Configure mounts for qbt
-      # config:
-      #   type: persistentVolumeClaim
-      #   existingClaim: qbittorrent-config
-      #   advancedMounts:
-      #     main:
-      #       qbt:
-      #         - path: /config
-      # media:
-      #   type: persistentVolumeClaim
-      #   existingClaim: qbittorrent-data
-      #   advancedMounts:
-      #     main:
-      #       qbt:
-      #         - path: /media
-      # cache:
-      #   type: emptyDir
-      #   advancedMounts:
-      #     main:
-      #       qbt:
-      #         - path: /config/.cache
+      config:
+        type: persistentVolumeClaim
+        existingClaim: qbittorrent-config
+        advancedMounts:
+          main:
+            qbt:
+              - path: /config
+      media:
+        type: persistentVolumeClaim
+        existingClaim: qbittorrent-data
+        advancedMounts:
+          main:
+            qbt:
+              - path: /media
+      cache:
+        type: emptyDir
+        advancedMounts:
+          main:
+            qbt:
+              - path: /config/.cache
 
       # Configure an emptyDir to share the port-forwarding location between containers
       port-data:

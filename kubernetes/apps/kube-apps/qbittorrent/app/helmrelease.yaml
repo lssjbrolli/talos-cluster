@@ -223,11 +223,13 @@ spec:
 
       # Configure an emptyDir for wireguard config
       gluetun-config:
-        type: emptyDir
+        type: persistentVolumeClaim
+        accessMode: RWO
+        size: 10M
         advancedMounts:
           main:
-            # gluetun:
-            #   - path: /gluetun/wireguard
-            #     readOnly: true
+            gluetun:
+              - path: /gluetun/wireguard
+                readOnly: true
             pia-wg-refresh:
               - path: /config

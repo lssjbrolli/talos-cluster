@@ -224,7 +224,7 @@ spec:
       # Configure an emptyDir for wireguard config
       gluetun-config:
         type: persistentVolumeClaim
-        accessMode: RWO
+        accessMode: ReadWriteOnce
         size: 10M
         advancedMounts:
           main:

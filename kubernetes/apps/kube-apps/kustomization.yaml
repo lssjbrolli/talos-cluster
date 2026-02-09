@@ -17,7 +17,7 @@ resources:
   - ./plex/ks.yaml
   - ./profilarr/ks.yaml
   - ./prowlarr/ks.yaml
-  # - ./qbittorrent/ks.yaml
+  - ./qbittorrent/ks.yaml
   - ./radarr/ks.yaml
   - ./rreading-glasses/ks.yaml
   - ./rustdesk/ks.yaml

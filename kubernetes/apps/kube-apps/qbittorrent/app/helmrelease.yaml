@@ -69,24 +69,24 @@ spec:
                 value: custom
               - name: VPN_TYPE
                 value: wireguard
-              - name: WIREGUARD_ENDPOINT_IP
-                secretKeyRef:
-                  name: vpnconfig
-                  key: endip
-              - name: WIREGUARD_ENDPOINT_PORT
-                value: 1337
-              - name: WIREGUARD_PUBLIC_KEY
-                secretKeyRef:
-                  name: vpnconfig
-                  key: pubkey
-              - name: WIREGUARD_PRIVATE_KEY
-                secretKeyRef:
-                  name: vpnconfig
-                  key: privkey
-              - name: WIREGUARD_ADDRESSES
-                secretKeyRef:
-                  name: vpnconfig
-                  key: wgaddress
+              # - name: WIREGUARD_ENDPOINT_IP
+              #   secretKeyRef:
+              #     name: vpnconfig
+              #     key: endip
+              # - name: WIREGUARD_ENDPOINT_PORT
+              #   value: 1337
+              # - name: WIREGUARD_PUBLIC_KEY
+              #   secretKeyRef:
+              #     name: vpnconfig
+              #     key: pubkey
+              # - name: WIREGUARD_PRIVATE_KEY
+              #   secretKeyRef:
+              #     name: vpnconfig
+              #     key: privkey
+              # - name: WIREGUARD_ADDRESSES
+              #   secretKeyRef:
+              #     name: vpnconfig
+              #     key: wgaddress
               - name: WIREGUARD_MTU
                 value: 1384
               - name: DNS_ADDRESS
@@ -213,12 +213,21 @@ spec:
               - identifier: qbt
                 port: *port
     persistence:
+      # Configure mounts for qbt
       config:
         type: persistentVolumeClaim
         existingClaim: qbittorrent-config
+        advancedMounts:
+          main:
+            qbt:
+              - path: /config
       media:
         type: persistentVolumeClaim
         existingClaim: qbittorrent-data
+        advancedMounts:
+          main:
+            qbt:
+              - path: /media
       cache:
         type: emptyDir
         advancedMounts:
@@ -236,6 +245,7 @@ spec:
             port-forward:
               - path: /tmp/gluetun
                 readOnly: true
+
       # Configure an emptyDir for gluetun server list
       gluetun-list:
         type: emptyDir
@@ -243,10 +253,14 @@ spec:
           main:
             gluetun:
               - path: /gluetun
-      # Configure an emptyDir for gluetun server list
+
+      # Configure an emptyDir for wireguard config
       gluetun-config:
         type: emptyDir
         advancedMounts:
           main:
             gluetun:
               - path: /gluetun/wireguard
+                readOnly: true
+            pia-wg-refresh:
+              - path: /config

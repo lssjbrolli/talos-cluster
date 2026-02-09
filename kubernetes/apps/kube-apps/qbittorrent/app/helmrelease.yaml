@@ -168,6 +168,30 @@ spec:
                 memory: 32Mi
               limits:
                 memory: 64Mi
+          pia-wg-refresh:
+            dependsOn: gluetun
+            image:
+              repository: ghcr.io/ccarpinteri/pia-wg-refresh
+              tag: v0.6.2@sha256:bd997658b511677c78da41e04b4988ee0915cf72ce982034078c46b4db4d40e2
+            env:
+              - name: PIA_USERNAME
+                secretKeyRef:
+                  name: vpnconfig
+                  key: username
+              - name: PIA_PASSWORD
+                secretKeyRef:
+                  name: vpnconfig
+                  key: password
+              - name: PIA_REGION
+                value: romania
+              - name: PIA_PORT_FORWARDING
+                value: true
+            resources:
+              requests:
+                cpu: 10m
+                memory: 32Mi
+              limits:
+                memory: 64Mi
     service:
       qbt:
         controller: main

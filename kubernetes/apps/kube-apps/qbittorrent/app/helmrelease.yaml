@@ -222,10 +222,12 @@ spec:
                 readOnly: true
 
       # Configure an emptyDir for wireguard config
-      gluetun-config:
+      wg-config:
         type: persistentVolumeClaim
         accessMode: ReadWriteOnce
         size: 10M
+        retain: true
+        forceRename: wg-config
         advancedMounts:
           main:
             gluetun:

@@ -54,8 +54,8 @@ spec:
                 enabled: true
               readiness:
                 enabled: true
-          # Configure the gluetun sidecar
           gluetun:
+            dependsOn: pia-wg-refresh
             image:
               repository: ghcr.io/qdm12/gluetun
               tag: v3.41.0@sha256:6b54856716d0de56e5bb00a77029b0adea57284cf5a466f23aad5979257d3045
@@ -169,7 +169,6 @@ spec:
               limits:
                 memory: 64Mi
           pia-wg-refresh:
-            dependsOn: gluetun
             image:
               repository: ghcr.io/ccarpinteri/pia-wg-refresh
               tag: v0.6.2@sha256:bd997658b511677c78da41e04b4988ee0915cf72ce982034078c46b4db4d40e2
@@ -183,9 +182,11 @@ spec:
                   name: vpnconfig
                   key: password
               - name: PIA_REGION
-                value: romania
+                value: ro
               - name: PIA_PORT_FORWARDING
                 value: true
+              - name: WG_CONF_PATH
+                value: '/gluetun/wireguard'
             resources:
               requests:
                 cpu: 10m
@@ -211,7 +212,6 @@ spec:
           - backendRefs:
               - identifier: qbt
                 port: *port
-
     persistence:
       config:
         type: persistentVolumeClaim
@@ -243,3 +243,10 @@ spec:
           main:
             gluetun:
               - path: /gluetun
+      # Configure an emptyDir for gluetun server list
+      gluetun-config:
+        type: emptyDir
+        advancedMounts:
+          main:
+            gluetun:
+              - path: /gluetun/wireguard

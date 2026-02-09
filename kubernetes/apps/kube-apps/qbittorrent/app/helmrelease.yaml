@@ -54,120 +54,98 @@ spec:
           #       enabled: true
           #     readiness:
           #       enabled: true
-          # gluetun:
-            # dependsOn: pia-wg-refresh
-            # image:
-            #   repository: ghcr.io/qdm12/gluetun
-            #   tag: v3.41.0@sha256:6b54856716d0de56e5bb00a77029b0adea57284cf5a466f23aad5979257d3045
+          gluetun:
+            dependsOn: pia-wg-refresh
+            image:
+              repository: ghcr.io/qdm12/gluetun
+              tag: v3.41.0@sha256:6b54856716d0de56e5bb00a77029b0adea57284cf5a466f23aad5979257d3045
             # lifecycle:
             #   postStart:
             #     exec:
             #       command: ["/bin/sh", "-c", "(ip rule del table 51820; ip -6 rule del table 51820) || true"]
-            # env:
-            #   #required
-            #   - name: VPN_SERVICE_PROVIDER
-            #     value: custom
-            #   - name: VPN_TYPE
-            #     value: wireguard
-            #   # - name: WIREGUARD_ENDPOINT_IP
-            #   #   secretKeyRef:
-            #   #     name: vpnconfig
-            #   #     key: endip
-            #   # - name: WIREGUARD_ENDPOINT_PORT
-            #   #   value: 1337
-            #   # - name: WIREGUARD_PUBLIC_KEY
-            #   #   secretKeyRef:
-            #   #     name: vpnconfig
-            #   #     key: pubkey
-            #   # - name: WIREGUARD_PRIVATE_KEY
-            #   #   secretKeyRef:
-            #   #     name: vpnconfig
-            #   #     key: privkey
-            #   # - name: WIREGUARD_ADDRESSES
-            #   #   secretKeyRef:
-            #   #     name: vpnconfig
-            #   #     key: wgaddress
-            #   - name: WIREGUARD_MTU
-            #     value: 1384
-            #   - name: DNS_ADDRESS
-            #     secretKeyRef:
-            #       name: vpnconfig
-            #       key: dns
-            #   #optional
-            #   - name: VPN_PORT_FORWARDING
-            #     value: on
-            #   - name: VPN_PORT_FORWARDING_PROVIDER
-            #     value: private internet access
-            #   - name: VPN_PORT_FORWARDING_USERNAME
-            #     secretKeyRef:
-            #       name: vpnconfig
-            #       key: username
-            #   - name: VPN_PORT_FORWARDING_PASSWORD
-            #     secretKeyRef:
-            #       name: vpnconfig
-            #       key: password
-            #   - name: SERVER_NAMES
-            #     secretKeyRef:
-            #       name: vpnconfig
-            #       key: server
-            #   - name: UPDATER_PERIOD
-            #     value: 24h
-            #   - name: TZ
-            #     value: ${TIMEZONE}
-            #   - name: VERSION_INFORMATION
-            #     value: off
-            #   - name: DOT
-            #     value: off
-            #   - name: BLOCK_MALCIOUS
-            #     value: off
-            #   - name: BLOCK_SURVEILLANCE
-            #     value: off
-            #   - name: BLOCK_ADS
-            #     value: off
-            #   # Allow access to k8s subnets
-            #   - name: FIREWALL_OUTBOUND_SUBNETS
-            #     value: "172.16.0.0/16,172.17.0.0/16,192.168.1.0/24"
-            #   - name: FIREWALL_INPUT_PORTS
-            #     value: 80
-            # securityContext:
-            #   capabilities:
-            #     add:
-            #       - NET_ADMIN
-            # resources:
-            #   requests:
-            #     cpu: 250m
-            #     memory: 128Mi
-            #   limits:
-            #     memory: 256Mi
-            #     squat.ai/tun: "1"
-          # port-forward:
-          #   dependsOn: gluetun
-          #   image:
-          #     repository: docker.io/snoringdragon/gluetun-qbittorrent-port-manager
-          #     tag: 1.3@sha256:679b7a92c494f93b78ad37ef24f3a261e73d0a1a52505ad4f1e39580eedfa14f
-          #   env:
-          #     - name: QBITTORRENT_SERVER
-          #       value: localhost
-          #     - name: QBITTORRENT_PORT
-          #       value: &port 80
-          #     - name: QBITTORRENT_USER
-          #       secretKeyRef:
-          #         name: qbt-secret
-          #         key: username
-          #     - name: QBITTORRENT_PASS
-          #       secretKeyRef:
-          #         name: qbt-secret
-          #         key: password
-          #     - name: HTTP_S
-          #       value: http
-          #     - name: PORT_FORWARDED
-          #       value: "/tmp/gluetun/forwarded_port"
-          #   resources:
-          #     requests:
-          #       cpu: 10m
-          #       memory: 32Mi
-          #     limits:
-          #       memory: 64Mi
+            env:
+              #required
+              - name: VPN_SERVICE_PROVIDER
+                value: custom
+              - name: VPN_TYPE
+                value: wireguard
+              - name: WIREGUARD_MTU
+                value: 1384
+              - name: SERVER_NAMES
+                secretKeyRef:
+                  name: vpnconfig
+                  key: server
+              #optional
+              - name: VPN_PORT_FORWARDING
+                value: on
+              - name: VPN_PORT_FORWARDING_PROVIDER
+                value: private internet access
+              - name: VPN_PORT_FORWARDING_USERNAME
+                secretKeyRef:
+                  name: vpnconfig
+                  key: username
+              - name: VPN_PORT_FORWARDING_PASSWORD
+                secretKeyRef:
+                  name: vpnconfig
+                  key: password
+              - name: UPDATER_PERIOD
+                value: 24h
+              - name: TZ
+                value: ${TIMEZONE}
+              - name: VERSION_INFORMATION
+                value: off
+              - name: DOT
+                value: off
+              - name: BLOCK_MALCIOUS
+                value: off
+              - name: BLOCK_SURVEILLANCE
+                value: off
+              - name: BLOCK_ADS
+                value: off
+              # Allow access to k8s subnets
+              - name: FIREWALL_OUTBOUND_SUBNETS
+                value: "172.16.0.0/16,172.17.0.0/16,192.168.1.0/24"
+              - name: FIREWALL_INPUT_PORTS
+                value: 80
+            securityContext:
+              capabilities:
+                add:
+                  - NET_ADMIN
+            resources:
+              requests:
+                cpu: 250m
+                memory: 128Mi
+              limits:
+                memory: 256Mi
+                squat.ai/tun: "1"
+          port-forward:
+            dependsOn: gluetun
+            image:
+              repository: docker.io/snoringdragon/gluetun-qbittorrent-port-manager
+              tag: 1.3@sha256:679b7a92c494f93b78ad37ef24f3a261e73d0a1a52505ad4f1e39580eedfa14f
+            env:
+              - name: QBITTORRENT_SERVER
+                value: localhost
+              - name: QBITTORRENT_PORT
+                value: &port 80
+              - name: QBITTORRENT_USER
+                secretKeyRef:
+                  name: qbt-secret
+                  key: username
+              - name: QBITTORRENT_PASS
+                secretKeyRef:
+                  name: qbt-secret
+                  key: password
+              - name: HTTP_S
+                value: http
+              - name: PORT_FORWARDED
+                value: "/tmp/gluetun/forwarded_port"
+            resources:
+              requests:
+                cpu: 10m
+                memory: 32Mi
+              limits:
+                memory: 64Mi
           pia-wg-refresh:
             image:
               repository: ghcr.io/ccarpinteri/pia-wg-refresh
@@ -197,9 +175,7 @@ spec:
         type: ClusterIP
         ports:
           http:
-            # port: *port
-            port: 80
-        # externalTrafficPolicy: Local
+            port: *port
     route:
       app:
         hostnames: ["qbt.${SECRET_DOMAIN}"]
@@ -210,8 +186,7 @@ spec:
         rules:
           - backendRefs:
               - identifier: qbt
-                # port: *port
-                port: 80
+                port: *port
     persistence:
       # Configure mounts for qbt
       # config:
@@ -236,15 +211,15 @@ spec:
       #         - path: /config/.cache
 
       # Configure an emptyDir to share the port-forwarding location between containers
-      # port-data:
-      #   type: emptyDir
-      #   advancedMounts:
-      #     main:
-      #       gluetun:
-      #         - path: /tmp/gluetun
-      #       port-forward:
-      #         - path: /tmp/gluetun
-      #           readOnly: true
+      port-data:
+        type: emptyDir
+        advancedMounts:
+          main:
+            gluetun:
+              - path: /tmp/gluetun
+            port-forward:
+              - path: /tmp/gluetun
+                readOnly: true
 
       # Configure an emptyDir for wireguard config
       gluetun-config:

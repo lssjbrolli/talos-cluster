@@ -182,7 +182,7 @@ spec:
                   name: vpnconfig
                   key: password
               - name: PIA_REGION
-                value: ro
+                value: sweden
               - name: PIA_PORT_FORWARDING
                 value: true
             resources:

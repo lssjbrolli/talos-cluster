@@ -234,7 +234,7 @@ spec:
               - path: /config/.cache
 
       # Configure an emptyDir to share the port-forwarding location between containers
-      gluetun-data:
+      port-data:
         type: emptyDir
         advancedMounts:
           main:
@@ -243,14 +243,6 @@ spec:
             port-forward:
               - path: /tmp/gluetun
                 readOnly: true
-
-      # Configure an emptyDir for gluetun server list
-      gluetun-list:
-        type: emptyDir
-        advancedMounts:
-          main:
-            gluetun:
-              - path: /gluetun
 
       # Configure an emptyDir for wireguard config
       gluetun-config:

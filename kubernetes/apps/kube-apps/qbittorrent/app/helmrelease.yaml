@@ -185,8 +185,6 @@ spec:
                 value: ro
               - name: PIA_PORT_FORWARDING
                 value: true
-              - name: WG_CONF_PATH
-                value: '/gluetun/wireguard'
             resources:
               requests:
                 cpu: 10m

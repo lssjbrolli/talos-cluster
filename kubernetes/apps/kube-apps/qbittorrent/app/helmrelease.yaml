@@ -96,14 +96,6 @@ spec:
                 value: ${TIMEZONE}
               - name: VERSION_INFORMATION
                 value: off
-              - name: DOT
-                value: off
-              - name: BLOCK_MALCIOUS
-                value: off
-              - name: BLOCK_SURVEILLANCE
-                value: off
-              - name: BLOCK_ADS
-                value: off
               # Allow access to k8s subnets
               - name: FIREWALL_OUTBOUND_SUBNETS
                 value: "172.16.0.0/16,172.17.0.0/16,192.168.1.0/24"

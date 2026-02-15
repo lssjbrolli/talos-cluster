@@ -144,6 +144,10 @@ spec:
             image:
               repository: ghcr.io/ccarpinteri/pia-wg-refresh
               tag: v0.6.2@sha256:bd997658b511677c78da41e04b4988ee0915cf72ce982034078c46b4db4d40e2
+            securityContext:
+              capabilities:
+                add:
+                  - NET_ADMIN
             env:
               - name: PIA_USERNAME
                 secretKeyRef:

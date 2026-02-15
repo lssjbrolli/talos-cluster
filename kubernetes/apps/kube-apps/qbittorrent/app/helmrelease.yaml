@@ -178,6 +178,12 @@ spec:
         ports:
           http:
             port: *port
+      gluetun:
+        controller: main
+        type: ClusterIP
+        ports:
+          http:
+            port: 8000
     route:
       app:
         hostnames: ["qbt.${SECRET_DOMAIN}"]

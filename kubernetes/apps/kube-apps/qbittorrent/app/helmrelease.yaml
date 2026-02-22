@@ -143,7 +143,7 @@ spec:
           pia-wg-refresh:
             image:
               repository: ghcr.io/lssjbrolli/pia-wg-refresh
-              tag: 0.0.5
+              tag: 0.0.8
             securityContext:
               capabilities:
                 add:

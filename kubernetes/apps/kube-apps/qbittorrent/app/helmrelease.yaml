@@ -142,7 +142,7 @@ spec:
                 memory: 64Mi
           pia-wg-refresh:
             image:
-              repository: ghcr.io/lssjbrolli/pia-wg-refresh:0.0.1
+              repository: ghcr.io/lssjbrolli/pia-wg-refresh:0.0.5
               # tag: 0.0.1
             securityContext:
               capabilities:

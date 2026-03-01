@@ -446,6 +446,8 @@ Community member [@whazor](https://github.com/whazor) created [Kubesearch](https
 
 ## 📺 Media
 
+Check out these videos below. If you find them helpful, a like and subscribe goes a long way!
+
 <a href="https://youtube.com/watch?v=aeUKOpeoiUs">
   <img src="https://github.com/user-attachments/assets/2dab1c6f-7b27-4b94-a7ad-a6d9c5b17c78" alt="Youtube Video" width="300">
 </a>

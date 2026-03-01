@@ -444,6 +444,16 @@ Community member [@whazor](https://github.com/whazor) created [Kubesearch](https
 - Make a post in this repository's GitHub [Discussions](https://github.com/onedr0p/cluster-template/discussions).
 - Start a thread in the `#support` or `#cluster-template` channels in the [Home Operations](https://discord.gg/home-operations) Discord server.
 
+## 📺 Media
+
+<a href="https://youtube.com/watch?v=aeUKOpeoiUs">
+  <img src="https://github.com/user-attachments/assets/2dab1c6f-7b27-4b94-a7ad-a6d9c5b17c78" alt="Youtube Video" width="300">
+</a>
+&nbsp;&nbsp;
+<a href="https://youtube.com/watch?v=hoi2GzvJUXM">
+  <img src="https://github.com/user-attachments/assets/5b939b90-0019-4515-b90c-321ffe7448cf" alt="Youtube Video" width="300">
+</a>
+
 ## 🙌 Related Projects
 
 If this repo is too hot to handle or too cold to hold check out these following projects.

@@ -59,10 +59,10 @@ spec:
             image:
               repository: ghcr.io/qdm12/gluetun
               tag: v3.41.1@sha256:1a5bf4b4820a879cdf8d93d7ef0d2d963af56670c9ebff8981860b6804ebc8ab
-            # lifecycle:
-            #   postStart:
-            #     exec:
-            #       command: ["/bin/sh", "-c", "(ip rule del table 51820; ip -6 rule del table 51820) || true"]
+            lifecycle:
+              postStart:
+                exec:
+                  command: ["/bin/sh", "-c", "(ip rule del table 51820; ip -6 rule del table 51820) || true"]
             env:
               #required
               - name: VPN_SERVICE_PROVIDER
@@ -140,33 +140,33 @@ spec:
                 memory: 32Mi
               limits:
                 memory: 64Mi
-          pia-wg-refresh:
-            image:
-              repository: ghcr.io/lssjbrolli/pia-wg-refresh
-              tag: 0.0.5
-            securityContext:
-              capabilities:
-                add:
-                  - NET_ADMIN
-            env:
-              - name: PIA_USERNAME
-                secretKeyRef:
-                  name: vpnconfig
-                  key: username
-              - name: PIA_PASSWORD
-                secretKeyRef:
-                  name: vpnconfig
-                  key: password
-              - name: PIA_REGION
-                value: sweden
-              - name: PIA_PORT_FORWARDING
-                value: true
-            resources:
-              requests:
-                cpu: 10m
-                memory: 32Mi
-              limits:
-                memory: 64Mi
+          # pia-wg-refresh:
+          #   image:
+          #     repository: ghcr.io/lssjbrolli/pia-wg-refresh
+          #     tag: 0.0.5
+          #   securityContext:
+          #     capabilities:
+          #       add:
+          #         - NET_ADMIN
+          #   env:
+          #     - name: PIA_USERNAME
+          #       secretKeyRef:
+          #         name: vpnconfig
+          #         key: username
+          #     - name: PIA_PASSWORD
+          #       secretKeyRef:
+          #         name: vpnconfig
+          #         key: password
+          #     - name: PIA_REGION
+          #       value: sweden
+          #     - name: PIA_PORT_FORWARDING
+          #       value: true
+          #   resources:
+          #     requests:
+          #       cpu: 10m
+          #       memory: 32Mi
+          #     limits:
+          #       memory: 64Mi
     service:
       qbt:
         controller: main
@@ -236,5 +236,5 @@ spec:
           main:
             gluetun:
               - path: /gluetun/wireguard
-            pia-wg-refresh:
-              - path: /config
+            # pia-wg-refresh:
+            #   - path: /config

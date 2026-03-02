@@ -236,6 +236,5 @@ spec:
           main:
             gluetun:
               - path: /gluetun/wireguard
-                readOnly: true
             pia-wg-refresh:
               - path: /config

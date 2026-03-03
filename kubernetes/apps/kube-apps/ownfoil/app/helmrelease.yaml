@@ -59,8 +59,11 @@ spec:
                 port: *port
     persistence:
       config:
+        enabled: true
         type: persistentVolumeClaim
-        existingClaim: ownfoil-config
+        accessMode: ReadWriteOnce
+        size: 1Gi
+
       storage:
         type: persistentVolumeClaim
         existingClaim: ownfoil-data

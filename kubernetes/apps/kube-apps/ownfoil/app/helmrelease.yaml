@@ -12,7 +12,7 @@ spec:
   values:
     defaultPodOptions:
       securityContext:
-        fsGroup: 1000
+        fsGroup: 568
         fsGroupChangePolicy: OnRootMismatch
     controllers:
       main:
@@ -26,11 +26,13 @@ spec:
               tag: 2.2.1@sha256:33b08558252fa4102f132651db11cae9b6646f5df4d97a7ea3261fa4c209bf88
             securityContext:
               runAsNonRoot: false
-              runAsUser: 1000
-              runAsGroup: 1000
+              runAsUser: 568
+              runAsGroup: 568
               allowPrivilegeEscalation: true
               readOnlyRootFilesystem: false
-              # capabilities: { drop: ["ALL"] }
+              capabilities:
+                add:
+                 - SYS_ADMIN
             resources:
               requests:
                 cpu: 150m

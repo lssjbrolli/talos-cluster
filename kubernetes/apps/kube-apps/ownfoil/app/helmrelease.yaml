@@ -78,6 +78,9 @@ spec:
           main:
             main:
               - path: /app/config
+                subPath: config
+              - path: /app/data
+                subPath: data
 
       games:
         type: persistentVolumeClaim

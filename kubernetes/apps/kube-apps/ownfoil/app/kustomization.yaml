@@ -6,4 +6,5 @@ resources:
   - ./helmrelease.yaml
   - ./ocirepository.yaml
   - ./replicationsource.yaml
+  - ./restic.sops.yaml
   - ./secret.sops.yaml

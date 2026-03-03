@@ -25,11 +25,11 @@ spec:
               repository: a1ex4/ownfoil
               tag: 2.2.1@sha256:33b08558252fa4102f132651db11cae9b6646f5df4d97a7ea3261fa4c209bf88
             securityContext:
-            #   runAsNonRoot: false
-            #   runAsUser: 568
-            #   runAsGroup: 568
-            #   allowPrivilegeEscalation: true
-            #   readOnlyRootFilesystem: false
+              runAsNonRoot: false
+              runAsUser: 568
+              runAsGroup: 568
+              allowPrivilegeEscalation: true
+              readOnlyRootFilesystem: false
               capabilities:
                 add:
                  - SYS_ADMIN

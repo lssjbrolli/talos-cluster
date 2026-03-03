@@ -1,0 +1,33 @@
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pvc-53d4979f-6860-47dd-9da8-7fcce771b92f
+spec:
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 1Gi # size of the volume
+  claimRef:
+    apiVersion: v1
+    kind: PersistentVolumeClaim
+    name: ownfoil-config
+    namespace: kube-apps
+  csi:
+    driver: zfs.csi.openebs.io
+    fsType: zfs
+    volumeAttributes:
+      openebs.io/cas-type: localpv-zfs
+      openebs.io/poolname: apps/data
+    volumeHandle: pvc-53d4979f-6860-47dd-9da8-7fcce771b92f # This should be same as the zfs volume name
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - talos-cluster # change the hostname where volume is present
+  persistentVolumeReclaimPolicy: Delete
+  storageClassName: zfs-apps
+  volumeMode: Filesystem

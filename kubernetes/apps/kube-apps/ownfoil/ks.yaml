@@ -25,6 +25,7 @@ spec:
       APP: *app
       NS: kube-apps
       VOLSYNC_SCHED: "0 */12 * * *"
+      COPY_METHOD: Direct
   sourceRef:
     kind: GitRepository
     name: flux-system

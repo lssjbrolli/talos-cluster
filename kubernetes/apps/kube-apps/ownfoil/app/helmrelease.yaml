@@ -10,10 +10,10 @@ spec:
     kind: OCIRepository
     name: ownfoil
   values:
-    # defaultPodOptions:
-    #   securityContext:
-    #     fsGroup: 568
-    #     fsGroupChangePolicy: OnRootMismatch
+    defaultPodOptions:
+      securityContext:
+        fsGroup: 568
+        fsGroupChangePolicy: OnRootMismatch
     controllers:
       main:
         strategy: Recreate

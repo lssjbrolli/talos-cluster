@@ -5,7 +5,7 @@ kind: ReplicationSource
 metadata:
   name: ownfoil-backup
 spec:
-  sourcePVC: ownfoil-config
+  sourcePVC: ownfoil
   trigger:
     schedule: "0 */12 * * *"
   restic:

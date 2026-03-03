@@ -14,7 +14,7 @@ spec:
     cacheAccessModes:
       - ReadWriteOnce
     cacheCapacity: ${VOLSYNC_CAPACITY:=1Gi}
-    copyMethod: Snapshot
+    copyMethod: ${COPY_METHOD:=Snapshot}
     moverSecurityContext:
       runAsUser: ${VOLSYNC_PUID:=568}
       runAsGroup: ${VOLSYNC_PGID:=568}

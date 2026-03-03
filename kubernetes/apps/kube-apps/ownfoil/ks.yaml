@@ -1,0 +1,32 @@
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/kustomize.toolkit.fluxcd.io/kustomization_v1.json
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: &app ownfoil
+spec:
+  components:
+    - '../../../../components/archive'
+    - '../../../../components/volsync'
+  interval: 30m
+  path: ./kubernetes/apps/kube-apps/ownfoil/app
+  prune: true
+  wait: true
+  dependsOn:
+    - name: volsync
+      namespace: storage-system
+    - name: storage-volumes
+      namespace: storage-system
+  postBuild:
+    substituteFrom:
+      - name: cluster-secrets
+        kind: Secret
+    substitute:
+      APP: *app
+      NS: kube-apps
+      VOLSYNC_SCHED: "0 */12 * * *"
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+    namespace: flux-system
+  targetNamespace: kube-apps

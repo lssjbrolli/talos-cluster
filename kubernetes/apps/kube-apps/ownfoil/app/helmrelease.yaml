@@ -22,8 +22,8 @@ spec:
         containers:
           main:
             image:
-              repository: a1ex4/ownfoil
-              tag: 2.2.1@sha256:33b08558252fa4102f132651db11cae9b6646f5df4d97a7ea3261fa4c209bf88
+              repository: ghcr.io/lssjbrolli/ownfoil
+              tag: 2.2.1.1@sha256:226df0d3f9dd315987fc55c0f8e92be4b9dc41450fba81399ae4e8cbd1a3f3d0
             securityContext:
               runAsNonRoot: false
               runAsUser: 568

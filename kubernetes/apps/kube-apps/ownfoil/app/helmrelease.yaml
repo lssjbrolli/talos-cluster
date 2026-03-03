@@ -79,6 +79,10 @@ spec:
             main:
               - path: /app/config
 
-      storage:
+      games:
         type: persistentVolumeClaim
         existingClaim: ownfoil-data
+        advancedMounts:
+          main:
+            main:
+              - path: /games

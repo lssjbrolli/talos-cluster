@@ -39,6 +39,15 @@ spec:
                 memory: 256Mi
               limits:
                 memory: 1024Mi
+            env:
+              - name: USER_ADMIN_NAME
+                secretKeyRef:
+                  name: ownfoil
+                  key: user
+              - name: USER_ADMIN_PASSWORD
+                secretKeyRef:
+                  name: ownfoil
+                  key: pass
 
     service:
       main:

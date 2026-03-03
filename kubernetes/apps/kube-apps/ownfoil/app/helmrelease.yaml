@@ -46,7 +46,7 @@ spec:
         type: ClusterIP
         ports:
           http:
-            port: &port 80
+            port: &port 8465
         # externalTrafficPolicy: Local
     route:
       app:

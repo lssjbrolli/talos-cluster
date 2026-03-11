@@ -30,8 +30,8 @@ spec:
         containers:
           main:
             image:
-              repository: ghcr.io/ctcadmin2/remixctc
-              tag: 0.9.20@sha256:ddd5058fedc2e88c79352600d41399ba7c86f850880fa3fee175600284c688ff
+              repository: ghcr.io/ctcadmin2/remix_ctc
+              tag: 0.9.23@sha256:1885759300dff029946333d3c7681d2c78582e0016018be1fa7b8febdb03d843
             securityContext:
               runAsNonRoot: true
               runAsUser: 568

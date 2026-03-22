@@ -23,7 +23,7 @@ spec:
           main:
             image:
               repository: ghcr.io/lssjbrolli/ownfoil
-              tag: 2.2.1.1@sha256:226df0d3f9dd315987fc55c0f8e92be4b9dc41450fba81399ae4e8cbd1a3f3d0
+              tag: 2.3.0.1@sha256:ec71bd45d178e7f41ecd0f4c7dbc50f0e389e9a551532b4da82f9a15d36632fb
             securityContext:
               runAsNonRoot: false
               runAsUser: 568

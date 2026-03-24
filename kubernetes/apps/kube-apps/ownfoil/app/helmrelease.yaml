@@ -22,8 +22,9 @@ spec:
         containers:
           main:
             image:
-              repository: ghcr.io/lssjbrolli/ownfoil
-              tag: 2.3.0.1@sha256:ec71bd45d178e7f41ecd0f4c7dbc50f0e389e9a551532b4da82f9a15d36632fb
+              repository: a1ex4/ownfoil
+              tag: 2.3.0@sha256:d3f7c09ea450b64479dc57ada98d46b4ca72ac5016e54ed7f660e7b43d82ce39
+            command: ["/app/run.sh"]
             securityContext:
               runAsNonRoot: false
               runAsUser: 568

@@ -24,7 +24,7 @@ spec:
             image:
               repository: a1ex4/ownfoil
               tag: 2.3.0@sha256:d3f7c09ea450b64479dc57ada98d46b4ca72ac5016e54ed7f660e7b43d82ce39
-            command: ["/app/run.sh"]
+            command: ["python", "/app/app.py"]
             securityContext:
               runAsNonRoot: false
               runAsUser: 568

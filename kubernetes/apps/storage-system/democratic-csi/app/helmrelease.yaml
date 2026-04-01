@@ -17,6 +17,91 @@ spec:
       existingConfigSecret:
       config:
         driver: zfs-generic-iscsi
+    
+    zfs:
+      # can be used to override defaults if necessary
+      # the example below is useful for TrueNAS 12
+      #cli:
+      #  sudoEnabled: true
+      #  paths:
+      #    zfs: /usr/local/sbin/zfs
+      #    zpool: /usr/local/sbin/zpool
+      #    sudo: /usr/local/bin/sudo
+      #    chroot: /usr/sbin/chroot
+      
+      # can be used to set arbitrary values on the dataset/zvol
+      # can use handlebars templates with the parameters from the storage class/CO
+      #datasetProperties:
+      #  "org.freenas:description": "{{ parameters.[csi.storage.k8s.io/pvc/namespace] }}/{{ parameters.[csi.storage.k8s.io/pvc/name] }}"
+      #  "org.freenas:test": "{{ parameters.foo }}"
+      #  "org.freenas:test2": "some value"
+      # snapshotProperties:
+      #  "org.freenas:key": "value"
+
+      datasetParentName: apps/pods/storage
+      # do NOT make datasetParentName and detachedSnapshotsDatasetParentName overlap
+      # they may be siblings, but neither should be nested in the other
+      # do NOT comment this option out even if you don't plan to use snapshots, just leave it with dummy value
+      detachedSnapshotsDatasetParentName: apps/pods/snaps
+
+      # "" (inherit), lz4, gzip-9, etc
+      zvolCompression: zstd
+      # "" (inherit), on, off, verify
+      zvolDedup:
+      zvolEnableReservation: false
+      # 512, 1K, 2K, 4K, 8K, 16K, 64K, 128K default is 16K
+      zvolBlocksize:
+
+    iscsi:
+      shareStrategy: "targetCli"
+      #shareStrategy: "pcs"
+      shareStrategyTargetCli:
+        #sudoEnabled: true
+        basename: "iqn.2003-01.org.linux-iscsi.ubuntu-19.x8664"
+        tpg:
+          attributes:
+            # set to 1 to enable CHAP
+            authentication: 0
+            # this is required currently as we do not register all node iqns
+            # the effective outcome of this is, allow all iqns to connect
+            generate_node_acls: 1
+            cache_dynamic_acls: 1
+            # if generate_node_acls is 1 then must turn this off as well (assuming you want write ability)
+            demo_mode_write_protect: 0
+          auth:
+            # CHAP
+            #userid: "foo"
+            #password: "bar"
+            # mutual CHAP
+            #mutual_userid: "baz"
+            #mutual_password: "bar"
+        block:
+          attributes:
+            # set to 1 to enable Thin Provisioning Unmap
+            emulate_tpu: 0
+
+      shareStrategyPcs:
+        #sudoEnabled: true
+        pcs_group: "group-nas"
+        basename: "iqn.2003-01.org.linux-iscsi.ubuntu-19.x8664"
+        auth:
+          enabled: 0
+          # CHAP – incoming only, mutual not supported by the Pacemaker resource agent
+          incoming_username: "foo"
+          incoming_password: "bar"
+
+      targetPortal: "192.168.1.150"
+      # for multipath
+      targetPortals: [] # [ "server[:port]", "server[:port]", ... ]
+      # leave empty to omit usage of -I with iscsiadm
+      interface: ""
+
+      # MUST ensure uniqueness
+      # full iqn limit is 223 bytes, plan accordingly
+      # default is "{{ name }}"
+      #nameTemplate: "{{ parameters.[csi.storage.k8s.io/pvc/namespace] }}-{{ parameters.[csi.storage.k8s.io/pvc/name] }}"
+      namePrefix:
+      nameSuffix:
 
     # https://kubernetes-csi.github.io/docs/csi-driver-object.html
     # https://kubernetes-csi.github.io/docs/csi-driver-object.html

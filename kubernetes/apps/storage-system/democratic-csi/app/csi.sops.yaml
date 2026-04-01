@@ -5,7 +5,7 @@ metadata:
     name: democratic-csi-secret
     namespace: storage-system
 data:
-    driver-config-file.yaml: ENC[AES256_GCM,data:v739jRvwEsxsgfVDj8KrFSvJTUwbsyrddxHi8egC5hv/2bXfgApREr0ph1x7cEArESr52ei4jpK4cZ33SWSd8PTnGKDBr3px+k/wSRDtTZrPZaL4UbbXI4z2oABmc3/76iCI7d2//tlVm75yBUu6yIdyhs3exrugjNEfnAXUhKDGQUrPC2R8BsTbGXH6GwHZuCWeEE7tQeY/acLpKqVkwVwruCAKjV/jdh+8rzCUaaMCgL1S3RMQqH3To1sbWTSlAEA33eu3o27zX1t93Bt0wIrRWMsxVtjTbw+hVktJP55bCe3lxQbBmsGxHASdySrBahgavWPAGbJ0YX7RMYnOLa1yFBAxdxJZtc1ttpHFMBAKo4LAEe9XoT4YPxlioK462Z4gZ6/eupQK6YSvqe34RL/oMePDG+FGQ3lBnnqM02XwmUhxMFG869BOxuWQxAwO7i5qixU7wiluWrS+Pm8LcN+nw/qUHgDl7Fq6Xy3t5GdM/heV3ZZp8eNWQ2Ubv4EpL28KF3ckmfLK6Y5GOal5fTsuwNloUsJfpWxbHLS6FqlanolUVWrlDOyirqVjIZTMJH6y5BY+qppGX+oQ+Z4BA9icS1qBkfsfOFMSTgo4Yr0e4YAodtjmbSClRnJub3xuBIx42ZfI3ZuSR4RzbD2LigiRClgMoqgM+uN9ncdjdu7dZ6hEWx4bQE6Bxqjk/a7+bqI5jCaRlPkw4jc+9X+LFJ66LsEfEYMV08n+mxDTrgYYUoOiIM2BwMFR6VZu7qVMIJmVQurYzonKLcaU2Tp7l4QLSih4s+Eq/h6ZbDyhbL4Xie8lD/OSbpPVkyGLg4AY7ZZ5E89L2QzS2SVNuz5HOT5m9k+NDX6R5hWLvjEIYxsO6gIfcbsxX2Hj+eJ4DZybq+mHYpPu18atTAAQWW1Zbo/v/xH0J+cCP/5u5uj7zc8EFcaUS/pLnZMvmyLldwN2FW5scaQQ1eXKI8qAmmPOOtJrjYC+f+s5wT/Ua8pxS57VR7nWG7QFu0bkVZovIzzOOYnJn4+0Q1xXSCsRHXiQJZLpOrLBoPaCo4NCOe/78n6AB3h0wictffNRM6kUcVUzLDQvimk4GvJneXvxifth5vrxVTK2KS7fW1yDdPdN+vvqRpLktQSdHA489aizv9U98yL7cBkeK5u1BIa5y9rJ2kbg11/dYxO5d0cJDbaMl7Rnr8sxf5nPEdLSqG3M,iv:9CiYgUFAZ9HeeZjgn8AqazE/FWG1Ez+8rFpa6stg+yQ=,tag:8t6AnM6ffQb2ZZZgIElaYA==,type:str]
+    driver-config-file.yaml: ENC[AES256_GCM,data:9CCDcjfp7wJEyFnMLHjllSagIAlKXs+tePDTj5k/GbBVyaRW1R7WCUCJTwGNeK/OpUugGvf9rxsTbt6VJbTBidm/necfI2mckiafl7mrKdS0uI+mpzSC4tRcU+rKIa2gySIc/YqwHpMCS5wK4CX4/25L9yPrES1LR8Ajz5BB6Qy5x3Yk0P1C0GirpWq0x1E6nzsP4RyWLsVfCdZHhMPh9clTcruG7/Rr2tWM2IczmOMBbeooRfJaED6Jx7zscPBX8pk/N/U+YdpmoM0+OmGsdu1IrsuvhFpWuvXzivqSlzF+tHICKGm577qNkeoFpkS0Ye35T8LxmABgm8KBCKq08sox5U9kXMMlJxeY/7fJzoFV6/WBPvZsz+fzT4qXtzVsHKuV0llBt2zdi3V1bpx7stz8d7SqWHEwVUQZzy79rY9gWSJWGa50NpdZ/5GQbe+OPHS1Z4Pt2sTo+Bwk5s1ZGXlnGjvu23TztbvPHROe5sRVl/RpxftfbHlAD7C8nVpwqBGLTb5OvtR1yyMGXbmbHrwLGD+ZR1JW73BpYxyWL+TnlCL8tRoeVahXobwjQQYYUkyE8INblt4ehfVUFKgtOdpBnYtcZBFvAiBfE5WSh+b5EiCNWAdX+2+AYkf09YWaAFMAIy2YEvS24eoMsyueLUW2yStXctzUvKvKpy5UT5GwgoTypdALnDp5F70UxwZp5D0xpIO/PkJCJ1AdLXuc0P3w9ugdGWc7/NnQ4c0kQz/eNg2KYv1yghnv86ij5tPntuIh8VqC+0Jd2r28Ni8FnLzq6y+4gzSAnlkECIY5+gf6IlD0Vg4Fz/c0D9gb7DNQCP/zcncjfA7AiE0O6wc5NEY8BGVMkk/rlYlqldsEnazOf8hAMrZDeyaHD6MN1nAwJ0QIQN/bonskb+cO3aQ/p+ZNDdwusQ/GKkZ5zdB8VXjrXV3tneSRRVDUGKFykJ8oAFYC9b/t4ZScI5iMPmYbLY4DP5XigE7gzQ6zuESLKsRU8hghpvMy1m9NCDsLu/0CdMJn3jtG/WWqxMWAWpBUVILkQKANiI9Kb9PbMYdWJginLRoyobH2TfZ3Xeh/N/ENXea+FlpUJ/I/XlS6BsZa+VhdLgf/qJjIoukfunY0grVX9842sRgCPHvN/eKA0MutLzLXrVXBj+qHAUBkARC49nzbXjxkrj+SiUASz/Em0abNDGJGsCro9e4l/zo=,iv:zQQR4sUqtH7BLcnvkUbKySkEp/wtNMLpJC3u+OyxK6M=,tag:K31hiU7WNBOlZEPZNh+bdA==,type:str]
 sops:
     age:
         - recipient: age1k5cr4cvs4atdm3gse77vq4glnv9q49gq5wl49p9806gfyfld7p3setz3tw
@@ -17,8 +17,8 @@ sops:
             bWlWOFVEMTNSN0VEd2ZmQjJ1dmpBOVUKF+MUs4dJNYMDNsB4t/5wdkWMQEz4pPmy
             slcG7NPo94S2YsPdFGK1pKGXr7mM/kN48E2106X5Lo92TwBdfP8xAQ==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2026-04-01T21:02:47Z"
-    mac: ENC[AES256_GCM,data:hfZkknpwVaUSFCj9WQ5txW/24KFsSAJ7y2tMyXMMzN5hG50YgwLaAIMo8Xy2dTnOz+kYtqgL6IG1rF85fZLixNJ8zl9ZW50BZ4Xl74aBehVBZY9a1I+IMI9lZxI2XTlkqLydW1aSzzWZEHjVJ69pz4T6KWgMtFetm//NiqK6LlE=,iv:aGObLLhBu3Fg3v6hsvsWrRdTvqp4G1GrqqCt9E9+HF4=,tag:ZmpeD618syfe2mGJtPIjHg==,type:str]
+    lastmodified: "2026-04-01T21:04:28Z"
+    mac: ENC[AES256_GCM,data:d+e4lBXRkRlv6Bh9CPoO7ZapLPglG3S8FndYoSl9zTzno+37u4WN3iVWG3GfmJB4mO5ze9stSLERwdTSC127RXYlaKCQqtjuXVw9oE7MIe2a8Y1HsQ6PpRVr7vCHaxfqufu4biTjyPv79xhpMIQe/vfJxHu1+q7nrdNp6SK+iDI=,iv:rQz7m8HeeUFTbrivGcK0seiidpDEPTNbUotqJXYiFTY=,tag:DSiLe1MuBcJYn0eHvHtQ2Q==,type:str]
     encrypted_regex: ^(data|stringData)$
     mac_only_encrypted: true
     version: 3.12.2

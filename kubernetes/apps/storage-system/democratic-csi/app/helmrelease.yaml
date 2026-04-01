@@ -14,7 +14,7 @@ spec:
       # NOTE: if setting an existing secret you must still set `driver.config.driver`
       # to the corresponding value that you place in the secret as the value is used
       # by the chart for other purposes beyond secret creation
-      existingConfigSecret:
+      existingConfigSecret: democratic-csi-secret
       config:
         driver: zfs-generic-iscsi
     
@@ -137,7 +137,8 @@ spec:
       dnsPolicy: ClusterFirst
       hostAliases: []
       hostIPC: false
-      annotations: {}
+      annotations:
+        reloader.stakater.com/auto: "true"
       labels: {}
       podAnnotations: {}
       podLabels: {}

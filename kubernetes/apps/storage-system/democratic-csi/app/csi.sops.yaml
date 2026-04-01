@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Secret
+type: Opaque
+metadata:
+    name: democratic-csi-secret
+    namespace: storage-system
+data:
+    driver-config-file.yaml: ENC[AES256_GCM,data:v739jRvwEsxsgfVDj8KrFSvJTUwbsyrddxHi8egC5hv/2bXfgApREr0ph1x7cEArESr52ei4jpK4cZ33SWSd8PTnGKDBr3px+k/wSRDtTZrPZaL4UbbXI4z2oABmc3/76iCI7d2//tlVm75yBUu6yIdyhs3exrugjNEfnAXUhKDGQUrPC2R8BsTbGXH6GwHZuCWeEE7tQeY/acLpKqVkwVwruCAKjV/jdh+8rzCUaaMCgL1S3RMQqH3To1sbWTSlAEA33eu3o27zX1t93Bt0wIrRWMsxVtjTbw+hVktJP55bCe3lxQbBmsGxHASdySrBahgavWPAGbJ0YX7RMYnOLa1yFBAxdxJZtc1ttpHFMBAKo4LAEe9XoT4YPxlioK462Z4gZ6/eupQK6YSvqe34RL/oMePDG+FGQ3lBnnqM02XwmUhxMFG869BOxuWQxAwO7i5qixU7wiluWrS+Pm8LcN+nw/qUHgDl7Fq6Xy3t5GdM/heV3ZZp8eNWQ2Ubv4EpL28KF3ckmfLK6Y5GOal5fTsuwNloUsJfpWxbHLS6FqlanolUVWrlDOyirqVjIZTMJH6y5BY+qppGX+oQ+Z4BA9icS1qBkfsfOFMSTgo4Yr0e4YAodtjmbSClRnJub3xuBIx42ZfI3ZuSR4RzbD2LigiRClgMoqgM+uN9ncdjdu7dZ6hEWx4bQE6Bxqjk/a7+bqI5jCaRlPkw4jc+9X+LFJ66LsEfEYMV08n+mxDTrgYYUoOiIM2BwMFR6VZu7qVMIJmVQurYzonKLcaU2Tp7l4QLSih4s+Eq/h6ZbDyhbL4Xie8lD/OSbpPVkyGLg4AY7ZZ5E89L2QzS2SVNuz5HOT5m9k+NDX6R5hWLvjEIYxsO6gIfcbsxX2Hj+eJ4DZybq+mHYpPu18atTAAQWW1Zbo/v/xH0J+cCP/5u5uj7zc8EFcaUS/pLnZMvmyLldwN2FW5scaQQ1eXKI8qAmmPOOtJrjYC+f+s5wT/Ua8pxS57VR7nWG7QFu0bkVZovIzzOOYnJn4+0Q1xXSCsRHXiQJZLpOrLBoPaCo4NCOe/78n6AB3h0wictffNRM6kUcVUzLDQvimk4GvJneXvxifth5vrxVTK2KS7fW1yDdPdN+vvqRpLktQSdHA489aizv9U98yL7cBkeK5u1BIa5y9rJ2kbg11/dYxO5d0cJDbaMl7Rnr8sxf5nPEdLSqG3M,iv:9CiYgUFAZ9HeeZjgn8AqazE/FWG1Ez+8rFpa6stg+yQ=,tag:8t6AnM6ffQb2ZZZgIElaYA==,type:str]
+sops:
+    age:
+        - recipient: age1k5cr4cvs4atdm3gse77vq4glnv9q49gq5wl49p9806gfyfld7p3setz3tw
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBtcGRtZVNUZS9OVzVoUDYz
+            MGhpOUtTRnY3ZVFyaXFnS21BT1k0Q09oU0JRCjllbm9FT2lJQ0lPUFN5dEc0YlJm
+            ZWpsSTVPR3Yxc3FyMURtQUZNRFZ4Y1UKLS0tIDdid0pmQjBteU00ZzY3Ym9xajgv
+            bWlWOFVEMTNSN0VEd2ZmQjJ1dmpBOVUKF+MUs4dJNYMDNsB4t/5wdkWMQEz4pPmy
+            slcG7NPo94S2YsPdFGK1pKGXr7mM/kN48E2106X5Lo92TwBdfP8xAQ==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2026-04-01T21:02:47Z"
+    mac: ENC[AES256_GCM,data:hfZkknpwVaUSFCj9WQ5txW/24KFsSAJ7y2tMyXMMzN5hG50YgwLaAIMo8Xy2dTnOz+kYtqgL6IG1rF85fZLixNJ8zl9ZW50BZ4Xl74aBehVBZY9a1I+IMI9lZxI2XTlkqLydW1aSzzWZEHjVJ69pz4T6KWgMtFetm//NiqK6LlE=,iv:aGObLLhBu3Fg3v6hsvsWrRdTvqp4G1GrqqCt9E9+HF4=,tag:ZmpeD618syfe2mGJtPIjHg==,type:str]
+    encrypted_regex: ^(data|stringData)$
+    mac_only_encrypted: true
+    version: 3.12.2

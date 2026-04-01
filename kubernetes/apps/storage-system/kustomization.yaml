@@ -6,9 +6,9 @@ namespace: storage-system
 components:
   - ../../components/common
 resources:
-  - ./minio/ks.yaml
-  - ./openebs/ks.yaml
+  # - ./minio/ks.yaml
+  # - ./openebs/ks.yaml
   - ./snapshot-controller/ks.yaml
-  - ./storage-volumes/ks.yaml
-  - ./volsync/ks.yaml
+  # - ./storage-volumes/ks.yaml
+  # - ./volsync/ks.yaml
   - ./namespace.yaml

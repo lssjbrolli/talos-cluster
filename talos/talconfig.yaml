@@ -24,11 +24,11 @@ nodes:
     installDisk: "/dev/disk/by-id/ata-ADATA_SP550_2G3620040820"
     machineSpec:
       secureboot: false
-    talosImageURL: factory.talos.dev/metal-installer/c90257a29cb9deec8407ffe1fc87d2a91ab17375b85ccbf26225e977149d42fa
+    talosImageURL: factory.talos.dev/metal-installer/dc7b152cb3ea99b821fcb7340ce7168313ce393d663740b791c36f6e95fc8586
     controlPlane: true
     networkInterfaces:
       - deviceSelector:
-          hardwareAddr: "a8:a1:59:4a:16:c8"
+          hardwareAddr: "ec:06:0f:41:12:24"
         dhcp: false
         addresses:
           - "192.168.1.100/24"

@@ -22,7 +22,7 @@ spec:
     # https://kubernetes-csi.github.io/docs/csi-driver-object.html
     csiDriver:
       # should be globally unique for a given cluster
-      name:
+      name: org.democratic-csi.iscsi
       version: 1.5.0
       # create the kubernetes CSIDriver
       enabled: true

@@ -21,7 +21,7 @@ cniConfig:
 nodes:
   - hostname: "talos-cluster"
     ipAddress: "192.168.1.100"
-    installDisk: "/dev/disk/by-id/ata-ADATA_SP550_2G3620040820"
+    installDisk: "/dev/sda"
     machineSpec:
       secureboot: false
     talosImageURL: factory.talos.dev/metal-installer/dc7b152cb3ea99b821fcb7340ce7168313ce393d663740b791c36f6e95fc8586

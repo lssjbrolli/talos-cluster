@@ -15,61 +15,7 @@ spec:
       # to the corresponding value that you place in the secret as the value is used
       # by the chart for other purposes beyond secret creation
       existingConfigSecret: democratic-csi-secret
-      config:
-        driver: zfs-generic-iscsi
     
-    zfs:
-      # can be used to override defaults if necessary
-      # the example below is useful for TrueNAS 12
-      #cli:
-      #  sudoEnabled: true
-      #  paths:
-      #    zfs: /usr/local/sbin/zfs
-      #    zpool: /usr/local/sbin/zpool
-      #    sudo: /usr/local/bin/sudo
-      #    chroot: /usr/sbin/chroot
-      
-      # can be used to set arbitrary values on the dataset/zvol
-      # can use handlebars templates with the parameters from the storage class/CO
-      #datasetProperties:
-      #  "org.freenas:description": "{{ parameters.[csi.storage.k8s.io/pvc/namespace] }}/{{ parameters.[csi.storage.k8s.io/pvc/name] }}"
-      #  "org.freenas:test": "{{ parameters.foo }}"
-      #  "org.freenas:test2": "some value"
-      # snapshotProperties:
-      #  "org.freenas:key": "value"
-
-      datasetParentName: apps/pods/storage
-      # do NOT make datasetParentName and detachedSnapshotsDatasetParentName overlap
-      # they may be siblings, but neither should be nested in the other
-      # do NOT comment this option out even if you don't plan to use snapshots, just leave it with dummy value
-      detachedSnapshotsDatasetParentName: apps/pods/snaps
-
-      # "" (inherit), lz4, gzip-9, etc
-      zvolCompression: zstd
-      # "" (inherit), on, off, verify
-      zvolDedup:
-      zvolEnableReservation: false
-      # 512, 1K, 2K, 4K, 8K, 16K, 64K, 128K default is 16K
-      zvolBlocksize:
-
-    iscsi:
-      targetPortal: "192.168.1.150:3260"
-      targetPortals: [] 
-      interface:
-      namePrefix: csi-
-      nameSuffix: "-cluster"
-      targetGroups:
-        - targetGroupPortalGroup: 1
-          targetGroupInitiatorGroup: 1
-          targetGroupAuthType: None
-          targetGroupAuthGroup:
-      extentCommentTemplate: "{{ parameters.[csi.storage.k8s.io/pvc/namespace] }}/{{ parameters.[csi.storage.k8s.io/pvc/name] }}"
-      extentInsecureTpc: true
-      extentXenCompat: false
-      extentRpm: "SSD"
-      extentBlocksize: 512
-      extentAvailThreshold: 0
-
     # https://kubernetes-csi.github.io/docs/csi-driver-object.html
     # https://kubernetes-csi.github.io/docs/csi-driver-object.html
     csiDriver:

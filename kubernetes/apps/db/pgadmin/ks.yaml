@@ -9,9 +9,9 @@ spec:
   path: ./kubernetes/apps/db/pgadmin/app
   prune: true
   wait: true
-  dependsOn:
-    - name: volsync
-      namespace: storage-system
+  # dependsOn:
+  #   - name: volsync
+  #     namespace: storage-system
   postBuild:
     substituteFrom:
       - name: cluster-secrets

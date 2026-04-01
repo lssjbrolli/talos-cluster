@@ -85,7 +85,8 @@ spec:
     persistence:
       config:
         type: persistentVolumeClaim
-        existingClaim: pgadmin-config
+        accessMode: ReadWriteOnce
+        size: 1G
         globalMounts:
           - path: /var/lib/pgadmin
 

@@ -13,7 +13,7 @@ spec:
   wait: true
   dependsOn:
     - name: minio
-      namespace: storage-system
+      namespace: kube-system
     - name: cluster17
       namespace: db
   postBuild:

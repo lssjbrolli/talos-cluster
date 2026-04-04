@@ -10,7 +10,7 @@ spec:
   prune: true
   dependsOn:
     - name: minio
-      namespace: storage-system
+      namespace: kube-system
   sourceRef:
     kind: GitRepository
     name: flux-system

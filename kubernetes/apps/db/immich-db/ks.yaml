@@ -11,7 +11,7 @@ spec:
     - name: cnpg
     - name: plugin-barman-cloud
     - name: minio
-      namespace: storage-system
+      namespace: kube-system
   postBuild:
     substituteFrom:
       - name: cluster-settings

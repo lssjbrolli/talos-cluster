@@ -1,0 +1,7 @@
+machine:
+  nodeAnnotations:
+    proxmox.sinextra.dev/instance-id: "100"
+  nodeLabels:
+    topology.kubernetes.io/region: proxmox
+    topology.kubernetes.io/zone: pve
+    csi.proxmox.sinextra.dev/max-volume-attachments: "30"

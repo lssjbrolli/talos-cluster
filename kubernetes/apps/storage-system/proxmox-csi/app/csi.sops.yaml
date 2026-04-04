@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Secret
+type: Opaque
+metadata:
+    name: proxmox-secret
+    namespace: storage-system
+stringData:
+    config.yaml: ENC[AES256_GCM,data:giRMu1lmkeTbc2iru0mu2nGWLvMMS/+9NdsKlLHVv2Ahr+/Va1329d+mmzKWNhpQCCJHBBJqptNNJkWOpdK5KSHlAOaJ5LVAQX407MTfFzkX4QZ8z8FQrgFuCG5SaO950oCfEFNHZF5O6bV8lCBosyfvjeTy9yr3FsN5KDei8NuyFRNt+OZF1XgfTq4i2W7kr1yElh4XgvIE+8d0xUKwko1yGSX93QFQgoEQTmWjitsZfUR/PTcw8REgrAWJ0KR4bL+zSTG79QdKlSBbMv6ukW4u+/CFQ/J0OlBD72pUgdI0APZaMquu6Z/1eMLrwmt9TL0En4otULH/k0bWihaLvf4VSxPDBZOub6c7I4kySKgfghTTnNKl1/PWuQIB/ydNt7MX+Pl5v+HovzxOeuouK3NC5tI=,iv:H+P/0CimMjVzLYcq4tSaj7ei0vE8dZ6BrFzX9omU0gM=,tag:NDwaC4HaoB/gGiaT6e7KvA==,type:str]
+sops:
+    age:
+        - recipient: age1k5cr4cvs4atdm3gse77vq4glnv9q49gq5wl49p9806gfyfld7p3setz3tw
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBtcGRtZVNUZS9OVzVoUDYz
+            MGhpOUtTRnY3ZVFyaXFnS21BT1k0Q09oU0JRCjllbm9FT2lJQ0lPUFN5dEc0YlJm
+            ZWpsSTVPR3Yxc3FyMURtQUZNRFZ4Y1UKLS0tIDdid0pmQjBteU00ZzY3Ym9xajgv
+            bWlWOFVEMTNSN0VEd2ZmQjJ1dmpBOVUKF+MUs4dJNYMDNsB4t/5wdkWMQEz4pPmy
+            slcG7NPo94S2YsPdFGK1pKGXr7mM/kN48E2106X5Lo92TwBdfP8xAQ==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2026-04-04T23:03:06Z"
+    mac: ENC[AES256_GCM,data:7ET894lEz5R6XX9Mxa84Vy7Yix6pMwqlaWWNvEn2WPCclHpXz9sJpCtTVl7u0j/PXPAx6G2x/YKYs9knKUG6ye5jGImQlUNZLjaTz0zFey9opVT8Fx/QF+HqYIAo0qXpI2vrRdrCm+8jxYLIYcZK8n0Vq/au1hrvP98qADmaGHI=,iv:BRx2M2pzIW1iARs6qCVORboMk6vMu9oyc+VuuX2pWlM=,tag:Dp5zhb4hkxaqSagh1GzW1w==,type:str]
+    encrypted_regex: ^(data|stringData)$
+    mac_only_encrypted: true
+    version: 3.12.2

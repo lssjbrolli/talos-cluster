@@ -282,14 +282,15 @@ spec:
         secrets:
           provisioner-secret:
 
-    volumeSnapshotClasses: []
-    #- name:
-    #  annotations: {}
-    #  labels: {}
-    #  deletionPolicy: Delete | Retain
-    #  parameters:
-    #  secrets:
-    #    snapshotter-secret:
+    volumeSnapshotClasses:
+      - name: demSnapshot
+        # annotations: {}
+        # labels: {}
+        deletionPolicy: Delete
+        parameters:
+          detachedSnapshots: true
+        #  secrets:
+        #    snapshotter-secret:
 
     # this is a temporary measure until all the k8s components are proper
     # grpc clients and send valid :authority headers

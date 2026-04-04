@@ -6,6 +6,5 @@ resources:
   - ./helmrelease.yaml
   - ./ocirepository.yaml
   - ./pgadmin-secrets.sops.yaml
-  # - ./pvc.yaml
-  # - ./restic.sops.yaml
-  # - ./volsync.yaml
+  - ./pvc.yaml
+  - ./restic.sops.yaml

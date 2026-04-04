@@ -8,6 +8,8 @@ spec:
   interval: 1h
   path: ./kubernetes/apps/storage-system/democratic-csi/app
   prune: true
+  dependsOn:
+    - name: snapshot-controller
   sourceRef:
     kind: GitRepository
     name: flux-system

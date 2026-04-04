@@ -119,7 +119,7 @@ spec:
 
       # https://kubernetes-csi.github.io/docs/external-snapshotter.html
       externalSnapshotter:
-        enabled: true
+        enabled: false
         # 1.20+ should use v4.0.0+
         # READ *before* updating from beta https://github.com/kubernetes-csi/external-snapshotter#usage
         image:
@@ -282,13 +282,13 @@ spec:
         secrets:
           provisioner-secret:
 
-    volumeSnapshotClasses:
-      - name: dem-snapshot
+    volumeSnapshotClasses: []
+      # - name: dem-snapshot
         # annotations: {}
         # labels: {}
-        deletionPolicy: Delete
-        parameters:
-          detachedSnapshots: true
+        # deletionPolicy: Delete
+        # parameters:
+        #   detachedSnapshots: true
         #  secrets:
         #    snapshotter-secret:
 

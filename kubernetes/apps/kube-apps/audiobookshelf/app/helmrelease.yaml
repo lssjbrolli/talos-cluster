@@ -92,5 +92,6 @@ spec:
       tmp:
         type: emptyDir
       media:
-        type: persistentVolumeClaim
-        existingClaim: audiobookshelf-data
+        type: nfs
+        server: 192.168.1.150
+        path: /storage/media

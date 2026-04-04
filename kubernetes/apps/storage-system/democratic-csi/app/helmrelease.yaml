@@ -283,7 +283,7 @@ spec:
           provisioner-secret:
 
     volumeSnapshotClasses:
-      - name: demSnapshot
+      - name: dem-snapshot
         # annotations: {}
         # labels: {}
         deletionPolicy: Delete

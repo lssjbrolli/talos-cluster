@@ -24,4 +24,4 @@ spec:
     retain:
       hourly: 1
       daily: 1
-    volumeSnapshotClassName: demSnapshot
+    volumeSnapshotClassName: dem-snapshot

@@ -5,7 +5,7 @@ metadata:
     namespace: kube-apps
 stringData:
     #ENC[AES256_GCM,data:v/rqDm3BYT1G7Li+NAfj5WZWJw==,iv:piXYLG+01JqYS+G6/ZFggNVsZt5NgDuv6EUU6Oh+sbQ=,tag:CqqT7wJgEXOLSgrJhQClqw==,type:comment]
-    RESTIC_REPOSITORY: ENC[AES256_GCM,data:igMEh57iXad91dbma+RqxlqudPErv1vehXj7yFI28tWIsigHNpsIcCUrhDDv0zEk7j/V4p6pkBwO7LeTZ3P15DqdK2HD,iv:VwFoYg8ipuciAN2GNyTzw5xdU47QBTT3bptJ5GkyIvk=,tag:/ZuKrBOaR4zoJh/bdngHfQ==,type:str]
+    RESTIC_REPOSITORY: ENC[AES256_GCM,data:HcAA9TD23enipCZWCC4Ke8l93/6d/QAIhQA4LcbS/3SgZJUWyTYipEfHdpKH1ST2RiseZZ7RK6xKFEAvGUT3V0/D,iv:J4KXN2Q38y6xSx73uJRDTkPIsJKdJkx01lYWAx4WhbA=,tag:Un6rTsPkIDIq3r+kXYuGEQ==,type:str]
     #ENC[AES256_GCM,data:7AAND4QuKTwkUSA1Hn4d+UevZCQLjxYD+SSJ8DPi,iv:8InNm5Sxaxa7IFYYwM7OapFI1e7rGa8rO2tb+2yFcR8=,tag:HjMSFBVAf8PcJBq9ybLD/w==,type:comment]
     RESTIC_PASSWORD: ENC[AES256_GCM,data:WE/I1g==,iv:6Xo1/vSxl1jz8RCccyIFrl86D4Zn0dpxwUgzL3x4gmc=,tag:n5SMBtWFrmy7DU5N+EnY3g==,type:str]
     #ENC[AES256_GCM,data:6qoNbUfJ3LiIi6fwteXU0HC+z8may4qfZZTkKLxX9eFBmdLtPbQm4Hg=,iv:D5OoPq6eaw17tQ46G8RrMuBCY/BSYp5RFuORoMoSY6I=,tag:E7AwYNjDM9ajMljWjrCDRQ==,type:comment]
@@ -23,7 +23,7 @@ sops:
             Tm9NYVNVZjUrZUFLbS9WQmNVcjFpVGsKrZyCYx3InSl9BAfOLP/8Nb4Bt9skNjmi
             ywg6GNEEN0qS/W/1TKVCwLZ/TAbbyeyKXWiq/WzCiDtxrNg0YWT35g==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2026-03-03T19:27:43Z"
-    mac: ENC[AES256_GCM,data:X3V6HTsvIZYtl1h2kXhmRSe5+GTUS2xYubQyvRQZivNV9hS3T4eY7xeHjO2Qly9RJXe0WVDotxaNr1W3Sv5dF4gIJsqJWiAa8q6+WXldyq26fznzs+YfKCY3ccYItodwBH/3tinZKP2T2EUsjeR6SdRuBfIgK1I+wnAh1NfOPuU=,iv:jbSKK4NSS6qaFZrJvMOSj9CCFh2i2PXGnTA7lQDInc4=,tag:GHROVakLJQKUWBZe3//7fg==,type:str]
+    lastmodified: "2026-04-04T18:23:49Z"
+    mac: ENC[AES256_GCM,data:YBGG/6YZiXx6DCqUpQVKryW6VCEHng8ldn2nz47vl8QuCFVs1N5EI758jsjnswvuY5vD+MbqWpLSfbYKlM5wyuicC0Ai4LRFVQ/E3uOd3Dd+xMWwVOEt3Zou0qf/HkcjXFI+SkfqDozoSXt61AQmvWij0J3tBL52sSJnzyAzKew=,iv:+Nq1DNM4lSwh+37XsH8tbLc//I3HKLVab4/UEZH5/zc=,tag:Q65vktQARfWDDThlOcfxUg==,type:str]
     encrypted_regex: ^(data|stringData)$
-    version: 3.12.1
+    version: 3.12.2

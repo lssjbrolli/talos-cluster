@@ -5,7 +5,7 @@ metadata:
     namespace: kube-apps
 stringData:
     #ENC[AES256_GCM,data:v/rqDm3BYT1G7Li+NAfj5WZWJw==,iv:piXYLG+01JqYS+G6/ZFggNVsZt5NgDuv6EUU6Oh+sbQ=,tag:CqqT7wJgEXOLSgrJhQClqw==,type:comment]
-    RESTIC_REPOSITORY: ENC[AES256_GCM,data:IVuYaOMKgZvcNsxVIWrD+Kb0tsKj0xIS9uOeMTefypssFqtlVXni1RfYIJc5jrtxTebjS1UR8XE7hkN5rioLH1S5kU/PRVnJtw==,iv:E/NNPycjCnas8vN25sefUYFibORDLVkpDddFx37h7Iw=,tag:SleGBKgMqhmeVSo4iT/Rtw==,type:str]
+    RESTIC_REPOSITORY: ENC[AES256_GCM,data:VH1zS7DcSoZV4Tm+pnph6TdoWMQWaqBKNKZP4Klaoa+o5NxChHSoGxOZpmoT66oE493t2As7a2qhu44KuxTbD5dKMpj8Yw==,iv:7OlC2c+qW8YoKKpl8ZZltoOKhT2FX3E/NPOc/hlD770=,tag:eOHUkKBPTwvGP1/a1acL6Q==,type:str]
     #ENC[AES256_GCM,data:7AAND4QuKTwkUSA1Hn4d+UevZCQLjxYD+SSJ8DPi,iv:8InNm5Sxaxa7IFYYwM7OapFI1e7rGa8rO2tb+2yFcR8=,tag:HjMSFBVAf8PcJBq9ybLD/w==,type:comment]
     RESTIC_PASSWORD: ENC[AES256_GCM,data:WE/I1g==,iv:6Xo1/vSxl1jz8RCccyIFrl86D4Zn0dpxwUgzL3x4gmc=,tag:n5SMBtWFrmy7DU5N+EnY3g==,type:str]
     #ENC[AES256_GCM,data:6qoNbUfJ3LiIi6fwteXU0HC+z8may4qfZZTkKLxX9eFBmdLtPbQm4Hg=,iv:D5OoPq6eaw17tQ46G8RrMuBCY/BSYp5RFuORoMoSY6I=,tag:E7AwYNjDM9ajMljWjrCDRQ==,type:comment]
@@ -23,7 +23,7 @@ sops:
             Tm9NYVNVZjUrZUFLbS9WQmNVcjFpVGsKrZyCYx3InSl9BAfOLP/8Nb4Bt9skNjmi
             ywg6GNEEN0qS/W/1TKVCwLZ/TAbbyeyKXWiq/WzCiDtxrNg0YWT35g==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2025-08-13T15:42:09Z"
-    mac: ENC[AES256_GCM,data:R6UqK/T/JxsFKm42THKdt2eQCplmUYgzDhXP2S3+mJsQClAEHBPodTPeR9FcA35vA5nXu49/lYu5cnvkwlVKXtWR+p+vMFhoZg9P7cKj8SE+gw1w+xVHty3lC1rESmJk13TKB2yFzzijZ5W2QPEOINSuFEy5g5zgJhePwVi2tL4=,iv:hANagsyk8KW+AsDanNqFFKiWL9Cc+gSYbiSD5lOceRY=,tag:F2yMNeJJYVyTUIP2payUYA==,type:str]
+    lastmodified: "2026-04-04T18:23:12Z"
+    mac: ENC[AES256_GCM,data:hXpSX2fH5z66rgbIrcoRuVwvfTAhrrve9I5Y9Y64qJwrjPCY8O6Lr937rDzakYW3NQf6e2/vOxL4lcRpptv6rbk8Haik1Y570ExU5U/l0WUMfCUZxBExOJXQ9PMcRCJRhy656AjmESUE2DUiBol1WNBipQ3F1lhLChhaFQznvWQ=,iv:1bUM0oJgM/NNJwaw83vo5XLoVG9e5Wq0gCpJq8AM/Y4=,tag:md7UPXkRe29NnlA52yBT3g==,type:str]
     encrypted_regex: ^(data|stringData)$
-    version: 3.10.2
+    version: 3.12.2

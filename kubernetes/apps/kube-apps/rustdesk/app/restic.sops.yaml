@@ -5,7 +5,7 @@ metadata:
     namespace: kube-apps
 stringData:
     #ENC[AES256_GCM,data:v/rqDm3BYT1G7Li+NAfj5WZWJw==,iv:piXYLG+01JqYS+G6/ZFggNVsZt5NgDuv6EUU6Oh+sbQ=,tag:CqqT7wJgEXOLSgrJhQClqw==,type:comment]
-    RESTIC_REPOSITORY: ENC[AES256_GCM,data:roMHX94keoFskKFIRlNHSrunMKoCc8tWmAi5nneC+/pDZTS4omTXNe/QkUz3wzyi8SfCcPJRw2V/TPXnbUMCR3K5kKqL9w==,iv:kb0EIdiweBBxBYPQV8yfnunJDgb4dytD00QkuTOZcPU=,tag:VFwFhrBdSJu6OvrmteODwQ==,type:str]
+    RESTIC_REPOSITORY: ENC[AES256_GCM,data:JqqfCmmLNRsZnqolam7MnW5ZvQ8fBbeZki4lPBq5nQf5etVl0w/YLKefAz+xA4fWmlgd5OVyuO8qpd1uUD8YC/qDUw==,iv:9ctnb2CGHDat58y2UHiEhxsqurqVFtJX3eE/mYKX7Ps=,tag:Wp63gr02pM/yfqsP8INU6A==,type:str]
     #ENC[AES256_GCM,data:7AAND4QuKTwkUSA1Hn4d+UevZCQLjxYD+SSJ8DPi,iv:8InNm5Sxaxa7IFYYwM7OapFI1e7rGa8rO2tb+2yFcR8=,tag:HjMSFBVAf8PcJBq9ybLD/w==,type:comment]
     RESTIC_PASSWORD: ENC[AES256_GCM,data:WE/I1g==,iv:6Xo1/vSxl1jz8RCccyIFrl86D4Zn0dpxwUgzL3x4gmc=,tag:n5SMBtWFrmy7DU5N+EnY3g==,type:str]
     #ENC[AES256_GCM,data:6qoNbUfJ3LiIi6fwteXU0HC+z8may4qfZZTkKLxX9eFBmdLtPbQm4Hg=,iv:D5OoPq6eaw17tQ46G8RrMuBCY/BSYp5RFuORoMoSY6I=,tag:E7AwYNjDM9ajMljWjrCDRQ==,type:comment]
@@ -23,7 +23,7 @@ sops:
             Tm9NYVNVZjUrZUFLbS9WQmNVcjFpVGsKrZyCYx3InSl9BAfOLP/8Nb4Bt9skNjmi
             ywg6GNEEN0qS/W/1TKVCwLZ/TAbbyeyKXWiq/WzCiDtxrNg0YWT35g==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2025-12-06T14:15:30Z"
-    mac: ENC[AES256_GCM,data:pO8HRrxryuMDtok0SNzwLNcp8IRpgvYb6Pg/FSlHBhDErTGgf2YpsfdBMu9xlYF7KQ9U2I4ciOzv2+igPpH38iJNdCKhKj+Ep7iB+8+rhsWXZ77pGKwrGoiFlUPbuEBzuHHn7pDK26XxMi6wSMEDANUBt2rsBJx3hmqLt1urJJU=,iv:1xu1trZRkSuNHHqCoDQR8/oTpxYSAjT1z2D/ujFATJU=,tag:YbChyOlMyVD/3GevTAwmTg==,type:str]
+    lastmodified: "2026-04-04T18:24:28Z"
+    mac: ENC[AES256_GCM,data:UFUgsqCvoITFgaQH3bQfQbGivkaeXSa9fvEsdS1NXOWuzsv4DTUAgF0PzHiHP6QnZXta1D2bIWWeA5bGBGgBG72T8IXT9jNN3wGRMBnRwxOxe55u9Wnyt76AfHNwYxJugmWiQzXIA6s7kDnKf5iH9ylFArqJRavKlabEh259iaM=,iv:BEgQDINaOFKxQsZmewOa13SRptLLLPCCm/X+D34U26A=,tag:4hpJgRaEL+CSKZv/k0OCoQ==,type:str]
     encrypted_regex: ^(data|stringData)$
-    version: 3.11.0
+    version: 3.12.2

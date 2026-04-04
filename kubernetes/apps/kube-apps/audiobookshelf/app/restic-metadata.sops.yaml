@@ -5,7 +5,7 @@ metadata:
     namespace: kube-apps
 stringData:
     #ENC[AES256_GCM,data:v/rqDm3BYT1G7Li+NAfj5WZWJw==,iv:piXYLG+01JqYS+G6/ZFggNVsZt5NgDuv6EUU6Oh+sbQ=,tag:CqqT7wJgEXOLSgrJhQClqw==,type:comment]
-    RESTIC_REPOSITORY: ENC[AES256_GCM,data:4q814hK+R+SAiTcyYGpHCDfdba35rYS8FWur1onG8OftPFsCk7C1U+HFeW2+dcxWIMBceHbiwoYK2XuTzbY6GG3CV/+5zNuVUtNkdJcK9rQIP+TWFg==,iv:lVbxX/MzF4Dx/i5D/sCR3H+P78KXyVQfLL4I701y/DE=,tag:aCfT+PYmfEa2EljiGp9n7A==,type:str]
+    RESTIC_REPOSITORY: ENC[AES256_GCM,data:JOArhucSrVW9hrfpxSgMGn+aCkY2zGjXKD/oHuwMyMBECP/KakZkY4CGRnZzOHB+pGxgq7dHJUmmPueg8k/a5z2YIkokacZOG6jDKjLgAXzcGw==,iv:qIWTw45IWr1wm9M4yNitIgEWIHFieCiIjP3QmVe+bWM=,tag:6B8fEZZ5V70Qla2aUeKklw==,type:str]
     #ENC[AES256_GCM,data:7AAND4QuKTwkUSA1Hn4d+UevZCQLjxYD+SSJ8DPi,iv:8InNm5Sxaxa7IFYYwM7OapFI1e7rGa8rO2tb+2yFcR8=,tag:HjMSFBVAf8PcJBq9ybLD/w==,type:comment]
     RESTIC_PASSWORD: ENC[AES256_GCM,data:WE/I1g==,iv:6Xo1/vSxl1jz8RCccyIFrl86D4Zn0dpxwUgzL3x4gmc=,tag:n5SMBtWFrmy7DU5N+EnY3g==,type:str]
     #ENC[AES256_GCM,data:6qoNbUfJ3LiIi6fwteXU0HC+z8may4qfZZTkKLxX9eFBmdLtPbQm4Hg=,iv:D5OoPq6eaw17tQ46G8RrMuBCY/BSYp5RFuORoMoSY6I=,tag:E7AwYNjDM9ajMljWjrCDRQ==,type:comment]
@@ -23,7 +23,7 @@ sops:
             Tm9NYVNVZjUrZUFLbS9WQmNVcjFpVGsKrZyCYx3InSl9BAfOLP/8Nb4Bt9skNjmi
             ywg6GNEEN0qS/W/1TKVCwLZ/TAbbyeyKXWiq/WzCiDtxrNg0YWT35g==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2025-08-13T15:42:46Z"
-    mac: ENC[AES256_GCM,data:MTc2zvhUkRVBW0JMDwXtw6N3eCEcjyFX8ziAvjYBhBZaAxgE3WjXaTCK2Z9Gi0mBE0H1uenImU1I+9u3J3D2ZPOD0XOC1MZ99DH1yhVVQwDf3n06RI7HwA9zkoO6tr8ojq6xcWNFmtP7glBR4bIG1jreK1z61IxhWzRm9aP+zQ4=,iv:vpY6hOuEShnngRlG5y2iR4baf9VuGSFkgfZSGrFKaOs=,tag:uEGGV8qW7l2GJw64DhBTZg==,type:str]
+    lastmodified: "2026-04-04T18:22:17Z"
+    mac: ENC[AES256_GCM,data:PUDJtUeHz5xIwIwQ7oFTmzR7J0NQxEZwVsdh0ME6e9psuWMap86gHpqqXGGzhxf+IZsug41577n6U4WszpRqgwy7Hu0X3RPl0qMq2kBLFH5PkBB0TmQJWZreo20GfWxFKX0jB/PvF68Zley+sdfPi/GtcmMdic60+rZp2aZRRMc=,iv:6LFF09S160aXV12+Ib+Lf2kdMKg3C9RtmryN55NrQ9A=,tag:w3dTo/EYp9L+VLspBvtppQ==,type:str]
     encrypted_regex: ^(data|stringData)$
-    version: 3.10.2
+    version: 3.12.2

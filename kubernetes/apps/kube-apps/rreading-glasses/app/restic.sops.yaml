@@ -5,7 +5,7 @@ metadata:
     namespace: kube-apps
 stringData:
     #ENC[AES256_GCM,data:v/rqDm3BYT1G7Li+NAfj5WZWJw==,iv:piXYLG+01JqYS+G6/ZFggNVsZt5NgDuv6EUU6Oh+sbQ=,tag:CqqT7wJgEXOLSgrJhQClqw==,type:comment]
-    RESTIC_REPOSITORY: ENC[AES256_GCM,data:sWzuiZONGAxbu1xc8bLDUcsl9q8WfGx8d6auE/wPgi8J83Hjrl+eCHyJ/8PMp7e+gLAoMrop2G8cl7uKfEHac3EH29LySXTJflidPVUS,iv:ezCLSQIXY46/DKRia8Ljdp8glkr/+i+1oqxEtyGTcr8=,tag:0VLfhUK2u/Xtwh7LCRnB7g==,type:str]
+    RESTIC_REPOSITORY: ENC[AES256_GCM,data:h/frGMIvzZS4Ei/bIPiopwPo/EVBH6D3c+9bGgH1y3hXuGdJJWLy65fUB6XlT6CY0oxaef7hPl/9FKRjOKt41xO3b7NzRMpTBn70,iv:O4jUNIE3uAY057znH6/k0XfG9JT/wOG68xYZR2ZYPCc=,tag:ed17AC9nQZNu0OBiLEai8Q==,type:str]
     #ENC[AES256_GCM,data:7AAND4QuKTwkUSA1Hn4d+UevZCQLjxYD+SSJ8DPi,iv:8InNm5Sxaxa7IFYYwM7OapFI1e7rGa8rO2tb+2yFcR8=,tag:HjMSFBVAf8PcJBq9ybLD/w==,type:comment]
     RESTIC_PASSWORD: ENC[AES256_GCM,data:WE/I1g==,iv:6Xo1/vSxl1jz8RCccyIFrl86D4Zn0dpxwUgzL3x4gmc=,tag:n5SMBtWFrmy7DU5N+EnY3g==,type:str]
     #ENC[AES256_GCM,data:6qoNbUfJ3LiIi6fwteXU0HC+z8may4qfZZTkKLxX9eFBmdLtPbQm4Hg=,iv:D5OoPq6eaw17tQ46G8RrMuBCY/BSYp5RFuORoMoSY6I=,tag:E7AwYNjDM9ajMljWjrCDRQ==,type:comment]
@@ -23,7 +23,7 @@ sops:
             Tm9NYVNVZjUrZUFLbS9WQmNVcjFpVGsKrZyCYx3InSl9BAfOLP/8Nb4Bt9skNjmi
             ywg6GNEEN0qS/W/1TKVCwLZ/TAbbyeyKXWiq/WzCiDtxrNg0YWT35g==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2025-10-22T10:16:13Z"
-    mac: ENC[AES256_GCM,data:Bq9N6CspmUrlU2CQlveIb3sHF/U7NAA1nCozdfKRxXkOAAMBIXCPdfFL5WtrLGht2FE5mCGmNn5BZV5xHV7rX5UF9JcLm3fc0/FmNtKJTOvT2NUVs7PeXJQR4DyuEgbhWPt1SSdAiuLV1mDBbGV+Kv9jAmM8ev517h2eTkcMFWQ=,iv:PViVMF3EI7Z4cqpwG9tOPqqTeQsl8kzCxdOPyhokl6Y=,tag:8OQOR31yJoE5yBlF3rLJtw==,type:str]
+    lastmodified: "2026-04-04T18:24:22Z"
+    mac: ENC[AES256_GCM,data:5raydXbVznF98PzH5UsaDjnX6auTxlYh0GdXaRISW/zZqH6onsO6+u29OQQqpUuFuSxgA7vjZhnXeasqglndBcYZXi74Abos/uTsybXPB9XBBUwF3uLafW42rTYP9xkqL8jYdJ240GeSaaBz4Y4Nj8+fCPfy/LKh2hYERA5u43k=,iv:Jt0HBaQhNph6jfONuh1tZxicSZdvPWzko8/1Eya0AW0=,tag:8bV4hHzmhQ0tiwHUeGUkog==,type:str]
     encrypted_regex: ^(data|stringData)$
-    version: 3.11.0
+    version: 3.12.2

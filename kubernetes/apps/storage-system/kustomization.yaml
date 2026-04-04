@@ -8,6 +8,6 @@ components:
 resources:
   - ./democratic-csi/ks.yaml
   # - ./openebs/ks.yaml
-  # - ./snapshot-controller/ks.yaml
+  - ./snapshot-controller/ks.yaml
   - ./volsync/ks.yaml
   - ./namespace.yaml

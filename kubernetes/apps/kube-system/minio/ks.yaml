@@ -6,11 +6,9 @@ metadata:
   name: minio
 spec:
   interval: 30m
-  path: ./kubernetes/apps/storage-system/minio/app
+  path: ./kubernetes/apps/kube-system/minio/app
   prune: true
   wait: true
-  dependsOn:
-    - name: storage-volumes
   postBuild:
     substituteFrom:
       - name: cluster-secrets
@@ -19,4 +17,4 @@ spec:
     kind: GitRepository
     name: flux-system
     namespace: flux-system
-  targetNamespace: storage-system
+  targetNamespace: kube-system

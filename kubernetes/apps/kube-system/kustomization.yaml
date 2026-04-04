@@ -13,5 +13,6 @@ resources:
   - ./generic-device-plugin/ks.yaml
   # - ./lldap/ks.yaml
   - ./metrics-server/ks.yaml
+  - ./minio/ks.yaml
   - ./reloader/ks.yaml
   - ./namespace.yaml

@@ -10,7 +10,7 @@ spec:
   prune: false # never should be deleted
   wait: true
   dependsOn:
-    - name: openebs
+    - name: democratic-csi
       namespace: storage-system
   sourceRef:
     kind: GitRepository

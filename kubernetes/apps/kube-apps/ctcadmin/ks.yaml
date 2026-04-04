@@ -12,8 +12,6 @@ spec:
   dependsOn:
     - name: cluster17
       namespace: db
-    - name: openebs
-      namespace: storage-system
   postBuild:
     substituteFrom:
       - name: cluster-settings

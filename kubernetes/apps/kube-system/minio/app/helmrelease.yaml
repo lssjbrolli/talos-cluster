@@ -117,5 +117,5 @@ spec:
       data:
         type: nfs
         server: 192.168.1.150
-        path: /mnt/minio
+        path: /storage/minio
       

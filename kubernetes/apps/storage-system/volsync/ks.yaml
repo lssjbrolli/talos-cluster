@@ -11,6 +11,8 @@ spec:
   dependsOn:
     - name: minio
       namespace: kube-system
+    - name: democratic-csi
+      namespace: storage-system
   sourceRef:
     kind: GitRepository
     name: flux-system

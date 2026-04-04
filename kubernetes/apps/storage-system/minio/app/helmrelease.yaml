@@ -114,8 +114,8 @@ spec:
                 port: *api
 
     persistence:
-      config:
-        type: persistentVolumeClaim
-        existingClaim: minio-data
-        globalMounts:
-          - path: /data
+      data:
+        type: nfs
+        server: 192.168.1.152
+        path: /mnt/minio
+      

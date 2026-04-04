@@ -116,6 +116,6 @@ spec:
     persistence:
       data:
         type: nfs
-        server: 192.168.1.152
+        server: 192.168.1.150
         path: /mnt/minio
       

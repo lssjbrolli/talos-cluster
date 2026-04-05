@@ -27,6 +27,9 @@ spec:
           - discard
           - noatime
         replicate: false
+    controller:
+      snapshotter:
+        enabled: true
     node:
       podSecurityContext:
       runAsNonRoot: true

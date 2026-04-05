@@ -6,7 +6,7 @@ namespace: storage-system
 components:
   - ../../components/common
 resources:
-  - ./democratic-csi/ks.yaml
+  # - ./democratic-csi/ks.yaml
   # - ./openebs/ks.yaml
   - ./proxmox-csi/ks.yaml
   - ./snapshot-controller/ks.yaml

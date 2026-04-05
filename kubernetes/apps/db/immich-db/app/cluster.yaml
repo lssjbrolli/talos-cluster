@@ -77,7 +77,7 @@ spec:
           schedule: "0 0 */6 * * *"
           backupOwnerReference: self
     recovery:
-      clusterName: immich-db
+      clusterName: immich-db-cluster
       endpointURL: http://minio.kube-system.svc.cluster.local:9000
       method: object_store
       provider: s3

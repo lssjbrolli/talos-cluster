@@ -6,4 +6,4 @@ resources:
   - ./csi.sops.yaml
   - ./helmrelease.yaml
   - ./ocirepository.yaml
-  # - ./snapshotclass.yaml
+  - ./snapshotclass.yaml

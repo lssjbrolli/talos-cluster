@@ -24,4 +24,4 @@ spec:
     retain:
       hourly: ${RETAIN_H:=1}
       daily: ${RETAIN_D:=1}
-    volumeSnapshotClassName: proxmox-snap
+    volumeSnapshotClassName: dcsi-snap

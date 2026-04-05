@@ -23,7 +23,7 @@ resources:
   # - ./rreading-glasses/ks.yaml
   - ./rustdesk/ks.yaml
   # - ./sftpgo/ks.yaml
-  # - ./sonarr/ks.yaml
+  - ./sonarr/ks.yaml
   - ./tautulli/ks.yaml
   # - ./vaultwarden/ks.yaml
   - ./namespace.yaml

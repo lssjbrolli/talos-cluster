@@ -16,27 +16,17 @@ spec:
       # by the chart for other purposes beyond secret creation
       existingConfigSecret: democratic-csi-secret
       config:
-        driver: zfs-generic-iscsi
+        driver: zfs-generic-nfs
         
     # https://kubernetes-csi.github.io/docs/csi-driver-object.html
     csiDriver:
       # should be globally unique for a given cluster
-      name: org.democratic-csi.iscsi
-      version: 1.5.0
+      name: org.democratic-csi.nfs
+      fsGroupPolicy: File
       # create the kubernetes CSIDriver
       enabled: true
       attachRequired: true
       podInfoOnMount: true
-      # https://github.com/democratic-csi/democratic-csi/issues/274#issuecomment-1426922600
-      # https://kubernetes-csi.github.io/docs/support-fsgroup.html
-      # https://kubernetes-csi.github.io/docs/support-fsgroup.html#delegate-fsgroup-to-csi-driver
-      #
-      # if node service advertises VOLUME_MOUNT_GROUP capability then fsGroup is passed to driver
-      #
-      # k8s 1.19+ (ignored otherwise)
-      # None|File|ReadWriteOnceWithFSType
-      # fsGroupPolicy: ReadWriteOnceWithFSType
-
 
     controller:
       enabled: true
@@ -233,14 +223,6 @@ spec:
           registry: ghcr.io/democratic-csi/democratic-csi
           tag: latest
         resources:
-        extraEnv:
-          - name: ISCSIADM_HOST_STRATEGY
-            value: nsenter
-          - name: ISCSIADM_HOST_PATH
-            value: /usr/local/sbin/iscsiadm
-
-        iscsiDirHostPath: /var/iscsi
-        iscsiDirHostPathType: ""
       # https://kubernetes-csi.github.io/docs/node-driver-registrar.html
       driverRegistrar:
         enabled: true
@@ -275,12 +257,14 @@ spec:
         parameters:
           # for block-based storage can be ext3, ext4, xfs
           # for nfs should be nfs
-          fsType: ext4
+          fsType: nfs
+          # if true, volumes created from other snapshots will be
+          # zfs send/received instead of zfs cloned
+          # detachedVolumesFromSnapshots: "false"
         mountOptions: 
           - noatime
-          - discard
-        secrets:
-          provisioner-secret:
+          - nfsvers=3
+
 
     volumeSnapshotClasses: 
       - name: dcsi-snap

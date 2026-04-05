@@ -46,7 +46,7 @@ spec:
       enabled: true
       retentionPolicy: 7d
       provider: s3
-      endpointURL: http://minio.storage-system.svc.cluster.local:9000
+      endpointURL: http://minio.kube-system.svc.cluster.local:9000
       secret:
         create: false
         name: s3-secret
@@ -69,7 +69,7 @@ spec:
           backupOwnerReference: self
     recovery:
       clusterName: cluster17
-      endpointURL: http://minio.storage-system.svc.cluster.local:9000
+      endpointURL: http://minio.kube-system.svc.cluster.local:9000
       method: object_store
       provider: s3
       s3:

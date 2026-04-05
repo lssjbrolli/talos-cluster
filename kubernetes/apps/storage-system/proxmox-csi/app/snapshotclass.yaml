@@ -4,5 +4,5 @@ metadata:
   name: dcsi-snap
   annotations:
     snapshot.storage.kubernetes.io/is-default-class: "true"
-driver: csi.proxmox.sinextra.dev
+driver: org.democratic-csi.nfs
 deletionPolicy: Delete

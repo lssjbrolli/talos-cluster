@@ -264,7 +264,7 @@ spec:
         mountOptions: 
           - noatime
           - nfsvers=3
-
+          - nolock
 
     volumeSnapshotClasses: 
       - name: dcsi-snap

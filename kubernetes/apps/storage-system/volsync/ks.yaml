@@ -11,7 +11,7 @@ spec:
   dependsOn:
     - name: minio
       namespace: kube-system
-    - name: proxmox-csi
+    - name: democratic-csi
       namespace: storage-system
   sourceRef:
     kind: GitRepository

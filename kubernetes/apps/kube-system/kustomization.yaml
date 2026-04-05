@@ -7,7 +7,7 @@ namespace: kube-system
 components:
   - ../../components/common
 resources:
-  # - ./authelia/ks.yaml
+  - ./authelia/ks.yaml
   - ./cilium/ks.yaml
   - ./coredns/ks.yaml
   - ./generic-device-plugin/ks.yaml

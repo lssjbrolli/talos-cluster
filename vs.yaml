@@ -4,6 +4,6 @@ metadata:
   name: test
   namespace: default
 spec:
-  volumeSnapshotClassName: dcsi-snap
+  volumeSnapshotClassName: proxmox-zfs
   source:
     persistentVolumeClaimName: test-pvc

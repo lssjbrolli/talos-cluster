@@ -10,7 +10,7 @@ spec:
     name: proxmox-csi
   values:
     createNamespace: false
-    logVerbosityLevel: 2
+    logVerbosityLevel: 5
     existingConfigSecret: proxmox-secret
     storageClass:
       - name: proxmox-zfs

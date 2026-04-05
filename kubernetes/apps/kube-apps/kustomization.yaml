@@ -17,13 +17,13 @@ resources:
   # - ./ownfoil/ks.yaml
   - ./plex/ks.yaml
   - ./profilarr/ks.yaml
-  - ./prowlarr/ks.yaml
+  # - ./prowlarr/ks.yaml
   - ./qbittorrent/ks.yaml
   # - ./radarr/ks.yaml
   # - ./rreading-glasses/ks.yaml
   - ./rustdesk/ks.yaml
   # - ./sftpgo/ks.yaml
-  - ./sonarr/ks.yaml
+  # - ./sonarr/ks.yaml
   - ./tautulli/ks.yaml
   # - ./vaultwarden/ks.yaml
   - ./namespace.yaml

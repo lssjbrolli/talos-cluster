@@ -6,6 +6,4 @@ resources:
   - ./helmrelease.yaml
   - ./httproute.yaml
   - ./ocirepository.yaml
-  # - ./pv.yaml
-  # - ./pvc.yaml
   - ./secrets.sops.yaml

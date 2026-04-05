@@ -107,8 +107,9 @@ spec:
           memory: 64Mi
     volumes:
       - name: storage
-        persistentVolumeClaim:
-          claimName: sftpgo-data
+        nfs:
+          server: 192.168.1.115
+          path: /storage/media
 
     volumeMounts:
       - mountPath: /storage
@@ -124,4 +125,4 @@ spec:
         resources:
           requests:
             storage: 100Mi
-        storageClassName: zfs-apps
+        storageClassName: org.democratic-csi.apps

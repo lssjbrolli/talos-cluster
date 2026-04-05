@@ -100,5 +100,6 @@ spec:
         type: persistentVolumeClaim
         existingClaim: sonarr-config
       media:
-        type: persistentVolumeClaim
-        existingClaim: sonarr-data
+        type: nfs
+        server: 192.168.1.115
+        path: /storage/media

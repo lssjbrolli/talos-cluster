@@ -6,7 +6,6 @@ metadata:
   name: &app sonarr
 spec:
   components:
-    - '../../../../components/archive'
     - '../../../../components/volsync'
   interval: 30m
   path: ./kubernetes/apps/kube-apps/sonarr/app

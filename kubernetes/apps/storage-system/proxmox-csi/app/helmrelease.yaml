@@ -28,9 +28,17 @@ spec:
           - noatime
         replicate: false
     controller:
+      plugin:
+        image:
+          pullPolicy: Always
+          tag: edge
       snapshotter:
         enabled: true
     node:
+      plugin:
+        image:
+          pullPolicy: Always
+          tag: edge
       podSecurityContext:
       runAsNonRoot: true
       runAsUser: 568

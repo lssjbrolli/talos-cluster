@@ -7,9 +7,9 @@ components:
   - ../../components/common
 resources:
   # - ./cluster17/ks.yaml
-  # - ./cnpg/ks.yaml
-  # - ./dragonfly/ks.yaml
+  - ./cnpg/ks.yaml
+  - ./dragonfly/ks.yaml
   # - ./immich-db/ks.yaml
-  # - ./pgadmin/ks.yaml
+  - ./pgadmin/ks.yaml
   - ./plugin-barman-cloud/ks.yaml
   - ./namespace.yaml

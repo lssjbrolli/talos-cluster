@@ -73,8 +73,7 @@ spec:
       config:
         enabled: true
         type: persistentVolumeClaim
-        accessMode: ReadWriteOnce
-        size: 1Gi
+        existingClaim: ownfoil-config
         advancedMounts:
           main:
             main:

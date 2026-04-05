@@ -6,7 +6,7 @@ namespace: db
 components:
   - ../../components/common
 resources:
-  # - ./cluster17/ks.yaml
+  - ./cluster17/ks.yaml
   - ./cnpg/ks.yaml
   - ./dragonfly/ks.yaml
   # - ./immich-db/ks.yaml

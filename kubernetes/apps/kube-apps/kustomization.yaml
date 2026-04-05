@@ -24,6 +24,6 @@ resources:
   - ./rustdesk/ks.yaml
   # - ./sftpgo/ks.yaml
   # - ./sonarr/ks.yaml
-  # - ./tautulli/ks.yaml
+  - ./tautulli/ks.yaml
   # - ./vaultwarden/ks.yaml
   - ./namespace.yaml

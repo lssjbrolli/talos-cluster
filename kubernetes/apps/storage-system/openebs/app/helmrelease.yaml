@@ -28,23 +28,24 @@ spec:
         image:
           registry: quay.io/
     zfs-localpv:
-      zfsNode:
-        encrKeysDir: "/var/openebs/keys"
-        resources:
-          limits:
-              memory: 128Mi
-          requests:
-            cpu: 100m
-            memory: 128Mi
-      crds:
-        zfsLocalPv:
-          # -- Keep CRDs on chart uninstall
-          keep: false
-        csi:
-          volumeSnapshots:
-            # Don't install Volume Snapshot CRDs
-            enabled: false
-            keep: false
+      enabled: false
+      # zfsNode:
+      #   encrKeysDir: "/var/openebs/keys"
+      #   resources:
+      #     limits:
+      #         memory: 128Mi
+      #     requests:
+      #       cpu: 100m
+      #       memory: 128Mi
+      # crds:
+        # zfsLocalPv:
+        #   # -- Keep CRDs on chart uninstall
+        #   keep: false
+        # csi:
+        #   volumeSnapshots:
+        #     # Don't install Volume Snapshot CRDs
+        #     enabled: false
+        #     keep: false
     openebs-crds:
       csi:
         volumeSnapshots:
@@ -60,7 +61,7 @@ spec:
         lvm:
           enabled: false
         zfs:
-          enabled: true
+          enabled: false
       replicated:
         mayastor:
           enabled: false

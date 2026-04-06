@@ -167,6 +167,19 @@ spec:
           #       memory: 32Mi
           #     limits:
           #       memory: 64Mi
+          alpine:
+            image: 
+              repository: alpine
+              tag: latest
+            command: ["sleep", "6000"]
+            securityContext:
+              allowPrivilegeEscalation: false
+              capabilities:
+                drop:
+                  - ALL
+              seccompProfile:
+                type: RuntimeDefault
+              runAsNonRoot: true
     service:
       qbt:
         controller: main
@@ -237,5 +250,5 @@ spec:
           main:
             gluetun:
               - path: /gluetun/wireguard
-            # pia-wg-refresh:
-            #   - path: /config
+            alpine:
+              - path: /config

@@ -78,7 +78,7 @@ spec:
       # Refer https://docs.ceph.com/en/latest/rbd/rbd-config-ref/#image-features
       # for image feature dependencies.
       # imageFeatures: layering,journaling,exclusive-lock,object-map,fast-diff
-      imageFeatures: "layering,striping,exclusive-lock,object-map,fast-diff"
+      imageFeatures: "layering,exclusive-lock,object-map,fast-diff"
 
       # (optional) Options to pass to the `mkfs` command while creating the
       # filesystem on the RBD device. Check the man-page for the `mkfs` command

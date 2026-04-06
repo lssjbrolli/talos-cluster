@@ -110,16 +110,17 @@ spec:
         nfs:
           server: 192.168.1.150
           path: /storage/media
-      - name: backup
+      - name: ctcadmin
         nfs:
           server: 192.168.1.150
-          path: /storage/backup
+          path: /storage/backup/ctcadmin
+      
 
     volumeMounts:
       - mountPath: /storage/media
         name: media
-      - mountPath: /storage/backup
-        name: backup
+      - mountPath: /storage/ctcadmin
+        name: ctcadmin
 
     persistence:
       # -- Enable persistent storage for the /var/lib/sftpgo directory, saving state of the default sqlite db.

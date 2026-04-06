@@ -94,7 +94,9 @@ spec:
       # The secrets have to contain Ceph credentials with required access
       # to the 'pool'.
       provisionerSecret: ceph-secret
-
+      controllerExpandSecret: ceph-secret
+      controllerPublishSecret: ceph-secret
+      nodeStageSecret: ceph-secret
       # Specify the filesystem type of the volume. If not specified,
       # csi-provisioner will set default as `ext4`.
       fstype: ext4

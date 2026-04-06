@@ -171,7 +171,7 @@ spec:
             image: 
               repository: alpine
               tag: latest
-            command: ["apk", "install", 'nano']
+            command: ["apk", "add", 'nano']
             securityContext:
               allowPrivilegeEscalation: false
               capabilities:

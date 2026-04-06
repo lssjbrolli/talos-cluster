@@ -55,10 +55,8 @@ spec:
       create: true
       name: ceph-rbd
       # Annotations for the storage class
-      # Example:
-      # annotations:
-      #   storageclass.kubernetes.io/is-default-class: "true"
-      annotations: {}
+      annotations:
+        storageclass.kubernetes.io/is-default-class: "true"
       # (required) String representing a Ceph cluster to provision storage from.
       # Should be unique across all Ceph clusters in use for provisioning,
       # cannot be greater than 36 bytes in length, and should remain immutable for
@@ -107,10 +105,8 @@ spec:
       name: ceph-snapclass
 
       # Annotations for the VolumeSnapshotClass
-      # Example:
-      # annotations:
-      #   storageclass.kubernetes.io/is-default-class: "true"
-      annotations: {}
+      annotations:
+        storageclass.kubernetes.io/is-default-class: "true"
 
       # String representing a Ceph cluster to provision storage snapshot from.
       # Should be unique across all Ceph clusters in use for provisioning,

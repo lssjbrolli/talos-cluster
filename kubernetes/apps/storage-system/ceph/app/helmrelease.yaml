@@ -13,7 +13,6 @@ spec:
       - clusterID: "dd9d3f79-d0f9-4dd9-a4c5-a58c3f1db4bf" #FSID of ceph cluster
         monitors:
           - 192.168.1.150:6789
-          - 192.168.1.150:3300
     CSIDriver:
       seLinuxMount: false
     provisioner:

@@ -3,7 +3,7 @@
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationDestination
 metadata:
-  name: "${APP}-restore"
+  name: "test-restore"
   labels:
     kustomize.toolkit.fluxcd.io/ssa: IfNotPresent
 spec:
@@ -14,15 +14,15 @@ spec:
       - ReadWriteOnce
     cacheAccessModes:
       - ReadWriteOnce
-    cacheCapacity: ${VOLSYNC_CAPACITY:=1Gi}
-    capacity: ${VOLSYNC_CAPACITY:=1Gi}
+    cacheCapacity: 1Gi
+    capacity: 1Gi
     cleanupCachePVC: true
     cleanupTempPVC: true
-    copyMethod: ${COPY_METHOD:=Snapshot}
+    copyMethod: Snapshot
     enableFileDeletion: true
     moverSecurityContext:
-      runAsUser: ${VOLSYNC_PUID:=568}
-      runAsGroup: ${VOLSYNC_PGID:=568}
-      fsGroup: ${VOLSYNC_PGID:=568}
-    repository: restic-${APP}
-    volumeSnapshotClassName: dcsi-snap
+      runAsUser: 568
+      runAsGroup: 568
+      fsGroup: 568
+    repository: restic-test
+    volumeSnapshotClassName: proxmox-csi

@@ -13,7 +13,7 @@ spec:
     logVerbosityLevel: 5
     existingConfigSecret: proxmox-secret
     storageClass:
-      - name: proxmox-zfs
+      - name: proxmox
         storage: apps
         storageFormat: raw
         reclaimPolicy: Delete

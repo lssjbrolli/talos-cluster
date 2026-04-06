@@ -253,7 +253,7 @@ spec:
     # add note here about volume expansion requirements
     storageClasses: 
       - name: org.democratic-csi.apps
-        defaultClass: true
+        defaultClass: false
         parameters:
           # for block-based storage can be ext3, ext4, xfs
           # for nfs should be nfs
@@ -268,7 +268,7 @@ spec:
 
     volumeSnapshotClasses: 
       - name: dcsi-snap
-        defaultClass: true
+        defaultClass: false
         # annotations: {}
         # labels: {}
         deletionPolicy: Delete

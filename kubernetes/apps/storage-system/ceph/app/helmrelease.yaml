@@ -1,0 +1,151 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: ceph-csi
+  namespace: flux-system
+spec:
+  url: https://ceph.github.io/csi-charts
+  interval: 10m
+
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/helm.toolkit.fluxcd.io/helmrelease_v2.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: ceph
+spec:
+  interval: 1h
+  chart:
+    spec:
+      # renovate: registryUrl=https://ceph.github.io/csi-charts
+      chart: ceph-csi-rbd
+      sourceRef:
+        kind: HelmRepository
+        name: ceph-csi
+        namespace: flux-system
+      interval: 5m
+  values:
+    csiConfig:
+      - clusterID: "dd9d3f79-d0f9-4dd9-a4c5-a58c3f1db4bf" #FSID of ceph cluster
+        monitors:
+          - 192.168.1.150:6789
+          - 192.168.1.150:3300
+    CSIDriver:
+      seLinuxMount: false
+    provisioner:
+      replicaCount: 1
+      provisioner:
+        image:
+          repository: registry.k8s.io/sig-storage/csi-provisioner
+          tag: v6.1.1
+          pullPolicy: IfNotPresent
+        resources: {}
+
+      attacher:
+        name: attacher
+        enabled: true
+        image:
+          repository: registry.k8s.io/sig-storage/csi-attacher
+          tag: v4.11.0
+          pullPolicy: IfNotPresent
+        resources: {}
+
+      resizer:
+        name: resizer
+        enabled: true
+        image:
+          repository: registry.k8s.io/sig-storage/csi-resizer
+          tag: v2.1.0
+          pullPolicy: IfNotPresent
+        resources: {}
+
+      snapshotter:
+        image:
+          repository: registry.k8s.io/sig-storage/csi-snapshotter
+          tag: v8.5.0
+          pullPolicy: IfNotPresent
+        resources: {}
+
+    storageClass:
+      # Specifies whether the storageclass should be created
+      create: true
+      name: ceph-rbd
+
+      # Annotations for the storage class
+      # Example:
+      # annotations:
+      #   storageclass.kubernetes.io/is-default-class: "true"
+      annotations: {}
+
+      # (required) String representing a Ceph cluster to provision storage from.
+      # Should be unique across all Ceph clusters in use for provisioning,
+      # cannot be greater than 36 bytes in length, and should remain immutable for
+      # the lifetime of the StorageClass in use.
+      clusterID: dd9d3f79-d0f9-4dd9-a4c5-a58c3f1db4bf
+
+      # (required) Ceph pool into which the RBD image shall be created
+      # (optional) if topologyConstrainedPools is provided
+      # eg: pool: replicapool
+      pool: apps
+
+      # (optional) RBD image features, CSI creates image with image-format 2 CSI
+      # RBD currently supports `layering`, `journaling`, `exclusive-lock`,
+      # `object-map`, `fast-diff`, `deep-flatten` features.
+      # Refer https://docs.ceph.com/en/latest/rbd/rbd-config-ref/#image-features
+      # for image feature dependencies.
+      # imageFeatures: layering,journaling,exclusive-lock,object-map,fast-diff
+      imageFeatures: "layering,striping,exclusive-lock,object-map,fast-diff"
+
+      # (optional) Options to pass to the `mkfs` command while creating the
+      # filesystem on the RBD device. Check the man-page for the `mkfs` command
+      # for the filesystem for more details. When `mkfsOptions` is set here, the
+      # defaults will not be used, consider including them in this parameter.
+      #
+      # The default options depend on the csi.storage.k8s.io/fstype setting:
+      # - ext4: "-m0 -Enodiscard,lazy_itable_init=1,lazy_journal_init=1"
+      # - xfs: "-K"
+      #
+      mkfsOptions: "-m0 -Ediscard"
+
+      # The secrets have to contain Ceph credentials with required access
+      # to the 'pool'.
+      provisionerSecret: ceph-secret
+
+      # Specify the filesystem type of the volume. If not specified,
+      # csi-provisioner will set default as `ext4`.
+      fstype: ext4
+      reclaimPolicy: Delete
+      allowVolumeExpansion: true
+      # Mount Options
+      # Example:
+      mountOptions:
+        - discard
+        - noatime
+
+    volumeSnapshotClass:
+      # Specifies whether the VolumeSnapshotClass should be created
+      create: true
+      name: ceph-snapclass
+
+      # Annotations for the VolumeSnapshotClass
+      # Example:
+      # annotations:
+      #   storageclass.kubernetes.io/is-default-class: "true"
+      annotations: {}
+
+      # String representing a Ceph cluster to provision storage snapshot from.
+      # Should be unique across all Ceph clusters in use for provisioning,
+      # cannot be greater than 36 bytes in length, and should remain immutable for
+      # the lifetime of the VolumeSnapshotClass in use.
+      # Ensure to create an entry in the configmap named ceph-csi-config, based on
+      # csi-config-map-sample.yaml, to accompany the string chosen to
+      # represent the Ceph cluster in clusterID below
+      clusterID: dd9d3f79-d0f9-4dd9-a4c5-a58c3f1db4bf
+
+      # The secrets have to contain user and/or Ceph admin credentials.
+      snapshotterSecret: ceph-secret
+
+      deletionPolicy: Delete
+
+    

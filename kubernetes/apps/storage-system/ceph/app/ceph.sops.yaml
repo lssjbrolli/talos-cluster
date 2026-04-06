@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Secret
+type: Opaque
+metadata:
+  name: ceph-secret
+  namespace: storage-system
+stringData:
+  userID: ENC[AES256_GCM,data:rD4o5KAT1e5BRw==,iv:GmL5xuUcEfID+qzXTbgmdzbmvdtap0qczlpuTVwtEMU=,tag:VOmCvlXGis40RGwOpIqvHA==,type:str]
+  userKey: ENC[AES256_GCM,data:S6KnHWxjFpm2vvMeJau0IsxB3HOYWoVz585j8pe73R1NCIrtiUqZ8g==,iv:ClmMBDL0Akry4TUxqkjlHDLyzkvNycmrJBYDBFeHZWk=,tag:procZw9IgvZ0tarvPm0maQ==,type:str]
+sops:
+  age:
+    - recipient: age1k5cr4cvs4atdm3gse77vq4glnv9q49gq5wl49p9806gfyfld7p3setz3tw
+      enc: |
+        -----BEGIN AGE ENCRYPTED FILE-----
+        YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBGUVB0cVlTT0YxVVlXUnlh
+        Vk16aWFOWmhlRkliWUlxN09zVDZBM1dTb2hZCmI4bjdraks5UWkvU1ROdWFJejZB
+        MHlwTllHUnNFWGUvUkdmdWlWRFdYc1EKLS0tIG1Gc0hnZFV5YnpsM2NPendtbmcr
+        eVJNWkh1SlZNSXdTaTFXUThqeDQ5WFUK/jHGN08Z4C7OG4/qeWovzpguipSHujut
+        TcJtMU5KSSTJu5xnFuhX6pAGA2rOi4elZOszdzvQW0iQEDEODa0OZQ==
+        -----END AGE ENCRYPTED FILE-----
+  lastmodified: "2026-04-06T13:45:44Z"
+  mac: ENC[AES256_GCM,data:bggHe6NZvahtyHGjcz7e5ydkjPW7LPUxWQMFzjnBoDsOdVZ34/P6G75Kgqz7sytxB6hA8TTdDjNEduo6x25wG+AP3Hf4d0MwEtSjAxS/g4S8dvjkxZ3n911ILztYjfqFb9hpA4m0PoymWVahl1Jh/cnDin+svAf0kHu1xkmxxS8=,iv:cY32t4Ir6CGhWaS/zULShUi/rTS72yGmpXGshZkqZ6g=,tag:5DbLhrjibwuN1iYzM5fP7Q==,type:str]
+  encrypted_regex: ^(data|stringData)$
+  mac_only_encrypted: true
+  version: 3.12.2

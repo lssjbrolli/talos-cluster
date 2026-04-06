@@ -30,3 +30,6 @@ cloudflare-tunnel.json
 github-push-token.txt
 kubernetes-talos-cluster.yaml
 latest_sha
+
+# folder for test yamls
+test/

@@ -102,7 +102,7 @@ spec:
         existingClaim: radarr-config
       media:
         type: nfs
-        server: 192.168.1.115
+        server: 192.168.1.150
         path: /storage/media
       tmp:
         type: emptyDir

@@ -171,7 +171,7 @@ spec:
             image: 
               repository: alpine
               tag: latest
-            command: ["sleep", "6000"]
+            command: ["apk", "install", 'nano']
             securityContext:
               allowPrivilegeEscalation: false
               capabilities:
@@ -179,7 +179,6 @@ spec:
                   - ALL
               seccompProfile:
                 type: RuntimeDefault
-              runAsNonRoot: true
     service:
       qbt:
         controller: main

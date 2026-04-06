@@ -1,30 +1,13 @@
----
-apiVersion: source.toolkit.fluxcd.io/v1beta2
-kind: HelmRepository
-metadata:
-  name: ceph-csi
-  namespace: flux-system
-spec:
-  url: https://ceph.github.io/csi-charts
-  interval: 10m
-
----
 # yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/helm.toolkit.fluxcd.io/helmrelease_v2.json
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: ceph
+  name: ceph-csi-rbd
 spec:
   interval: 1h
-  chart:
-    spec:
-      # renovate: registryUrl=https://ceph.github.io/csi-charts
-      chart: ceph-csi-rbd
-      sourceRef:
-        kind: HelmRepository
-        name: ceph-csi
-        namespace: flux-system
-      interval: 5m
+  chartRef:
+    kind: OCIRepository
+    name: ceph-csi-rbd
   values:
     csiConfig:
       - clusterID: "dd9d3f79-d0f9-4dd9-a4c5-a58c3f1db4bf" #FSID of ceph cluster

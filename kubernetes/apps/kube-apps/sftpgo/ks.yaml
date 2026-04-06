@@ -12,6 +12,8 @@ spec:
   dependsOn:
     - name: cluster17
       namespace: db
+    - name: authelia
+      namespace: kube-system
   postBuild:
     substituteFrom:
       - name: cluster-secrets

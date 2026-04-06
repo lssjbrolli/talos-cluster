@@ -11,11 +11,11 @@ resources:
   - ./ctcadmin/ks.yaml
   - ./filebrowser/ks.yaml
   # - ./huntarr/ks.yaml
-  # - ./immich/ks.yaml
+  - ./immich/ks.yaml
   - ./nextcloud/ks.yaml
   - ./overseerr/ks.yaml
   - ./ownfoil/ks.yaml
-  # - ./plex/ks.yaml
+  - ./plex/ks.yaml
   - ./profilarr/ks.yaml
   - ./prowlarr/ks.yaml
   - ./qbittorrent/ks.yaml

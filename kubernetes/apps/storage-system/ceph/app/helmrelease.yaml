@@ -54,24 +54,20 @@ spec:
       # Specifies whether the storageclass should be created
       create: true
       name: ceph-rbd
-
       # Annotations for the storage class
       # Example:
       # annotations:
       #   storageclass.kubernetes.io/is-default-class: "true"
       annotations: {}
-
       # (required) String representing a Ceph cluster to provision storage from.
       # Should be unique across all Ceph clusters in use for provisioning,
       # cannot be greater than 36 bytes in length, and should remain immutable for
       # the lifetime of the StorageClass in use.
       clusterID: dd9d3f79-d0f9-4dd9-a4c5-a58c3f1db4bf
-
       # (required) Ceph pool into which the RBD image shall be created
       # (optional) if topologyConstrainedPools is provided
       # eg: pool: replicapool
       pool: apps
-
       # (optional) RBD image features, CSI creates image with image-format 2 CSI
       # RBD currently supports `layering`, `journaling`, `exclusive-lock`,
       # `object-map`, `fast-diff`, `deep-flatten` features.
@@ -79,7 +75,6 @@ spec:
       # for image feature dependencies.
       # imageFeatures: layering,journaling,exclusive-lock,object-map,fast-diff
       imageFeatures: "layering,exclusive-lock,object-map,fast-diff"
-
       # (optional) Options to pass to the `mkfs` command while creating the
       # filesystem on the RBD device. Check the man-page for the `mkfs` command
       # for the filesystem for more details. When `mkfsOptions` is set here, the
@@ -90,7 +85,6 @@ spec:
       # - xfs: "-K"
       #
       mkfsOptions: "-m0 -Ediscard"
-
       # The secrets have to contain Ceph credentials with required access
       # to the 'pool'.
       provisionerSecret: ceph-secret

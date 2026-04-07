@@ -13,7 +13,6 @@ resources:
   # - ./huntarr/ks.yaml
   - ./immich/ks.yaml
   - ./nextcloud/ks.yaml
-  - ./overseerr/ks.yaml
   - ./ownfoil/ks.yaml
   - ./plex/ks.yaml
   - ./profilarr/ks.yaml
@@ -22,6 +21,7 @@ resources:
   - ./radarr/ks.yaml
   - ./rreading-glasses/ks.yaml
   - ./rustdesk/ks.yaml
+  - ./seerr/ks.yaml
   - ./sftpgo/ks.yaml
   - ./sonarr/ks.yaml
   - ./tautulli/ks.yaml

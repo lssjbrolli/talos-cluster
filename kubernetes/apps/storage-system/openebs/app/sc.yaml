@@ -5,7 +5,13 @@ metadata:
 provisioner: local.csi.openebs.io
 allowVolumeExpansion: true
 volumeBindingMode: WaitForFirstConsumer
+MountOptions:
+  - noatime
+  - discard
+  - data=journal
+  - journal_async_commit
 parameters:
   storage: "lvm"
   volgroup: "openebs"
   fsType: "ext4"
+  formatOptions: "-m0 -Ediscard"

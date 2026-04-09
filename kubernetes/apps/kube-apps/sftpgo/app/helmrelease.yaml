@@ -132,4 +132,4 @@ spec:
         resources:
           requests:
             storage: 100Mi
-        storageClassName: ceph-rbd
+        storageClassName: zfs-apps

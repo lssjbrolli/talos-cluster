@@ -9,32 +9,15 @@ spec:
     kind: OCIRepository
     name: openebs
   values:
-    localpv-provisioner:
-      enabled: false
-    zfs-localpv:
-      enabled: false
-    lvm-localpv:
-      enabled: true
-    openebs-crds:
+    crds:
+      lvmLocalPv:
+        # Install lvm-localpv CRDs
+        enabled: true
+        # Keep CRDs on chart uninstall
+        keep: false
       csi:
         volumeSnapshots:
-          # Installed with the Snapshot Controller
+          # Install Volume Snapshot CRDs
           enabled: true
+          # Keep CRDs on chart uninstall
           keep: false
-    mayastor:
-      enabled: false
-    engines:
-      local:
-        lvm:
-          enabled: true
-        zfs:
-          enabled: false
-      replicated:
-        mayastor:
-          enabled: false
-    loki:
-      enabled: false
-    alloy:
-      enabled: false
-    minio:
-      enabled: false

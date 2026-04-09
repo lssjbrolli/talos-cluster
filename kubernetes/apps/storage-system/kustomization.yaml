@@ -8,6 +8,7 @@ components:
 resources:
   - ./ceph/ks.yaml
   - ./democratic-csi/ks.yaml
+  - ./longhorn/ks.yaml
   - ./openebs/ks.yaml
   - ./proxmox-csi/ks.yaml
   - ./snapshot-controller/ks.yaml

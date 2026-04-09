@@ -5,7 +5,11 @@
     },
     "sops.defaults.ageKeyFile": "age.key",
     "yaml.schemas": {
-        "Kubernetes": "./kubernetes/*.yaml"
+        "file:///home/sega/.vscode/extensions/continue.continue-1.2.16-linux-x64/config-yaml-schema.json": [
+            ".continue/**/*.yaml"
+        ],
+        "Kubernetes": "./kubernetes/*.yaml",
+        "https://raw.githubusercontent.com/budimanjojo/talhelper/master/pkg/config/schemas/talconfig.json": "file:///home/sega/code_projects/talos-cluster/talos/talconfig.yaml"
     },
     "vs-kubernetes": {
         "vs-kubernetes.kubeconfig": "./kubeconfig",

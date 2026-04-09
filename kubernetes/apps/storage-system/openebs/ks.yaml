@@ -8,9 +8,6 @@ spec:
   interval: 1h
   path: ./kubernetes/apps/storage-system/openebs/app
   prune: true
-  dependsOn:
-    - name: snapshot-controller
-      namespace: storage-system
   sourceRef:
     kind: GitRepository
     name: flux-system

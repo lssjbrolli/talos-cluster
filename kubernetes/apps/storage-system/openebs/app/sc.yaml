@@ -12,6 +12,8 @@ MountOptions:
   - journal_async_commit
 parameters:
   storage: "lvm"
+  thinProvision: "yes"
   volgroup: "openebs"
   fsType: "ext4"
   formatOptions: "-m0 -Ediscard"
+  

@@ -18,6 +18,6 @@ spec:
       csi:
         volumeSnapshots:
           # Install Volume Snapshot CRDs
-          enabled: true
+          enabled: false
           # Keep CRDs on chart uninstall
           keep: false

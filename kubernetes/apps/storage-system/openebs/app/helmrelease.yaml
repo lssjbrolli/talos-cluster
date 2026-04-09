@@ -10,14 +10,20 @@ spec:
     name: openebs
   values:
     crds:
-      lvmLocalPv:
-        # Install lvm-localpv CRDs
-        enabled: true
-        # Keep CRDs on chart uninstall
-        keep: false
       csi:
-        volumeSnapshots:
-          # Install Volume Snapshot CRDs
-          enabled: false
-          # Keep CRDs on chart uninstall
+        zfsLocalPv:
+          # -- Don't keep CRDs on chart uninstall
           keep: false
+        volumeSnapshots:
+          # use standalone Volume Snapshot CRDs
+          enabled: false
+          # -- Don't keep CRDs on chart uninstall
+          keep: false
+    zfsNode:
+      encrKeysDir: "/var/openebs/keys"
+      resources:
+          limits:
+              memory: 128Mi
+          requests:
+            cpu: 100m
+            memory: 128Mi

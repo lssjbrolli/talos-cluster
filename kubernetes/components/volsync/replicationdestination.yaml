@@ -25,4 +25,4 @@ spec:
       runAsGroup: ${VOLSYNC_PGID:=568}
       fsGroup: ${VOLSYNC_PGID:=568}
     repository: restic-${APP}
-    volumeSnapshotClassName: lvm-snapclass
+    volumeSnapshotClassName: zfs-snap

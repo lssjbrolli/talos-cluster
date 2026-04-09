@@ -1,21 +1,13 @@
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: openebs-lvm
+  name: zfs-apps
   annotations:
     storageclass.kubernetes.io/is-default-class: "true"
-provisioner: local.csi.openebs.io
 allowVolumeExpansion: true
-volumeBindingMode: WaitForFirstConsumer
-MountOptions:
-  - noatime
-  - discard
-  - data=journal
-  - journal_async_commit
 parameters:
-  storage: "lvm"
-  thinProvision: "yes"
-  volgroup: "openebs"
-  fsType: "ext4"
-  formatOptions: "-m0 -Ediscard"
-  
+  poolname: "apps"
+  fstype: "zfs"
+  recordsize: "4k"
+  shared: no
+provisioner: zfs.csi.openebs.io

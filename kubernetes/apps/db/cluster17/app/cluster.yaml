@@ -30,11 +30,11 @@ spec:
           memory: 1Gi
       storage:
         size: 10Gi
-        storageClass: localpv
+        storageClass: zfs-apps
       walStorage:
         enabled: true
         size: 2Gi
-        storageClass: localpv
+        storageClass: zfs-apps
       superuserSecret: cloudnative-pg-secret
       monitoring:
         enabled: true

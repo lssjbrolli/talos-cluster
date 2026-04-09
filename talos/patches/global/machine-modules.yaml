@@ -1,0 +1,4 @@
+kernel:
+  modules:
+    - name: dm-snapshot
+    - name: dm_thin_pool

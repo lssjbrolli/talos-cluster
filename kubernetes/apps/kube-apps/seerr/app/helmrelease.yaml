@@ -49,6 +49,8 @@ spec:
             env:
               - name: TZ
                 value: ${TIMEZONE}
+              - name: PORT
+                value: &port 80
               - name: DB_TYPE
                 value: postgres
               - name: DB_HOST
@@ -101,8 +103,7 @@ spec:
         type: ClusterIP
         ports:
           http:
-            port: &port 80
-        # externalTrafficPolicy: Local
+            port: *port
 
     route:
       app:

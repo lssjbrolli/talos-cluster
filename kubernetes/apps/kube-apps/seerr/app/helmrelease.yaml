@@ -9,45 +9,99 @@ spec:
     kind: OCIRepository
     name: seerr
   values:
-    podSecurityContext:
-      fsGroup: 568
-    securityContext:
-      runAsUser: 568
-      runAsGroup: 568
-    extraEnv:
-      - name: TZ
-        value: ${TIMEZONE}
-    podAnnotations:
-      reloader.stakater.com/auto: "true"
-    config:
-      existingClaim: seerr-config
-    route:
+    defaultPodOptions:
+      securityContext:
+        fsGroup: 568
+        fsGroupChangePolicy: OnRootMismatch
+    controllers:
       main:
-        # -- Enables or disables the Gateway API route
-        enabled: true
-        annotations: {}
-        labels: {}
+        strategy: Recreate
+        annotations:
+          reloader.stakater.com/auto: "true"
+        initContainers:
+          init-db:
+            image:
+              repository: ghcr.io/home-operations/postgres-init
+              tag: 18.3.0@sha256:6fa1f331cddd2eb0b6afa7b8d3685c864127a81ab01c3d9400bc3ff5263a51cf
+            envFrom:
+              - secretRef:
+                  name: seerr-secrets
+        containers:
+          main:
+            image:
+              repository: ghcr.io/seerr-team/seerr
+              tag: sha-061121c@sha256:f464ff7e52f877475e1097c5b788947d4e9a2c9007d40323c18f1787d4b9b793
+            securityContext:
+              runAsNonRoot: true
+              privileged: false
+              runAsUser: 568
+              runAsGroup: 568
+              allowPrivilegeEscalation: false
+              readOnlyRootFilesystem: false
+              capabilities: { drop: ["ALL"] }
+            resources:
+              requests:
+                cpu: 50m
+                memory: 256Mi
+              limits:
+                memory: 1Gi
+            env:
+              - name: TZ
+                value: ${TIMEZONE}
+              - name: DB_TYPE
+                value: postgres
+              - name: DB_HOST
+                secretKeyRef:
+                  name: seerr-secrets
+                  key: INIT_POSTGRES_HOST
+              - name: DB_USER
+                secretKeyRef:
+                  name: seerr-secrets
+                  key: INIT_POSTGRES_USER
+              - name: DB_PASS
+                secretKeyRef:
+                  name: seerr-secrets
+                  key: INIT_POSTGRES_PASS
+            probes:
+              # -- Configure liveness probe
+              livenessProbe:
+                initialDelaySeconds: 20
+                periodSeconds: 15
+                timeoutSeconds: 3
+                # successThreshold: 1
+                # failureThreshold: 3
+              # -- Configure readiness probe
+              readinessProbe:
+                initialDelaySeconds: 60
+                periodSeconds: 15
+                timeoutSeconds: 3
+                # successThreshold: 1
+                # failureThreshold: 3
+              # -- Configure startup probe
+              startupProbe: null
+              #  tcpSocket:
+              #    port: http
+    service:
+      main:
+        controller: main
+        type: ClusterIP
+        ports:
+          http:
+            port: &port 80
+        # externalTrafficPolicy: Local
+
+    route:
+      app:
+        hostnames: ["{{ .Release.Name }}.${SECRET_DOMAIN}"]
         parentRefs:
           - name: external
             namespace: network
             sectionName: https
-        hostnames: ["requests.${SECRET_DOMAIN}"]
-        filters: []
-        matches:
-          - path:
-              type: PathPrefix
-              value: /
-        additionalRules: []
-          # - backendRefs:
-          #     - identifier: main
-          #       port: 80
-        # -- To redirect to HTTPS, create a new route object under the main route and enable this option.
-        # This should only be used with HTTP-like routes, such as HTTPRoute or GRPCRoute.
-        # [Reference]( https://gateway-api.sigs.k8s.io/guides/http-redirect-rewrite/ )
-        httpsRedirect: false
-    resources:
-      requests:
-        cpu: 100m
-        memory: 512Mi
-      limits:
-        memory: 768Mi
+        rules:
+          - backendRefs:
+              - identifier: main
+                port: *port
+    persistence:
+      config:
+        type: persistentVolumeClaim
+        existingClaim: seerr-config

@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: seerr-secrets
+  namespace: kube-apps
+stringData:
+  INIT_POSTGRES_DBNAME: ENC[AES256_GCM,data:0ABDG6o=,iv:Awz5Knv9G8jG7nInZPt61M/qZBIiONIeyV04eC6ClHw=,tag:kcytGWwlkpECwtTA/VsKoQ==,type:str]
+  INIT_POSTGRES_HOST: ENC[AES256_GCM,data:ptcgQu2N3fiiDcX6dDwnXnANh7i5IHpDx+OeZ5hp4omP,iv:EQI6JC3jmdLzzLQ9C7PytSBl/r+AurholFuPOHvzuRY=,tag:tZoH6MsnsOTsJN3mQipr5g==,type:str]
+  INIT_POSTGRES_USER: ENC[AES256_GCM,data:td9tWg==,iv:80rG+mdl4oBw6UaKJYmobyGLNKsdj/myXv2IUPRhRcA=,tag:VBw2lcbBQFyztblm0Q2CYw==,type:str]
+  INIT_POSTGRES_PASS: ENC[AES256_GCM,data:8FgcMw==,iv:mXzAD7is8jwtOo6uwzobCvT6cCMR+FcLsTbFsDn5g5Q=,tag:rxt/6nbS2UJ7mw/vLvsOcQ==,type:str]
+  INIT_POSTGRES_SUPER_PASS: ENC[AES256_GCM,data:hkthNg==,iv:md0Dt8esgtd9EzevFKLuNHmSpCmtyrx/cQWVmB9y/Bo=,tag:QWdx1eQJEGEp7vBfYH1iaA==,type:str]
+sops:
+  age:
+    - recipient: age1k5cr4cvs4atdm3gse77vq4glnv9q49gq5wl49p9806gfyfld7p3setz3tw
+      enc: |
+        -----BEGIN AGE ENCRYPTED FILE-----
+        YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBzTS9sbzZsZVpwRlB3SGQz
+        Mk82QndxcE9jZHc1b0RnbmV1bDlaZlIrb0FzCjA0YUlsUzFkSVVXcTJXOWtWUEhu
+        eUd0OVVPcDRuR2V3eWN6L3JyYitvZ0UKLS0tIHZNL21PdXNaa0E5QjJSSkcwck5q
+        YkNBQWptejllbDY0QTRtSi83WUh6QWsKoYtpdx9tY3wfVOu4ZsE2mTGWhzFxPJnY
+        AwEBbroCGhRDlAb3F3uxvvgxHBoailgl2lfKIHq0r0Dyvn52Wnd1oA==
+        -----END AGE ENCRYPTED FILE-----
+  lastmodified: "2026-04-11T20:24:33Z"
+  mac: ENC[AES256_GCM,data:2Hf7ycvY6gDscKKrWF9wlFMJhuPkDbgU7dni3ohmjD/RdDlY1zNCvtwof6p82CGQ+97tkOP7a9aWA3aHzlm9vIdyR2NW61Xr9lCuQWr0wI6t25csJ9P6GVzM9KIKTpxP9MqJenvmOVkjQSOCl3x8qTe24DFciBOGxJN03XiZuPQ=,iv:wtt6SLOkdQMvwPjLTHL5eIelyjCB7ATwKGSIGcm7yWg=,tag:cFUy5U4L3RhdfNgudKa2fA==,type:str]
+  encrypted_regex: ^(data|stringData)$
+  mac_only_encrypted: true
+  version: 3.12.2

@@ -20,7 +20,7 @@ resources:
   - ./radarr/ks.yaml
   - ./rreading-glasses/ks.yaml
   - ./rustdesk/ks.yaml
-  # - ./seerr/ks.yaml
+  - ./seerr/ks.yaml
   - ./sftpgo/ks.yaml
   - ./sonarr/ks.yaml
   - ./tautulli/ks.yaml

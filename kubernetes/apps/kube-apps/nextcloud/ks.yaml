@@ -10,7 +10,7 @@ spec:
   interval: 30m
   path: ./kubernetes/apps/kube-apps/nextcloud/app
   prune: true
-  wait: true
+  wait: false
   dependsOn:
     - name: minio
       namespace: kube-system

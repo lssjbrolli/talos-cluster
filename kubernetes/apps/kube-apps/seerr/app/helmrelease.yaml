@@ -31,7 +31,7 @@ spec:
           main:
             image:
               repository: ghcr.io/seerr-team/seerr
-              tag: sha-061121c@sha256:f464ff7e52f877475e1097c5b788947d4e9a2c9007d40323c18f1787d4b9b793
+              tag: v3.1.0@sha256:b35ba0461c4a1033d117ac1e5968fd4cbe777899e4cbfbdeaf3d10a42a0eb7e9
             securityContext:
               runAsNonRoot: true
               privileged: false

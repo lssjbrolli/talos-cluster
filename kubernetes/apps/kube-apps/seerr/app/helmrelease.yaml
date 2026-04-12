@@ -123,3 +123,8 @@ spec:
         globalMounts:
         - path: /app/config
           readOnly: false
+      next_cache:
+        type: emptyDir
+        globalMounts:
+          - path: /app/.next/cache
+            readOnly: false

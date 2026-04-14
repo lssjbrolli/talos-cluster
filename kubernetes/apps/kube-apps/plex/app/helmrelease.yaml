@@ -78,7 +78,9 @@ spec:
       tmp:
         type: emptyDir
       transcode:
-        type: emptyDir
+        type: persistentVolumeClaim
+        accessMode: ReadWriteOnce
+        size: 10Gi
       data:
         type: nfs
         server: 192.168.1.150

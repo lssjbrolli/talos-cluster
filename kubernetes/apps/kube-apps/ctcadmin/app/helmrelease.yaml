@@ -31,7 +31,7 @@ spec:
           main:
             image:
               repository: ghcr.io/ctcadmin2/remix_ctc
-              tag: 0.9.30@sha256:230fdd29efc0cc54d97f962d14e5554e97171a3fa1393ef54c499ee8513029f4
+              tag: 0.9.31@sha256:44d0252682fed100894a1e38cc6b684aa30c3bffd205184e47470876215b2153
             securityContext:
               runAsNonRoot: true
               runAsUser: 568

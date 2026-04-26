@@ -11,6 +11,9 @@ spec:
   path: ./kubernetes/apps/kube-apps/filebrowser/app
   prune: true
   wait: true
+  dependsOn:
+    - name: volsync
+      namespace: storage-system
   postBuild:
     substituteFrom:
       - name: cluster-secrets

@@ -72,7 +72,17 @@ spec:
           http:
             port: &port 8123
         type: ClusterIP
-        
+      lb:
+        controller: home-assistant
+        externalTrafficPolicy: Local
+        forceRename: home-assistant
+        loadBalancerIP: 192.168.1.180
+        ports:
+          http:
+            port: 8123
+        primary: true
+        type: LoadBalancer
+
     route:
       app:
         hostnames: ["hass.${SECRET_DOMAIN}"]

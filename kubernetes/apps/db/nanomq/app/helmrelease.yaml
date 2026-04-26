@@ -61,3 +61,6 @@ spec:
       config:
         type: persistentVolumeClaim
         existingClaim: nanomq-config
+      tmp:
+        type: emptyDir
+        

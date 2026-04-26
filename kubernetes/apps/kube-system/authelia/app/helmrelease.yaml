@@ -16,7 +16,7 @@ spec:
       log:
         level: info
       totp:
-        disable: false
+        disable: true
       webauthn:
         disable: true
         enable_passkey_login: false

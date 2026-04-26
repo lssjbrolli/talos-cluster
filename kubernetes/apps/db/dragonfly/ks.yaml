@@ -8,6 +8,9 @@ spec:
   interval: 30m
   path: ./kubernetes/apps/db/dragonfly/app
   prune: false # never should be deleted
+  dependsOn:
+    - name: openebs
+      namespace: storage-system
   sourceRef:
     kind: GitRepository
     name: flux-system

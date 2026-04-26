@@ -5,6 +5,8 @@ kind: Kustomization
 metadata:
   name: &app nanomq
 spec:
+  components:
+    - '../../../../components/volsync'
   interval: 30m
   path: ./kubernetes/apps/db/nanomq/app
   prune: false # never should be deleted

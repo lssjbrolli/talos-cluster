@@ -28,6 +28,8 @@ spec:
           type: cpu
     env:
       TZ: ${TIMEZONE}
+    envFromSecrets:
+      - frigate-secrets
     persistence:
       config:
         # -- Enables persistence for the config directory

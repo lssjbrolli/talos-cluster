@@ -42,6 +42,7 @@ spec:
               NANOMQ_TLS_ENABLE: "false"
               NANOMQ_WEBSOCKET_ENABLE: "false"
               NANOMQ_HTTP_SERVER_ENABLE: "false"
+              NANOMQ_CONF_PATH: /config/nanomq.conf
             envFrom:
               - secretRef:
                   name: nanomq-secret
@@ -56,3 +57,7 @@ spec:
           mqtt:
             enabled: true
             port: 1883
+    persistence:
+      config:
+        type: persistentVolumeClaim
+        existingClaim: nanomq-config

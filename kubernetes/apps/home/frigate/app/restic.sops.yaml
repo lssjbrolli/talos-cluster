@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Secret
 metadata:
-    name: restic-audiobookshelf
-    namespace: kube-apps
+    name: restic-frigate
+    namespace: home
 stringData:
     #ENC[AES256_GCM,data:v/rqDm3BYT1G7Li+NAfj5WZWJw==,iv:piXYLG+01JqYS+G6/ZFggNVsZt5NgDuv6EUU6Oh+sbQ=,tag:CqqT7wJgEXOLSgrJhQClqw==,type:comment]
-    RESTIC_REPOSITORY: ENC[AES256_GCM,data:Om0c7u/8qoRKlujtd7X8KNZHfwuEv5jKqx+MtcvTloxdPGdxRHDDwjpathHrXDsCK/zBpLcbzV77Zfxlca2rkVVHqLnIA9NBgA==,iv:RjtVuRWvj8EWCmmaPWS1oeOY8aNwUrL0DeZbYMwdy7U=,tag:iGf7YZS0cL6zRzb7xZziTw==,type:str]
+    RESTIC_REPOSITORY: ENC[AES256_GCM,data:lUKN2tLqy4k8kH9I8tIRbo7ELIniEhTzqf2AY/t/NxpNdxs7GMk4ReX1bELuAbBplKLbLVukcnrVyj0cUloGBKFE,iv:4OMA4RPi4sYlJb5JqdHEwF9kQ5cUVMse+BUp2JfB+gw=,tag:h5aJ4Boo4BqB+erKELcoRg==,type:str]
     #ENC[AES256_GCM,data:7AAND4QuKTwkUSA1Hn4d+UevZCQLjxYD+SSJ8DPi,iv:8InNm5Sxaxa7IFYYwM7OapFI1e7rGa8rO2tb+2yFcR8=,tag:HjMSFBVAf8PcJBq9ybLD/w==,type:comment]
     RESTIC_PASSWORD: ENC[AES256_GCM,data:WE/I1g==,iv:6Xo1/vSxl1jz8RCccyIFrl86D4Zn0dpxwUgzL3x4gmc=,tag:n5SMBtWFrmy7DU5N+EnY3g==,type:str]
     #ENC[AES256_GCM,data:6qoNbUfJ3LiIi6fwteXU0HC+z8may4qfZZTkKLxX9eFBmdLtPbQm4Hg=,iv:D5OoPq6eaw17tQ46G8RrMuBCY/BSYp5RFuORoMoSY6I=,tag:E7AwYNjDM9ajMljWjrCDRQ==,type:comment]
@@ -23,7 +23,7 @@ sops:
             Tm9NYVNVZjUrZUFLbS9WQmNVcjFpVGsKrZyCYx3InSl9BAfOLP/8Nb4Bt9skNjmi
             ywg6GNEEN0qS/W/1TKVCwLZ/TAbbyeyKXWiq/WzCiDtxrNg0YWT35g==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2026-04-04T18:22:27Z"
-    mac: ENC[AES256_GCM,data:0LSpoQlAeSPecji6BI7AU9V+3xq4XlCGfggSIzPRJZHi3gN284LdhQXO2zQ/stKa4EpowI+QF6Oa93N8u5oXa1M3lp7+n5DjLaIg5juwv6ROwsbC7E864QvRUlmZXVKuGiVr0lmjcoXFyBEE6eVKkv+aYX1UKRziP218+N6gaB4=,iv:KvpoBdqKVxE3vvvJQzrKTlwvcn1x9QpE5Os05VCoXtQ=,tag:ofG2t99/oz6eare0uA9VMg==,type:str]
+    lastmodified: "2026-04-26T15:29:59Z"
+    mac: ENC[AES256_GCM,data:AS2n95GGxJziZB/MJt1xA1ZbAli7h41ZWZeUdS7uwHw+OeiG0aHbnt88fvBT5Yy1AiaB2Um38L4VO126koSdpkZIsIS8JRy2IhqSgzVDvNE+1ePEh/ER85erY9jSwN659y5yiIOkicon1mI4Lt4Dpg/Df3rWpGJo4OPs58vrtQ8=,iv:0S3MqHDMdxI3aWXppX+kW0XKRlLaVFL/6rAAcBLxQEs=,tag:VXvTAPyOXMw9Uhg9TQx99w==,type:str]
     encrypted_regex: ^(data|stringData)$
     version: 3.12.2

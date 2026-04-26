@@ -19,7 +19,7 @@ spec:
         disable: false
       webauthn:
         disable: true
-        enable_passkey_login: true
+        enable_passkey_login: false
       authentication_backend:
         refresh_interval: 1m
         ldap:

@@ -1,0 +1,88 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: home-assistant
+spec:
+  interval: 30m
+  chartRef:
+    kind: OCIRepository
+    name: home-assistant
+  values:
+    controllers:
+      home-assistant:
+        pod:
+          securityContext:
+            fsGroup: 568
+            fsGroupChangePolicy: OnRootMismatch
+            runAsGroup: 568
+            runAsUser: 568
+
+        containers:
+          app:
+            image:
+              repository: ghcr.io/home-operations/home-assistant
+              tag: 2026.4.4@sha256:589e4c1c93025d01320c14329427197c8b52d4f2e241a6bc1d6207837e07b4a7
+            env:
+              TZ: ${TIMEZONE}
+            envFrom:
+              - secretRef:
+                  name: home-assistant-secrets
+
+            resources:
+              requests:
+                cpu: 50m
+                memory: 512M
+              limits:
+                memory: 2Gi
+            securityContext:
+              allowPrivilegeEscalation: false
+              capabilities:
+                drop:
+                  - ALL
+              readOnlyRootFilesystem: true
+
+    persistence:
+      config:
+        existingClaim: home-assistant-config
+        advancedMounts:
+          home-assistant:
+            app:
+              - path: /config
+      hass-cache:
+        accessMode: ReadWriteOnce
+        size: "1Gi"
+        advancedMounts:
+          home-assistant:
+            app:
+              - path: /config/.venv
+                subPath: hass-venv
+      tmpfs:
+        type: emptyDir
+        advancedMounts:
+          home-assistant:
+            app:
+              - path: /tmp
+                subPath: hass-tmp
+
+    service:
+      main:
+        controller: home-assistant
+        ports:
+          http:
+            port: &port 8123
+        type: ClusterIP
+        
+    route:
+      app:
+        hostnames: ["hass.${SECRET_DOMAIN}"]
+        parentRefs:
+          - name: internal
+            namespace: network
+            sectionName: https
+        rules:
+          - backendRefs:
+              - identifier: main
+                port: *port
+
+    

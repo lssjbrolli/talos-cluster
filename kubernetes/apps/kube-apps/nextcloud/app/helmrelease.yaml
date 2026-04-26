@@ -21,11 +21,6 @@ spec:
       image:
         repository: ghcr.io/nginx/nginx-unprivileged
         tag: 1.30.0-alpine@sha256:8a7fd2dfd8bfae329b96118207b7a9153293f71c7fee042ed7ffbc4461a8788d
-      securityContext:
-        runAsUser: 568
-        runAsGroup: 568
-        runAsNonRoot: true
-        readOnlyRootFilesystem: false
     nextcloud:
       host: &host "cloud.${SECRET_DOMAIN}"
       trustedDomains:
@@ -58,11 +53,6 @@ spec:
             secretKey: "secretKey"
             # key in nextcloud.objectStore.s3.existingSecret to use for the s3 bucket
             bucket: "bucket"
-      securityContext:
-        runAsUser: 568
-        runAsGroup: 568
-        runAsNonRoot: true
-        readOnlyRootFilesystem: false
       podSecurityContext:
         runAsUser: 568
         runAsGroup: 568
@@ -134,12 +124,6 @@ spec:
         enabled: false
     cronjob:
       enabled: true
-      sidecar:
-        securityContext:
-        runAsUser: 568
-        runAsGroup: 568
-        runAsNonRoot: true
-        readOnlyRootFilesystem: false
     resources:
       requests:
         cpu: 500m

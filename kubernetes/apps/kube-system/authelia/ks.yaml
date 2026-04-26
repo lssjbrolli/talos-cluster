@@ -9,6 +9,9 @@ spec:
     - '../../../../components/volsync'
   interval: 1h
   path: ./kubernetes/apps/kube-system/authelia/app
+  dependsOn:
+    - name: volsync
+      namespace: storage-system
   postBuild:
     substituteFrom:
       - name: cluster-secrets

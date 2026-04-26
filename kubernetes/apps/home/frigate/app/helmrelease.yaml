@@ -11,7 +11,10 @@ spec:
   values:
     config: |
       mqtt:
-        enabled: False
+        enabled: true
+        host: nanomq.db.svc.cluster.local
+        user: admin
+        password: '{FRIGATE_MQTT_PASSWORD}'
       cameras:
         # Define at least one camera
         back:

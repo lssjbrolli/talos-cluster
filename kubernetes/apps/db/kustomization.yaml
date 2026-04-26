@@ -10,6 +10,7 @@ resources:
   - ./cnpg/ks.yaml
   - ./dragonfly/ks.yaml
   - ./immich-db/ks.yaml
+  - ./nanomq/ks.yaml
   - ./pgadmin/ks.yaml
   - ./plugin-barman-cloud/ks.yaml
   - ./namespace.yaml

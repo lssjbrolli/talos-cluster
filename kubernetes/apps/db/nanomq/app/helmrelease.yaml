@@ -1,0 +1,33 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: nanomq
+spec:
+  interval: 30m
+  chartRef:
+    kind: OCIRepository
+    name: nanomq
+  values:
+    image:
+      repository: emqx/nanomq
+      tag: 0.24.13@sha256:acb6e6aea042090ce141815f29932ee563410794ad08a69fc74f725440cfda7b
+
+    env:
+      NANOMQ_BROKER_URL: "nmq-tcp://0.0.0.0:1883"
+      NANOMQ_TLS_ENABLE: "false"
+      NANOMQ_WEBSOCKET_ENABLE: "false"
+      NANOMQ_HTTP_SERVER_ENABLE: "false"
+    envFrom:
+      - secretRef:
+          name: nanomq-secret
+
+    service:
+      main:
+        type: ClusterIP
+        ports:
+          http:
+            enabled: false
+          mqtt:
+            enabled: true
+            port: 1883

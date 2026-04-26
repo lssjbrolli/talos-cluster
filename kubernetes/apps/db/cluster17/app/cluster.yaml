@@ -15,7 +15,7 @@ spec:
     type: postgresql
     version:
       postgresql: "18"
-    mode: recovery
+    mode: standalone
     cluster:
       instances: 2
       initdb:

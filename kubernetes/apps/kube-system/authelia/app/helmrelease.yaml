@@ -18,7 +18,7 @@ spec:
       totp:
         disable: false
       webauthn:
-        disable: false
+        disable: true
         enable_passkey_login: true
       authentication_backend:
         refresh_interval: 1m

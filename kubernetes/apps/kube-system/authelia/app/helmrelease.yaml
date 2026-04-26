@@ -101,7 +101,7 @@ spec:
       definitions:
         user_attributes:
           sftpgo_role:
-            expression: '"sftpgo_admins" in groups ? "admin" : "sftpgo_managers" in groups ? "manager" : "user"'
+            expression: '"sftpgo_admins" in groups ? "admin" : "user"'
       identity_providers:
         oidc:
           enabled: true
@@ -154,8 +154,11 @@ spec:
               client_id: 'JdcVlzNIeq5wh18Jo0-SWxgSROh_eCW0wHR2tGdNqQDK0~2IVWX_hnJYG1wChxj5ETHes7tF'
               client_secret:
                 path: '/secrets/authelia/oidc.client.sftpgo.value'
+              public: false
               authorization_policy: 'one_factor'
               claims_policy: 'sftpgo'
+              require_pkce: false
+              pkce_challenge_method: ''
               redirect_uris:
                 - 'https://ftp.${SECRET_DOMAIN}/web/oidc/redirect'
                 - 'https://ftp.${SECRET_DOMAIN}/web/oauth2/redirect'

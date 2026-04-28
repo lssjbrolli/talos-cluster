@@ -34,7 +34,12 @@ spec:
             # doesn't support yet env for onvif, maybe 0.18 will support
             user: living
             password: segasega
-     
+      go2rtc:
+        streams:
+          main:
+            - tapo://1F98DE147357B9C24357B9CA2BA2D726@192.168.1.161?subtype=0
+          secondary:
+            - tapo://1F98DE147357B9C24357B9CA2BA2D726@192.168.1.161?subtype=1
       
     env:
       TZ: ${TIMEZONE}

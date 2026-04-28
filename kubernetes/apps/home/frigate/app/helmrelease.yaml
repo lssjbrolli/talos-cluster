@@ -31,6 +31,7 @@ spec:
           onvif:
             host: 192.168.1.161
             port: 2020
+            # doesn't support yet env for onvif, maybe 0.18 will support
             user: living
             password: segasega
       go2rtc:

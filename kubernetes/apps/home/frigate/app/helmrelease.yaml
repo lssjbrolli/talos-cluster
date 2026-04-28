@@ -31,8 +31,8 @@ spec:
           onvif:
             host: 192.168.1.161
             port: 2020
-            user: {FRIGATE_RTSP_USER}
-            password: {FRIGATE_RTSP_PASSWORD}
+            user: living
+            password: segasega
       go2rtc:
         streams:
           main:

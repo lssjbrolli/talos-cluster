@@ -34,24 +34,7 @@ spec:
             port: 2020
             user: living
             password: segasega
-      record:
-        enabled: True
-        detections:
-          retain:
-            days: 2
-            mode: motion
-      go2rtc:
-        streams:
-          main:
-            - rtsp://living:segasega@192.168.1.161:554/stream1
-          secondary:
-            - rtsp://living:segasega@192.168.1.161:554/stream2
-      detectors:
-        cpu1:
-          type: cpu
-      detect:
-        # Optional: enables detection for the camera (default: shown below)
-        enabled: True
+      
     env:
       TZ: ${TIMEZONE}
     envFromSecrets:

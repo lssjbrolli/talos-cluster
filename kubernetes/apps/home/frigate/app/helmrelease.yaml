@@ -22,10 +22,10 @@ spec:
         living:
           ffmpeg:
             inputs:
-              - path: rtsp://living:segasega@192.168.1.161:554/stream2
+              - path: rtsp://{FRIGATE_RTSP_USER}:{FRIGATE_RTSP_PASSWORD}@192.168.1.161:554/stream2
                 roles:
                   - detect
-              - path: rtsp://living:segasega@192.168.1.161:554/stream1
+              - path: rtsp://{FRIGATE_RTSP_USER}:{FRIGATE_RTSP_PASSWORD}@192.168.1.161:554/stream1
                 roles:
                   - record
           onvif:
@@ -40,8 +40,8 @@ spec:
           secondary:
             - tapo://1F98DE147357B9C24357B9CA2BA2D726@192.168.1.161?subtype=1
       live:
-        streams: # <--- Multiple streams for Frigate 0.16 and later
-          Main Stream: main # <--- Specify a "friendly name" followed by the go2rtc stream name
+        streams:
+          Main Stream: main
           Sub Stream: secondary
       record:
         enabled: True
@@ -49,6 +49,9 @@ spec:
           retain:
             days: 2
             mode: motion
+      detect:
+        # Optional: enables detection for the camera (default: shown below)
+        enabled: True
       
     env:
       TZ: ${TIMEZONE}

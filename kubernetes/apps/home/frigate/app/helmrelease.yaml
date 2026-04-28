@@ -25,15 +25,6 @@ spec:
               - path: rtsp://living:segasega@192.168.1.161:554/stream1
                 roles:
                   - record
-          live:
-            streams: # <--- Multiple streams for Frigate 0.16 and later
-              Main Stream: main # <--- Specify a "friendly name" followed by the go2rtc stream name
-              Sub Stream: secondary
-          onvif:
-            host: 192.168.1.161
-            port: 2020
-            user: living
-            password: segasega
       
     env:
       TZ: ${TIMEZONE}

@@ -11,7 +11,6 @@ spec:
   values:
     config: |
       mqtt:
-        enabled: true
         host: nanomq.db.svc.cluster.local
         user: admin
         password: '{FRIGATE_MQTT_PASSWORD}'
@@ -26,24 +25,27 @@ spec:
               - path: rtsp://living:segasega@192.168.1.161:554/stream1
                 roles:
                   - record
-          record:
-            enabled: True
-          retain_days: 1
           onvif:
             host: 192.168.1.161
             port: 2020
             user: living
             password: segasega
+      record:
+        enabled: True
+        detections:
+          retain:
+            days: 2
+            mode: motion
       go2rtc:
         streams:
           living:
             - rtsp://living:segasega@192.168.1.161:554/stream1
       detectors:
-        # coral:
-        #   type: edgetpu
-        #   device: usb
         cpu1:
           type: cpu
+      detect:
+        # Optional: enables detection for the camera (default: shown below)
+        enabled: True
     env:
       TZ: ${TIMEZONE}
     envFromSecrets:

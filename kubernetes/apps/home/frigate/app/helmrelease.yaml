@@ -61,8 +61,6 @@ spec:
           retain:
             days: 2
             mode: motion
-      auth:
-        reset_admin_password: true
     env:
       TZ: ${TIMEZONE}
     envFromSecrets:

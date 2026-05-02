@@ -5,6 +5,5 @@ kind: Kustomization
 resources:
   - ./helmrelease.yaml
   - ./ocirepository.yaml
-  - ./local-sc.yaml
   - ./vsc.yaml
   - ./zfs-sc.yaml

@@ -3,11 +3,11 @@ kind: PersistentVolume
 metadata:
   name: ${APP}-pv # some unique name
 spec:
+  storageClassName: ""
   accessModes:
   - ReadWriteOnce
   capacity:
     storage: 24Ti # size of the volume
-    storageClassName: ""
   claimRef:
     name: ${APP}-data
     namespace: ${NS}

@@ -7,6 +7,8 @@ metadata:
 spec:
   accessModes: 
     - ReadWriteOnce
+  storageClassName: "" # Empty string must be explicitly set otherwise default StorageClass will be set
+  volumeName: ${APP}-pv
   resources:
     requests:
       storage: 24Ti

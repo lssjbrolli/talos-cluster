@@ -7,6 +7,10 @@ spec:
   - ReadWriteOnce
   capacity:
     storage: 24Ti # size of the volume
+    storageClassName: ""
+  claimRef:
+    name: ${APP}-data
+    namespace: ${NS}
   hostPath:
     path: /var/mnt/${VOLUME} # path on the node where volume is present
   nodeAffinity:

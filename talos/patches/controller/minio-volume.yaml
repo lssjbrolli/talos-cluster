@@ -1,0 +1,7 @@
+apiVersion: v1alpha1
+kind: ExternalVolumeConfig
+name: virtiofs-data
+filesystemType: virtiofs
+mount:
+  virtiofs:
+    tag: minio

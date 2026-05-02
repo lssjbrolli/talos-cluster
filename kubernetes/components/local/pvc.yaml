@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: ${APP}-${PVC_NAME:=data}
+spec:
+  #Change this name if you are using a custom StorageClass
+  storageClassName: local
+  accessModes: 
+    - ReadWriteOnce
+  resources:
+    requests:
+      #Set capacity here
+      storage: 24Ti
+  

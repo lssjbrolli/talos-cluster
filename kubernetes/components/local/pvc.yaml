@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: ${APP}-${PVC_NAME:=data}
+  name: ${APP}-data 
 spec:
   #Change this name if you are using a custom StorageClass
   storageClassName: local

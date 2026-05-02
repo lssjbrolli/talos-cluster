@@ -20,6 +20,7 @@ spec:
         kind: ConfigMap
     substitute:
       APP: *app
+      NS: kube-apps
       VOLUME: ctcadmin
   sourceRef:
     kind: GitRepository

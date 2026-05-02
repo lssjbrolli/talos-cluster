@@ -9,7 +9,7 @@ resources:
   # - ./audiobookshelf/ks.yaml
   # - ./bookshelf/ks.yaml
   - ./ctcadmin/ks.yaml
-  # - ./filebrowser/ks.yaml
+  - ./filebrowser/ks.yaml
   - ./immich/ks.yaml
   - ./nextcloud/ks.yaml
   # - ./ownfoil/ks.yaml

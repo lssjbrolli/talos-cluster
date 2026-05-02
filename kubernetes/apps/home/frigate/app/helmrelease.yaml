@@ -56,8 +56,6 @@ spec:
     service:
       main:
         controller: main
-        type: LoadBalancer
-        loadBalancerIP: 192.168.1.170
         ports:
           http:
             appProtocol: kubernetes.io/ws
@@ -69,3 +67,19 @@ spec:
           rtsp:
             enabled: true
             port: 8554
+    route:
+      main:
+        parentRefs:
+          - name: internal
+            namespace: kube-system
+            sectionName: https
+        hostnames:
+          - frigate.${SECRET_DOMAIN}
+        rules:
+          - matches:
+              - path:
+                  type: PathPrefix
+                  value: /
+            backendRefs:
+              - name: frigate
+                port: *port

@@ -3,5 +3,7 @@ kind: ExternalVolumeConfig
 name: ctcadmin
 filesystemType: virtiofs
 mount:
+  readOnly: false
+  disableAccessTime: true
   virtiofs:
     tag: ctcadmin

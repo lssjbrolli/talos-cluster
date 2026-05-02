@@ -3,5 +3,7 @@ kind: ExternalVolumeConfig
 name: minio
 filesystemType: virtiofs
 mount:
+  readOnly: false
+  disableAccessTime: true
   virtiofs:
     tag: minio

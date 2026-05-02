@@ -3,5 +3,7 @@ kind: ExternalVolumeConfig
 name: media
 filesystemType: virtiofs
 mount:
+  readOnly: false
+  disableAccessTime: true
   virtiofs:
     tag: media

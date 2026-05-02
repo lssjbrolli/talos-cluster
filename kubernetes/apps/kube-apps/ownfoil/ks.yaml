@@ -6,6 +6,7 @@ metadata:
   name: &app ownfoil
 spec:
   components:
+    - '../../../../components/local'
     - '../../../../components/volsync'
   interval: 30m
   path: ./kubernetes/apps/kube-apps/ownfoil/app
@@ -22,6 +23,7 @@ spec:
       APP: *app
       NS: kube-apps
       VOLSYNC_SCHED: "0 */12 * * *"
+      VOLUME: media
   sourceRef:
     kind: GitRepository
     name: flux-system

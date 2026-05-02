@@ -1,4 +1,5 @@
 ---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/bernd-schorgers/helm-charts/main/charts/other/app-template/schemas/helmrelease-helm-v2.schema.json
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
@@ -9,24 +10,51 @@ spec:
     kind: OCIRepository
     name: frigate
   values:
-    image:
-      repository: ghcr.io/blakeblackshear/frigate
-      tag: 0.17.1
-    env:
-      TZ: ${TIMEZONE}
-    envFromSecrets:
-      - frigate-secrets
+    controllers:
+      main:
+        containers:
+          main:
+            image:
+              repository: ghcr.io/blakeblackshear/frigate
+              tag: 0.17.1@sha256:1724960349dad0bd2ae8ec884171a6fd5755a4dc242a0e66cadbda9c0e85c99b
+            env:
+              TZ: ${TIMEZONE}
+            envFrom:
+              - secretRef:
+                  name: frigate-secrets
+            probes:
+              liveness: &probes
+                enabled: true
+                custom: true
+                spec:
+                  httpGet:
+                    path: /api/version
+                    port: &port 5000
+                  initialDelaySeconds: 0
+                  periodSeconds: 10
+                  timeoutSeconds: 1
+                  failureThreshold: 3
+              readiness: *probes
+              startup:
+                enabled: false
     persistence:
       config:
-        # -- Enables persistence for the config directory
-        enabled: true
         existingClaim: frigate-config
-        ephemeralWritableConfigYaml: false
+        globalMounts:
+          - path: /config
       media:
-        # -- Enables persistence for the media directory
-        enabled: true
-        accessMode: ReadWriteOnce
+        type: persistentVolumeClaim
+        accessMode: 'ReadWriteOnce'
         size: 10Gi
+        globalMounts:
+          - path: /media
+      cache:
+        type: emptyDir
+        globalMounts:
+          - path: /dev/shm
+      
     service:
-      type: LoadBalancer
-      loadBalancerIP: 192.168.1.170
+      main:
+        controller: main
+        type: LoadBalancer
+        loadBalancerIP: 192.168.1.170

@@ -7,11 +7,9 @@ spec:
   - ReadWriteOnce
   capacity:
     storage: 24Ti # size of the volume
-  claimRef:
-    apiVersion: v1
-    kind: PersistentVolumeClaim
-    name: ${APP}-data # name of pvc which can claim this PV
-    namespace: kube-apps # namespace for the pvc
+  csi:
+    driver: talos.dev
+    volumeHandle: ${VOLUME}
   nodeAffinity:
     required:
       nodeSelectorTerms:
@@ -21,5 +19,4 @@ spec:
           values:
           - talos-cluster # change the hostname where volume is present
   persistentVolumeReclaimPolicy: Retain
-  storageClassName: local
   volumeMode: Filesystem

@@ -20,6 +20,7 @@ spec:
         kind: ConfigMap
     substitute:
       APP: *app
+      VOLUME: ctcadmin
   sourceRef:
     kind: GitRepository
     name: flux-system

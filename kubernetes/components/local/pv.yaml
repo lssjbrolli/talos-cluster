@@ -7,9 +7,8 @@ spec:
   - ReadWriteOnce
   capacity:
     storage: 24Ti # size of the volume
-  csi:
-    driver: talos.dev
-    volumeHandle: ${VOLUME}
+  hostPath:
+    path: /var/mnt/${VOLUME} # path on the node where volume is present
   nodeAffinity:
     required:
       nodeSelectorTerms:

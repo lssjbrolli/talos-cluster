@@ -21,7 +21,7 @@ spec:
         # -- Enables persistence for the config directory
         enabled: true
         existingClaim: frigate-config
-        ephemeralWritableConfigYaml: true
+        ephemeralWritableConfigYaml: false
       media:
         # -- Enables persistence for the media directory
         enabled: true

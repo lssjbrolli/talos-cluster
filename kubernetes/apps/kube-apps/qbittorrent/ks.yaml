@@ -6,6 +6,7 @@ metadata:
   name: &app qbittorrent
 spec:
   components:
+    - '../../../../components/local'
     - '../../../../components/volsync'
   interval: 30m
   path: ./kubernetes/apps/kube-apps/qbittorrent/app
@@ -27,6 +28,7 @@ spec:
       NS: kube-apps
       VOLSYNC_CAPACITY: 512Mi
       RETAIN_D: "2"
+      VOLUME: media
   sourceRef:
     kind: GitRepository
     name: flux-system

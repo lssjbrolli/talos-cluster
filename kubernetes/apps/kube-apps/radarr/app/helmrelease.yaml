@@ -101,8 +101,7 @@ spec:
         type: persistentVolumeClaim
         existingClaim: radarr-config
       media:
-        type: nfs
-        server: 192.168.1.150
-        path: /storage/media
+        type: persistentVolumeClaim
+        existingClaim: radarr-data
       tmp:
         type: emptyDir

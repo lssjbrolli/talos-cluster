@@ -6,6 +6,7 @@ metadata:
   name: &app plex
 spec:
   components:
+    - '../../../../components/local'
     - '../../../../components/volsync'
   interval: 30m
   path: ./kubernetes/apps/kube-apps/plex/app
@@ -25,6 +26,7 @@ spec:
       NS: kube-apps
       VOLSYNC_CAPACITY: 50Gi
       VOLSYNC_SCHED: "0 */12 * * *"
+      VOLUME: media
   sourceRef:
     kind: GitRepository
     name: flux-system

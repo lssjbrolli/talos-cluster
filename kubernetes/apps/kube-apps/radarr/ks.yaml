@@ -6,6 +6,7 @@ metadata:
   name: &app radarr
 spec:
   components:
+    - '../../../../components/local'
     - '../../../../components/volsync'
   interval: 30m
   path: ./kubernetes/apps/kube-apps/radarr/app
@@ -26,6 +27,7 @@ spec:
       APP: *app
       NS: kube-apps
       VOLSYNC_SCHED: "0 */3 * * *"
+      VOLUME: media
   sourceRef:
     kind: GitRepository
     name: flux-system

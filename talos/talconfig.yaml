@@ -52,4 +52,7 @@ patches:
 controlPlane:
   patches:
     - "@./patches/controller/cluster.yaml"
+    - "@./patches/controller/ctcadmin-volume.yaml"
+    - "@./patches/controller/media-volume.yaml"
+    - "@./patches/controller/minio-volume.yaml"
 

@@ -5,6 +5,8 @@ kind: Kustomization
 metadata:
   name: ctcadmin
 spec:
+  components:
+    - '../../../../components/local'
   interval: 30m
   path: ./kubernetes/apps/kube-apps/ctcadmin/app
   prune: true

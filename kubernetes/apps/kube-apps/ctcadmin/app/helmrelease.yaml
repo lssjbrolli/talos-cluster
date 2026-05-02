@@ -97,6 +97,5 @@ spec:
                 port: *port
     persistence:
       storage:
-        type: nfs
-        server: 192.168.1.150
-        path: /storage/ctcadmin
+        type: persistentVolumeClaim
+        existingClaim: ctcadmin-data

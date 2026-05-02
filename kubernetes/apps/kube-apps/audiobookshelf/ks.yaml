@@ -25,6 +25,7 @@ spec:
       NS: kube-apps
       VOLSYNC_CAPACITY: 200Mi
       RETAIN_D: "2"
+      VOLUME: media
   sourceRef:
     kind: GitRepository
     name: flux-system

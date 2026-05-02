@@ -7,6 +7,7 @@ metadata:
 spec:
   components:
     - '../../../../components/volsync'
+    - '../../../../components/local'
   interval: 30m
   path: ./kubernetes/apps/kube-apps/audiobookshelf/app
   prune: true

@@ -16,6 +16,10 @@ spec:
       TZ: ${TIMEZONE}
     envFromSecrets:
       - frigate-secrets
+    securityContext:
+      runAsUser: 568
+    podSecurityContext:
+      fsGroup: 568
     persistence:
       config:
         # -- Enables persistence for the config directory

@@ -9,16 +9,16 @@ mqtt:
   password: "{FRIGATE_MQTT_PASSWORD}"
 cameras:
   living:
+    enabled: true
     ffmpeg:
       output_args:
         record: preset-record-generic-audio-aac
       inputs:
-        - path: rtsp://living:segasega@192.168.1.161:554/stream2
+        - path: rtsp://127.0.0.1:8554/sub
           input_args: preset-rtsp-restream
           roles:
             - detect
-            - audio
-        - path: rtsp://living:segasega@192.168.1.161:554/stream1
+        - path: rtsp://127.0.0.1:8554/main
           input_args: preset-rtsp-restream
           roles:
             - record
@@ -28,29 +28,39 @@ cameras:
       # doesn't support yet env for onvif, maybe 0.18 will support
       user: living
       password: segasega
+    detect:
+      width: 1280
+      height: 720
+    live:
+      streams:
+        Main Stream: main
+        Sub Stream: sub
+record:
+  enabled: True
+  detections:
+    retain:
+      days: 2
+      mode: motion
+version: 0.17-0
+detectors: 
+  cpu:
+    type: cpu
+model:
+  model_type: yolo-generic
+  width: 640 # <--- should match the imgsize set during model export
+  height: 640 # <--- should match the imgsize set during model export
+  input_tensor: nchw
+  input_dtype: float
+  path: /config/model_cache/yolo.onnx
+  labelmap_path: /labelmap/coco-80.txt
 go2rtc:
   streams:
+    sub:
+      - rtsp://living:segasega@192.168.1.161:554/stream2
+      - "ffmpeg:sub#audio=aac"
     main:
-      - onvif://living:segasega@192.168.1.161:2020?subtype=profile_1
-      - "ffmpeg:porch_record#audio=aac"
-    secondary:
-      - onvif://living:segasega@192.168.1.161:2020?subtype=profile_2
+      - rtsp://living:segasega@192.168.1.161:554/stream1
+      - "ffmpeg:main#audio=aac"
   webrtc:
-    listen: ":8555"
-    ice_servers:
-      - urls:
-          - stun:stun.l.google.com:19302
-          - stun:stun.cloudflare.com:3478
     candidates:
-      - 86.121.39.220:8555
-
-# live:
-#   streams:
-#     Main Stream: main
-#     Sub Stream: secondary
-# record:
-#   enabled: True
-#   detections:
-#     retain:
-#       days: 2
-#       mode: motion
+      - 127.0.0.1:8555

@@ -71,8 +71,8 @@ spec:
       main:
         parentRefs:
           - name: internal
-            namespace: kube-system
-            sectionName: https
+            namespace: home
+            sectionName: http
         hostnames:
           - frigate.${SECRET_DOMAIN}
         rules:

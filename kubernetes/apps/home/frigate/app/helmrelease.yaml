@@ -59,7 +59,7 @@ spec:
         ports:
           http:
             appProtocol: kubernetes.io/ws
-            port: 5000
+            port: *port
             primary: true
           go2rtc:
             enabled: true
@@ -69,17 +69,13 @@ spec:
             port: 8554
     route:
       main:
+        hostnames:
+          - frigate.${SECRET_DOMAIN}
         parentRefs:
           - name: internal
             namespace: home
-            sectionName: http
-        hostnames:
-          - frigate.${SECRET_DOMAIN}
+            sectionName: https
         rules:
-          - matches:
-              - path:
-                  type: PathPrefix
-                  value: /
-            backendRefs:
-              - name: frigate
+          - backendRefs:
+              - identifier: main
                 port: *port

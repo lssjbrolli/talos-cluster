@@ -37,6 +37,10 @@ go2rtc:
       - onvif://living:segasega@192.168.1.161:2020?subtype=profile_2
   webrtc:
     listen: ":8555"
+    ice_servers:
+      - urls:
+          - stun:stun.l.google.com:19302
+          - stun:stun.cloudflare.com:3478
     candidates:
       - 86.121.39.220:8555
 

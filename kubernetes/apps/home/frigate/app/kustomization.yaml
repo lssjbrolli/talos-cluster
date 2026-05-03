@@ -7,3 +7,12 @@ resources:
   - ./ocirepository.yaml
   - ./restic.sops.yaml
   - ./secrets.sops.yaml
+configMapGenerator:
+  - name: frigate-configmap
+    files:
+      - ./config/config.yml
+    options:
+      annotations:
+        kustomize.toolkit.fluxcd.io/substitute: disabled
+generatorOptions:
+  disableNameSuffixHash: true

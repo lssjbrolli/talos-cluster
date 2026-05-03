@@ -1,0 +1,48 @@
+# yaml-language-server: $schema=http://192.168.1.170:5000/api/config/schema.json
+auth:
+  enabled: False
+mqtt:
+  host: nanomq.db.svc.cluster.local
+  user: admin
+  password: "{FRIGATE_MQTT_PASSWORD}"
+cameras:
+  living:
+    ffmpeg:
+      output_args:
+        record: preset-record-generic-audio-aac
+      inputs:
+        - path: rtsp://living:segasega@192.168.1.161:554/stream2
+          input_args: preset-rtsp-restream-low-latency
+          roles:
+            - detect
+            - audio
+        - path: rtsp://living:segasega@192.168.1.161:554/stream1
+          input_args: preset-rtsp-restream-low-latency
+          roles:
+            - record
+    onvif:
+      host: 192.168.1.161
+      port: 2020
+      # doesn't support yet env for onvif, maybe 0.18 will support
+      user: living
+      password: segasega
+go2rtc:
+  streams:
+    main:
+      - tapo://admin:1F98DE147357B9C24357B9CA2BA2D726@192.168.1.161?subtype=0
+    secondary:
+      - tapo://admin:1F98DE147357B9C24357B9CA2BA2D726@192.168.1.161?subtype=1
+  webrtc:
+    listen: ":8555"
+    filters:
+      network: [udp4, tcp4]
+live:
+  streams:
+    Main Stream: main
+    Sub Stream: secondary
+record:
+  enabled: True
+  detections:
+    retain:
+      days: 2
+      mode: motion

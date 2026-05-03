@@ -7,6 +7,17 @@ mqtt:
   host: nanomq.db.svc.cluster.local
   user: admin
   password: "{FRIGATE_MQTT_PASSWORD}"
+go2rtc:
+  streams:
+    sub:
+      - rtsp://living:segasega@192.168.1.161:554/stream2
+      - "ffmpeg:sub#audio=aac"
+    main:
+      - rtsp://living:segasega@192.168.1.161:554/stream1
+      - "ffmpeg:main#audio=aac"
+  webrtc:
+    candidates:
+      - 127.0.0.1:8555
 cameras:
   living:
     enabled: true
@@ -45,22 +56,3 @@ version: 0.17-0
 detectors: 
   cpu:
     type: cpu
-model:
-  model_type: yolo-generic
-  width: 640 # <--- should match the imgsize set during model export
-  height: 640 # <--- should match the imgsize set during model export
-  input_tensor: nchw
-  input_dtype: float
-  path: /config/model_cache/yolo.onnx
-  labelmap_path: /labelmap/coco-80.txt
-go2rtc:
-  streams:
-    sub:
-      - rtsp://living:segasega@192.168.1.161:554/stream2
-      - "ffmpeg:sub#audio=aac"
-    main:
-      - rtsp://living:segasega@192.168.1.161:554/stream1
-      - "ffmpeg:main#audio=aac"
-  webrtc:
-    candidates:
-      - 127.0.0.1:8555

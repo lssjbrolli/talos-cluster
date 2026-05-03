@@ -77,6 +77,11 @@ spec:
           memory: 1Gi
     holmes:
       additionalEnvVars:
+        - name: ROBUSTA_UI_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: robusta-secrets
+              key: token
         - name: ROBUSTA_AI
           value: "true"
         - name: ROBUSTA_API_ENDPOINT

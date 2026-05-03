@@ -61,13 +61,29 @@ spec:
             secretKeyRef:
               name: robusta-secrets
               key: chat_id
+        - name: RELAY_EXTERNAL_ACTIONS_URL
+          value: https://api.eu.robusta.dev/integrations/generic/actions
+        - name: WEBSOCKET_RELAY_ADDRESS
+          value: wss://relay.eu.robusta.dev
+        - name: ROBUSTA_UI_DOMAIN
+          value: https://platform.eu.robusta.dev
+        - name: ROBUSTA_TELEMETRY_ENDPOINT
+          value: https://api.eu.robusta.dev/telemetry
       resources:
         requests:
           memory: 512Mi
           cpu: 250m
         limits:
           memory: 1Gi
-    enableHolmesGPT: false
+    holmes:
+      additionalEnvVars:
+        - name: ROBUSTA_AI
+          value: "true"
+        - name: ROBUSTA_API_ENDPOINT
+          value: https://api.eu.robusta.dev
+        - name: ROBUSTA_UI_DOMAIN
+          value: https://platform.eu.robusta.dev
+    enableHolmesGPT: true
     enabledManagedConfiguration: true # Enable managed alerts
     kube-prometheus-stack: # those rules are now managed by Robusta
       defaultRules:

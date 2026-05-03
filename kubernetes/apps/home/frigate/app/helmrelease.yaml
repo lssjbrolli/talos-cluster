@@ -66,7 +66,7 @@ spec:
         controller: main
         ports:
           http:
-            port: &port 5000
+            port: *port
         type: ClusterIP
       lb:
         controller: main
@@ -84,6 +84,9 @@ spec:
           rtsp:
             enabled: true
             port: 8554
+          webrtc:
+            enabled: true
+            port: 8555
         primary: true
         type: LoadBalancer
 

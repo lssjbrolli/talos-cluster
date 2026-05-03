@@ -36,8 +36,8 @@ go2rtc:
       - onvif://living:segasega@192.168.1.161:2020?subtype=profile_2
     third:
       - onvif://living:segasega@192.168.1.161:2020?subtype=profile_3
-  # webrtc:
-  #   listen: ":8555"
+  webrtc:
+    listen: ":8555"
   #   filters:
   #     network: [udp4, tcp4]
 # live:

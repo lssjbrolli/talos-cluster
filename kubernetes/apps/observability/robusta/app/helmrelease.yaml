@@ -93,7 +93,7 @@ spec:
           enabled: true
           auth:
             secretName: robusta-secrets
-            key: github_token
+            secretKey: github_token
     enableHolmesGPT: true
     enabledManagedConfiguration: true # Enable managed alerts
     kube-prometheus-stack: # those rules are now managed by Robusta

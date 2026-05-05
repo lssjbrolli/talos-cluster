@@ -31,10 +31,10 @@ spec:
 
             resources:
               requests:
-                cpu: 50m
-                memory: 512M
+                cpu: 10m
+                memory: 464Mi
               limits:
-                memory: 2Gi
+                memory: 464Mi
             securityContext:
               allowPrivilegeEscalation: false
               capabilities:
@@ -94,5 +94,3 @@ spec:
           - backendRefs:
               - identifier: main
                 port: *port
-
-    

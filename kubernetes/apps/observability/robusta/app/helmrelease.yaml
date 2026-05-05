@@ -88,6 +88,12 @@ spec:
           value: https://api.eu.robusta.dev
         - name: ROBUSTA_UI_DOMAIN
           value: https://platform.eu.robusta.dev
+      mcpAddons:
+        github:
+          enabled: true
+          auth:
+            secretName: robusta-secrets
+            key: github_token
     enableHolmesGPT: true
     enabledManagedConfiguration: true # Enable managed alerts
     kube-prometheus-stack: # those rules are now managed by Robusta

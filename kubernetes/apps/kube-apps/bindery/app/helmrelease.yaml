@@ -1,0 +1,86 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/bernd-schorgers/helm-charts/main/charts/other/app-template/schemas/helmrelease-helm-v2.schema.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: bindery
+spec:
+  interval: 30m
+  chartRef:
+    kind: OCIRepository
+    name: bindery
+  values:
+    defaultPodOptions:
+      securityContext:
+        fsGroup: 568
+        fsGroupChangePolicy: OnRootMismatch
+    controllers:
+      main:
+        strategy: Recreate
+        annotations:
+          reloader.stakater.com/auto: "true"
+        containers:
+          main:
+            image:
+              repository: ghcr.io/vavallee/bindery
+              tag: 1.5.0@sha256:c646f75c0344a9e0fcb7134012adf3ae040a9a1a81aa30b73faa1aa8af00592e
+            securityContext:
+              runAsNonRoot: true
+              runAsUser: 568
+              runAsGroup: 568
+              allowPrivilegeEscalation: false
+              readOnlyRootFilesystem: true
+              capabilities: { drop: ["ALL"] }
+            resources:
+              requests:
+                cpu: 50m
+                memory: 256Mi
+              limits:
+                memory: 512Mi
+            env:
+              TZ: ${TIMEZONE} # Set timezone from cluster settings
+              BINDERY_PORT: &port 80
+              BINDERY_DOWNLOAD_DIR: /data/downloads/complete/readarr/
+              BINDERY_AUDIOBOOK_DIR: /data/library/audiobooks/
+              BINDERY_PUID: 568
+              BINDERY_PGID: 568
+              BINDERY_ENHANCED_HARDCOVER_API: true
+            probes:
+              liveness: &probes
+                enabled: true
+                custom: true
+                spec:
+                  httpGet:
+                    path: /ping
+                    port: *port
+                  initialDelaySeconds: 0
+                  periodSeconds: 10
+                  timeoutSeconds: 1
+                  failureThreshold: 3
+              readiness: *probes
+    service:
+      main:
+        controller: main
+        type: ClusterIP
+        ports:
+          http:
+            port: *port
+    route:
+      app:
+        hostnames: ["{{ .Release.Name }}.${SECRET_DOMAIN}"]
+        parentRefs:
+          - name: internal
+            namespace: network
+            sectionName: https
+        rules:
+          - backendRefs:
+              - identifier: main
+                port: *port
+    persistence:
+      config:
+        type: persistentVolumeClaim
+        existingClaim: bindery-config
+      data:
+        type: persistentVolumeClaim
+        existingClaim: bindery-data
+

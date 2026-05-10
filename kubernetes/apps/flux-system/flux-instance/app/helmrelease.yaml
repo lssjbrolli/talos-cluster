@@ -78,6 +78,13 @@ spec:
             target:
               kind: Deployment
               name: kustomize-controller
+          - # Remove CPU limit for kustomize-controller to prevent throttling during reconciliation bursts
+            patch: |
+              - op: remove
+                path: /spec/template/spec/containers/0/resources/limits/cpu
+            target:
+              kind: Deployment
+              name: kustomize-controller
           - # Enable in-memory kustomize builds
             patch: |
               - op: add

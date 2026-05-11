@@ -10,6 +10,8 @@ spec:
     name: snapshot-controller
   values:
     controller:
+      args:
+        featureGates: CSIVolumeGroupSnapshot=false
       serviceMonitor:
         create: true
     volumeSnapshotClasses:

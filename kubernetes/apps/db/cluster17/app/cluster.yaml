@@ -38,6 +38,13 @@ spec:
       superuserSecret: cloudnative-pg-secret
       monitoring:
         enabled: true
+        # Temporary work around to mute the alerts until the fix is ready.
+        prometheusRule:
+        excludeRules:
+          - CNPGClusterLogicalReplicationErrorsCritical
+          - CNPGClusterLogicalReplicationErrors
+          - CNPGClusterLogicalReplicationStoppedCritical
+          - CNPGClusterLogicalReplicationStopped
       postgresql:
         parameters:
           max_connections: "100"

@@ -39,6 +39,7 @@ spec:
       monitoring:
         enabled: true
         # Temporary work around to mute the alerts until the fix is ready.
+        # issue https://github.com/cloudnative-pg/charts/issues/825
         prometheusRule:
           excludeRules:
             - CNPGClusterLogicalReplicationErrorsCritical

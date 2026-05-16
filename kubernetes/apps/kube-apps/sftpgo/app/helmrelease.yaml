@@ -144,9 +144,3 @@ spec:
             - name: external
               namespace: network
               sectionName: https
-
-          # -- Backend override. Defaults to the main chart Service on the HTTP port. Accepted keys: `kind`, `name`, `port`, `weight`.
-          backend:
-            name: sftpgo
-            namespace: kube-apps
-            port: 80

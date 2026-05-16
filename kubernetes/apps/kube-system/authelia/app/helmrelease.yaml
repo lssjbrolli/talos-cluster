@@ -72,8 +72,8 @@ spec:
         remember_me: 1M
         cookies:
           - name: 'authelia_session'
-            domain: auth.seganet.org
-            authelia_url: https://auth.seganet.org
+            domain: "*.${SECRET_DOMAIN}"
+            authelia_url: https://auth.${SECRET_DOMAIN}
             # default_redirection_url: https://${SECRET_DOMAIN}
         redis:
           host: dragonfly-operator.db.svc.cluster.local

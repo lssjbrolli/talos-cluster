@@ -105,22 +105,6 @@ spec:
         requests:
           cpu: 100m
           memory: 64Mi
-    volumes:
-      - name: media
-        nfs:
-          server: 192.168.1.150
-          path: /storage/media
-      - name: ctcadmin
-        nfs:
-          server: 192.168.1.150
-          path: /storage/ctcadmin
-      
-
-    volumeMounts:
-      - mountPath: /storage/media
-        name: media
-      - mountPath: /storage/ctcadmin
-        name: ctcadmin
 
     persistence:
       # -- Enable persistent storage for the /var/lib/sftpgo directory, saving state of the default sqlite db.
@@ -133,3 +117,6 @@ spec:
           requests:
             storage: 100Mi
         storageClassName: zfs-apps
+      media:
+        type: persistentVolumeClaim
+        existingClaim: sftpgo-data

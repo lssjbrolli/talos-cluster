@@ -5,6 +5,8 @@ kind: Kustomization
 metadata:
   name: &app sftpgo
 spec:
+  components:
+    - '../../../../components/local'
   interval: 30m
   path: ./kubernetes/apps/kube-apps/sftpgo/app
   prune: true
@@ -21,6 +23,7 @@ spec:
     substitute:
       APP: *app
       NS: kube-apps
+      VOLUME: media
   sourceRef:
     kind: GitRepository
     name: flux-system

@@ -38,14 +38,6 @@ spec:
       superuserSecret: cloudnative-pg-secret
       monitoring:
         enabled: true
-        # Temporary work around to mute the alerts until the fix is ready.
-        # issue https://github.com/cloudnative-pg/charts/issues/825
-        prometheusRule:
-          excludeRules:
-            - CNPGClusterLogicalReplicationErrorsCritical
-            - CNPGClusterLogicalReplicationErrors
-            - CNPGClusterLogicalReplicationStoppedCritical
-            - CNPGClusterLogicalReplicationStopped
       postgresql:
         shared_preload_libraries: ["vchord.so"]
         parameters:

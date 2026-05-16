@@ -81,6 +81,19 @@ spec:
       # -- Enable HTTP service.
       enabled: true
 
+    # -- Additional storage [volumes](https://kubernetes.io/docs/concepts/storage/volumes/).
+    # See the [API reference](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#volumes-1) for details.
+    volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: sftpgo-data
+
+    # -- Additional [volume mounts](https://kubernetes.io/docs/tasks/configure-pod-container/configure-volume-storage/).
+    # See the [API reference](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#volumes-1) for details.
+    volumeMounts:
+      - mountPath: /data
+        name: data
+
     services:
       public:
         # annotations: {}
@@ -93,11 +106,6 @@ spec:
         #     nodePort:
         # externalTrafficPolicy: Local
         # sessionAffinity:
-
-    ui:
-      ingress:
-        # -- Enable [ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/).
-        enabled: false
 
     resources:
         limits:
@@ -120,3 +128,25 @@ spec:
       media:
         type: persistentVolumeClaim
         existingClaim: sftpgo-data
+
+    gatewayApi:
+      httpRoutes:
+        ui:
+          # -- Enable [HTTPRoute](https://gateway-api.sigs.k8s.io/api-types/httproute/) for the web UI.
+          enabled: true
+
+          # -- Hostnames for the UI HTTPRoute. Leave empty to match any hostname accepted by the parent Gateway.
+          hostnames:
+            - ftp.${SECRET_DOMAIN}
+
+          # -- ParentRefs for the UI HTTPRoute. At least one entry is required for the route to be attached to a Gateway.
+          parentRefs: 
+            - name: external
+              namespace: network
+              sectionName: https
+
+          # -- Backend override. Defaults to the main chart Service on the HTTP port. Accepted keys: `kind`, `name`, `port`, `weight`.
+          backend:
+            name: sftpgo
+            namespace: kube-apps
+            port: 80

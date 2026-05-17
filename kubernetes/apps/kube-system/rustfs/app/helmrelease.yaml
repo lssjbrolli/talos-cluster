@@ -110,3 +110,4 @@ spec:
           - path: /data
       logs:
         type: emptyDir
+        medium: Memory

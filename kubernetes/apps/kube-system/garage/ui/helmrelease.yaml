@@ -19,7 +19,7 @@ spec:
       retries: 3
   values:
     controllers:
-      garage-webui:
+      main:
         annotations:
           reloader.stakater.com/auto: "true"
         containers:
@@ -30,7 +30,7 @@ spec:
             env:
               API_BASE_URL: http://garage.kube-system.svc.cluster.local:3903
               S3_ENDPOINT_URL: http://garage.kube-system.svc.cluster.local:3900
-              PORT: 80
+              PORT: &port 80
               API_ADMIN_KEY:
                 valueFrom:
                   secretKeyRef:
@@ -49,10 +49,13 @@ spec:
               limits:
                 memory: 128Mi
     service:
-      app:
+      main:
+        controller: main
+        type: ClusterIP
         ports:
           http:
-            port: &port 3909
+            port: *port
+
     route:
       app:
         hostnames: ["garage.${SECRET_DOMAIN}"]

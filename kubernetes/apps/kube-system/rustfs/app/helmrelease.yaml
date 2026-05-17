@@ -23,11 +23,12 @@ spec:
             image:
               repository: rustfs/rustfs
               tag: 1.0.0-beta.3@sha256:378642b05b7dcb4849fb77ebe6aca4ced1c3f66e7e504247df95a5c9018d3358
-            args: ["/data"]
+            args: ["/storage"]
             env:
               RUSTFS_ADDRESS: ":9000"
               RUSTFS_CONSOLE_ADDRESS: ":9001"
               RUSTFS_CONSOLE_ENABLE: "true"
+              RUSTFS_OBS_LOG_DIRECTORY: "/logs/rustfs/"
               # RUSTFS_BROWSER_REDIRECT_URL: "https://rustfs.${SECRET_DOMAIN}"
               # RUSTFS_SERVER_DOMAINS: "$s3r.${SECRET_DOMAIN}"
               TZ: ${TIMEZONE}
@@ -102,7 +103,7 @@ spec:
                 port: *api
 
     persistence:
-      data:
+      storage:
         type: persistentVolumeClaim
         size: 1Gi
         accessMode: ReadWriteOnce

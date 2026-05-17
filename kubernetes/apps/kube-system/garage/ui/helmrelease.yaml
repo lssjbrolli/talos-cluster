@@ -3,7 +3,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: &app garage-webui
+  name: garage-webui
 spec:
   interval: 1h
   chartRef:
@@ -61,7 +61,7 @@ spec:
             sectionName: https
         rules:
           - backendRefs:
-              - name: app
+              - name: garage-webui
                 port: *port
     persistence:
       config:

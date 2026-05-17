@@ -50,7 +50,7 @@ spec:
             port: 3903
     route:
       app:
-        hostnames: ["s3.${SECRET_DOMAIN}", "garage.${SECRET_DOMAIN}"]
+        hostnames: ["s3.${SECRET_DOMAIN}"]
         parentRefs:
           - name: internal
             namespace: network
@@ -92,3 +92,10 @@ spec:
       data:
         type: persistentVolumeClaim
         existingClaim: garage-data
+        advancedMounts:
+          main:
+            app:
+              - path: /data
+                subPath: data
+              - path: /meta
+                subPath: meta

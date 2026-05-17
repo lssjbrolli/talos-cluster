@@ -33,6 +33,7 @@ spec:
               MINIO_PROMETHEUS_JOB_ID: minio
               MINIO_PROMETHEUS_URL: https://prometheus.${SECRET_DOMAIN}
               MINIO_PROMETHEUS_AUTH_TYPE: public
+              MINIO_SCANNER_SPEED: "slowest"
 
             envFrom:
               - secretRef:

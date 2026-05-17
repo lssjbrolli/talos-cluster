@@ -89,7 +89,7 @@ spec:
             sectionName: https
         rules:
           - backendRefs:
-              - identifier: app
+              - identifier: rustfs-console
                 port: 9001
       s3:
         hostnames: ["s3r.${SECRET_DOMAIN}"]
@@ -98,7 +98,7 @@ spec:
             namespace: network
         rules:
           - backendRefs:
-              - identifier: app
+              - identifier: rustfs-s3
                 port: 9000
     persistence:
       data:

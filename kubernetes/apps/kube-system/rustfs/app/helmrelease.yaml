@@ -88,7 +88,7 @@ spec:
             sectionName: https
         rules:
           - backendRefs:
-              - identifier: console
+              - identifier: app
                 port: *http
       s3:
         hostnames: ["s3r.${SECRET_DOMAIN}"]
@@ -98,7 +98,7 @@ spec:
             sectionName: https
         rules:
           - backendRefs:
-              - identifier: s3
+              - identifier: app
                 port: *api
 
     persistence:

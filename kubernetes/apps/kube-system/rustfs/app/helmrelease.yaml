@@ -29,7 +29,7 @@ spec:
               RUSTFS_CONSOLE_ADDRESS: ":9001"
               RUSTFS_CONSOLE_ENABLE: "true"
               RUSTFS_BROWSER_REDIRECT_URL: "https://rustfs.${SECRET_DOMAIN}"
-              RUSTFS_SERVER_DOMAINS: "$s3.${SECRET_DOMAIN}"
+              RUSTFS_SERVER_DOMAINS: "$s3r.${SECRET_DOMAIN}"
               TZ: ${TIMEZONE}
               # RUSTFS_IDENTITY_OPENID_ENABLE: "true"
               # RUSTFS_IDENTITY_OPENID_CONFIG_URL: "https://auth.${SECRET_DOMAIN}/application/o/${GATUS_SUBDOMAIN}/"
@@ -89,7 +89,7 @@ spec:
               - identifier: app
                 port: *http
       s3:
-        hostnames: ["s3.${SECRET_DOMAIN}"]
+        hostnames: ["s3r.${SECRET_DOMAIN}"]
         parentRefs:
           - name: internal
             namespace: network

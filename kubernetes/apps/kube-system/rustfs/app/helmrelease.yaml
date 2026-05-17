@@ -80,26 +80,26 @@ spec:
         ports:
           s3:
             port: 9000
-    route:
-      console:
-        hostnames: ["rustfs.${SECRET_DOMAIN}"]
-        parentRefs:
-          - name: internal
-            namespace: network
-            sectionName: https
-        rules:
-          - backendRefs:
-              - identifier: rustfs-console
-                port: 9001
-      s3:
-        hostnames: ["s3r.${SECRET_DOMAIN}"]
-        parentRefs:
-          - name: internal
-            namespace: network
-        rules:
-          - backendRefs:
-              - identifier: rustfs-s3
-                port: 9000
+    # route:
+    #   console:
+    #     hostnames: ["rustfs.${SECRET_DOMAIN}"]
+    #     parentRefs:
+    #       - name: internal
+    #         namespace: network
+    #         sectionName: https
+    #     rules:
+    #       - backendRefs:
+    #           - identifier: rustfs-console
+    #             port: 9001
+    #   s3:
+    #     hostnames: ["s3r.${SECRET_DOMAIN}"]
+    #     parentRefs:
+    #       - name: internal
+    #         namespace: network
+    #     rules:
+    #       - backendRefs:
+    #           - identifier: rustfs-s3
+    #             port: 9000
     persistence:
       data:
         type: persistentVolumeClaim

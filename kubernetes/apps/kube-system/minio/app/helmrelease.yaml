@@ -70,6 +70,9 @@ spec:
               limits:
                 memory: 2Gi
 
+    # The service exposes two ports:
+    # - http: for the MinIO console (port 9001)
+    # - s3: for the S3 API (port 9000)
     service:
       app:
         controller: minio

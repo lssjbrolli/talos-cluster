@@ -118,5 +118,5 @@ spec:
       data:
         type: hostPath
         hostPath: /var/mnt/minio
-        hostPathType: Directory
+        hostPathType: DirectoryOrCreate
       

@@ -104,12 +104,9 @@ spec:
     persistence:
       data:
         type: persistentVolumeClaim
-        existingClaim: rustfs-data
-        globalMounts:
-          - path: /data
+        size: 1Gi
+        accessMode: ReadWriteOnce
       logs:
         type: persistentVolumeClaim
         size: 100Mi
         accessMode: ReadWriteOnce
-        globalMounts:
-          - path: /logs

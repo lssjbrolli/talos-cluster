@@ -11,7 +11,7 @@ spec:
     name: rustfs
   values:
     controllers:
-      main :
+      main:
         annotations:
           reloader.stakater.com/auto: "true"
         containers:
@@ -60,7 +60,7 @@ spec:
             securityContext:
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: true
-              capabilities: { drop: ["ALL"] }
+              capabilities: { drop: ["ALL"], add: [FOWNER] }
     defaultPodOptions:
       securityContext:
         runAsNonRoot: true
@@ -110,4 +110,4 @@ spec:
           - path: /data
       logs:
         type: emptyDir
-        medium: Memory
+        sizeLimit: 100Mi

@@ -68,18 +68,17 @@ spec:
               runAsGroup: 568
               allowPrivilegeEscalation: true
               readOnlyRootFilesystem: false
-              # capabilities: { drop: ["ALL"] }
+              capabilities: { drop: ["ALL"] }
+
     service:
-      console:
-        controller: main # Point to the controller with the "main" identifier
+      app:
+        controller: main
         ports:
           http:
-            port: 9001
-      s3:
-        controller: main # Point to the controller with the "main" identifier
-        ports:
+            port: &http 9001
           s3:
-            port: 9000
+            port: &api 9000
+
     route:
       console:
         hostnames: ["rustfs.${SECRET_DOMAIN}"]
@@ -90,7 +89,7 @@ spec:
         rules:
           - backendRefs:
               - identifier: console
-                port: 9001
+                port: *http
       s3:
         hostnames: ["s3r.${SECRET_DOMAIN}"]
         parentRefs:
@@ -100,7 +99,8 @@ spec:
         rules:
           - backendRefs:
               - identifier: s3
-                port: 9000
+                port: *api
+
     persistence:
       data:
         type: persistentVolumeClaim

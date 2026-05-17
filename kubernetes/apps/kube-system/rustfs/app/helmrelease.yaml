@@ -48,7 +48,7 @@ spec:
                 spec:
                   httpGet:
                     path: /health
-                    port: &port 9000
+                    port: 9000
                   initialDelaySeconds: 30
                   periodSeconds: 30
                   timeoutSeconds: 10
@@ -70,15 +70,18 @@ spec:
               readOnlyRootFilesystem: false
               # capabilities: { drop: ["ALL"] }
     service:
-      app:
-        controller: main
+      console:
+        controller: main # Point to the controller with the "main" identifier
         ports:
           http:
-            port: &http 9001
+            port: 9001
+      s3:
+        controller: main # Point to the controller with the "main" identifier
+        ports:
           s3:
-            port: *port
+            port: 9000
     route:
-      ui:
+      console:
         hostnames: ["rustfs.${SECRET_DOMAIN}"]
         parentRefs:
           - name: internal
@@ -87,7 +90,7 @@ spec:
         rules:
           - backendRefs:
               - identifier: app
-                port: *http
+                port: 9001
       s3:
         hostnames: ["s3r.${SECRET_DOMAIN}"]
         parentRefs:
@@ -96,7 +99,7 @@ spec:
         rules:
           - backendRefs:
               - identifier: app
-                port: *port
+                port: 9000
     persistence:
       data:
         type: persistentVolumeClaim
@@ -107,3 +110,5 @@ spec:
         type: persistentVolumeClaim
         size: 100Mi
         accessMode: ReadWriteOnce
+        globalMounts:
+          - path: /logs

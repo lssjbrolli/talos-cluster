@@ -116,6 +116,7 @@ spec:
 
     persistence:
       data:
-        type: persistentVolumeClaim
-        existingClaim: minio-data
+        type: hostPath
+        hostPath: /var/mnt/minio
+        hostPathType: Directory
       

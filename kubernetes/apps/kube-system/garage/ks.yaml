@@ -33,7 +33,7 @@ metadata:
   name: &app garage-ui
 spec:
   interval: 30m
-  path: ./kubernetes/apps/kube-system/ui/app
+  path: ./kubernetes/apps/kube-system/garage/ui
   prune: true
   wait: true
   postBuild:

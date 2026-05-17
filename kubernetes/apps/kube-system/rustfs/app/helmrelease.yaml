@@ -108,3 +108,5 @@ spec:
         existingClaim: rustfs-data
         globalMounts:
           - path: /data
+      logs:
+        type: emptyDir

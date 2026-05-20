@@ -18,6 +18,14 @@
       minimumGroupSize: 2,
     },
     {
+      description: "Auto-merge Mise Tools",
+      matchManagers: ["mise"],
+      automerge: true,
+      automergeType: "branch",
+      matchUpdateTypes: ["minor", "patch"],
+      ignoreTests: true,
+    },
+    {
       description: "Auto-merge GitHub Actions",
       matchManagers: ["github-actions"],
       automerge: true,
@@ -27,11 +35,11 @@
       ignoreTests: true,
     },
     {
-      description: "Auto-merge Mise Tools",
-      matchManagers: ["mise"],
+      description: "Auto-merge Renovate Presents",
+      matchManagers: ["renovate-config"],
+      matchUpdateTypes: ["minor", "patch"],
       automerge: true,
       automergeType: "branch",
-      matchUpdateTypes: ["minor", "patch"],
       ignoreTests: true,
     },
     {

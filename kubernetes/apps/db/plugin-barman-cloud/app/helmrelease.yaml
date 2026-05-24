@@ -37,6 +37,6 @@ spec:
     certificate:
       issuerName: letsencrypt-production
       # -- The duration of the certificates.
-      duration: 2160h
+      duration: 1080h
       # -- The renew before time for the certificates.
-      renewBefore: 360h
+      renewBefore: 120h

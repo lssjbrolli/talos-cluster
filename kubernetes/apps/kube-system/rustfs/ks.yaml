@@ -5,8 +5,6 @@ kind: Kustomization
 metadata:
   name: &app rustfs
 spec:
-  components:
-    - '../../../../components/local'
   interval: 30m
   path: ./kubernetes/apps/kube-system/rustfs/app
   prune: true

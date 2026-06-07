@@ -283,7 +283,4 @@ spec:
         name: qbt-secret
         items:
           - key: mousehole-password
-        advancedMounts:
-          main:
-             mousehole:
-              - path: /var/lib/mousehole
+            path: /var/lib/mousehole

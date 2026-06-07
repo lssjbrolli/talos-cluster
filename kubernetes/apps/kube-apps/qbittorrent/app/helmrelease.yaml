@@ -167,6 +167,26 @@ spec:
           #       memory: 32Mi
           #     limits:
           #       memory: 64Mi
+          mousehole:
+            dependsOn: gluetun
+            image:
+              repository: tmmrtn/mousehole
+              tag: 0.4.0@sha256:ac06e30556e9543b045a17ff087c32e2dc018ba1a6c088ec7c3c91e4233d157d
+            securityContext:
+              allowPrivilegeEscalation: false
+              capabilities:
+                drop:
+                  - ALL
+              seccompProfile:
+                type: RuntimeDefault
+            env:
+              - name: TZ
+                value: ${TIMEZONE}
+              - name: MOUSEHOLE_AUTH_PASSWORD
+                secretKeyRef:
+                  name: qbt-secret
+                  key: mousehole-password
+    
           alpine:
             image: 
               repository: alpine
@@ -192,6 +212,12 @@ spec:
         ports:
           http:
             port: 8000
+      mousehole:
+        controller: main
+        type: ClusterIP
+        ports:
+          http:
+            port: 5010
     route:
       app:
         hostnames: ["qbt.${SECRET_DOMAIN}"]
@@ -203,6 +229,8 @@ spec:
           - backendRefs:
               - identifier: qbt
                 port: *port
+              - identifier: mousehole
+                port: 5010
     persistence:
       # Configure mounts for qbt
       config:
@@ -250,3 +278,12 @@ spec:
               - path: /gluetun/wireguard
             alpine:
               - path: /config
+      mousehole:
+        type: secret
+        identifier: qbt-secret
+        items:
+          - key: mousehole-password
+        advancedMounts:
+          main:
+             mousehole:
+              - path: /var/lib/mousehole

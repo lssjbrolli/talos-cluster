@@ -219,7 +219,7 @@ spec:
           http:
             port: 5010
     route:
-      app:
+      qbt:
         hostnames: ["qbt.${SECRET_DOMAIN}"]
         parentRefs:
           - name: internal
@@ -229,6 +229,14 @@ spec:
           - backendRefs:
               - identifier: qbt
                 port: *port
+      mousehole:
+        hostnames: ["mh.${SECRET_DOMAIN}"]
+        parentRefs:
+          - name: internal
+            namespace: network
+            sectionName: https
+        rules:
+          - backendRefs:
               - identifier: mousehole
                 port: 5010
     persistence:

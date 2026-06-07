@@ -217,7 +217,8 @@ spec:
         type: ClusterIP
         ports:
           http:
-            port: 5010
+            port: 80
+            targetPort: 5010
     route:
       qbt:
         hostnames: ["qbt.${SECRET_DOMAIN}"]
@@ -238,7 +239,7 @@ spec:
         rules:
           - backendRefs:
               - identifier: mousehole
-                port: 5010
+                port: *port
     persistence:
       # Configure mounts for qbt
       config:

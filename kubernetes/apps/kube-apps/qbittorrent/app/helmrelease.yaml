@@ -278,9 +278,9 @@ spec:
               - path: /gluetun/wireguard
             alpine:
               - path: /config
-      mousehole:
-        type: secret
-        name: qbt-secret
-        items:
-          - key: mousehole-password
-            path: /var/lib/mousehole
+      # mousehole:
+      #   type: secret
+      #   name: qbt-secret
+      #   items:
+      #     - key: mousehole-password
+      #       path: /var/lib/mousehole

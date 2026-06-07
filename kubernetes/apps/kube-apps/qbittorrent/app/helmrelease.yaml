@@ -186,7 +186,11 @@ spec:
                 secretKeyRef:
                   name: qbt-secret
                   key: mousehole-password
-    
+              - name: MOUSEHOLE_ALLOWED_HOSTS
+                value: "mh.${SECRET_DOMAIN},localhost,192.168.1.105,172.16.0.0/16,172.17.0.0/16"
+              - name: MOUSEHOLE_ALLOWED_ORIGINS
+                value: "https://mh.${SECRET_DOMAIN},http://localhost:5010"
+
           alpine:
             image: 
               repository: alpine

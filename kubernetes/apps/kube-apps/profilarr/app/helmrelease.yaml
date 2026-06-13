@@ -39,6 +39,7 @@ spec:
                 memory: 256Mi
             env:
               TZ: ${TIMEZONE}
+              ORIGIN: "https://profilarr.${SECRET_DOMAIN}"
             probes:
               liveness: &probes
                 enabled: true

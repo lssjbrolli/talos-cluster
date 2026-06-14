@@ -73,12 +73,12 @@ spec:
     persistence:
       config:
         existingClaim: cross-seed-config
-      # secret-file:
-      #   type: secret
-      #   name: cross-seed
-      #   globalMounts:
-      #     - path: /config/config.js
-      #       subPath: config.js
+      secret-file:
+        type: secret
+        name: cross-seed
+        globalMounts:
+          - path: /config/config.js
+            subPath: config.js
       media:
         type: persistentVolumeClaim
         existingClaim: cross-seed-data

@@ -26,6 +26,6 @@ spec:
       runAsGroup: ${VOLSYNC_PGID:=568}
       fsGroup: ${VOLSYNC_PGID:=568}
       seccompProfile:
-              type: RuntimeDefault
+        type: RuntimeDefault
     repository: restic-${APP}
     volumeSnapshotClassName: zfs-snap

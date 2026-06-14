@@ -21,7 +21,7 @@ spec:
       runAsGroup: ${VOLSYNC_PGID:=568}
       fsGroup: ${VOLSYNC_PGID:=568}
       seccompProfile:
-              type: RuntimeDefault=568}
+        type: RuntimeDefault
     repository: restic-${APP}
     pruneIntervalDays: 7
     retain:

@@ -16,9 +16,12 @@ spec:
     cacheCapacity: ${VOLSYNC_CAPACITY:=1Gi}
     copyMethod: ${COPY_METHOD:=Snapshot}
     moverSecurityContext:
+      runAsNonRoot: true
       runAsUser: ${VOLSYNC_PUID:=568}
       runAsGroup: ${VOLSYNC_PGID:=568}
       fsGroup: ${VOLSYNC_PGID:=568}
+      seccompProfile:
+              type: RuntimeDefault=568}
     repository: restic-${APP}
     pruneIntervalDays: 7
     retain:

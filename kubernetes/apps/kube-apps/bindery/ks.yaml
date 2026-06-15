@@ -24,7 +24,7 @@ spec:
     substitute:
       APP: *app
       NS: kube-apps
-      VOLSYNC_CAPACITY: 1Gi
+      VOLSYNC_CAPACITY: 256Mi
       VOLUME: media
   sourceRef:
     kind: GitRepository

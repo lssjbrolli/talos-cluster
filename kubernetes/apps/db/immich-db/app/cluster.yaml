@@ -20,7 +20,7 @@ spec:
       instances: 2
       initdb:
         dataChecksums: true
-      imageName: ghcr.io/tensorchord/cloudnative-vectorchord:17.6-0.5.3@sha256:ef3bf2e3abe76c3939b994afbde46cb9f24d2fbdf7ff2026a03aefa84d9a2a23
+      imageName: ghcr.io/tensorchord/cloudnative-vectorchord:17.9-1.1.1@sha256:82f9b46c9149681f2897bd221772a3b22a74784256f1154c91eb10c6785800d5
       logLevel: warning
       resources:
         requests:
@@ -39,7 +39,8 @@ spec:
       monitoring:
         enabled: true
       postgresql:
-        shared_preload_libraries: ["vchord.so"]
+        shared_preload_libraries:
+          - "vchord.so"
         parameters:
           pg_stat_statements.max: "10000"
           pg_stat_statements.track: all

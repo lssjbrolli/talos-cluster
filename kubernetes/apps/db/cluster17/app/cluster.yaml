@@ -20,7 +20,7 @@ spec:
       instances: 2
       initdb:
         dataChecksums: true
-      imageName: ghcr.io/cloudnative-pg/postgresql:18.1-system-trixie@sha256:5c4bcb16240bdfdc3455ef7e655da4ae78518899426b83f22e2731820f518785
+      imageName: ghcr.io/cloudnative-pg/postgresql:18.1-system-trixie@sha256:51bc94428be3df3e234447278e33803544a93d27a57a4b6af737f218d6472d12
       logLevel: warning
       resources:
         requests:

@@ -23,7 +23,7 @@ spec:
           main:
             image:
               repository: emqx/nanomq
-              tag: 0.24.14@sha256:27e92100d605b3dedec74ed61bfda52987db3db012e679980d3178fd43afff85
+              tag: 0.25.1@sha256:3a7553d499ccc4cf73082fbdee6c97de0be05b9f695dd6ce25fa001af9e33b76
             securityContext:
               runAsNonRoot: true
               runAsUser: 568

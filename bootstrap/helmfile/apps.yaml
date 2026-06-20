@@ -29,23 +29,12 @@ releases:
       - template: default
     needs: ['kube-system/cilium']
 
-  #% if spegel_enabled %#
-  - name: spegel
-    namespace: kube-system
-    inherit:
-      - template: default
-    needs: ['kube-system/coredns']
-  #% endif %#
 
   - name: cert-manager
     namespace: cert-manager
     inherit:
       - template: default
-    #% if spegel_enabled %#
-    needs: ['kube-system/spegel']
-    #% else %#
     needs: ['kube-system/coredns']
-    #% endif %#
 
   - name: flux-operator
     namespace: flux-system

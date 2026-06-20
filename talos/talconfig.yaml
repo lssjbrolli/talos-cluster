@@ -1,4 +1,3 @@
-# yaml-language-server: $schema=https://raw.githubusercontent.com/budimanjojo/talhelper/master/pkg/config/schemas/talconfig.json
 ---
 clusterName: kubernetes
 
@@ -24,7 +23,7 @@ nodes:
     installDisk: "/dev/sda"
     machineSpec:
       secureboot: false
-    talosImageURL: factory.talos.dev/metal-installer/0774f5d6a58eff2ae8dac7e18239a7076aba371e23dd7689653b9026a5ce9a4a
+    talosImageURL: factory.talos.dev/installer/0774f5d6a58eff2ae8dac7e18239a7076aba371e23dd7689653b9026a5ce9a4a
     controlPlane: true
     networkInterfaces:
       - deviceSelector:
@@ -33,8 +32,8 @@ nodes:
         addresses:
           - "192.168.1.100/24"
         routes:
-          - network: "0.0.0.0/0"
-            gateway: "192.168.1.1"
+          - gateway: "192.168.1.1"
+            network: 0.0.0.0/0
         mtu: 1500
         vip:
           ip: "192.168.1.101"

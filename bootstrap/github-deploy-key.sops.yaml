@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: github-deploy-key
+  namespace: flux-system
+stringData:
+  identity: ENC[AES256_GCM,data:qz+3PGCb7pkL7R6NtgI6M8f4A+OH7bWSzEEARw5CEu94vIXVMPrDpgEpC6IzTaic89OSNVorh8QjX3kAx7g/8kIM90lZUQtC4lKM5tA+9jQd7p6TA3ps1ZVzFiBz+bFe65MMsXexNGaidn/9zEgyLIDTbvp/YH0gRpIFYzQIk0dGN2cK2AOKXK4Nwfjs/eIVf+BI11NGmG8hZ+EdtB09ok3m6A4XRtIRuaGONWS2LeqS92WD3cI4j4UhQajmVwh1exW/kuKB+LrYr1EshP19/5q9oUDs0Mpfd51go7vm5ZJh0LLe7jVJ0FDWncpZNcdUUp+1AM8mig+ddJBvBnJTxaRrsUDAhSfw6GKrENEMlAOHlgMcKIAOH2PU1QD8+T/RF5MA8Zm5K0uYVl/V49KAHfZprTXLw9VQhTVLLm5kcDlS/aMN3ew6+ZfP4/4VjR8vwmC5uxAm/b/Zur+uxTsqlwdD+HndMu81KDjxlJ4FqeP18UmkkPlFTpCDxdZ2XEC738EnWO36mF1X6ytUga/hSEBJJ80pph7itsO2CICKHZiq1AD5ahZP7SE2tn6xs5cuUjfQCYBCxOrJlxJzQ4mKg56Rags7UYAaQwvAHKdYzYBLy/qnq71jbOJf7eMh6dUnnq+YAhMaIvk09ecVC1g3w5O3jYu93nRXicNTnzmxG+x2B+KPcUC2HjmecjGdmMlnQgcUlWlikPmPu25EFVJePgwrOpTmDqblqBUPre0q+cWV89UpQJQH1lLcq80zCjgslSZs5MKMNDzK1pIqSRiSGqdq1GpIoY3d2mfkX/3GKNJBVFAwlwVzmLUwXrOCiaMz7/CjJFydsi56lrkB3otrMYBcPjFkHvTYIgMseONqB1cDll0wDKxLYyrDRNOY8CFzfJphfZN1s/iuauOyNqnKxin9098iCh088YrArMB0jq9x8GpNHInAU9DXPUasjfdJu7b73VwhcOC8SbTUw6g7Sg==,iv:Kxg14ySga7OS0ZiwFVqeu+1T7tZi7JVzTis8pdfrNEY=,tag:LemXWdKT3zwUwkF/OGX/qQ==,type:str]
+  known_hosts: ENC[AES256_GCM,data:ou570k0DaBZVlrurPAoiJapGdxIt1wgCBK8YymV+uk12qEG2roieD/GyJL9rW7yVJQnZXn2GPZDri8EbBegozTjS+A==,iv:4RlV9FySFaWqGmATM7N4qbw8e8lOb31YEzCs04mUO3A=,tag:g/924Z4z0PzHKkWU3Z//0g==,type:str]
+sops:
+  age:
+    - enc: |
+        -----BEGIN AGE ENCRYPTED FILE-----
+        YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSAyUjUxendFRVVMQUVmWngw
+        VHZrQUtpSHdUdU50cVVmS1J3cVNjTEJPa3lvCjg2Qm1FdEcvRy96UlBYWWlIcTM0
+        MnJCV0pUc05NTFA2UkhuK2tMZURoYTAKLS0tIGpZcDY4NlcvWGxVODZMZmhWNDNZ
+        MFF6ckFzUlZpcXNtOGo0YmZoTzZnbTAKeep9qiouGRfqc9L2w4K1uozmFAFPAzGZ
+        1mYN0t43pNMF84h6xiOUJsNifTZAU3wghvV8Jse2ogASKTRUpYf+ig==
+        -----END AGE ENCRYPTED FILE-----
+      recipient: age1k5cr4cvs4atdm3gse77vq4glnv9q49gq5wl49p9806gfyfld7p3setz3tw
+  encrypted_regex: ^(data|stringData)$
+  lastmodified: "2026-06-20T14:00:19Z"
+  mac: ENC[AES256_GCM,data:NkjI1KmJZwdeelzeLBp3Zc6l7V03XDjrkthTObG7+UeiVcx0A9oJl3T/fAzgKdKyawDznQjdSz7dmE6ML1mFBjM4B5evJQeKs1hrJZqSFExZjRSTTPHmL+jW/lq5yiHWBEFR/OI+/f6amp/9c5hwZ+cQ//rkKVOE9c3IOv8l0pI=,iv:4RR0PdE97ZzwUAV+8BsOklvFmNem2ks7yPQgjsiH5To=,tag:u5PagwuJQcn0+5nkBh/Nhg==,type:str]
+  mac_only_encrypted: true
+  version: 3.13.1

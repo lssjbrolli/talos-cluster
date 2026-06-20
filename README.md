@@ -2,9 +2,9 @@
 
 Welcome to my template designed for deploying a single Kubernetes cluster. Whether you're setting up a cluster at home on bare-metal or virtual machines (VMs), this project aims to simplify the process and make Kubernetes more accessible. This template is inspired by my personal [home-ops](https://github.com/onedr0p/home-ops) repository, providing a practical starting point for anyone interested in managing their own Kubernetes environment.
 
-At its core, this project leverages [makejinja](https://github.com/mirkolenz/makejinja), a powerful tool for rendering templates. By reading configuration files—such as [cluster.yaml](./cluster.sample.yaml) and [nodes.yaml](./nodes.sample.yaml)—Makejinja generates the necessary configurations to deploy a Kubernetes cluster with the following features:
+At its core, this project leverages [makejinja](https://github.com/mirkolenz/makejinja), a powerful tool for rendering templates. By reading the [cluster.toml](./cluster.sample.toml) configuration file—validated and defaulted by [CUE](https://cuelang.org/)—Makejinja generates the necessary configurations to deploy a Kubernetes cluster with the following features:
 
-- Easy configuration through YAML files.
+- Easy configuration through a single TOML file.
 - Compatibility with home setups, whether on physical hardware or VMs.
 - A modular and extensible approach to cluster deployment and management.
 
@@ -123,15 +123,15 @@ These guidelines provide a strong baseline, but there are always exceptions and 
 1. Generate the config files from the sample files:
 
     ```sh
-    task init
+    just init
     ```
 
-2. Fill out `cluster.yaml` and `nodes.yaml` configuration files using the comments in those file as a guide.
+2. Fill out the `cluster.toml` configuration file using the comments in it as a guide.
 
 3. Template out the kubernetes and talos configuration files, if any issues come up be sure to read the error and adjust your config files accordingly.
 
     ```sh
-    task configure
+    just configure
     ```
 
 4. Push your changes to git:
@@ -155,7 +155,7 @@ These guidelines provide a strong baseline, but there are always exceptions and 
 1. Install Talos:
 
     ```sh
-    task bootstrap:talos
+    just bootstrap talos
     ```
 
 2. Push your changes to git:
@@ -169,7 +169,7 @@ These guidelines provide a strong baseline, but there are always exceptions and 
 3. Install cilium, coredns, spegel, flux and sync the cluster to the repository state:
 
     ```sh
-    task bootstrap:apps
+    just bootstrap apps
     ```
 
 4. Watch the rollout of your cluster happen:
@@ -185,12 +185,12 @@ These guidelines provide a strong baseline, but there are always exceptions and 
 1. Check the status of Cilium:
 
     ```sh
-    cilium status
+    kubectl -n kube-system exec ds/cilium --container cilium-agent -- cilium status
     ```
 
 2. Check the status of Flux and if the Flux resources are up-to-date and in a ready state:
 
-   📍 _Run `task reconcile` to force Flux to sync your Git repository state_
+   📍 _Run `just kube reconcile` to force Flux to sync your Git repository state_
 
     ```sh
     flux check
@@ -204,15 +204,15 @@ These guidelines provide a strong baseline, but there are always exceptions and 
    📍 _The variables are only placeholders, replace them with your actual values_
 
     ```sh
-    nmap -Pn -n -p 443 ${cluster_gateway_addr} ${cloudflare_gateway_addr} -vv
+    nmap -Pn -n -p 443 ${gateways_internal} ${gateways_external} -vv
     ```
 
-4. Check you can resolve DNS for `echo`, this should resolve to `${cloudflare_gateway_addr}`:
+4. Check you can resolve DNS for `echo`, this should resolve to `${gateways_external}`:
 
    📍 _The variables are only placeholders, replace them with your actual values_
 
     ```sh
-    dig @${cluster_dns_gateway_addr} echo.${cloudflare_domain}
+    dig @${gateways_dns} echo.${cloudflare_domain}
     ```
 
 5. Check the status of your wildcard `Certificate`:
@@ -233,7 +233,7 @@ The `external-dns` application created in the `network` namespace will handle cr
 > [!TIP]
 > Use the `envoy-internal` gateway on `HTTPRoutes` to make applications private to your network. If you're having trouble with internal DNS resolution check out [this](https://github.com/onedr0p/cluster-template/discussions/719) GitHub discussion.
 
-`k8s_gateway` will provide DNS resolution to external Kubernetes resources (i.e. points of entry to the cluster) from any device that uses your home DNS server. For this to work, your home DNS server must be configured to forward DNS queries for `${cloudflare_domain}` to `${cluster_dns_gateway_addr}` instead of the upstream DNS server(s) it normally uses. This is a form of **split DNS** (aka split-horizon DNS / conditional forwarding).
+`k8s_gateway` will provide DNS resolution to external Kubernetes resources (i.e. points of entry to the cluster) from any device that uses your home DNS server. For this to work, your home DNS server must be configured to forward DNS queries for `${cloudflare_domain}` to `${gateways_dns}` instead of the upstream DNS server(s) it normally uses. This is a form of **split DNS** (aka split-horizon DNS / conditional forwarding).
 
 _... Nothing working? That is expected, this is DNS after all!_
 
@@ -265,7 +265,7 @@ By default Flux will periodically check your git repository for changes. In-orde
 There might be a situation where you want to destroy your Kubernetes cluster. The following command will reset your nodes back to maintenance mode.
 
 ```sh
-task talos:reset
+just talos reset
 ```
 
 ## 🛠️ Talos and Kubernetes Maintenance
@@ -277,10 +277,10 @@ task talos:reset
 
 ```sh
 # (Re)generate the Talos config
-task talos:generate-config
+just talos generate-config
 # Apply the config to the node
-task talos:apply-node IP=? MODE=?
-# e.g. task talos:apply-node IP=10.10.10.10 MODE=auto
+just talos apply-node <ip>
+# e.g. just talos apply-node 10.10.10.10
 ```
 
 ### ⬆️ Updating Talos and Kubernetes versions
@@ -289,15 +289,18 @@ task talos:apply-node IP=? MODE=?
 > Ensure the `talosVersion` and `kubernetesVersion` in `talenv.yaml` are up-to-date with the version you wish to upgrade to.
 
 ```sh
-# Upgrade node to a newer Talos version
-task talos:upgrade-node IP=?
-# e.g. task talos:upgrade-node IP=10.10.10.10
+# (Re)generate the Talos config
+just talos generate-config
+# Apply the config to the node
+just talos apply-node <ip>
+# e.g. just talos apply-node 10.10.10.10
+just talos upgrade-node <ip>
+# e.g. just talos upgrade-node 10.10.10.10
 ```
 
 ```sh
 # Upgrade cluster to a newer Kubernetes version
-task talos:upgrade-k8s
-# e.g. task talos:upgrade-k8s
+just talos upgrade-k8s
 ```
 
 ### ➕ Adding a node to your cluster
@@ -321,11 +324,11 @@ You don't need to re-bootstrap the cluster to add new nodes. Follow these steps:
 
    ```sh
    # Render your talosconfig based on the talconfig.yaml file
-   task talos:generate-config
+   just talos generate-config
 
    # Apply the configuration to the node
-   task talos:apply-node IP=?
-   # e.g. task talos:apply-node IP=10.10.10.10
+   just talos apply-node <ip>
+   # e.g. just talos apply-node 10.10.10.10
    ```
 
 The node should join the cluster automatically and workloads will be scheduled once they report as ready.
@@ -344,7 +347,7 @@ Below is a general guide on trying to debug an issue with an resource or applica
 
 1. Check if the Flux resources are up-to-date and in a ready state:
 
-   📍 _Run `task reconcile` to force Flux to sync your Git repository state_
+   📍 _Run `just kube reconcile` to force Flux to sync your Git repository state_
 
     ```sh
     flux get sources git -A
@@ -380,12 +383,12 @@ Resolving problems that you have could take some tweaking of your YAML manifests
 
 ## 🧹 Tidy up
 
-Once your cluster is fully configured and you no longer need to run `task configure`, it's a good idea to clean up the repository by removing the [templates](./templates) directory and any files related to the templating process. This will help eliminate unnecessary clutter from the upstream template repository and resolve any "duplicate registry" warnings from Renovate.
+Once your cluster is fully configured and you no longer need to run `just configure`, it's a good idea to clean up the repository by removing the [template](./template) directory and any files related to the templating process. This will help eliminate unnecessary clutter from the upstream template repository and resolve any "duplicate registry" warnings from Renovate.
 
 1. Tidy up your repository:
 
     ```sh
-    task template:tidy
+    just template tidy
     ```
 
 2. Push your changes to git:
@@ -461,7 +464,6 @@ Check out these videos below. If you find them helpful, a like and subscribe goe
 If this repo is too hot to handle or too cold to hold check out these following projects.
 
 - [ajaykumar4/cluster-template](https://github.com/ajaykumar4/cluster-template) - _A template for deploying a Talos Kubernetes cluster including Argo for GitOps_
-- [khuedoan/homelab](https://github.com/khuedoan/homelab) - _Fully automated homelab from empty disk to running services with a single command._
 - [mitchross/k3s-argocd-starter](https://github.com/mitchross/k3s-argocd-starter) - starter kit for k3s, argocd
 - [ricsanfre/pi-cluster](https://github.com/ricsanfre/pi-cluster) - _Pi Kubernetes Cluster. Homelab kubernetes cluster automated with Ansible and FluxCD_
 - [techno-tim/k3s-ansible](https://github.com/techno-tim/k3s-ansible) - _The easiest way to bootstrap a self-hosted High Availability Kubernetes cluster. A fully automated HA k3s etcd install with kube-vip, MetalLB, and more. Build. Destroy. Repeat._

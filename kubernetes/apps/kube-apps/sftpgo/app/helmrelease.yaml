@@ -1,13 +1,17 @@
 ---
+# yaml-language-server: $schema=https://github.com/fluxcd-community/flux2-schemas/blob/main/helmrelease-helm-v2.json
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: sftpgo
+  namespace: flux-system
 spec:
   interval: 5m
   chartRef:
     kind: OCIRepository
     name: sftpgo
+  targetNamespace: kube-apps
+  releaseName: sftpgo
   values:
     initContainers:
       - name: init-db
@@ -103,16 +107,16 @@ spec:
         ports:
           sftp: # Only SFTP will be exposed
             port: 22
-        #     nodePort:
-        # externalTrafficPolicy: Local
-        # sessionAffinity:
+            #     nodePort:
+            # externalTrafficPolicy: Local
+            # sessionAffinity:
 
     resources:
-        limits:
-          memory: 256Mi
-        requests:
-          cpu: 100m
-          memory: 64Mi
+      limits:
+        memory: 256Mi
+      requests:
+        cpu: 100m
+        memory: 64Mi
 
     persistence:
       # -- Enable persistent storage for the /var/lib/sftpgo directory, saving state of the default sqlite db.
@@ -140,7 +144,7 @@ spec:
             - ftp.${SECRET_DOMAIN}
 
           # -- ParentRefs for the UI HTTPRoute. At least one entry is required for the route to be attached to a Gateway.
-          parentRefs: 
+          parentRefs:
             - name: external
               namespace: network
               sectionName: https

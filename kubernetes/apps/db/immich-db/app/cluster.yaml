@@ -20,7 +20,7 @@ spec:
       instances: 2
       initdb:
         dataChecksums: true
-      imageName: ghcr.io/tensorchord/cloudnative-vectorchord:18.3-1.1.1@sha256:392b53675b403d6a2c72b673cc488a7c272514755dd818c622fb9ce4665193c4
+      imageName: ghcr.io/tensorchord/cloudnative-vectorchord:17.9-1.1.1@sha256:82f9b46c9149681f2897bd221772a3b22a74784256f1154c91eb10c6785800d5
       logLevel: warning
       resources:
         requests:

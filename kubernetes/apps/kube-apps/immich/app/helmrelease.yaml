@@ -11,6 +11,7 @@ spec:
     kind: OCIRepository
     name: immich
   targetNamespace: kube-apps
+  releaseName: immich
   values:
     controllers:
       main:

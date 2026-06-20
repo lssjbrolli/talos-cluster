@@ -42,6 +42,7 @@ spec:
               BINDERY_PORT: &port 80
               BINDERY_DOWNLOAD_DIR: /media/downloads/complete/readarr/
               BINDERY_AUDIOBOOK_DIR: /media/library/audiobooks/
+              BINDERY_LIBRARY_DIR: /media/library/audiobooks/
               BINDERY_PUID: 568
               BINDERY_PGID: 568
               BINDERY_ENHANCED_HARDCOVER_API: true

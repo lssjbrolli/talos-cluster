@@ -3,6 +3,7 @@ apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
   name: cluster17
+  namespace: flux-system
 spec:
   interval: 30m
   path: ./kubernetes/apps/db/cluster17/app

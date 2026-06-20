@@ -1,7 +1,9 @@
+---
 apiVersion: postgresql.cnpg.io/v1
 kind: ScheduledBackup
 metadata:
   name: cluster17
+  namespace: db
 spec:
   cluster:
     name: cluster17

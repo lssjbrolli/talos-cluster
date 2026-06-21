@@ -98,7 +98,8 @@ spec:
       persistence:
         cache:
           enabled: true
-          size: 10Gi
+          size: 15Gi
+          retain: true
           accessMode: ReadWriteOnce
           type: persistentVolumeClaim
 

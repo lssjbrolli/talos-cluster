@@ -6,9 +6,9 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - "main"
+      - main
     paths:
-      - ".github/labels.yaml"
+      - .github/labels.yaml
 
 permissions: {}
 

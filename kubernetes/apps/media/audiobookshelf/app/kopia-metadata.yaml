@@ -3,7 +3,7 @@
 apiVersion: kopiur.home-operations.com/v1alpha1
 kind: SnapshotPolicy
 metadata:
-  name: abs-metadata
+  name: audiobookshelf-metadata
 spec:
   repository:
     kind: ClusterRepository
@@ -34,17 +34,17 @@ spec:
 apiVersion: kopiur.home-operations.com/v1alpha1
 kind: Restore
 metadata:
-  name: abs-metadata
+  name: audiobookshelf-metadata
 spec:
   source:
     fromPolicy:
-      name: abs-metadata
+      name: audiobookshelf-metadata
       offset: 0
   target:
     # A fresh PVC, so the verification never touches the original volume. The
     # operator creates it; capacity is REQUIRED — it won't guess a size.
     pvc:
-      name: abs-metadata-restored
+      name: audiobookshelf-metadata-restored
       capacity: 2Gi
       accessModes:
         - ReadWriteOnce
@@ -58,10 +58,10 @@ spec:
 apiVersion: kopiur.home-operations.com/v1alpha1
 kind: SnapshotSchedule
 metadata:
-  name: abs-metadata
+  name: audiobookshelf-metadata
 spec:
   policyRef:
-    name: abs-metadata # the recipe to invoke each firing
+    name: audiobookshelf-metadata # the recipe to invoke each firing
   schedule:
     # `H` = a deterministic per-schedule minute (hashed from the schedule's UID),
     # so many schedules saying "nightly at 2" don't all fire at 02:00 sharp.

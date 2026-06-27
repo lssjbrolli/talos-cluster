@@ -7,9 +7,9 @@ spec:
   accessModes:
     - ReadWriteOnce
   dataSourceRef:
-    kind: ReplicationDestination
-    apiGroup: volsync.backube
-    name: audiobookshelf-metadata-restore
+    apiGroup: kopiur.home-operations.com
+    kind: Restore
+    name: postgres-data-restore
   resources:
     requests:
       storage: 2Gi

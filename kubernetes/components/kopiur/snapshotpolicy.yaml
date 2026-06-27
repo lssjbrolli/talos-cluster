@@ -16,7 +16,7 @@ spec:
     keepHourly: 24
   sources:
     - pvc:
-        name: ${APP}
+        name: ${APP}-${PVC_NAME:=config}
   verification:
     deep:
       schedule:

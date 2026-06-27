@@ -30,11 +30,15 @@ metadata:
   name: kopiur-repository
   namespace: flux-system
 spec:
+  interval: 1h
+  path: ./kubernetes/apps/kube-system/kopiur/repository
   dependsOn:
     - name: kopiur
       namespace: kube-system
-  interval: 1h
-  path: ./kubernetes/apps/kube-system/kopiur/repository
+  postBuild:
+    substituteFrom:
+      - name: cluster-secrets
+        kind: Secret
   prune: true
   sourceRef:
     kind: GitRepository

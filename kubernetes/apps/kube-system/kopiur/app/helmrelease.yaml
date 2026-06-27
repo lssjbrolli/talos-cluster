@@ -11,9 +11,12 @@ spec:
     name: kopiur
   interval: 1h
   values:
+    installScope: cluster
     controller:
       streamingLists: true
     features:
+      credentialProjection:
+        enabled: true
       kopiaUi:
         enabled: true
     image:
@@ -32,9 +35,10 @@ spec:
       runAsUser: 568
     webhook:
       tls:
-        mode: self
-      #   mode: cert-manager
-      # certManager:
-      #   issuerRef:
-      #     name: letsencrypt-production
-      #     kind: ClusterIssuer
+        mode: cert-manager
+      certManager:
+        issuerRef:
+          name: letsencrypt-production
+          kind: ClusterIssuer
+      serviceMonitor:
+        enabled: true

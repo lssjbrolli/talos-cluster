@@ -14,4 +14,8 @@ spec:
       name: ${APP}
       offset: 0
   target:
-    populator: {}
+    pvc:
+      name: ${APP}
+      capacity: ${KOPIA_CAPACITY:=1Gi}
+      accessModes:
+        - ReadWriteOnce

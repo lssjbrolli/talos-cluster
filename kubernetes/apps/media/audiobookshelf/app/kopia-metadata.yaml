@@ -6,7 +6,8 @@ metadata:
   name: abs-metadata
 spec:
   repository:
-    name: primary # kind defaults to Repository (same namespace)
+    kind: ClusterRepository
+    name: minio
   sources:
     - pvc:
         name: audiobookshelf-metadata # the PVC to snapshot
@@ -14,7 +15,20 @@ spec:
   retention:
     keepDaily: 7 # "restore any day from the last week"
     keepWeekly: 2 # "...any week from the last month"
-
+  copyMethod: Snapshot
+  credentialProjection:
+    enabled: true
+  verification:
+    deep:
+      schedule:
+        cron: H 5 * * 0
+        jitter: 1h
+        timezone: ${TIMEZONE}
+    quick:
+      cron: H 5 * * *
+      jitter: 1h
+      timezone: ${TIMEZONE}
+  volumeSnapshotClassName: zfs-snap
 ---
 # yaml-language-server: $schema=https://k8s-schemas.home-operations.com/kopiur.home-operations.com/restore_v1alpha1.json
 apiVersion: kopiur.home-operations.com/v1alpha1
@@ -23,10 +37,9 @@ metadata:
   name: abs-metadata
 spec:
   source:
-    # Object-store backends name an explicit snapshot: paste the Snapshot CR
-    # name from `kubectl kopiur snapshots list` (or the manual Snapshot above).
-    snapshotRef:
-      name: REPLACE_ME
+    fromPolicy:
+      name: abs-metadata
+      offset: 0
   target:
     # A fresh PVC, so the verification never touches the original volume. The
     # operator creates it; capacity is REQUIRED — it won't guess a size.
@@ -35,6 +48,10 @@ spec:
       capacity: 2Gi
       accessModes:
         - ReadWriteOnce
+  credentialProjection:
+    enabled: true
+  policy:
+    onMissingSnapshot: Continue
 
 ---
 # yaml-language-server: $schema=https://k8s-schemas.home-operations.com/kopiur.home-operations.com/snapshotschedule_v1alpha1.json
@@ -53,53 +70,4 @@ spec:
     jitter: 30m
     # GitOps-friendly: applying this manifest does NOT take an immediate backup.
     runOnCreate: false
-
----
-apiVersion: volsync.backube/v1alpha1
-kind: ReplicationSource
-metadata:
-  name: audiobookshelf-metadata-backup
-spec:
-  # The PVC to be backed up
-  sourcePVC: audiobookshelf-metadata
-  trigger:
-    # Take a backup every 6 hours
-    schedule: "0 */6 * * *"
-  restic:
-    moverSecurityContext:
-      runAsUser: 568
-      runAsGroup: 568
-      fsGroup: 568
-    pruneIntervalDays: 7
-    # Name of the Secret with the connection information
-    repository: restic-audiobookshelf-metadata
-    # Retention policy for backups
-    retain:
-      daily: 1
-      weekly: 1
-    # Clone the source volume prior to taking a backup to ensure a
-    # point-in-time image.
-    copyMethod: Snapshot
-    # The VSC to use if the copy method is Snapshot (default if omitted)
-    volumeSnapshotClassName: zfs-snap
-
----
-apiVersion: volsync.backube/v1alpha1
-kind: ReplicationDestination
-metadata:
-  name: audiobookshelf-metadata-restore
-spec:
-  trigger:
-    manual: init
-  restic:
-    moverSecurityContext:
-      runAsUser: 568
-      runAsGroup: 568
-      fsGroup: 568
-    repository: restic-audiobookshelf-metadata
-    cleanupCachePVC: true
-    enableFileDeletion: true
-    copyMethod: Snapshot
-    accessModes: [ReadWriteOnce]
-    capacity: 2Gi
-    volumeSnapshotClassName: zfs-snap
+    timezone: ${TIMEZONE}

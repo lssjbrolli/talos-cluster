@@ -10,7 +10,7 @@ spec:
     enabled: true
   repository:
     kind: ClusterRepository
-    name: nas
+    name: minio
   retention:
     keepDaily: 7
     keepHourly: 24

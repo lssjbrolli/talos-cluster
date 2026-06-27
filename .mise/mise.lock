@@ -195,6 +195,10 @@ checksum = "sha256:19a7154161ada9cfaa9e57edb752ecc679b75c391a62e4f7b586eea1df30b
 url = "https://github.com/cli/cli/releases/download/v2.95.0/gh_2.95.0_windows_amd64.zip"
 provenance = "github-attestations"
 
+[[tools."go:github.com/home-operations/flate/cmd/flate"]]
+version = "0.4.9"
+backend = "go:github.com/home-operations/flate/cmd/flate"
+
 [[tools.gum]]
 version = "0.17.0"
 backend = "aqua:charmbracelet/gum"
@@ -528,10 +532,6 @@ url = "https://github.com/pypa/pipx/releases/download/1.15.0/pipx.pyz"
 [tools.pipx."platforms.macos-x64"]
 checksum = "sha256:6b6e1b016bf7df9debee590ca32204a85ff18a87514e6a3b4413d8ad7ff73ed3"
 url = "https://github.com/pypa/pipx/releases/download/1.15.0/pipx.pyz"
-
-[[tools."pipx:flux-local"]]
-version = "8.3.0"
-backend = "pipx:flux-local"
 
 [[tools."pipx:makejinja"]]
 version = "2.8.2"

@@ -9,7 +9,6 @@ spec:
     kind: OCIRepository
     name: plugin-barman-cloud
   values:
-    replicas: 1
     image:
       registry: ghcr.io
       repository: cloudnative-pg/plugin-barman-cloud

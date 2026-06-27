@@ -20,11 +20,8 @@ spec:
       hostnames:
         - "{{ .Release.Name }}.${SECRET_DOMAIN}"
       parentRefs:
-        - name: envoy-external
+        - name: internal
           namespace: network
-    monitoring:
-      serviceMonitor:
-        enabled: true
     resources:
       requests:
         cpu: 10m

@@ -11,8 +11,10 @@ spec:
     s3:
       bucket: kopia
       prefix: "" # bucket root, maximum dedup across tenants
-      endpoint: s3:http://rustfs.kube-system.svc.cluster.local:9000
+      endpoint: rustfs.kube-system.svc.cluster.local:9000
       region: eu-east
+      tls:
+        disableTls: true
       auth:
         secretRef:
           name: kopia

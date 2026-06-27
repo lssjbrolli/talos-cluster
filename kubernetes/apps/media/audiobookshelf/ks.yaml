@@ -7,10 +7,10 @@ metadata:
   namespace: flux-system
 spec:
   components:
-    - '../../../../components/volsync'
-    - '../../../../components/local'
+    - "../../../../components/kopiur"
+    - "../../../../components/local"
   interval: 30m
-  path: ./kubernetes/apps/kube-apps/audiobookshelf/app
+  path: ./kubernetes/apps/media/audiobookshelf/app
   prune: true
   wait: true
   dependsOn:
@@ -24,12 +24,12 @@ spec:
         kind: ConfigMap
     substitute:
       APP: *app
-      NS: kube-apps
-      VOLSYNC_CAPACITY: 200Mi
+      NS: media
+      KOPIUR_CAPACITY: 200Mi
       RETAIN_D: "2"
       VOLUME: media
   sourceRef:
     kind: GitRepository
     name: flux-system
     namespace: flux-system
-  targetNamespace: kube-apps
+  targetNamespace: media

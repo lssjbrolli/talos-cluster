@@ -35,6 +35,7 @@ yq = "4.53.3"
 zizmor = "1.26.1"
 restic = "latest"
 "go:github.com/home-operations/flate/cmd/flate" = "v0.4.9"
+krew = "latest"
 
 [hooks]
 postinstall = "lefthook install"

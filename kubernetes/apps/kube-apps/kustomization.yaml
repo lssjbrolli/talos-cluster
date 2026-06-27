@@ -6,9 +6,7 @@ namespace: kube-apps
 components:
   - ../../components/common
 resources:
-  - ./audiobookshelf/ks.yaml
   - ./bindery/ks.yaml
-  # - ./bookshelf/ks.yaml
   - ./ctcadmin/ks.yaml
   - ./filebrowser/ks.yaml
   - ./immich/ks.yaml
@@ -19,7 +17,6 @@ resources:
   - ./prowlarr/ks.yaml
   - ./qbittorrent/ks.yaml
   - ./radarr/ks.yaml
-  # - ./rreading-glasses/ks.yaml
   - ./rustdesk/ks.yaml
   - ./seerr/ks.yaml
   - ./sftpgo/ks.yaml

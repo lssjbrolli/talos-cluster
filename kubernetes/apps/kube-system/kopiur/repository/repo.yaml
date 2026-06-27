@@ -1,0 +1,42 @@
+---
+# yaml-language-server: $schema=https://k8s-schemas.home-operations.com/kopiur.home-operations.com/clusterrepository_v1alpha1.json
+apiVersion: kopiur.home-operations.com/v1alpha1
+kind: ClusterRepository
+metadata:
+  name: minio
+spec:
+  allowedNamespaces:
+    all: true
+  backend:
+    s3:
+      bucket: kopia
+      prefix: "" # bucket root, maximum dedup across tenants
+      endpoint: s3:http://minio.kube-system.svc.cluster.local:9000
+      region: eu-east
+      auth:
+        secretRef:
+          name: kopia
+          namespace: kube-system # explicit ns required for cluster scope
+  create:
+    enabled: true
+  credentialProjection:
+    allowed: true
+  encryption:
+    passwordSecretRef:
+      name: kopia
+      namespace: kube-system
+      key: KOPIA_PASSWORD
+  identityDefaults:
+    hostnameExpr: namespace
+    usernameExpr: namespace + '-' + policyName
+  moverDefaults:
+    cache:
+      capacity: 1Mi
+      mode: Ephemeral
+    podSecurityContext:
+      fsGroup: 568
+      fsGroupChangePolicy: OnRootMismatch
+    securityContext:
+      runAsUser: 568
+      runAsGroup: 568
+    ttlSecondsAfterFinished: 300

@@ -12,6 +12,6 @@ spec:
       sectionName: http
   rules:
     - backendRefs:
-        - name: webhook-receiver
+        - name: rustfs-kopia-ui
           namespace: kube-system
-          port: 80
+          port: 51515

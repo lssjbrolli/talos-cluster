@@ -34,11 +34,5 @@ spec:
       runAsGroup: 568
       runAsUser: 568
     webhook:
-      tls:
-        mode: cert-manager
-      certManager:
-        issuerRef:
-          name: letsencrypt-production
-          kind: ClusterIssuer
       serviceMonitor:
         enabled: true

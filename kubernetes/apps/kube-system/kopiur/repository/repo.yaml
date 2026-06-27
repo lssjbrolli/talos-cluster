@@ -52,3 +52,6 @@ spec:
     namespace: kube-system
     auth:
       secretRef: { name: kopia, usernameKey: UI_USER, passwordKey: UI_PASS }
+    service:
+      type: ClusterIP
+      port: 80

@@ -5,7 +5,8 @@ kind: HTTPRoute
 metadata:
   name: kopiur
 spec:
-  hostnames: ["kopiur.${SECRET_DOMAIN}"]
+  hostnames:
+    - kopiur.${SECRET_DOMAIN}
   parentRefs:
     - name: internal
       namespace: network
@@ -14,4 +15,4 @@ spec:
     - backendRefs:
         - name: rustfs-kopia-ui
           namespace: kube-system
-          port: 51515
+          port: 80

@@ -10,7 +10,7 @@ spec:
     enabled: true
   repository:
     kind: ClusterRepository
-    name: minio
+    name: rustfs
   retention:
     keepDaily: 7
     keepHourly: 24

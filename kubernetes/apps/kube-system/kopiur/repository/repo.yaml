@@ -3,7 +3,7 @@
 apiVersion: kopiur.home-operations.com/v1alpha1
 kind: ClusterRepository
 metadata:
-  name: minio
+  name: rustfs
 spec:
   allowedNamespaces:
     all: true
@@ -11,7 +11,7 @@ spec:
     s3:
       bucket: kopia
       prefix: "" # bucket root, maximum dedup across tenants
-      endpoint: s3:http://minio.kube-system.svc.cluster.local:9000
+      endpoint: s3:http://rustfs.kube-system.svc.cluster.local:9000
       region: eu-east
       auth:
         secretRef:

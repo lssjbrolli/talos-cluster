@@ -3,12 +3,10 @@ kind: Secret
 metadata:
   name: kopia
 stringData:
-  #ENC[AES256_GCM,data:v/rqDm3BYT1G7Li+NAfj5WZWJw==,iv:piXYLG+01JqYS+G6/ZFggNVsZt5NgDuv6EUU6Oh+sbQ=,tag:CqqT7wJgEXOLSgrJhQClqw==,type:comment]
-  KOPIA_REPOSITORY: ENC[AES256_GCM,data:KGOXr+aiBWWr+jnGKqhKeBDs4CvYBMHmIGch41CDvx2ZwWTuNJ6/29Wl2uiDc6qCQLZSr3xhW2s=,iv:85k4oONaX2T1S+DeCyc2qEndLFrXpxV3h+jBETgSWk8=,tag:iCxDTO3M14NjjT0RGZZYtA==,type:str]
   #ENC[AES256_GCM,data:7AAND4QuKTwkUSA1Hn4d+UevZCQLjxYD+SSJ8DPi,iv:8InNm5Sxaxa7IFYYwM7OapFI1e7rGa8rO2tb+2yFcR8=,tag:HjMSFBVAf8PcJBq9ybLD/w==,type:comment]
   KOPIA_PASSWORD: ENC[AES256_GCM,data:rNbz9w==,iv:9sMCJ9lVbob2BEKrxt58Hkb9g870FnbBHfIaeke7NSk=,tag:dn5KcAfMVzNkL0GAVRY2EQ==,type:str]
-  AWS_ACCESS_KEY_ID: ENC[AES256_GCM,data:xqn4O3zjBF08rrSyeGCzCKM+bv4=,iv:3/9rMeHjcUOVbnBjKDT7Nbc67kUJ9OrK2inLAiFXSoo=,tag:qLtLEwVM/Hd+EFH7X8qt/A==,type:str]
-  AWS_SECRET_ACCESS_KEY: ENC[AES256_GCM,data:FhTtFoAPITMC38EPxFOBQXxQ73oYnifgNiGWtbPlspkRMvoqmuSI7w==,iv:TyFdud2rzuhfXAIctUZyiArlDGuRB/zeP/znMECoXik=,tag:6mckY80+X5MfSBoTN9zlNg==,type:str]
+  AWS_ACCESS_KEY_ID: ENC[AES256_GCM,data:s/GpnMrb6ndQy0mPIRw9A6apwDw=,iv:mVgobf9vSQ7KCqbQKNobcp26amtvq/C4WOVg8hDsywk=,tag:a3xPhLe0NpYNjaPfoMbs9A==,type:str]
+  AWS_SECRET_ACCESS_KEY: ENC[AES256_GCM,data:YN9jGlKnPqBj6Slv0FrFvtyenQHUAv5+IK82z6gTbXuQtSGchTtBLA==,iv:cH2rm/7knt5DSn8zxMhobwxzlzUuh+VZD5bpGtxOFnU=,tag:wJ6mvr3jmwM4xGzXr0iqIg==,type:str]
 sops:
   age:
     - enc: |
@@ -21,6 +19,6 @@ sops:
         -----END AGE ENCRYPTED FILE-----
       recipient: age1k5cr4cvs4atdm3gse77vq4glnv9q49gq5wl49p9806gfyfld7p3setz3tw
   encrypted_regex: ^(data|stringData)$
-  lastmodified: "2026-06-27T17:06:14Z"
-  mac: ENC[AES256_GCM,data:IJfp5VHIrzr/LV4gjQWvEk207xldzh5P7QmR2OWqqpW8ItwbnYsyVSTM10E6ntCDUTz7aXbQROT/GpQOkt8+VBDfjQmrnuV7HD1JcQgrxjFtgYoRwyXT9fxryxoxWnn49/FADNaCGAFiCRUVd734Xj75HEij3pvVzAga2ObxAN0=,iv:dno1ykyNdnWEAUIWrL5Q4XhP8As7L4iY3AAPyW8D5XQ=,tag:spBd0g0bEDJp2q12EMSvOw==,type:str]
+  lastmodified: "2026-06-27T18:00:29Z"
+  mac: ENC[AES256_GCM,data:iGWVWlWaz4n1MKthWwyscU8Hm8aMwZSTCzl/LgczsZPmqGXGL9SFgwsxSroNLs5/dD/eAmzN19DHrTjU5DOxwVdFg2vDQ8egaitzYz00yk+FQpEsivswYSAlILMVWJr6YZz9e+ZVEywsEedVAnZn+Q1+D28U+Vggo4A3gKlBB38=,iv:fjILV3OrQGd4U/qpgaZjGpv561/OH+6uLstkNGvuv7M=,tag:edmXkB3OB6OdqwbOhgxhPw==,type:str]
   version: 3.13.1

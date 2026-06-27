@@ -11,6 +11,7 @@ resources:
   - ./cilium/ks.yaml
   - ./coredns/ks.yaml
   - ./generic-device-plugin/ks.yaml
+  - ./kopiur/ks.yaml
   - ./lldap/ks.yaml
   - ./metrics-server/ks.yaml
   - ./minio/ks.yaml

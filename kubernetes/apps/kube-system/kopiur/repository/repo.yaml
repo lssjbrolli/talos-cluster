@@ -51,4 +51,4 @@ spec:
   server:
     namespace: kube-system
     auth:
-      secretRef: { name: kopia, usernameKey: UIuser, passwordKey: UIpass }
+      secretRef: { name: kopia, usernameKey: UI_USER, passwordKey: UI_PASS }

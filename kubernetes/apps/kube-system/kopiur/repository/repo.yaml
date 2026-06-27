@@ -42,3 +42,7 @@ spec:
       runAsUser: 568
       runAsGroup: 568
     ttlSecondsAfterFinished: 300
+  health:
+    probe:
+      enabled: true
+      interval: 15m

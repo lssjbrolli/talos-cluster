@@ -32,8 +32,9 @@ spec:
       runAsUser: 568
     webhook:
       tls:
-        mode: cert-manager
-      certManager:
-        issuerRef:
-          name: letsencrypt-production
-          kind: ClusterIssuer
+        mode: self
+      #   mode: cert-manager
+      # certManager:
+      #   issuerRef:
+      #     name: letsencrypt-production
+      #     kind: ClusterIssuer

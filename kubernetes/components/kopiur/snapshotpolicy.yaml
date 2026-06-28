@@ -10,7 +10,7 @@ spec:
     enabled: true
   repository:
     kind: ClusterRepository
-    name: rustfs
+    name: kopia-repo
   retention:
     keepDaily: 7
     keepHourly: 24

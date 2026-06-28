@@ -61,7 +61,7 @@ spec:
   schedule:
     # `H` = a deterministic per-schedule minute (hashed from the schedule's UID),
     # so many schedules saying "nightly at 2" don't all fire at 02:00 sharp.
-    cron: "H 2 * * *"
+    cron: "H */6 * * *"
     # On top of H, spread each firing over a window.
     jitter: 30m
     # GitOps-friendly: applying this manifest does NOT take an immediate backup.

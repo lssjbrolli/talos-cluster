@@ -8,6 +8,7 @@ spec:
   policyRef:
     name: ${APP}
   schedule:
-    cron: H * * * *
-    jitter: 2m
+    cron: H */6 * * *
+    jitter: 30m
     timezone: ${TIMEZONE}
+    runOnCreate: false

@@ -13,6 +13,6 @@ spec:
       sectionName: https
   rules:
     - backendRefs:
-        - name: rustfs-kopia-ui
+        - name: kopia-repo-kopia-ui
           namespace: kube-system
           port: 80

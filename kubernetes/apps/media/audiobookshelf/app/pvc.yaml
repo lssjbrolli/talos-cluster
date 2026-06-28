@@ -9,7 +9,7 @@ spec:
   dataSourceRef:
     apiGroup: kopiur.home-operations.com
     kind: Restore
-    name: postgres-data-restore
+    name: audiobookshelf-metadata
   resources:
     requests:
       storage: 2Gi

@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: audiobookshelf-metadata
+spec:
+  accessModes:
+    - ReadWriteOnce
+  dataSourceRef:
+    kind: ReplicationDestination
+    apiGroup: volsync.backube
+    name: audiobookshelf-metadata-restore
+  resources:
+    requests:
+      storage: 2Gi

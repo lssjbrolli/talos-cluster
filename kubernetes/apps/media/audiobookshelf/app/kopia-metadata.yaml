@@ -43,11 +43,7 @@ spec:
   target:
     # A fresh PVC, so the verification never touches the original volume. The
     # operator creates it; capacity is REQUIRED — it won't guess a size.
-    pvc:
-      name: audiobookshelf-metadata-restored
-      capacity: 2Gi
-      accessModes:
-        - ReadWriteOnce
+    populator: {}
   credentialProjection:
     enabled: true
   policy:

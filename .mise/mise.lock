@@ -196,7 +196,7 @@ url = "https://github.com/cli/cli/releases/download/v2.95.0/gh_2.95.0_windows_am
 provenance = "github-attestations"
 
 [[tools."go:github.com/home-operations/flate/cmd/flate"]]
-version = "0.4.9"
+version = "v0.4.10"
 backend = "go:github.com/home-operations/flate/cmd/flate"
 
 [[tools.gum]]

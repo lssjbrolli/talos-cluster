@@ -9,9 +9,9 @@ spec:
     all: true
   backend:
     s3:
-      bucket: kopia
+      bucket: ctcadmin
       prefix: "" # bucket root, maximum dedup across tenants
-      endpoint: rustfs.kube-system.svc.cluster.local:9000
+      endpoint: minio.kube-system.svc.cluster.local:9000
       region: eu-east
       tls:
         disableTls: true

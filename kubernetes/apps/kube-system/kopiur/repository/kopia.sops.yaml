@@ -6,8 +6,8 @@ metadata:
 stringData:
   #ENC[AES256_GCM,data:7AAND4QuKTwkUSA1Hn4d+UevZCQLjxYD+SSJ8DPi,iv:8InNm5Sxaxa7IFYYwM7OapFI1e7rGa8rO2tb+2yFcR8=,tag:HjMSFBVAf8PcJBq9ybLD/w==,type:comment]
   KOPIA_PASSWORD: ENC[AES256_GCM,data:rNbz9w==,iv:9sMCJ9lVbob2BEKrxt58Hkb9g870FnbBHfIaeke7NSk=,tag:dn5KcAfMVzNkL0GAVRY2EQ==,type:str]
-  AWS_ACCESS_KEY_ID: ENC[AES256_GCM,data:s/GpnMrb6ndQy0mPIRw9A6apwDw=,iv:mVgobf9vSQ7KCqbQKNobcp26amtvq/C4WOVg8hDsywk=,tag:a3xPhLe0NpYNjaPfoMbs9A==,type:str]
-  AWS_SECRET_ACCESS_KEY: ENC[AES256_GCM,data:YN9jGlKnPqBj6Slv0FrFvtyenQHUAv5+IK82z6gTbXuQtSGchTtBLA==,iv:cH2rm/7knt5DSn8zxMhobwxzlzUuh+VZD5bpGtxOFnU=,tag:wJ6mvr3jmwM4xGzXr0iqIg==,type:str]
+  AWS_ACCESS_KEY_ID: ENC[AES256_GCM,data:cVXkjvpSY/nTJru5Pgu8bevimjw=,iv:7TbtriIwxbKGLImI16arFnAzKrK0pEQj6SRQHACbqtU=,tag:fdiVC0+0Eg6TJUBoVHWjvA==,type:str]
+  AWS_SECRET_ACCESS_KEY: ENC[AES256_GCM,data:4PDh7zleTBiYkL1VulQ1dFYYqUH3k31y9reDt/uuFhFG2NkVbL9Prw==,iv:2RTDdh9Zfoi8EF6Lk6pimBruyU9P6ieChkku06Vsgrk=,tag:dhVk5f8sBuh9KiXZdMxhNQ==,type:str]
   UI_USER: ENC[AES256_GCM,data:0zLvbhc=,iv:GwrGpOTKA/7l/eSw3tBX2+Ot9NMRp5Pe+oWAP+N+EOY=,tag:gk/9zH3oveJckoAHvPjNQQ==,type:str]
   UI_PASS: ENC[AES256_GCM,data:uUAFPoX4KjvDLagtqD8=,iv:389VexNTAFyaTVjRbA3ZszCBF/Am33gskrBXxl4kzmQ=,tag:kzkD32c6MP9TWSTUjuI3vw==,type:str]
 sops:
@@ -22,6 +22,6 @@ sops:
         -----END AGE ENCRYPTED FILE-----
       recipient: age1k5cr4cvs4atdm3gse77vq4glnv9q49gq5wl49p9806gfyfld7p3setz3tw
   encrypted_regex: ^(data|stringData)$
-  lastmodified: "2026-06-27T18:56:34Z"
-  mac: ENC[AES256_GCM,data:u77c1T48ZmJZud9Pqynvkle0G5C8/cIZ2c63dgRhaSbhVjq80HWdPgMlp5ADAMKbarB6GyBz1aACkT3XDti+KfPHCwidIYMvGuMSa6bVUMAlEG+TUWDYm7ekgvZJgcXKHDQQqhOEoUNtlm2W+t7/ZcifW0bvibbaCaxpvHSgkPw=,iv:kpknDgy2MqTe98xv2hEjpkBfHpnQ60dv4KJlWiWmfv4=,tag:PCkvsqUNXbJp4ew3I40CpQ==,type:str]
+  lastmodified: "2026-06-28T08:23:52Z"
+  mac: ENC[AES256_GCM,data:zsjVpv0rhZsqE0WcsiKbHESsbSVu37E6gCwJMpBHOGZrCKCJ2CfHaEtPzrLt8gmHQdq8hgFuV7ECg8axUr44CInJZqYhTmYuI18jBSLoAJCJGn1NiBjv4sWAYu2WLx+Q5Wxp4moklkaqhVYEcpSqUmGbCmYoR71GKFiOgokzF1s=,iv:fBpN+W+WNG5ot919rtQPgAgKL4psAqmgnE80gFCEHPY=,tag:iJgeC7055hATdxl6KRAE+Q==,type:str]
   version: 3.13.1

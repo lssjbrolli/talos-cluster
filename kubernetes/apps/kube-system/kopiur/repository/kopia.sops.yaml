@@ -10,6 +10,7 @@ stringData:
   AWS_SECRET_ACCESS_KEY: ENC[AES256_GCM,data:4PDh7zleTBiYkL1VulQ1dFYYqUH3k31y9reDt/uuFhFG2NkVbL9Prw==,iv:2RTDdh9Zfoi8EF6Lk6pimBruyU9P6ieChkku06Vsgrk=,tag:dhVk5f8sBuh9KiXZdMxhNQ==,type:str]
   UI_USER: ENC[AES256_GCM,data:0zLvbhc=,iv:GwrGpOTKA/7l/eSw3tBX2+Ot9NMRp5Pe+oWAP+N+EOY=,tag:gk/9zH3oveJckoAHvPjNQQ==,type:str]
   UI_PASS: ENC[AES256_GCM,data:uUAFPoX4KjvDLagtqD8=,iv:389VexNTAFyaTVjRbA3ZszCBF/Am33gskrBXxl4kzmQ=,tag:kzkD32c6MP9TWSTUjuI3vw==,type:str]
+  TEST: ENC[AES256_GCM,data:B0EGJA==,iv:91r2DrKIgi0MaWcUBhmru4s0zvX/0jBsS63e2vEYZ+Q=,tag:NGisg/AOjKvTBXx63/Nt4Q==,type:str]
 sops:
   age:
     - enc: |
@@ -22,6 +23,6 @@ sops:
         -----END AGE ENCRYPTED FILE-----
       recipient: age1k5cr4cvs4atdm3gse77vq4glnv9q49gq5wl49p9806gfyfld7p3setz3tw
   encrypted_regex: ^(data|stringData)$
-  lastmodified: "2026-06-28T08:23:52Z"
-  mac: ENC[AES256_GCM,data:zsjVpv0rhZsqE0WcsiKbHESsbSVu37E6gCwJMpBHOGZrCKCJ2CfHaEtPzrLt8gmHQdq8hgFuV7ECg8axUr44CInJZqYhTmYuI18jBSLoAJCJGn1NiBjv4sWAYu2WLx+Q5Wxp4moklkaqhVYEcpSqUmGbCmYoR71GKFiOgokzF1s=,iv:fBpN+W+WNG5ot919rtQPgAgKL4psAqmgnE80gFCEHPY=,tag:iJgeC7055hATdxl6KRAE+Q==,type:str]
+  lastmodified: "2026-06-28T08:27:46Z"
+  mac: ENC[AES256_GCM,data:DIlQ4G6zU61li8yO9rZPNOOcBj9KMsFsqd+/H6rne5sCN50LxjnWp05kx2UzYIkjMnSCR0pOIvMFvatzVOC4ZJmmNec7Hwwe5cMEnw9O89xo4dViBb52UxbGNNmklE54FM3TNtWZaixWxbvQDYjFj1pLF5KFGhL3QCNkuIOCfNs=,iv:BP62rldIINGkrQkkXdrCn6bhNebhzt/9ovXbGCVruOU=,tag:OGMxL+iBuWSWzh5ikGu8pw==,type:str]
   version: 3.13.1

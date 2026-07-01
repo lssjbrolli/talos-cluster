@@ -4,6 +4,7 @@ set default-list
 set default-script
 set lazy
 set quiet
+set minimum-version := '1.55.1'
 set shell := ['bash', '-euo', 'pipefail', '-c']
 
 # Bootstrap Recipes
@@ -14,9 +15,8 @@ mod bootstrap "bootstrap"
 [group: 'Kube']
 mod kube "kubernetes"
 
-# Talos Recipes
-[group: 'Talos']
-mod talos "talos"
+[group: 'talos']
+mod? talos 'talos'
 
 [private]
 log lvl msg *args:

@@ -25,7 +25,7 @@ spec:
     substitute:
       APP: *app
       NS: home
-      VOLSYNC_CAPACITY: 100Mi
+      VOLSYNC_CAPACITY: 200Mi
   sourceRef:
     kind: GitRepository
     name: flux-system

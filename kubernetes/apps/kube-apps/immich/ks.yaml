@@ -7,7 +7,7 @@ metadata:
   namespace: flux-system
 spec:
   components:
-    - '../../../../components/volsync'
+    - "../../../../components/volsync"
   interval: 30m
   path: ./kubernetes/apps/kube-apps/immich/app
   prune: true
@@ -27,9 +27,9 @@ spec:
         kind: ConfigMap
     substitute:
       APP: *app
-      PVC_NAME: 'library'
+      PVC_NAME: "library"
       VOLSYNC_SCHED: "0 */12 * * *"
-      VOLSYNC_CAPACITY: 100Gi
+      VOLSYNC_CAPACITY: 150Gi
   sourceRef:
     kind: GitRepository
     name: flux-system

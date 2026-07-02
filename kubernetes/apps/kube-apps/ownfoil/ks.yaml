@@ -7,8 +7,9 @@ metadata:
   namespace: flux-system
 spec:
   components:
-    - '../../../../components/local'
-    - '../../../../components/volsync'
+    - "../../../../components/local"
+    - "../../../../components/volsync"
+    - "../../../../components/kopiur"
   interval: 30m
   path: ./kubernetes/apps/kube-apps/ownfoil/app
   prune: true

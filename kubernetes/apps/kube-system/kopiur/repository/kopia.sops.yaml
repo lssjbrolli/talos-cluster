@@ -5,9 +5,9 @@ metadata:
   namespace: kube-system
 stringData:
   #ENC[AES256_GCM,data:7AAND4QuKTwkUSA1Hn4d+UevZCQLjxYD+SSJ8DPi,iv:8InNm5Sxaxa7IFYYwM7OapFI1e7rGa8rO2tb+2yFcR8=,tag:HjMSFBVAf8PcJBq9ybLD/w==,type:comment]
-  KOPIA_PASSWORD: ENC[AES256_GCM,data:rNbz9w==,iv:9sMCJ9lVbob2BEKrxt58Hkb9g870FnbBHfIaeke7NSk=,tag:dn5KcAfMVzNkL0GAVRY2EQ==,type:str]
-  AWS_ACCESS_KEY_ID: ENC[AES256_GCM,data:1PsH/Oq+0vqQpkJJ9u3a3hTk+7A=,iv:8rK3P0PcHL7W5q3+MrZCRBtF8EHMDDSf5QZKxhqwjVQ=,tag:a3AFhUA5DIUApxNXFttoAg==,type:str]
-  AWS_SECRET_ACCESS_KEY: ENC[AES256_GCM,data:qDsTHha/JBBTHfbaiea8CZkVYNDTnM+XacQ6dqvepAiEbPK8UiTZuQ==,iv:220GD64l+FsF7hiYyhKOsXcfs2kvL28Xri2cwKgW5go=,tag:S2GnHmsb+vnZEIlP+LVd0g==,type:str]
+  KOPIA_PASSWORD: ENC[AES256_GCM,data:SnfkyKE5iXCt8/09hwvcc8RnOFEhNySofPMDmiAc6Jg=,iv:fmZIcE/dQjKW/pJlBP1NN+ylR+9/cdgptWG7aAHFhhI=,tag:Eu3gcsSlAm2DVKml5HFt8A==,type:str]
+  AWS_ACCESS_KEY_ID: ENC[AES256_GCM,data:pw/VXKB+70f5RKC7iJhpI+S6VSg=,iv:PP9WicEcQdkRVwpYgKeYZkkXGJxmotVoxCFVo3F7HeM=,tag:nrbH2+VnQh8S+KHzruF8cg==,type:str]
+  AWS_SECRET_ACCESS_KEY: ENC[AES256_GCM,data:moZCxYfO7vU91hZKRW8hP6hdvjxcfvO9q1P3jU6DDNn6Cu3bJ+2oRQ==,iv:sd6lT7fpmvSezUnqY5SCC4Dn6GZ30MJwlTpgVQXv+Mc=,tag:dndQk/XKKDfOIvd+mGuhIA==,type:str]
   UI_USER: ENC[AES256_GCM,data:0zLvbhc=,iv:GwrGpOTKA/7l/eSw3tBX2+Ot9NMRp5Pe+oWAP+N+EOY=,tag:gk/9zH3oveJckoAHvPjNQQ==,type:str]
   UI_PASS: ENC[AES256_GCM,data:uUAFPoX4KjvDLagtqD8=,iv:389VexNTAFyaTVjRbA3ZszCBF/Am33gskrBXxl4kzmQ=,tag:kzkD32c6MP9TWSTUjuI3vw==,type:str]
 sops:
@@ -22,6 +22,6 @@ sops:
         -----END AGE ENCRYPTED FILE-----
       recipient: age1k5cr4cvs4atdm3gse77vq4glnv9q49gq5wl49p9806gfyfld7p3setz3tw
   encrypted_regex: ^(data|stringData)$
-  lastmodified: "2026-07-03T21:43:30Z"
-  mac: ENC[AES256_GCM,data:Z4rS1lPQDRxFcedhLCixKERJcAnbi23+xhpIMJXfthsFRW/KNyhIw9hccvOv/HjuQQF6Pq7lWWMTyXw6DEukqinENeP4Q2Gi4aX4e03VPPPD5KUYFZ9hR9VpNf1gzXdD1zP0ZvUUoOVQgGBtJ/kNCYGd9KpWl6MVV5ajOGZp+HE=,iv:RkZqRAqu9qwjmcUV/0UfNJFes7gDFDnWXnVNw26a5TE=,tag:7oZA03QZzFBPgxMKRJlCxw==,type:str]
+  lastmodified: "2026-07-03T22:55:30Z"
+  mac: ENC[AES256_GCM,data:+u+ePR2+EdQ70u7RhpQ4BdbPIKfp9E9bIMkZ8sTOkRSTynVgo66AewH1bGZuPZboUZRvZzY28fnOlVmEFzTRKEjy53pXehYTUWCkiSdnoWBcy5jMY8YwmMtwUxbXDiinWEFS6kkq7Aod/aZ04uwcTIsCtTDGW7ZfjGL8gfJUZL4=,iv:IEyVuvsD7aQjUiWSHM48SUueT9uF9wVwNsQKqi5sjM8=,tag:naaBlxne1ukAT7PhTcavgg==,type:str]
   version: 3.13.1

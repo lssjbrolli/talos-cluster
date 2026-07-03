@@ -10,9 +10,7 @@ spec:
   backend:
     s3:
       bucket: ctcadmin
-      prefix: "" # bucket root, maximum dedup across tenants
-      endpoint: minio.kube-system.svc.cluster.local:9000
-      region: eu-east
+      endpoint: rustfs.kube-system.svc.cluster.local:9000
       tls:
         disableTls: true
       auth:

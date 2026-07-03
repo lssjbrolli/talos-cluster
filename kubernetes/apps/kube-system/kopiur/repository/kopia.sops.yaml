@@ -6,11 +6,10 @@ metadata:
 stringData:
   #ENC[AES256_GCM,data:7AAND4QuKTwkUSA1Hn4d+UevZCQLjxYD+SSJ8DPi,iv:8InNm5Sxaxa7IFYYwM7OapFI1e7rGa8rO2tb+2yFcR8=,tag:HjMSFBVAf8PcJBq9ybLD/w==,type:comment]
   KOPIA_PASSWORD: ENC[AES256_GCM,data:rNbz9w==,iv:9sMCJ9lVbob2BEKrxt58Hkb9g870FnbBHfIaeke7NSk=,tag:dn5KcAfMVzNkL0GAVRY2EQ==,type:str]
-  AWS_ACCESS_KEY_ID: ENC[AES256_GCM,data:cVXkjvpSY/nTJru5Pgu8bevimjw=,iv:7TbtriIwxbKGLImI16arFnAzKrK0pEQj6SRQHACbqtU=,tag:fdiVC0+0Eg6TJUBoVHWjvA==,type:str]
-  AWS_SECRET_ACCESS_KEY: ENC[AES256_GCM,data:4PDh7zleTBiYkL1VulQ1dFYYqUH3k31y9reDt/uuFhFG2NkVbL9Prw==,iv:2RTDdh9Zfoi8EF6Lk6pimBruyU9P6ieChkku06Vsgrk=,tag:dhVk5f8sBuh9KiXZdMxhNQ==,type:str]
+  AWS_ACCESS_KEY_ID: ENC[AES256_GCM,data:1PsH/Oq+0vqQpkJJ9u3a3hTk+7A=,iv:8rK3P0PcHL7W5q3+MrZCRBtF8EHMDDSf5QZKxhqwjVQ=,tag:a3AFhUA5DIUApxNXFttoAg==,type:str]
+  AWS_SECRET_ACCESS_KEY: ENC[AES256_GCM,data:qDsTHha/JBBTHfbaiea8CZkVYNDTnM+XacQ6dqvepAiEbPK8UiTZuQ==,iv:220GD64l+FsF7hiYyhKOsXcfs2kvL28Xri2cwKgW5go=,tag:S2GnHmsb+vnZEIlP+LVd0g==,type:str]
   UI_USER: ENC[AES256_GCM,data:0zLvbhc=,iv:GwrGpOTKA/7l/eSw3tBX2+Ot9NMRp5Pe+oWAP+N+EOY=,tag:gk/9zH3oveJckoAHvPjNQQ==,type:str]
   UI_PASS: ENC[AES256_GCM,data:uUAFPoX4KjvDLagtqD8=,iv:389VexNTAFyaTVjRbA3ZszCBF/Am33gskrBXxl4kzmQ=,tag:kzkD32c6MP9TWSTUjuI3vw==,type:str]
-  TEST: ENC[AES256_GCM,data:B0EGJA==,iv:91r2DrKIgi0MaWcUBhmru4s0zvX/0jBsS63e2vEYZ+Q=,tag:NGisg/AOjKvTBXx63/Nt4Q==,type:str]
 sops:
   age:
     - enc: |
@@ -23,6 +22,6 @@ sops:
         -----END AGE ENCRYPTED FILE-----
       recipient: age1k5cr4cvs4atdm3gse77vq4glnv9q49gq5wl49p9806gfyfld7p3setz3tw
   encrypted_regex: ^(data|stringData)$
-  lastmodified: "2026-06-28T08:27:46Z"
-  mac: ENC[AES256_GCM,data:DIlQ4G6zU61li8yO9rZPNOOcBj9KMsFsqd+/H6rne5sCN50LxjnWp05kx2UzYIkjMnSCR0pOIvMFvatzVOC4ZJmmNec7Hwwe5cMEnw9O89xo4dViBb52UxbGNNmklE54FM3TNtWZaixWxbvQDYjFj1pLF5KFGhL3QCNkuIOCfNs=,iv:BP62rldIINGkrQkkXdrCn6bhNebhzt/9ovXbGCVruOU=,tag:OGMxL+iBuWSWzh5ikGu8pw==,type:str]
+  lastmodified: "2026-07-03T21:43:30Z"
+  mac: ENC[AES256_GCM,data:Z4rS1lPQDRxFcedhLCixKERJcAnbi23+xhpIMJXfthsFRW/KNyhIw9hccvOv/HjuQQF6Pq7lWWMTyXw6DEukqinENeP4Q2Gi4aX4e03VPPPD5KUYFZ9hR9VpNf1gzXdD1zP0ZvUUoOVQgGBtJ/kNCYGd9KpWl6MVV5ajOGZp+HE=,iv:RkZqRAqu9qwjmcUV/0UfNJFes7gDFDnWXnVNw26a5TE=,tag:7oZA03QZzFBPgxMKRJlCxw==,type:str]
   version: 3.13.1

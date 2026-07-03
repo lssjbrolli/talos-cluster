@@ -94,7 +94,7 @@ spec:
                   port: 2283
 
     machine-learning:
-      enabled: true
+      enabled: false
       persistence:
         cache:
           enabled: true
@@ -102,4 +102,3 @@ spec:
           retain: true
           accessMode: ReadWriteOnce
           type: persistentVolumeClaim
-

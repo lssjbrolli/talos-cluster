@@ -6,6 +6,8 @@ metadata:
   name: &app rustfs
   namespace: flux-system
 spec:
+  components:
+    - "../../../../components/local"
   interval: 30m
   path: ./kubernetes/apps/kube-system/rustfs/app
   prune: true

@@ -12,6 +12,9 @@ spec:
   path: ./kubernetes/apps/storage-system/rustfs/app
   prune: true
   wait: true
+  dependsOn:
+    - name: openebs
+      namespace: storage-system
   postBuild:
     substituteFrom:
       - name: cluster-secrets

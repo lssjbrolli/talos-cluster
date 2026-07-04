@@ -33,7 +33,7 @@ spec:
     namespace: storage-system
   moverDefaults:
     cache:
-      capacity: 2Gi
+      capacity: ${KOPIUR_CACHE:=2Gi}
       mode: Ephemeral
     podSecurityContext:
       fsGroup: 568

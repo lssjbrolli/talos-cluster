@@ -27,6 +27,7 @@ spec:
       NS: kube-apps
       KOPIUR_CAPACITY: 50Gi
       KOPIUR_SCHED: "H */12 * * *"
+      KOPIUR_CACHE: 20Gi
       VOLUME: media
   sourceRef:
     kind: GitRepository

@@ -30,6 +30,7 @@ spec:
       PVC_NAME: "library"
       KOPIUR_SCHED: "H */12 * * *"
       KOPIUR_CAPACITY: 100Gi
+      KOPIUR_CACHE: 20Gi
   sourceRef:
     kind: GitRepository
     name: flux-system

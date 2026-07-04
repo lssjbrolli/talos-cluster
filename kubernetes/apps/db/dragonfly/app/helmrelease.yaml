@@ -23,6 +23,7 @@ spec:
       capabilities: { drop: ["ALL"] }
     storage:
       enabled: true
+      requests: 100Mi
     extraArgs:
       - --maxmemory=1Gi
       - --proactor_threads=3
@@ -56,4 +57,3 @@ spec:
       type: LoadBalancer
       # -- Load balancer static ip to use when service type is set to LoadBalancer
       loadBalancerIP: "192.168.1.132"
-

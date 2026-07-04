@@ -70,11 +70,11 @@ spec:
               - name: ATTACHMENTS_FOLDER
                 value: data/attachments
               - name: DOMAIN
-                value: "https://vaultwarden.${SECRET_EXTERNAL_DOMAIN}"
+                value: "https://vaultwarden.${SECRET_DOMAIN}"
               - name: TZ
-                value:  "${TIMEZONE}"
+                value: "${TIMEZONE}"
               - name: SIGNUPS_ALLOWED
-                value: 'false'
+                value: "false"
               - name: PUSH_ENABLED
                 value: "true"
               - name: PUSH_INSTALLATION_ID
@@ -90,11 +90,11 @@ spec:
               - name: PUSH_IDENTITY_URI
                 value: https://identity.bitwarden.eu
               - name: INVITATION_ORG_NAME
-                value: 'seganet'
+                value: "seganet"
               - name: LOG_LEVEL
-                value: 'warn'
+                value: "warn"
               - name: EXPERIMENTAL_CLIENT_FEATURE_FLAGS
-                value: 'autofill-v2,ssh-key-vault-item,ssh-agent'
+                value: "autofill-v2,ssh-key-vault-item,ssh-agent"
               # - name: ADMIN_TOKEN
               #   value: 'sega'
               # TODO: configure smtp

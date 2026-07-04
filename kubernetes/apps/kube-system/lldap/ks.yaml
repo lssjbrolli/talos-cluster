@@ -17,6 +17,8 @@ spec:
     substituteFrom:
       - name: cluster-secrets
         kind: Secret
+      - name: cluster-config
+        kind: ConfigMap
   sourceRef:
     kind: GitRepository
     name: flux-system

@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: plexconfig
+  namespace: media
+stringData:
+  claim: ENC[AES256_GCM,data:YnAdtVNTdQRTtyG3Ik4Nc6ltsICs+DXCOak=,iv:O5Waci5VzdAjBpBGTHc4zG0hpuO4fAdfFX4GfUmV57Y=,tag:9RTpNOFUSXc4j9KwPTHtoA==,type:str]
+sops:
+  age:
+    - enc: |
+        -----BEGIN AGE ENCRYPTED FILE-----
+        YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBVeUF3UmZSWFQwcFRPajBq
+        RytEU3NPR0NrcHhnZnZTcTJpV3owV0Y0VENjCjNwN2RTZUpTTDk1a2ZET0txSnU5
+        NUxLczlOdFV2K2NMbDZSRXFzdXYvdWcKLS0tIGJaUEFFZzdMTkxocEkyc0ZTUEpI
+        UkFKMDZZb202SGtoTDdTRG1KWWxwRW8Kz7K2vq0EEyo/+035IzS5Buw8JEgjxT34
+        zT503wOGVYxbAFmNfoGs2v00+4csDdCtCGDcrIP/lsj0W2WaDu3vHA==
+        -----END AGE ENCRYPTED FILE-----
+      recipient: age1k5cr4cvs4atdm3gse77vq4glnv9q49gq5wl49p9806gfyfld7p3setz3tw
+  encrypted_regex: ^(data|stringData)$
+  lastmodified: "2026-07-04T23:40:31Z"
+  mac: ENC[AES256_GCM,data:XIfvkUYR4UmdbyOwhoxVYeJB7zcqSOP3B0BGF+4R9ePsvzBvCSDZEzf/qTJCehh4jekyyv88XigqOhtFdb20lJjqMzuvIKRt+yDPL2RjTDrMN0BNUXoBW4wfhUguf2jUn1PxkeEAx9O0kJnVPtDlURg7VrC4o/D6kTZzrKsU5/Q=,iv:aZFZV9+wqoBHB21U6ZLQDbN7MzkG2Pw3P4wamMtWrRY=,tag:nmEO9Q22O50IP/62vjW1Sg==,type:str]
+  version: 3.13.2

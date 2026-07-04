@@ -7,5 +7,13 @@ components:
   - ../../components/common
 resources:
   - ./audiobookshelf/ks.yaml
+  - ./bindery/ks.yaml
   - ./cross-seed/ks.yaml
+  - ./plex/ks.yaml
+  - ./profilarr/ks.yaml
+  - ./prowlarr/ks.yaml
+  - ./radarr/ks.yaml
+  - ./seerr/ks.yaml
+  - ./sonarr/ks.yaml
+  - ./tautulli/ks.yaml
   - ./namespace.yaml

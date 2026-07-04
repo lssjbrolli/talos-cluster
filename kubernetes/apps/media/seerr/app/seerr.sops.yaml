@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: seerr-secrets
+  namespace: media
+stringData:
+  INIT_POSTGRES_DBNAME: ENC[AES256_GCM,data:0ABDG6o=,iv:Awz5Knv9G8jG7nInZPt61M/qZBIiONIeyV04eC6ClHw=,tag:kcytGWwlkpECwtTA/VsKoQ==,type:str]
+  INIT_POSTGRES_HOST: ENC[AES256_GCM,data:ptcgQu2N3fiiDcX6dDwnXnANh7i5IHpDx+OeZ5hp4omP,iv:EQI6JC3jmdLzzLQ9C7PytSBl/r+AurholFuPOHvzuRY=,tag:tZoH6MsnsOTsJN3mQipr5g==,type:str]
+  INIT_POSTGRES_USER: ENC[AES256_GCM,data:td9tWg==,iv:80rG+mdl4oBw6UaKJYmobyGLNKsdj/myXv2IUPRhRcA=,tag:VBw2lcbBQFyztblm0Q2CYw==,type:str]
+  INIT_POSTGRES_PASS: ENC[AES256_GCM,data:8FgcMw==,iv:mXzAD7is8jwtOo6uwzobCvT6cCMR+FcLsTbFsDn5g5Q=,tag:rxt/6nbS2UJ7mw/vLvsOcQ==,type:str]
+  INIT_POSTGRES_SUPER_PASS: ENC[AES256_GCM,data:hkthNg==,iv:md0Dt8esgtd9EzevFKLuNHmSpCmtyrx/cQWVmB9y/Bo=,tag:QWdx1eQJEGEp7vBfYH1iaA==,type:str]
+sops:
+  age:
+    - enc: |
+        -----BEGIN AGE ENCRYPTED FILE-----
+        YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBzTS9sbzZsZVpwRlB3SGQz
+        Mk82QndxcE9jZHc1b0RnbmV1bDlaZlIrb0FzCjA0YUlsUzFkSVVXcTJXOWtWUEhu
+        eUd0OVVPcDRuR2V3eWN6L3JyYitvZ0UKLS0tIHZNL21PdXNaa0E5QjJSSkcwck5q
+        YkNBQWptejllbDY0QTRtSi83WUh6QWsKoYtpdx9tY3wfVOu4ZsE2mTGWhzFxPJnY
+        AwEBbroCGhRDlAb3F3uxvvgxHBoailgl2lfKIHq0r0Dyvn52Wnd1oA==
+        -----END AGE ENCRYPTED FILE-----
+      recipient: age1k5cr4cvs4atdm3gse77vq4glnv9q49gq5wl49p9806gfyfld7p3setz3tw
+  encrypted_regex: ^(data|stringData)$
+  lastmodified: "2026-07-04T23:44:34Z"
+  mac: ENC[AES256_GCM,data:bZW97scWlGn1qdre1LF8aKypGziVnA/A5BCRQklcZRVcKpAUpI8j0wrOFVXdrJjLiQ0+q/efMrdWM2xy4ai6PdsMQC4Gnd2VaZtkF9iVg0rdJito0aT0Yywi+oRHccxbPPJWpjWeJGOeRML5Q7aCtURBixZvbOMAjmHGOoFZzzI=,iv:F1YqvSuk7G27KmR1LqW+HtSvLR7MNdaMRYMagENz/hk=,tag:lejmBYS1RnMe3MjWn3Y8SA==,type:str]
+  mac_only_encrypted: true
+  version: 3.13.2

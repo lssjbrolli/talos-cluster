@@ -13,7 +13,7 @@ spec:
   prune: false # never should be deleted
   dependsOn:
     - name: kopiur
-      namespace: kube-system
+      namespace: storage-system
   postBuild:
     substituteFrom:
       - name: cluster-secrets

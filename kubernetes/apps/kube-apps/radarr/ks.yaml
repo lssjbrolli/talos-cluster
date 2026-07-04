@@ -15,7 +15,7 @@ spec:
   wait: true
   dependsOn:
     - name: kopiur
-      namespace: kube-system
+      namespace: storage-system
     - name: cluster17
       namespace: db
   postBuild:

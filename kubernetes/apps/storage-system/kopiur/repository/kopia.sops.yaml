@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: kopia
-  namespace: kube-system
+  namespace: storage-system
 stringData:
   #ENC[AES256_GCM,data:7AAND4QuKTwkUSA1Hn4d+UevZCQLjxYD+SSJ8DPi,iv:8InNm5Sxaxa7IFYYwM7OapFI1e7rGa8rO2tb+2yFcR8=,tag:HjMSFBVAf8PcJBq9ybLD/w==,type:comment]
   KOPIA_PASSWORD: ENC[AES256_GCM,data:SnfkyKE5iXCt8/09hwvcc8RnOFEhNySofPMDmiAc6Jg=,iv:fmZIcE/dQjKW/pJlBP1NN+ylR+9/cdgptWG7aAHFhhI=,tag:Eu3gcsSlAm2DVKml5HFt8A==,type:str]
@@ -22,6 +22,6 @@ sops:
         -----END AGE ENCRYPTED FILE-----
       recipient: age1k5cr4cvs4atdm3gse77vq4glnv9q49gq5wl49p9806gfyfld7p3setz3tw
   encrypted_regex: ^(data|stringData)$
-  lastmodified: "2026-07-03T22:55:30Z"
-  mac: ENC[AES256_GCM,data:+u+ePR2+EdQ70u7RhpQ4BdbPIKfp9E9bIMkZ8sTOkRSTynVgo66AewH1bGZuPZboUZRvZzY28fnOlVmEFzTRKEjy53pXehYTUWCkiSdnoWBcy5jMY8YwmMtwUxbXDiinWEFS6kkq7Aod/aZ04uwcTIsCtTDGW7ZfjGL8gfJUZL4=,iv:IEyVuvsD7aQjUiWSHM48SUueT9uF9wVwNsQKqi5sjM8=,tag:naaBlxne1ukAT7PhTcavgg==,type:str]
-  version: 3.13.1
+  lastmodified: "2026-07-04T19:29:21Z"
+  mac: ENC[AES256_GCM,data:89AqgiW3aeqlOIOPkg06RtIPYX81udHvpBQSc4s97r+bT5hYDpbmHJ2cL9F5eH4IlNtWlMEmYIC3Vja1fmKDF5kaYnX/Oanr2ZPXOI7xuL06fwR7hlBPqgj3w8I/JM6Z0xo0eiCYK2CGz8G1oYr5dXa+joZUOGT9pFkvDldCCec=,iv:4T6N9hhgtYSH6m1WV1SDGKJunaHGrysZENZgoGzIPl8=,tag:FgAuzgZaj/IKBlBnggmbgg==,type:str]
+  version: 3.13.2

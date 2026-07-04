@@ -12,7 +12,7 @@ spec:
   path: ./kubernetes/apps/kube-system/authelia/app
   dependsOn:
     - name: kopiur
-      namespace: kube-system
+      namespace: storage-system
     - name: cluster17
       namespace: db
   postBuild:

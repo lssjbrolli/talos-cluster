@@ -7,10 +7,10 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1h
-  path: ./kubernetes/apps/kube-system/kopiur/app
+  path: ./kubernetes/apps/storage-system/kopiur/app
   dependsOn:
     - name: rustfs
-      namespace: kube-system
+      namespace: storage-system
   postBuild:
     substituteFrom:
       - name: cluster-secrets
@@ -20,7 +20,7 @@ spec:
     kind: GitRepository
     name: flux-system
     namespace: flux-system
-  targetNamespace: kube-system
+  targetNamespace: storage-system
   wait: false
 ---
 # yaml-language-server: $schema=https://k8s-schemas.home-operations.com/kustomize.toolkit.fluxcd.io/kustomization_v1.json
@@ -31,10 +31,10 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1h
-  path: ./kubernetes/apps/kube-system/kopiur/repository
+  path: ./kubernetes/apps/storage-system/kopiur/repository
   dependsOn:
     - name: kopiur
-      namespace: kube-system
+      namespace: storage-system
   postBuild:
     substituteFrom:
       - name: cluster-secrets
@@ -44,5 +44,5 @@ spec:
     kind: GitRepository
     name: flux-system
     namespace: flux-system
-  targetNamespace: kube-system
+  targetNamespace: storage-system
   wait: false

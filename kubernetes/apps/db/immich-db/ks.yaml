@@ -12,7 +12,7 @@ spec:
     - name: cnpg
     - name: plugin-barman-cloud
     - name: rustfs
-      namespace: kube-system
+      namespace: storage-system
   postBuild:
     substituteFrom:
       - name: cluster-settings

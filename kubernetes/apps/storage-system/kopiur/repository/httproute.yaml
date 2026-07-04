@@ -14,5 +14,5 @@ spec:
   rules:
     - backendRefs:
         - name: kopia-repo-kopia-ui
-          namespace: kube-system
+          namespace: storage-system
           port: 80

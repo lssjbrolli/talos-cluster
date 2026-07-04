@@ -10,13 +10,13 @@ spec:
   backend:
     s3:
       bucket: kopia
-      endpoint: rustfs.kube-system.svc.cluster.local:9000
+      endpoint: rustfs.storage-system.svc.cluster.local:9000
       tls:
         disableTls: true
       auth:
         secretRef:
           name: kopia
-          namespace: kube-system # explicit ns required for cluster scope
+          namespace: storage-system # explicit ns required for cluster scope
   create:
     enabled: true
   credentialProjection:
@@ -24,13 +24,13 @@ spec:
   encryption:
     passwordSecretRef:
       name: kopia
-      namespace: kube-system
+      namespace: storage-system
       key: KOPIA_PASSWORD
   identityDefaults:
     hostnameExpr: namespace
     usernameExpr: namespace + '-' + policyName
   maintenance:
-    namespace: kube-system
+    namespace: storage-system
   moverDefaults:
     cache:
       capacity: 2Gi
@@ -47,7 +47,7 @@ spec:
       enabled: true
       interval: 15m
   server:
-    namespace: kube-system
+    namespace: storage-system
     auth:
       secretRef: { name: kopia, usernameKey: UI_USER, passwordKey: UI_PASS }
     service:

@@ -13,8 +13,8 @@ spec:
   prune: true
   wait: false
   dependsOn:
-    - name: rustfs
-      namespace: kube-system
+    - name: kopiur
+      namespace: storage-system
     - name: cluster17
       namespace: db
   postBuild:

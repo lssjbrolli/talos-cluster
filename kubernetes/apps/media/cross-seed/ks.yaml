@@ -15,7 +15,7 @@ spec:
   wait: true
   dependsOn:
     - name: kopiur
-      namespace: kube-system
+      namespace: storage-system
   postBuild:
     substituteFrom:
       - name: cluster-secrets

@@ -16,6 +16,8 @@ spec:
     substituteFrom:
       - name: cluster-secrets
         kind: Secret
+      - name: cluster-config
+        kind: ConfigMap
     substitute:
       APP: *app
       NS: kube-system

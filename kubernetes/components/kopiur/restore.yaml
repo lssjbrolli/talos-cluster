@@ -13,5 +13,9 @@ spec:
     fromPolicy:
       name: ${APP}
       offset: 0
+  mover:
+    cache:
+      capacity: ${KOPIUR_CACHE:=2Gi}
+      mode: Ephemeral
   target:
     populator: {}

@@ -32,9 +32,6 @@ spec:
   maintenance:
     namespace: storage-system
   moverDefaults:
-    cache:
-      capacity: ${KOPIUR_CACHE:=2Gi}
-      mode: Ephemeral
     podSecurityContext:
       fsGroup: 568
       fsGroupChangePolicy: OnRootMismatch

@@ -62,7 +62,12 @@ spec:
             lifecycle:
               postStart:
                 exec:
-                  command: ["/bin/sh", "-c", "(ip rule del table 51820; ip -6 rule del table 51820) || true"]
+                  command:
+                    [
+                      "/bin/sh",
+                      "-c",
+                      "(ip rule del table 51820; ip -6 rule del table 51820) || true",
+                    ]
             env:
               #required
               - name: VPN_SERVICE_PROVIDER
@@ -192,7 +197,7 @@ spec:
                 value: "https://mh.${SECRET_DOMAIN},http://localhost:5010"
 
           alpine:
-            image: 
+            image:
               repository: alpine
               tag: latest
             command: ["sleep", "infinity"]
@@ -281,7 +286,7 @@ spec:
       wg-config:
         type: persistentVolumeClaim
         accessMode: ReadWriteOnce
-        size: 10M
+        size: 10Mi
         retain: true
         forceRename: wg-config
         advancedMounts:
@@ -293,7 +298,7 @@ spec:
       mousehole:
         type: persistentVolumeClaim
         accessMode: ReadWriteOnce
-        size: 10M
+        size: 10Mi
         advancedMounts:
           main:
             mousehole:

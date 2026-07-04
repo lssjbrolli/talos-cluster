@@ -69,6 +69,6 @@ spec:
         type: persistentVolumeClaim
         accessMode: ReadWriteOnce
         suffix: cache
-        size: 512Mi
+        size: 500Mi
         globalMounts:
           - path: /config/cache

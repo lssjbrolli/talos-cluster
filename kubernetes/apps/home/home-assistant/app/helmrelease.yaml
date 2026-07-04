@@ -51,7 +51,7 @@ spec:
               - path: /config
       hass-cache:
         accessMode: ReadWriteOnce
-        size: "1Gi"
+        size: 1Gi
         advancedMounts:
           home-assistant:
             app:

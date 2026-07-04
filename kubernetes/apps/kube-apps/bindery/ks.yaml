@@ -25,7 +25,7 @@ spec:
     substitute:
       APP: *app
       NS: kube-apps
-      KOPIUR_CAPACITY: 512Mi
+      KOPIUR_CAPACITY: 500Mi
       VOLUME: media
   sourceRef:
     kind: GitRepository

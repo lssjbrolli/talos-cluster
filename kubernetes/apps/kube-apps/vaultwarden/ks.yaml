@@ -26,6 +26,7 @@ spec:
     substitute:
       APP: *app
       KOPIUR_SCHED: "H */12 * * *"
+      KOPIUR_CAPACITY: 500Mi
   sourceRef:
     kind: GitRepository
     name: flux-system

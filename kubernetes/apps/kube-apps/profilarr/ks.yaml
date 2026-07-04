@@ -23,7 +23,7 @@ spec:
         kind: ConfigMap
     substitute:
       APP: *app
-      KOPIUR_CAPACITY: 512Mi
+      KOPIUR_CAPACITY: 500Mi
       KOPIUR_SCHED: "H 0 * * *"
   sourceRef:
     kind: GitRepository

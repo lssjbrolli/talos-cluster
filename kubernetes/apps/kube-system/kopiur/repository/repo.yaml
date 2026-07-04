@@ -33,7 +33,7 @@ spec:
     namespace: kube-system
   moverDefaults:
     cache:
-      capacity: 10Gi
+      capacity: 2Gi
       mode: Ephemeral
     podSecurityContext:
       fsGroup: 568

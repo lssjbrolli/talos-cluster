@@ -1,35 +1,27 @@
+#!/usr/bin/env -S just --justfile
+
+set default-list
+set default-script
+set lazy
 set quiet
 set shell := ['bash', '-euo', 'pipefail', '-c']
-set script-interpreter := ['bash', '-euo', 'pipefail']
 
-[group: 'bootstrap']
-mod? bootstrap 'bootstrap'
+# Bootstrap Recipes
+[group: 'Bootstrap']
+mod bootstrap "bootstrap"
 
-[group: 'kubernetes']
-mod? kube 'kubernetes'
+# Kube Recipes
+[group: 'Kube']
+mod kube "kubernetes"
 
-[group: 'talos']
-mod? talos 'talos'
-
-[private]
-default:
-    just -l
+# Talos Recipes
+[group: 'Talos']
+mod talos "talos"
 
 [private]
 log lvl msg *args:
     gum log -t rfc3339 -s -l "{{ lvl }}" "{{ msg }}" {{ args }}
 
-
-
-[group: 'template']
-mod template 'template'
-
-[doc('Render and validate configuration files')]
-[group('template')]
-configure:
-    just template configure
-
-[doc('Initialize configuration files (cluster.toml, age key, deploy key, push token)')]
-[group('template')]
-init:
-    just template init
+[private]
+template file *args:
+    minijinja-cli "{{ file }}" {{ args }} | vals eval -f -

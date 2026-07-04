@@ -17,7 +17,7 @@ spec:
   sources:
     - pvc:
         name: ${APP}-${PVC_NAME:=config}
-  verification:
-    quick:
-      schedule: { cron: "H 10 * * *", jitter: 1h, timezone: "${TIMEZONE}" }
+  # verification:
+  #   quick:
+  #     schedule: { cron: "H 10 * * *", jitter: 1h, timezone: "${TIMEZONE}" }
   volumeSnapshotClassName: zfs-snap

@@ -13,10 +13,6 @@ spec:
     - name: plugin-barman-cloud
     - name: rustfs
       namespace: storage-system
-  postBuild:
-    substituteFrom:
-      - name: cluster-settings
-        kind: ConfigMap
   sourceRef:
     kind: GitRepository
     name: flux-system

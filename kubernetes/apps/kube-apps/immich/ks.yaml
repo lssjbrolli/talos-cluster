@@ -28,7 +28,7 @@ spec:
     substitute:
       APP: *app
       PVC_NAME: "library"
-      VOLSYNC_SCHED: "0 */12 * * *"
+      KOPIUR_SCHED: "H */12 * * *"
       KOPIUR_CAPACITY: 100Gi
   sourceRef:
     kind: GitRepository

@@ -8,7 +8,7 @@ spec:
   policyRef:
     name: ${APP}
   schedule:
-    cron: H */6 * * *
+    cron: ${KOPIUR_SCHED:="H */6 * * *"}
     jitter: 30m
     timezone: ${TIMEZONE}
     runOnCreate: false

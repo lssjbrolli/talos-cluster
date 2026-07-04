@@ -25,7 +25,7 @@ spec:
     substitute:
       APP: *app
       NS: kube-apps
-      VOLSYNC_SCHED: "0 */12 * * *"
+      KOPIUR_SCHED: "H */12 * * *"
       VOLUME: media
   sourceRef:
     kind: GitRepository

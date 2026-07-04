@@ -24,7 +24,7 @@ spec:
     substitute:
       APP: *app
       NS: storage-system
-      VOLSYNC_SCHED: "0 */3 * * *"
+      KOPIUR_SCHED: "H */3 * * *"
       VOLUME: minio
   sourceRef:
     kind: GitRepository

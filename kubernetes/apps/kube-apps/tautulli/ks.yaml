@@ -23,7 +23,7 @@ spec:
         kind: ConfigMap
     substitute:
       APP: *app
-      VOLSYNC_SCHED: "0 */12 * * *"
+      KOPIUR_SCHED: "H */12 * * *"
   sourceRef:
     kind: GitRepository
     name: flux-system

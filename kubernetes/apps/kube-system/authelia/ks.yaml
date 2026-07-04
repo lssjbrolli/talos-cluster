@@ -11,8 +11,8 @@ spec:
   interval: 1h
   path: ./kubernetes/apps/kube-system/authelia/app
   dependsOn:
-    - name: volsync
-      namespace: storage-system
+    - name: kopiur
+      namespace: kube-system
     - name: cluster17
       namespace: db
   postBuild:
@@ -22,7 +22,7 @@ spec:
     substitute:
       APP: *app
       NS: kube-system
-      VOLSYNC_CAPACITY: 200Mi
+      KOPIUR_CAPACITY: 200Mi
   prune: true
   sourceRef:
     kind: GitRepository

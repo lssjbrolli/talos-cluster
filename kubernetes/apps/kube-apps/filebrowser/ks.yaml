@@ -14,8 +14,8 @@ spec:
   prune: true
   wait: true
   dependsOn:
-    - name: volsync
-      namespace: storage-system
+    - name: kopiur
+      namespace: kube-system
   postBuild:
     substituteFrom:
       - name: cluster-secrets
@@ -25,7 +25,7 @@ spec:
     substitute:
       APP: *app
       NS: kube-apps
-      VOLSYNC_CAPACITY: 200Mi
+      KOPIUR_CAPACITY: 200Mi
       VOLSYNC_SCHED: "0 0 * * 6"
       VOLUME: media
   sourceRef:

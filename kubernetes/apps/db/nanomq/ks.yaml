@@ -12,8 +12,8 @@ spec:
   path: ./kubernetes/apps/db/nanomq/app
   prune: false # never should be deleted
   dependsOn:
-    - name: volsync
-      namespace: storage-system
+    - name: kopiur
+      namespace: kube-system
   postBuild:
     substituteFrom:
       - name: cluster-secrets
@@ -23,7 +23,7 @@ spec:
     substitute:
       APP: *app
       NS: db
-      VOLSYNC_CAPACITY: 100Mi
+      KOPIUR_CAPACITY: 100Mi
   sourceRef:
     kind: GitRepository
     name: flux-system

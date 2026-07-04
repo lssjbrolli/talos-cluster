@@ -13,7 +13,7 @@ spec:
   prune: true
   wait: false
   dependsOn:
-    - name: minio
+    - name: rustfs
       namespace: kube-system
     - name: cluster17
       namespace: db
@@ -24,7 +24,7 @@ spec:
     substitute:
       APP: *app
       VOLSYNC_SCHED: "0 */3 * * *"
-      VOLSYNC_CAPACITY: 5Gi
+      KOPIUR_CAPACITY: 5Gi
   sourceRef:
     kind: GitRepository
     name: flux-system

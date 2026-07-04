@@ -14,7 +14,7 @@ resources:
   - ./kopiur/ks.yaml
   - ./lldap/ks.yaml
   - ./metrics-server/ks.yaml
-  - ./minio/ks.yaml
+  # - ./minio/ks.yaml
   - ./reloader/ks.yaml
   - ./rustfs/ks.yaml
   - ./namespace.yaml

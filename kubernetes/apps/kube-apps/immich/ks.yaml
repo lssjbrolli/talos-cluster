@@ -13,8 +13,8 @@ spec:
   prune: true
   wait: false
   dependsOn:
-    - name: volsync
-      namespace: storage-system
+    - name: kopiur
+      namespace: kube-system
     - name: cluster17
       namespace: db
     - name: dragonfly
@@ -29,7 +29,7 @@ spec:
       APP: *app
       PVC_NAME: "library"
       VOLSYNC_SCHED: "0 */12 * * *"
-      VOLSYNC_CAPACITY: 150Gi
+      KOPIUR_CAPACITY: 100Gi
   sourceRef:
     kind: GitRepository
     name: flux-system

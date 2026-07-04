@@ -13,8 +13,8 @@ spec:
   prune: true
   wait: true
   dependsOn:
-    - name: volsync
-      namespace: storage-system
+    - name: kopiur
+      namespace: kube-system
   postBuild:
     substituteFrom:
       - name: cluster-secrets
@@ -24,7 +24,7 @@ spec:
     substitute:
       APP: *app
       NS: home
-      VOLSYNC_CAPACITY: 200Mi
+      KOPIUR_CAPACITY: 200Mi
   sourceRef:
     kind: GitRepository
     name: flux-system

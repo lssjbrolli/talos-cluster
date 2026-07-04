@@ -14,8 +14,8 @@ spec:
   prune: true
   wait: true
   dependsOn:
-    - name: volsync
-      namespace: storage-system
+    - name: kopiur
+      namespace: kube-system
   postBuild:
     substituteFrom:
       - name: cluster-secrets

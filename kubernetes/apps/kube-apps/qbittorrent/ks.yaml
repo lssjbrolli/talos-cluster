@@ -14,8 +14,8 @@ spec:
   prune: true
   wait: true
   dependsOn:
-    - name: volsync
-      namespace: storage-system
+    - name: kopiur
+      namespace: kube-system
     - name: generic-device-plugin
       namespace: kube-system
   postBuild:
@@ -27,7 +27,7 @@ spec:
     substitute:
       APP: *app
       NS: kube-apps
-      VOLSYNC_CAPACITY: 512Mi
+      KOPIUR_CAPACITY: 512Mi
       RETAIN_D: "2"
       VOLUME: media
   sourceRef:

@@ -19,15 +19,11 @@ spec:
   credentialProjection:
     enabled: true
   verification:
-    deep:
+    quick:
       schedule:
-        cron: H 5 * * 0
+        cron: H 5 * * *
         jitter: 1h
         timezone: ${TIMEZONE}
-    quick:
-      cron: H 5 * * *
-      jitter: 1h
-      timezone: ${TIMEZONE}
   volumeSnapshotClassName: zfs-snap
 ---
 # yaml-language-server: $schema=https://k8s-schemas.home-operations.com/kopiur.home-operations.com/restore_v1alpha1.json

@@ -18,13 +18,9 @@ spec:
     - pvc:
         name: ${APP}-${PVC_NAME:=config}
   verification:
-    deep:
+    quick:
       schedule:
-        cron: H 5 * * 0
+        cron: H 5 * * *
         jitter: 1h
         timezone: ${TIMEZONE}
-    quick:
-      cron: H 5 * * *
-      jitter: 1h
-      timezone: ${TIMEZONE}
   volumeSnapshotClassName: zfs-snap

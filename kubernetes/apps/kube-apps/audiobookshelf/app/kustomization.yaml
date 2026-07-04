@@ -7,6 +7,3 @@ resources:
   - ./kopia-metadata.yaml
   - ./ocirepository.yaml
   - ./pvc.yaml
-  - ./restic-metadata.sops.yaml
-  - ./restic.sops.yaml
-  - ./volsync-metadata.yaml

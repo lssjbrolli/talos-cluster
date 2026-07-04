@@ -25,11 +25,7 @@ spec:
               repository: ghcr.io/tautulli/tautulli
               tag: v2.17.2@sha256:864245fb24830ef6516b5f383bf4d8ba37939ae2f0574dc0217ca02fba4301ff
             command: ["/usr/local/bin/python", "Tautulli.py"]
-            args: [
-              "--config", "/config/config.ini",
-              "--datadir", "/config",
-              "--port", "80"
-            ]
+            args: ["--config", "/config/config.ini", "--datadir", "/config", "--port", "80"]
             securityContext:
               runAsNonRoot: true
               runAsUser: 568
@@ -73,7 +69,6 @@ spec:
         type: persistentVolumeClaim
         accessMode: ReadWriteOnce
         suffix: cache
-        size: 1Gi
+        size: 512Mi
         globalMounts:
           - path: /config/cache
-

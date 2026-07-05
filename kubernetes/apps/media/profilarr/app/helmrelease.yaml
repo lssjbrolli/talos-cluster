@@ -28,7 +28,7 @@ spec:
               runAsNonRoot: true
               runAsUser: 568
               runAsGroup: 568
-              allowPrivilegeEscalation: true
+              allowPrivilegeEscalation: false
               readOnlyRootFilesystem: false
               seccompProfile:
                 type: RuntimeDefault

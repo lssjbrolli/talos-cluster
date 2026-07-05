@@ -6,7 +6,7 @@ metadata:
 spec:
   components:
     - "../../../../components/kopiur"
-  interval: 30m
+  interval: 1h
   path: ./kubernetes/apps/kube-apps/immich/app
   prune: true
   wait: false

@@ -5,7 +5,6 @@ kind: SnapshotPolicy
 metadata:
   name: ${APP}
 spec:
-  copyMethod: Snapshot
   credentialProjection:
     enabled: true
   repository:
@@ -17,7 +16,9 @@ spec:
   sources:
     - pvc:
         name: ${APP}-${PVC_NAME:=config}
-  # verification:
-  #   quick:
-  #     schedule: { cron: "H 10 * * *", jitter: 1h, timezone: "${TIMEZONE}" }
+  verification:
+    quick:
+      schedule:
+        cron: "H 10 * * *"
+        jitter: "30m"
   volumeSnapshotClassName: zfs-snap

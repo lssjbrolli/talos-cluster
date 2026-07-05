@@ -10,5 +10,4 @@ spec:
   schedule:
     cron: ${KOPIUR_SCHED:="H */6 * * *"}
     jitter: 30m
-    timezone: ${TIMEZONE}
     runOnCreate: false

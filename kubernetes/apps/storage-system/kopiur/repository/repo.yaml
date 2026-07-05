@@ -31,6 +31,8 @@ spec:
     usernameExpr: namespace + '-' + policyName
   maintenance:
     namespace: storage-system
+  scheduleDefaults:
+    timezone: ${TIMEZONE}
   moverDefaults:
     podSecurityContext:
       fsGroup: 568

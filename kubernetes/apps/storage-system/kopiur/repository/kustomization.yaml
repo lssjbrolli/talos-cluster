@@ -3,4 +3,5 @@ kind: Kustomization
 resources:
   - ./httproute.yaml
   - ./kopia.sops.yaml
+  - ./replication.yaml
   - ./repo.yaml

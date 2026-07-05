@@ -1,104 +1,12 @@
----
-# yaml-language-server: $schema=https://raw.githubusercontent.com/bernd-schorgers/helm-charts/main/charts/other/app-template/schemas/helmrelease-helm-v2.schema.json
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: immich
-  namespace: flux-system
 spec:
-  interval: 5m
+  interval: 30m
   chartRef:
     kind: OCIRepository
     name: immich
-  targetNamespace: kube-apps
-  releaseName: immich
-  values:
-    controllers:
-      main:
-        containers:
-          main:
-            image:
-              # renovate: datasource=docker depName=ghcr.io/immich-app/immich-server
-              tag: v2.7.5
-            env:
-              REDIS_HOSTNAME: dragonfly-operator.db.svc.cluster.local
-              REDIS_PORT: "6379"
-              IMMICH_MACHINE_LEARNING_URL: '{{ printf "http://%s-machine-learning:3003" .Release.Name }}'
-              MACHINE_LEARNING_PRELOAD__CLIP: "ViT-H-14-378-quickgelu__dfn5b"
-              DB_HOSTNAME:
-                valueFrom:
-                  secretKeyRef:
-                    name: immich-db
-                    key: HOSTNAME
-              DB_USERNAME:
-                valueFrom:
-                  secretKeyRef:
-                    name: immich-db
-                    key: USERNAME
-              DB_PASSWORD:
-                valueFrom:
-                  secretKeyRef:
-                    name: immich-db
-                    key: PASSWORD
-              DB_DATABASE_NAME:
-                valueFrom:
-                  secretKeyRef:
-                    name: immich-db
-                    key: DATABASE_NAME
-              LOG_LEVEL: warning
-              TZ: ${TIMEZONE}
-
-    immich:
-      metrics:
-        # Enabling this will create the service monitors needed to monitor immich with the prometheus operator
-        enabled: true
-      persistence:
-        # Main data store for all photos shared between different components.
-        library:
-          # Automatically creating the library volume is not supported by this chart
-          # You have to specify an existing PVC to use
-          existingClaim: immich-library
-      # configuration is immich-config.json converted to yaml
-      # ref: https://immich.app/docs/install/config-file/
-      #
-      configuration: {}
-      # trash:
-      #   enabled: false
-      #   days: 30
-      # storageTemplate:
-      #   enabled: true
-      #   template: "{{y}}/{{y}}-{{MM}}-{{dd}}/{{filename}}"
-
-    # Immich components
-    server:
-      enabled: true
-      controllers:
-        main:
-          containers:
-            main:
-              resources:
-                requests:
-                  cpu: 500m
-                  memory: 2048M
-      route:
-        app:
-          hostnames:
-            - "photos.${SECRET_DOMAIN}"
-          parentRefs:
-            - name: external
-              namespace: network
-              sectionName: https
-          rules:
-            - backendRefs:
-                - identifier: main
-                  port: 2283
-
-    machine-learning:
-      enabled: false
-      persistence:
-        cache:
-          enabled: true
-          size: 15Gi
-          retain: true
-          accessMode: ReadWriteOnce
-          type: persistentVolumeClaim
+  valuesFrom:
+    - kind: ConfigMap
+      name: immich

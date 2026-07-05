@@ -6,3 +6,12 @@ resources:
   - ./helmrelease.yaml
   - ./ocirepository.yaml
   - ./pg.sops.yaml
+configMapGenerator:
+  - name: immich
+    files:
+      - ./values.yaml
+    options:
+      annotations:
+        kustomize.toolkit.fluxcd.io/substitute: disabled
+generatorOptions:
+  disableNameSuffixHash: true

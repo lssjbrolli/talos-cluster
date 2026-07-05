@@ -250,6 +250,7 @@ spec:
         name: vpnconfig
         items:
           - key: wg
+            path: wg0.conf
         advancedMounts:
           main:
             gluetun:

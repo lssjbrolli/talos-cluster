@@ -30,7 +30,9 @@ spec:
               seccompProfile:
                 type: RuntimeDefault
               readOnlyRootFilesystem: true
-              capabilities: { drop: ["ALL"] }
+              capabilities:
+                drop:
+                  - "ALL"
             envFrom: &envFrom
               - secretRef:
                   name: sonarr-secrets
@@ -45,7 +47,11 @@ spec:
               runAsGroup: 568
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: false
-              capabilities: { drop: ["ALL"] }
+              seccompProfile:
+                type: RuntimeDefault
+              capabilities:
+                drop:
+                  - "ALL"
             resources:
               requests:
                 cpu: 50m

@@ -14,7 +14,7 @@ spec:
   prune: true
   wait: true
   dependsOn:
-    - name: kopiur
+    - name: kopiur-repository
       namespace: storage-system
   postBuild:
     substituteFrom:

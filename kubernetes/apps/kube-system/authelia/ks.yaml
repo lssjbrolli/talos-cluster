@@ -11,7 +11,7 @@ spec:
   interval: 1h
   path: ./kubernetes/apps/kube-system/authelia/app
   dependsOn:
-    - name: kopiur
+    - name: kopiur-repository
       namespace: storage-system
     - name: cluster17
       namespace: db

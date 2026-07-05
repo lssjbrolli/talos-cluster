@@ -12,7 +12,7 @@ spec:
   path: ./kubernetes/apps/db/nanomq/app
   prune: false # never should be deleted
   dependsOn:
-    - name: kopiur
+    - name: kopiur-repository
       namespace: storage-system
   postBuild:
     substituteFrom:

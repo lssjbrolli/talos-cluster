@@ -18,13 +18,6 @@ spec:
       main:
         annotations:
           reloader.stakater.com/auto: "true"
-        pod:
-          securityContext:
-            runAsNonRoot: true
-            runAsUser: 568
-            runAsGroup: 568
-            seccompProfile:
-              type: RuntimeDefault
         containers:
           app:
             image:
@@ -32,6 +25,17 @@ spec:
               tag: 6.13.7@sha256:a1fed512261fd968c55cb03c51cff9c6620aa76a34b3b591afca95c890aa8225
             args:
               - daemon
+            securityContext:
+              runAsNonRoot: true
+              runAsUser: 568
+              runAsGroup: 568
+              allowPrivilegeEscalation: false
+              readOnlyRootFilesystem: true
+              seccompProfile:
+                type: RuntimeDefault
+              capabilities:
+                drop:
+                  - "ALL"
             probes:
               liveness: &probes
                 enabled: true
@@ -45,10 +49,6 @@ spec:
                   timeoutSeconds: 1
                   failureThreshold: 3
               readiness: *probes
-            securityContext:
-              allowPrivilegeEscalation: false
-              readOnlyRootFilesystem: true
-              capabilities: {drop: ["ALL"]}
             resources:
               requests:
                 cpu: 10m
@@ -71,6 +71,3 @@ spec:
       media:
         type: persistentVolumeClaim
         existingClaim: cross-seed-data
-        
-
-

@@ -24,6 +24,15 @@ spec:
             image:
               repository: ghcr.io/home-operations/postgres-init
               tag: 18.4.0@sha256:ebd9d30add17acdf935d73eb004758c7dfd9388aaa605fda70ad74378ab92aec
+            securityContext:
+              runAsNonRoot: true
+              allowPrivilegeEscalation: false
+              seccompProfile:
+                type: RuntimeDefault
+              readOnlyRootFilesystem: true
+              capabilities:
+                drop:
+                  - "ALL"
             envFrom: &envFrom
               - secretRef:
                   name: radarr-secrets
@@ -38,7 +47,11 @@ spec:
               runAsGroup: 568
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: true
-              capabilities: { drop: ["ALL"] }
+              seccompProfile:
+                type: RuntimeDefault
+              capabilities:
+                drop:
+                  - "ALL"
             resources:
               requests:
                 cpu: 50m

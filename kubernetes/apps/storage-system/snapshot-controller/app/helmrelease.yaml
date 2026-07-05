@@ -14,9 +14,3 @@ spec:
         featureGates: CSIVolumeGroupSnapshot=false
       serviceMonitor:
         create: true
-    volumeSnapshotClasses:
-      - name: zfs-snap
-        annotations:
-          snapshot.storage.kubernetes.io/is-default-class: "true"
-        driver: zfs.csi.openebs.io
-        deletionPolicy: Delete

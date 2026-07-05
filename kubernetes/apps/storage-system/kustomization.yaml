@@ -10,4 +10,5 @@ resources:
   - ./openebs/ks.yaml
   - ./rustfs/ks.yaml
   - ./snapshot-controller/ks.yaml
+  - ./vsc/ks.yaml
   - ./namespace.yaml

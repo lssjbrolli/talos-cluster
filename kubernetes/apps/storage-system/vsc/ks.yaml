@@ -3,15 +3,15 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: openebs
+  name: vsc
   namespace: flux-system
 spec:
   interval: 1h
-  path: ./kubernetes/apps/storage-system/openebs/app
+  path: ./kubernetes/apps/storage-system/vsc/app
   prune: true
   wait: true
   dependsOn:
-    - name: vsc
+    - name: snapshot-controller
       namespace: storage-system
   sourceRef:
     kind: GitRepository

@@ -8,6 +8,9 @@
     "https://raw.githubusercontent.com/fluxcd-community/flux2-schemas/main/helmrelease-helm-v2.json": [
       "kubernetes/**/helmrelease.yaml"
     ],
+    "https://kubernetes-schemas.pages.dev/kustomize.toolkit.fluxcd.io/kustomization_v1.json": [
+      "kubernetes/**/ks.yaml"
+    ],
     "Kubernetes": "./kubernetes/*.yaml",
     "https://raw.githubusercontent.com/budimanjojo/talhelper/master/pkg/config/schemas/talconfig.json": "file:///home/sega/code_projects/talos-cluster/talos/talconfig.yaml"
   }

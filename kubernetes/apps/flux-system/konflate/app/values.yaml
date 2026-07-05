@@ -1,0 +1,27 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/home-operations/konflate/refs/heads/main/charts/konflate/values.schema.json
+config:
+  repo: github://lssjbrolli/talos-cluster
+  statusChecks: true
+  prComments: true
+  publicUrl: https://{{ .Release.Name }}.${SECRET_DOMAIN}
+  mcp: false
+  verifyImages: true
+secret:
+  existingSecret: konflate
+httpRoute:
+  enabled: true
+  parentRefs:
+    - name: external
+      namespace: network
+  hostnames:
+    - "{{ .Release.Name }}.${SECRET_DOMAIN}"
+monitoring:
+  serviceMonitor:
+    enabled: true
+resources:
+  requests:
+    cpu: 50m
+    memory: 128Mi
+  limits:
+    memory: 512Mi

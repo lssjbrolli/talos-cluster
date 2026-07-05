@@ -6,3 +6,12 @@ resources:
   - ./helmrelease.yaml
   - ./ocirepository.yaml
   - ./secrets.sops.yaml
+configMapGenerator:
+  - name: konflate
+    files:
+      - ./values.yaml
+    options:
+      annotations:
+        kustomize.toolkit.fluxcd.io/substitute: disabled
+generatorOptions:
+  disableNameSuffixHash: true

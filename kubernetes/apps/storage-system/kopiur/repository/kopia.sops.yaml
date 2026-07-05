@@ -6,8 +6,7 @@ metadata:
 stringData:
   #ENC[AES256_GCM,data:7AAND4QuKTwkUSA1Hn4d+UevZCQLjxYD+SSJ8DPi,iv:8InNm5Sxaxa7IFYYwM7OapFI1e7rGa8rO2tb+2yFcR8=,tag:HjMSFBVAf8PcJBq9ybLD/w==,type:comment]
   KOPIA_PASSWORD: ENC[AES256_GCM,data:SnfkyKE5iXCt8/09hwvcc8RnOFEhNySofPMDmiAc6Jg=,iv:fmZIcE/dQjKW/pJlBP1NN+ylR+9/cdgptWG7aAHFhhI=,tag:Eu3gcsSlAm2DVKml5HFt8A==,type:str]
-  KOPIA_WEBDAV_USERNAME: ENC[AES256_GCM,data:8QHC2IK024AetJy5zIWor+YUIBrY7rzXzA==,iv:YjSYPKLUnb49CFqy8jKa6zamh+c3bRKYeKu0b3uuRxA=,tag:yfEONE5HJN1BTvh2hyue5Q==,type:str]
-  KOPIA_WEBDAV_PASSWORD: ENC[AES256_GCM,data:BsovEcLc0xVpBrnCxkSqcg==,iv:xSjLgIyNX5u/oVCSTed5ZaQUGA8ntC+hOH2ysTMq/fI=,tag:9IEnfawmxNaqjoJoHjlO8Q==,type:str]
+  KOPIA_RCLONE_CONFIG: ENC[AES256_GCM,data:frXpqILehJ3+FA+UO5frUyUgJ/ppU15jN2hEbOoOGNZlP039AFeaFUINrBKvmAzxocuMEu2+ukGARqiQkA4L7y2TGfOXHOkK1U+M7Him+uAyRAfgWLOk+bOyLAp9dzZFSlklV1vA31I=,iv:56xjXQq4UD0nJaeLYPexph9cXf62gdWYpUab/XqUBkY=,tag:368MMtwcVnkn9RIJQCcotw==,type:str]
   AWS_ACCESS_KEY_ID: ENC[AES256_GCM,data:pw/VXKB+70f5RKC7iJhpI+S6VSg=,iv:PP9WicEcQdkRVwpYgKeYZkkXGJxmotVoxCFVo3F7HeM=,tag:nrbH2+VnQh8S+KHzruF8cg==,type:str]
   AWS_SECRET_ACCESS_KEY: ENC[AES256_GCM,data:moZCxYfO7vU91hZKRW8hP6hdvjxcfvO9q1P3jU6DDNn6Cu3bJ+2oRQ==,iv:sd6lT7fpmvSezUnqY5SCC4Dn6GZ30MJwlTpgVQXv+Mc=,tag:dndQk/XKKDfOIvd+mGuhIA==,type:str]
   UI_USER: ENC[AES256_GCM,data:0zLvbhc=,iv:GwrGpOTKA/7l/eSw3tBX2+Ot9NMRp5Pe+oWAP+N+EOY=,tag:gk/9zH3oveJckoAHvPjNQQ==,type:str]
@@ -24,6 +23,6 @@ sops:
         -----END AGE ENCRYPTED FILE-----
       recipient: age1k5cr4cvs4atdm3gse77vq4glnv9q49gq5wl49p9806gfyfld7p3setz3tw
   encrypted_regex: ^(data|stringData)$
-  lastmodified: "2026-07-05T19:24:27Z"
-  mac: ENC[AES256_GCM,data:eEOKdKsFVUGnzyhMtC5JB69VuT4wOW8W2ISsI5ucjzK7d/ie0BqOC4tNtr/J9PqXjc2YhYNCB+jDfsY4Z98CQyWpQYUzrvfzFPS/fBDICjvz04hz+0whNEKiITjZub1Zci73KysRUHyKpiSSqK8jq1Iu5ppn88+q0pb+wMCjxgI=,iv:EM30LgHY3iQ7FQr+MPjQ1g/KYLxSjkqLanYluVTMcuo=,tag:MVbK8QRfNeF/jdnXy0GyHQ==,type:str]
+  lastmodified: "2026-07-05T19:57:17Z"
+  mac: ENC[AES256_GCM,data:EYrJsjsOWm3tKddj+Hgy/d00yq59VStyGOJ13z6q4WtKsqSsRXsQwJOqVeatIZJnnGW5vsQ8HjJ6SWKaP9LFKxVWBsbSIKbmSLg++IpAqcIFq8+jkNXgJwrY2QuWjISQxtPSZmx7IEwLl1ThgfmzLUZGHXCJynktnqpJNKzHa3Q=,iv:hp8iFC/cJ3tTkw2oYE6VKRTDCgXysIv4y2YXr0gcPC0=,tag:s5DYkEJhCEzgZxHLSPdASg==,type:str]
   version: 3.13.2

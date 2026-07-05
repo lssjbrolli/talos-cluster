@@ -256,7 +256,6 @@ spec:
           main:
             gluetun:
               - path: /gluetun/wireguard/
-                subPath: wg0.conf
       mousehole:
         type: persistentVolumeClaim
         accessMode: ReadWriteOnce

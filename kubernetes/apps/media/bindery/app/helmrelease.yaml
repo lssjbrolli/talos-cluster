@@ -30,7 +30,11 @@ spec:
               runAsGroup: 568
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: true
-              capabilities: { drop: ["ALL"] }
+              seccompProfile:
+                type: RuntimeDefault
+              capabilities:
+                drop:
+                  - "ALL"
             resources:
               requests:
                 cpu: 50m

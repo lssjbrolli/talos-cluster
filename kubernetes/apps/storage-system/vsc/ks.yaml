@@ -10,6 +10,7 @@ spec:
   path: ./kubernetes/apps/storage-system/vsc/app
   prune: true
   wait: true
+  retryInterval: 5s
   dependsOn:
     - name: snapshot-controller
       namespace: storage-system

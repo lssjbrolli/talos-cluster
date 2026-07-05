@@ -251,7 +251,7 @@ spec:
         items:
           - key: wg
             path: wg0.conf
-            mode: 0755
+            mode: 0655
         advancedMounts:
           main:
             gluetun:

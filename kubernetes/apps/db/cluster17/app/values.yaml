@@ -23,7 +23,7 @@ cluster:
     enabled: true
     size: 2Gi
     storageClass: zfs-apps
-  superuserSecret: cloudnative-pg-secret
+  superuserSecret: cnpg-secret
   monitoring:
     enabled: true
   postgresql:
@@ -37,7 +37,7 @@ backups:
   endpointURL: http://rustfs.storage-system.svc.cluster.local:9000
   secret:
     create: false
-    name: s3-secret
+    name: cnpg-secret
   data:
     compression: bzip2
     encryption: ""
@@ -68,4 +68,4 @@ recovery:
     secretKey: aws-secret-access-key
   secret:
     create: false
-    name: s3-secret
+    name: cnpg-secret

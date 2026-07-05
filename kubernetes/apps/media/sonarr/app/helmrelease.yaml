@@ -26,6 +26,8 @@ spec:
               tag: 18.4.0@sha256:ebd9d30add17acdf935d73eb004758c7dfd9388aaa605fda70ad74378ab92aec
             securityContext:
               runAsNonRoot: true
+              runAsUser: 568
+              runAsGroup: 568
               allowPrivilegeEscalation: false
               seccompProfile:
                 type: RuntimeDefault

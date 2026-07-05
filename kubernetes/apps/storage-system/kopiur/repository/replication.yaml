@@ -23,4 +23,4 @@ spec:
   # Every minute so the demo fires quickly; a real mirror would be nightly.
   schedule:
     cron: "0 5 * * *"
-  suspend: false
+  suspend: true

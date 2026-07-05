@@ -251,10 +251,12 @@ spec:
         items:
           - key: wg
             path: wg0.conf
+            mode: 755
         advancedMounts:
           main:
             gluetun:
-              - path: /gluetun/wireguard/wg0.conf
+              - path: /gluetun/wireguard/
+                subPath: wg0.conf
       mousehole:
         type: persistentVolumeClaim
         accessMode: ReadWriteOnce

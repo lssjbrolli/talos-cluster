@@ -217,7 +217,7 @@ url_api = "https://api.github.com/repos/cli/cli/releases/assets/464728577"
 provenance = "github-attestations"
 
 [[tools."go:github.com/home-operations/flate/cmd/flate"]]
-version = "v0.4.10"
+version = "0.4.10"
 backend = "go:github.com/home-operations/flate/cmd/flate"
 
 [[tools.gum]]

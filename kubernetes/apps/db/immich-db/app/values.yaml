@@ -1,0 +1,80 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/cloudnative-pg/charts/refs/heads/main/charts/cluster/values.schema.json
+type: postgresql
+version:
+  postgresql: "18"
+mode: recovery
+cluster:
+  instances: 2
+  initdb:
+    dataChecksums: true
+  imageName: ghcr.io/tensorchord/cloudnative-vectorchord:18.4-1.1.1@sha256:9c9246cb8ba0332f7e1115def71329410657237db8ef104160a479a89c7e03a2
+  logLevel: warning
+  resources:
+    requests:
+      cpu: 150m
+      memory: 512Mi
+    limits:
+      memory: 1Gi
+  storage:
+    size: 10Gi
+    storageClass: zfs-apps
+  walStorage:
+    enabled: true
+    size: 2Gi
+    storageClass: zfs-apps
+  superuserSecret: cloudnative-pg-secret
+  monitoring:
+    enabled: true
+  postgresql:
+    shared_preload_libraries:
+      - "vchord.so"
+    parameters:
+      pg_stat_statements.max: "10000"
+      pg_stat_statements.track: all
+      max_connections: "100"
+      shared_buffers: 256MB
+databases:
+  - name: immich
+    owner: sega
+    extensions:
+      - name: vchord
+      - name: earthdistance
+backups:
+  enabled: true
+  retentionPolicy: 7d
+  provider: s3
+  endpointURL: http://rustfs.storage-system.svc.cluster.local:9000
+  secret:
+    create: false
+    name: s3-secret
+  data:
+    compression: bzip2
+    encryption: ""
+  wal:
+    compression: bzip2
+    maxParallel: 8
+    encryption: ""
+  s3:
+    region: "eu-east"
+    bucket: "cnpg"
+    path: "/v2"
+    accessKey: aws-access-key-id
+    secretKey: aws-secret-access-key
+  scheduledBackups:
+    - name: immich-db-backup
+      schedule: "0 0 */6 * * *"
+      backupOwnerReference: self
+recovery:
+  clusterName: immich-db-cluster
+  endpointURL: http://rustfs.storage-system.svc.cluster.local:9000
+  method: object_store
+  provider: s3
+  s3:
+    region: "eu-east"
+    bucket: "cnpg"
+    path: "/v1"
+    accessKey: aws-access-key-id
+    secretKey: aws-secret-access-key
+  secret:
+    create: false
+    name: s3-secret

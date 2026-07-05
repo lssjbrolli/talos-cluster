@@ -5,11 +5,20 @@
   },
   "sops.defaults.ageKeyFile": "age.key",
   "yaml.schemas": {
-    "https://raw.githubusercontent.com/fluxcd-community/flux2-schemas/main/helmrelease-helm-v2.json": [
+    "https://kubernetes-schemas.pages.dev/helm.toolkit.fluxcd.io/helmrelease_v2.json": [
       "kubernetes/**/helmrelease.yaml"
     ],
     "https://kubernetes-schemas.pages.dev/kustomize.toolkit.fluxcd.io/kustomization_v1.json": [
       "kubernetes/**/ks.yaml"
+    ],
+    "https://kubernetes-schemas.pages.dev/source.toolkit.fluxcd.io/ocirepository_v1.json": [
+      "kubernetes/**/ocirepository.yaml"
+    ],
+    "https://kubernetes-schemas.pages.dev/gateway.networking.k8s.io/httproute_v1.json": [
+      "kubernetes/**/httproute.yaml"
+    ],
+    "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/refs/heads/master/v1.32.13-standalone-strict/secret-v1.json": [
+      "kubernetes/**/*sops.yaml"
     ],
     "https://www.schemastore.org/kustomization.json": ["kubernetes/**/kustomization.yaml"],
     "Kubernetes": "./kubernetes/*.yaml",

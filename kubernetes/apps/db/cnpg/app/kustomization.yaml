@@ -4,4 +4,9 @@ resources:
   - ./helmrelease.yaml
   - ./ocirepository.yaml
   - ./pg.sops.yaml
-  - ./s3.sops.yaml
+configMapGenerator:
+  - name: cnpg
+    files:
+      - values.yaml
+generatorOptions:
+  disableNameSuffixHash: true

@@ -5,3 +5,9 @@ resources:
   - ./ocirepository.yaml
   - ./prometheusrule.yaml
   - ./service.yaml
+configMapGenerator:
+  - name: cluster17
+    files:
+      - values.yaml
+generatorOptions:
+  disableNameSuffixHash: true

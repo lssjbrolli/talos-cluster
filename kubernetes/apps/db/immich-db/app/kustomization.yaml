@@ -4,3 +4,9 @@ resources:
   - ./cluster.yaml
   - ./ocirepository.yaml
   - ./service.yaml
+configMapGenerator:
+  - name: immich-db
+    files:
+      - values.yaml
+generatorOptions:
+  disableNameSuffixHash: true

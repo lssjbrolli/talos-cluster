@@ -1,5 +1,3 @@
----
-# yaml-language-server: $schema=https://raw.githubusercontent.com/fluxcd-community/flux2-schemas/main/ocirepository-source-v1.json
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: OCIRepository
 metadata:
@@ -12,4 +10,3 @@ spec:
   ref:
     tag: 0.13.1
   url: oci://ghcr.io/immich-app/immich-charts/immich
-  # native chart at https://github.com/immich-app/immich-charts

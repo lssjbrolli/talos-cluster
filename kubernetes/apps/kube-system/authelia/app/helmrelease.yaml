@@ -1,6 +1,3 @@
----
-# yaml-language-server: $schema=https://raw.githubusercontent.com/fluxcd-community/flux2-schemas/main/helmrelease-helm-v2.json
-
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
@@ -24,9 +21,9 @@ spec:
         refresh_interval: 1m
         ldap:
           enabled: true
-          address: 'ldap://lldap.kube-system.svc.cluster.local'
-          implementation: 'lldap'
-          timeout: '5s'
+          address: "ldap://lldap.kube-system.svc.cluster.local"
+          implementation: "lldap"
+          timeout: "5s"
           attributes:
             username: uid
             display_name: displayName
@@ -37,13 +34,13 @@ spec:
           additional_groups_dn: ou=groups
           groups_filter: "(member={dn})"
           user: uid=authelia,ou=people,dc=seganet,dc=org
-          base_dn: 'dc=seganet,dc=org'
+          base_dn: "dc=seganet,dc=org"
           start_tls: false
           tls:
-            server_name: 'ldap.${SECRET_DOMAIN}'
+            server_name: "ldap.${SECRET_DOMAIN}"
             skip_verify: false
-            minimum_version: 'TLS1.2'
-            maximum_version: 'TLS1.3'
+            minimum_version: "TLS1.2"
+            maximum_version: "TLS1.3"
       password_policy:
         standard:
           enabled: false
@@ -71,8 +68,8 @@ spec:
         inactivity: 15m
         remember_me: 1M
         cookies:
-          - name: 'authelia_session'
-            subdomain: 'auth'
+          - name: "authelia_session"
+            subdomain: "auth"
             domain: "${SECRET_DOMAIN}"
         redis:
           host: dragonfly-operator.db.svc.cluster.local
@@ -112,7 +109,7 @@ spec:
           enable_client_debug_messages: false
           jwks:
             - key:
-                path: '/secrets/authelia/oidc.jwk.RS256.pem'
+                path: "/secrets/authelia/oidc.jwk.RS256.pem"
           cors:
             endpoints:
               - authorization
@@ -122,64 +119,64 @@ spec:
             allowed_origins_from_client_redirect_uris: true
           claims_policies:
             sftpgo:
-              id_token: ['preferred_username', 'sftpgo_role']
+              id_token: ["preferred_username", "sftpgo_role"]
               custom_claims:
                 sftpgo_role: {}
           scopes:
             sftpgo:
               claims:
-                - 'sftpgo_role'
+                - "sftpgo_role"
           clients:
-            - client_name: 'Immich'
+            - client_name: "Immich"
               # docker run authelia/authelia:latest authelia crypto rand --length 72 --charset rfc3986
-              client_id: 'BDP8p_LA.rou-Wkl_BcZr1eB1NO0INtFfsPrFMm~.jw0HZo-3VfoeCXo74kO1LYsy_6txYAK'
+              client_id: "BDP8p_LA.rou-Wkl_BcZr1eB1NO0INtFfsPrFMm~.jw0HZo-3VfoeCXo74kO1LYsy_6txYAK"
               # docker run authelia/authelia:latest authelia crypto hash generate pbkdf2 --variant sha512 --random
               client_secret:
-                path: '/secrets/authelia/oidc.client.immich.value'
-              authorization_policy: 'one_factor'
+                path: "/secrets/authelia/oidc.client.immich.value"
+              authorization_policy: "one_factor"
               redirect_uris:
-                - 'https://photos.${SECRET_DOMAIN}/auth/login'
-                - 'https://photos.${SECRET_DOMAIN}/user-settings'
+                - "https://photos.${SECRET_DOMAIN}/auth/login"
+                - "https://photos.${SECRET_DOMAIN}/user-settings"
               scopes:
                 - openid
                 - profile
                 - email
               response_types:
-                - 'code'
+                - "code"
               grant_types:
-                - 'authorization_code'
-              access_token_signed_response_alg: 'none'
-              userinfo_signed_response_alg: 'none'
-              token_endpoint_auth_method: 'client_secret_post'
-            - client_name: 'SFTPGo'
-              client_id: 'JdcVlzNIeq5wh18Jo0-SWxgSROh_eCW0wHR2tGdNqQDK0~2IVWX_hnJYG1wChxj5ETHes7tF'
+                - "authorization_code"
+              access_token_signed_response_alg: "none"
+              userinfo_signed_response_alg: "none"
+              token_endpoint_auth_method: "client_secret_post"
+            - client_name: "SFTPGo"
+              client_id: "JdcVlzNIeq5wh18Jo0-SWxgSROh_eCW0wHR2tGdNqQDK0~2IVWX_hnJYG1wChxj5ETHes7tF"
               client_secret:
-                path: '/secrets/authelia/oidc.client.sftpgo.value'
+                path: "/secrets/authelia/oidc.client.sftpgo.value"
               public: false
-              authorization_policy: 'one_factor'
-              claims_policy: 'sftpgo'
+              authorization_policy: "one_factor"
+              claims_policy: "sftpgo"
               require_pkce: false
-              pkce_challenge_method: ''
+              pkce_challenge_method: ""
               redirect_uris:
-                - 'https://ftp.${SECRET_DOMAIN}/web/oidc/redirect'
-                - 'https://ftp.${SECRET_DOMAIN}/web/oauth2/redirect'
+                - "https://ftp.${SECRET_DOMAIN}/web/oidc/redirect"
+                - "https://ftp.${SECRET_DOMAIN}/web/oauth2/redirect"
               scopes:
                 - openid
                 - profile
                 - email
                 - sftpgo
               response_types:
-                - 'code'
+                - "code"
               grant_types:
-                - 'authorization_code'
-              access_token_signed_response_alg: 'none'
-              userinfo_signed_response_alg: 'none'
-              token_endpoint_auth_method: 'client_secret_basic'
+                - "authorization_code"
+              access_token_signed_response_alg: "none"
+              userinfo_signed_response_alg: "none"
+              token_endpoint_auth_method: "client_secret_basic"
             # currently minio has bad oidc implementation so this client is not used
             - client_name: Minio
-              client_id: '3d~kj20my5Nj1lziB4MoGkVy5Tx~2h.kL0LYNaA5K0kDlLznRH-OeMGWhv2hADEK6DSsOjgQ'
+              client_id: "3d~kj20my5Nj1lziB4MoGkVy5Tx~2h.kL0LYNaA5K0kDlLznRH-OeMGWhv2hADEK6DSsOjgQ"
               client_secret:
-                path: '/secrets/authelia/oidc.client.minio.value'
+                path: "/secrets/authelia/oidc.client.minio.value"
               public: false
               authorization_policy: one_factor
               redirect_uris:
@@ -191,9 +188,9 @@ spec:
                 - groups
               userinfo_signed_response_alg: none
             - client_name: Nextcloud
-              client_id: 'dlZVU05Xm5Vz0eOANbfSkRwxYINdynJhpE8j0rcasZLLyg9bgHpJKodoCiK9oSrywq1Q1cGh'
+              client_id: "dlZVU05Xm5Vz0eOANbfSkRwxYINdynJhpE8j0rcasZLLyg9bgHpJKodoCiK9oSrywq1Q1cGh"
               client_secret:
-                path: '/secrets/authelia/oidc.client.nextcloud.value'
+                path: "/secrets/authelia/oidc.client.nextcloud.value"
               authorization_policy: one_factor
               require_pkce: true
               pkce_challenge_method: S256
@@ -231,18 +228,18 @@ spec:
       additionalSecrets:
         authelia:
           items:
-            - key: 'authentication.ldap.password.txt'
-            - key: 'identity_providers.oidc.hmac.key'
-            - key: 'identity_validation.reset_password.jwt.hmac.key'
-            - key: 'oidc.client.immich.value'
-            - key: 'oidc.client.minio.value'
-            - key: 'oidc.client.nextcloud.value'
-            - key: 'oidc.client.sftpgo.value'
-            - key: 'oidc.jwk.RS256.pem'
-            - key: 'session.encryption.key'
-            - key: 'session.redis.password.txt'
-            - key: 'storage.encryption.key'
-            - key: 'storage.postgres.password.txt'
+            - key: "authentication.ldap.password.txt"
+            - key: "identity_providers.oidc.hmac.key"
+            - key: "identity_validation.reset_password.jwt.hmac.key"
+            - key: "oidc.client.immich.value"
+            - key: "oidc.client.minio.value"
+            - key: "oidc.client.nextcloud.value"
+            - key: "oidc.client.sftpgo.value"
+            - key: "oidc.jwk.RS256.pem"
+            - key: "session.encryption.key"
+            - key: "session.redis.password.txt"
+            - key: "storage.encryption.key"
+            - key: "storage.postgres.password.txt"
     persistence:
       enabled: true
       existingClaim: authelia-config

@@ -6,5 +6,4 @@ resources:
   - ./db.sops.yaml
   - ./helmrelease.yaml
   - ./ocirepository.yaml
-  - ./restic.sops.yaml
   - ./secret.sops.yaml

@@ -16,6 +16,8 @@ spec:
   dependsOn:
     - name: kopiur
       namespace: storage-system
+    - name: qbittorrent
+      namespace: kube-apps
   postBuild:
     substituteFrom:
       - name: cluster-secrets

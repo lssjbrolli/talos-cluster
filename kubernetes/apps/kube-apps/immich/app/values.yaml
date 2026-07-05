@@ -1,5 +1,5 @@
 ---
-# yaml-language-server: $schema=https://raw.githubusercontent.com/immich-app/immich-charts/db688d1cca1ef5d554d069a6ecedfd4112aa6e57/charts/immich/values.schema.json
+# yaml-language-server: $schema=https://raw.githubusercontent.com/immich-app/immich-charts/refs/heads/main/charts/immich/values.schema.json
 controllers:
   main:
     containers:
@@ -8,10 +8,10 @@ controllers:
           # renovate: datasource=docker depName=ghcr.io/immich-app/immich-server
           tag: v3.0.1
         env:
+          IMMICH_VERSION: v3
           REDIS_HOSTNAME: dragonfly-operator.db.svc.cluster.local
           REDIS_PORT: "6379"
           IMMICH_MACHINE_LEARNING_URL: '{{ printf "http://%s-machine-learning:3003" .Release.Name }}'
-          MACHINE_LEARNING_PRELOAD__CLIP: "ViT-H-14-378-quickgelu__dfn5b"
           DB_HOSTNAME:
             valueFrom:
               secretKeyRef:

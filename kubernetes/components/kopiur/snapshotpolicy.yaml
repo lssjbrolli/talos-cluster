@@ -19,6 +19,6 @@ spec:
   verification:
     quick:
       schedule:
-        cron: "H 10 * * *"
+        cron: "H 5 * * *"
         jitter: "30m"
   volumeSnapshotClassName: zfs-snap

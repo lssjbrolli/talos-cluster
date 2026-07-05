@@ -44,16 +44,16 @@ spec:
               TZ: ${TIMEZONE}
             args:
               - --webui-port=80
-            # probes:
-            #   startup:
-            #     enabled: true
-            #     spec:
-            #       failureThreshold: 30
-            #       periodSeconds: 5
-            #   liveness:
-            #     enabled: true
-            #   readiness:
-            #     enabled: true
+            probes:
+              startup:
+                enabled: true
+                spec:
+                  failureThreshold: 30
+                  periodSeconds: 5
+              liveness:
+                enabled: true
+              readiness:
+                enabled: true
           gluetun:
             # dependsOn: pia-wg-refresh
             image:
@@ -145,33 +145,6 @@ spec:
                 memory: 32Mi
               limits:
                 memory: 64Mi
-          # pia-wg-refresh:
-          #   image:
-          #     repository: ghcr.io/lssjbrolli/pia-wg-refresh
-          #     tag: 0.0.5
-          #   securityContext:
-          #     capabilities:
-          #       add:
-          #         - NET_ADMIN
-          #   env:
-          #     - name: PIA_USERNAME
-          #       secretKeyRef:
-          #         name: vpnconfig
-          #         key: username
-          #     - name: PIA_PASSWORD
-          #       secretKeyRef:
-          #         name: vpnconfig
-          #         key: password
-          #     - name: PIA_REGION
-          #       value: sweden
-          #     - name: PIA_PORT_FORWARDING
-          #       value: true
-          #   resources:
-          #     requests:
-          #       cpu: 10m
-          #       memory: 32Mi
-          #     limits:
-          #       memory: 64Mi
           mousehole:
             dependsOn: gluetun
             image:
@@ -195,19 +168,6 @@ spec:
                 value: "mh.${SECRET_DOMAIN},localhost,192.168.1.0/24,172.16.0.0/16,172.17.0.0/16"
               - name: MOUSEHOLE_ALLOWED_ORIGINS
                 value: "https://mh.${SECRET_DOMAIN},http://localhost:5010"
-
-          alpine:
-            image:
-              repository: alpine
-              tag: latest
-            command: ["sleep", "infinity"]
-            securityContext:
-              allowPrivilegeEscalation: false
-              capabilities:
-                drop:
-                  - ALL
-              seccompProfile:
-                type: RuntimeDefault
     service:
       qbt:
         controller: main
@@ -265,7 +225,9 @@ spec:
             qbt:
               - path: /media
       cache:
-        type: emptyDir
+        type: persistentVolumeClaim
+        size: 100Mi
+        accessMode: ReadWriteOnce
         advancedMounts:
           main:
             qbt:
@@ -284,17 +246,14 @@ spec:
 
       # Configure an emptyDir for wireguard config
       wg-config:
-        type: persistentVolumeClaim
-        accessMode: ReadWriteOnce
-        size: 10Mi
-        retain: true
-        forceRename: wg-config
+        type: secret
+        name: vpnconfig
+        items:
+          - key: wg
         advancedMounts:
           main:
             gluetun:
-              - path: /gluetun/wireguard
-            alpine:
-              - path: /config
+              - path: /gluetun/wireguard/wg0.conf
       mousehole:
         type: persistentVolumeClaim
         accessMode: ReadWriteOnce

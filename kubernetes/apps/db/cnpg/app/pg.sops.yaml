@@ -6,7 +6,7 @@ stringData:
   username: ENC[AES256_GCM,data:1r+bd3hzKAA=,iv:UHTQFeXfbVSO6jtaLaMSlfldfMCobYSmXikIoJjamHQ=,tag:H5jTErT3MibD0bPiB9vryg==,type:str]
   password: ENC[AES256_GCM,data:9nhh9g==,iv:dQMghyt3DrpIw4hqSD4ixWUNapdkNP0IGSXFZgLaKwQ=,tag:LbLrrRCjQIiYMwUIUBZRxw==,type:str]
   ACCESS_KEY_ID: ENC[AES256_GCM,data:k66ThWXci39zKeQhYCNKw0DnFTk=,iv:2AyuLuwLnhcRNKaG9IOngbtY3lByCYxGsH7RirhbiSE=,tag:ilP8GR8bQVAtBacmMlwx2w==,type:str]
-  SECRET_ACCESS_KEY: ENC[AES256_GCM,data:2KB3tQYVVKkerEPEZAY2A5eYlabVod9vNTBlrHWp9hJdDyqVYlGbLw==,iv:dzNGh4YKDTiBnJscqMn8onmx4PGE49qjGBnWSCNDmdw=,tag:VHrGHut3HNRbBFwrORKu5A==,type:str]
+  ACCESS_SECRET_KEY: ENC[AES256_GCM,data:6oan3T4P0fXvdgTsZHCqDRXNbWPzGX1V6Y05Yvr+Q8qlBOwauCbZsQ==,iv:oI6Oyxc1WeUc8BEEEajq1+2eDAGZiB8MgX13wxSlOwI=,tag:mvOsFCCiCAHCsBIEJ17VTQ==,type:str]
 sops:
   age:
     - enc: |
@@ -19,6 +19,6 @@ sops:
         -----END AGE ENCRYPTED FILE-----
       recipient: age1k5cr4cvs4atdm3gse77vq4glnv9q49gq5wl49p9806gfyfld7p3setz3tw
   encrypted_regex: ^(data|stringData)$
-  lastmodified: "2026-07-05T17:23:44Z"
-  mac: ENC[AES256_GCM,data:XdpI+0OJZnQAPFOo5BAFe3i+nMNlHNBDytSB3Msc+xv7daNREBfoy8qxbIFhYGTXk30PYLVctYT7o2SNL/647VIGrvIzsXuqIGCw6By3K5souW5/US/9o5D7gvZBGweQJwcVzhulMCJgXWFlAZKocEXAagTrm0qzL6ni+oh2Kq4=,iv:DEDgEz+PHBbEft5c9ya7gwmp+8JFqSJbB4TFMxfgTj0=,tag:tmtSb6TiBjaNZ9Kv1QWhYQ==,type:str]
+  lastmodified: "2026-07-05T17:28:29Z"
+  mac: ENC[AES256_GCM,data:U+1GasA0k/MHOWPXf2udHqINTR2LNvJpEL9EDiwBje9sBtfbRKv4YD5aGF8re1aKLcuEBs+VV3hgEIvOHHy7tuEgsf38mEXo9wn/VjWsFsr4le/utfkElsiIR0F7yy/O6KAbBypFofyBTU21Lz4CjdbJ2x/5zJRoZvLMMzLo6Kw=,iv:A8gdK/KiCka6Radz1kw85LEFsJlh9zCzbNz0QeQ+CD4=,tag:RxI16hBCX0QVf9DjSDi2Ww==,type:str]
   version: 3.13.2

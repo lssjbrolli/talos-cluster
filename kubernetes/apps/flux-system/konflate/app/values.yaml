@@ -5,8 +5,8 @@ config:
   statusChecks: true
   prComments: true
   publicUrl: https://{{ .Release.Name }}.${SECRET_DOMAIN}
-  mcp: false
   verifyImages: true
+  logLevel: warn
 secret:
   existingSecret: konflate
 httpRoute:

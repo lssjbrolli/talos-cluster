@@ -1,0 +1,22 @@
+---
+# yaml-language-server: $schema=https://k8s-schemas.home-operations.com/kopiur.home-operations.com/repositoryreplication_v1alpha1.json
+apiVersion: kopiur.home-operations.com/v1alpha1
+kind: RepositoryReplication
+metadata:
+  name: digi
+  namespace: storage-system
+spec:
+  # Mirror FROM the source repository above.
+  sourceRef:
+    kind: ClusterRepository
+    name: kopia-repo
+  # Mirror TO a filesystem destination on the second PVC. Exactly one backend,
+  # and it must DIFFER from the source — here a different PVC (different volume).
+  destination:
+    rclone:
+      remotePath: digi:backups/kopia
+  # No destinationEncryption: the mirror reuses the source repo's password.
+  # Every minute so the demo fires quickly; a real mirror would be nightly.
+  schedule:
+    cron: "0 5 * * *"
+  suspend: true

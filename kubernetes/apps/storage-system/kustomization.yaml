@@ -4,7 +4,7 @@ namespace: storage-system
 components:
   - ../../components/common
 resources:
-  - ./kopiur/ks.yaml
+  # - ./kopiur/ks.yaml
   - ./openebs/ks.yaml
   - ./rustfs/ks.yaml
   - ./snapshot-controller/ks.yaml

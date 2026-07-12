@@ -1,0 +1,39 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/home-operations/kopiur/refs/heads/main/deploy/helm/kopiur/values.schema.json
+streamingLists: true
+features:
+  credentialProjection:
+    enabled: true
+  kopiaUi:
+    enabled: true
+image:
+  digest: "cb5d0fd86db24e9d757c6a0fa966da45581527b770a1a0cf87e01d25ac44afda"
+  repository: ghcr.io/home-operations/kopiur-controller
+  tag: 0.7.2
+podSecurityContext:
+  fsGroup: 568
+  runAsGroup: 568
+  runAsUser: 568
+rbac:
+  browseRole: true
+monitoring:
+  serviceMonitor:
+    enabled: true
+    interval: 30s
+    scrapeTimeout: 10s
+  prometheusRule:
+    backupStaleAfterSeconds: 172800
+    enabled: true
+webhook:
+  image:
+    digest: "83cc18f3da17b07c959f0774a845c0237dc71ff82ed6fc1eaefcf06d888c2235"
+    pullPolicy: IfNotPresent
+    repository: ghcr.io/home-operations/kopiur-webhook
+    tag: "0.7.2"
+  serviceMonitor:
+    enabled: true
+mover:
+  image:
+    digest: "692de0edb8f8c179d328228596755cffa20c8a7af4b883614576ba41ad1d38fb"
+    repository: ghcr.io/home-operations/kopiur-mover
+    tag: "0.7.2"

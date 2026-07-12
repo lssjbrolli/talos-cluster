@@ -3,3 +3,10 @@ kind: Kustomization
 resources:
   - ./helmrelease.yaml
   - ./ocirepository.yaml
+
+configMapGenerator:
+  - name: kopiur
+    files:
+      - values.yaml
+    options:
+      disableNameSuffixHash: true

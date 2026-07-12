@@ -6,10 +6,6 @@ features:
     enabled: true
   kopiaUi:
     enabled: true
-image:
-  digest: "2fe7bee6b244dda33cae29169f777ac3eef0da6512b5d5ebc4646cd661f6e1d4"
-  repository: ghcr.io/home-operations/kopiur-controller
-  tag: 0.7.2
 podSecurityContext:
   fsGroup: 568
   runAsGroup: 568
@@ -25,15 +21,5 @@ monitoring:
     backupStaleAfterSeconds: 172800
     enabled: true
 webhook:
-  image:
-    digest: "b812656b66c2169eed02cde0017fb3a848a36e8a0fe09641e8103513a4a17632"
-    pullPolicy: IfNotPresent
-    repository: ghcr.io/home-operations/kopiur-webhook
-    tag: "0.7.2"
   serviceMonitor:
     enabled: true
-mover:
-  image:
-    digest: "a66a72df0cfea266d51e827def67b1b4f0e51a8cd14fedd1ebb2602d718ed1c2"
-    repository: ghcr.io/home-operations/kopiur-mover
-    tag: "0.7.2"

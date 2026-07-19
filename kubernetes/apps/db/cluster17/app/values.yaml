@@ -32,6 +32,9 @@ cluster:
       shared_buffers: 256MB
 backups:
   enabled: true
+  method: plugin
+  pluginConfiguration:
+    name: barman-cloud.cloudnative-pg.io
   retentionPolicy: 7d
   provider: s3
   endpointURL: http://rustfs.storage-system.svc.cluster.local:9000
@@ -55,6 +58,9 @@ backups:
     - name: cnpg-backup
       schedule: "0 0 */6 * * *"
       backupOwnerReference: self
+      method: plugin
+      pluginConfiguration:
+        name: barman-cloud.cloudnative-pg.io
 recovery:
   clusterName: cluster17
   endpointURL: http://rustfs.storage-system.svc.cluster.local:9000

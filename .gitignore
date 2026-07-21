@@ -53,3 +53,5 @@ latest_sha
 
 # folder for test yamls
 test/
+/talos/output/
+/talos/rendered/

@@ -1,10 +1,10 @@
 #!/usr/bin/env -S just --justfile
 
-set default-list
-set default-script
 set lazy
 set quiet
 set minimum-version := '1.55.1'
+set default-list
+set default-script
 set shell := ['bash', '-euo', 'pipefail', '-c']
 
 # Bootstrap Recipes

@@ -22,6 +22,7 @@ spec:
         kind: GitRepository
         url: "https://github.com/lssjbrolli/talos-cluster.git"
         ref: "refs/heads/main"
+        pullSecret: deploy-key
         path: kubernetes/flux/cluster
       commonMetadata:
         labels:

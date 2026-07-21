@@ -22,6 +22,17 @@ mod? talos 'talos'
 log lvl msg *args:
     gum log -t rfc3339 -s -l "{{ lvl }}" "{{ msg }}" {{ args }}
 
-[private]
-template file *args:
-    minijinja-cli "{{ file }}" {{ args }} | vals eval -f -
+# === template ===
+
+[group: 'template']
+mod template 'template'
+
+[doc('Render and validate configuration files')]
+[group('template')]
+configure:
+    just template configure
+
+[doc('Initialize configuration files (cluster.toml, age key, deploy key, webhook token)')]
+[group('template')]
+init:
+    just template init

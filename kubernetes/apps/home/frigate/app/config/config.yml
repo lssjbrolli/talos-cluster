@@ -17,6 +17,8 @@ go2rtc:
       - tapo://1F98DE147357B9C24357B9CA2BA2D726@192.168.1.161
     tapo2:
       - tapo://CA3387F7A6FA077ACF573E13D5906F11867818E2F76EACA80ECEE7DE9C01BD96@192.168.1.161
+    tapo3:
+      - tapo://DcbM&2iLGv5i42%@@192.168.1.161
     sub:
       - rtsp://living:segasega@192.168.1.161:554/stream2
       - "ffmpeg:sub#audio=aac"

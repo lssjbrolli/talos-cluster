@@ -18,7 +18,8 @@ spec:
       name: kube-dns
       clusterIP: "172.17.0.10"
       # externalTrafficPolicy: Local
-    replicaCount: 2
+    replicaCount: 1
+    priorityClassName: system-cluster-critical
     servers:
       - zones:
           - zone: .
@@ -44,6 +45,7 @@ spec:
             configBlock: |-
               prefetch 20
               serve_stale
+              servfail 0
           - name: loop
           - name: reload
           - name: loadbalance

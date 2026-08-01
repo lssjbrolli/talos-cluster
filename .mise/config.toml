@@ -36,7 +36,7 @@ zizmor = "1.28.0"
 "go:github.com/home-operations/flate/cmd/flate" = "v0.4.12"
 krew = "0.5.0"
 kopia = "0.23.1"
-cilium-cli = "0.19.6"
+cilium-cli = "0.19.7"
 
 [hooks]
 postinstall = "lefthook install"

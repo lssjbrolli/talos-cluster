@@ -21,7 +21,7 @@ cluster:
     storageClass: zfs-apps
   walStorage:
     enabled: true
-    size: 2Gi
+    size: 5Gi
     storageClass: zfs-apps
   superuserSecret: cnpg-secret
   monitoring:

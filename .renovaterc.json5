@@ -1,12 +1,12 @@
 {
   $schema: "https://docs.renovatebot.com/renovate-schema.json",
-  extends: ["github>home-operations/renovate-presets#3.0.0"],
+  extends: ["github>home-operations/renovate-presets#6.0.0"],
   schedule: ["every weekend"],
   lockFileMaintenance: {
     enabled: true,
     schedule: ["before 3am on the first day of the month"],
     commitMessageExtra: "({{manager}})",
-    additionalBranchPrefix: "{{manager}}-"
+    additionalBranchPrefix: "{{manager}}-",
   },
   packageRules: [
     {

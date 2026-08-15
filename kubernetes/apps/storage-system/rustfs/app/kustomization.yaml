@@ -1,4 +1,3 @@
-#% if dns.provider == 'cloudflare' and ingress.mode != 'none' %#
 ---
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization

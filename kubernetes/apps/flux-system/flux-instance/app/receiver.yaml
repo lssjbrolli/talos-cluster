@@ -6,7 +6,7 @@ kind: Receiver
 metadata:
   name: flux-webhook
 spec:
-  type: #{ repository.webhook_provider }#
+  type: github
   events: ["ping", "push"]
   secretRef:
     name: flux-webhook-token

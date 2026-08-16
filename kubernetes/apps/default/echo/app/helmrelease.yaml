@@ -20,6 +20,9 @@ spec:
       parentRefs:
         - name: internal
           namespace: network
+    monitoring:
+      serviceMonitor:
+        enabled: true
     resources:
       requests:
         cpu: 10m

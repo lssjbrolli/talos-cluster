@@ -25,5 +25,8 @@
     "https://raw.githubusercontent.com/budimanjojo/talhelper/master/pkg/config/schemas/talconfig.json": "file:///home/sega/code_projects/talos-cluster/talos/talconfig.yaml"
   },
   "mise.configureExtensionsAutomatically": true,
-  "sops.binPath": "/home/sega/.local/share/mise/shims/sops"
+  "sops.binPath": "/home/sega/.local/share/mise/shims/sops",
+  "debug.javascript.defaultRuntimeExecutable": {
+    "pwa-node": "/home/sega/.local/share/mise/shims/node"
+  }
 }

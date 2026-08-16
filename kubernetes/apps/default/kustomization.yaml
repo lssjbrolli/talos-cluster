@@ -5,5 +5,5 @@ namespace: default
 components:
   - ../../components/common
 resources:
-  - ./echo/ks.yaml
   - ./namespace.yaml
+  - ./echo/ks.yaml

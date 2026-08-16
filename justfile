@@ -1,19 +1,15 @@
-#!/usr/bin/env -S just --justfile
-
-set lazy
 set quiet
 set minimum-version := '1.55.1'
 set default-list
 set default-script
 set shell := ['bash', '-euo', 'pipefail', '-c']
+set script-interpreter := ['bash', '-euo', 'pipefail']
 
-# Bootstrap Recipes
-[group: 'Bootstrap']
-mod bootstrap "bootstrap"
+[group: 'bootstrap']
+mod? bootstrap 'bootstrap'
 
-# Kube Recipes
-[group: 'Kube']
-mod kube "kubernetes"
+[group: 'kubernetes']
+mod? kube 'kubernetes'
 
 [group: 'talos']
 mod? talos 'talos'

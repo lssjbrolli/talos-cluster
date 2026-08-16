@@ -5,6 +5,7 @@ namespace: kube-system
 components:
   - ../../components/common
 resources:
+  - ./namespace.yaml
   - ./authelia/ks.yaml
   - ./cilium/ks.yaml
   - ./coredns/ks.yaml
@@ -12,4 +13,3 @@ resources:
   - ./lldap/ks.yaml
   - ./metrics-server/ks.yaml
   - ./reloader/ks.yaml
-  - ./namespace.yaml

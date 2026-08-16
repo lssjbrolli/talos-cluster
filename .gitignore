@@ -2,6 +2,7 @@
 *.pub
 *.key
 *.decrypted~*.yaml
+.sops.yaml
 /age.key
 /cloudflare-tunnel.json
 /deploy.key

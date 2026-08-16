@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Secret
 metadata:
-  name: kopia
+  name: repository-secrets
   namespace: storage-system
 stringData:
   #ENC[AES256_GCM,data:7AAND4QuKTwkUSA1Hn4d+UevZCQLjxYD+SSJ8DPi,iv:8InNm5Sxaxa7IFYYwM7OapFI1e7rGa8rO2tb+2yFcR8=,tag:HjMSFBVAf8PcJBq9ybLD/w==,type:comment]
@@ -24,6 +24,6 @@ sops:
         -----END AGE ENCRYPTED FILE-----
       recipient: age1k5cr4cvs4atdm3gse77vq4glnv9q49gq5wl49p9806gfyfld7p3setz3tw
   encrypted_regex: ^(data|stringData)$
-  lastmodified: "2026-07-19T12:00:59Z"
-  mac: ENC[AES256_GCM,data:CrtB+pQhCshb4sEvbRRiQ+oVgaEjSItUGwy/U9OPvJtsFVQ+cMarYRQpSWlK1nute9DJeDjqIFpEj9dUer+6vUM5rFYJ5gJff3EqcqBMjWCYo0ei5nBpr4rxbKvo/emRywnv4uiwrPY9CL/gtprPcB0mPZljyU11T6szjz7n624=,iv:vNTx/kRP4/1cJ6GpFhznX5BwuJ53zPPL3vCoZ/XFYQo=,tag:iCdB5VHyyvDxk6gdVs9iTA==,type:str]
-  version: 3.13.2
+  lastmodified: "2026-08-16T21:11:12Z"
+  mac: ENC[AES256_GCM,data:y1YDn5fCE99yn+D1aK03xrSjobnKycyvYPLtZEP5Ol9wagxR+S7Fu9hgFL2qPJnrKEEo0RTDMB31Z+EFSJZq53fMaUXfUuRmWV9sB6qRxDxHx/TtiCaPJCvrR/OuxWpc2LEeESHPGGzDodqI5V2NjePiCQRAhj8LmRC8R/Uho7U=,iv:x1QomMBluVWXPTZGGB9o6oeQFPqk7KxXVL9rABJCazQ=,tag:2gb2kw+fPqXS1NYlz/QjqQ==,type:str]
+  version: 3.13.3

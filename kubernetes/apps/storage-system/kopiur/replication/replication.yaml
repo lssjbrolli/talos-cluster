@@ -17,7 +17,7 @@ spec:
       bucket: kopia-replica
       auth:
         secretRef:
-          name: kopia
+          name: replication-secrets
   # No destinationEncryption: the mirror reuses the source repo's password.
   # Every minute so the demo fires quickly; a real mirror would be nightly.
   schedule:

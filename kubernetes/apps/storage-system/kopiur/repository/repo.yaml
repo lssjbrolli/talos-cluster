@@ -15,7 +15,7 @@ spec:
         disableTls: true
       auth:
         secretRef:
-          name: kopia
+          name: repository-secrets
           namespace: storage-system # explicit ns required for cluster scope
   create:
     enabled: true
@@ -23,7 +23,7 @@ spec:
     allowed: true
   encryption:
     passwordSecretRef:
-      name: kopia
+      name: repository-secrets
       namespace: storage-system
       key: KOPIA_PASSWORD
   identityDefaults:

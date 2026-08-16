@@ -78,9 +78,9 @@ apps-secrets:
     for secret in \
         "{{ source_directory() }}/deploy-key.sops.yaml" \
         "{{ source_directory() }}/sops-age.sops.yaml" \
-        "{{ kubernetes_dir }}/components/sops/cluster-secrets.sops.yaml"
+        "{{ kubernetes_dir }}/components/common/secrets/cluster-secrets.sops.yaml"
     do
-        name="$(basename "$secret" .sops.yaml)"
+        name="$(basename "$secret" template.sops.yaml)"
         if sops decrypt "$secret" \
                 | kubectl --namespace flux-system apply --server-side --filename - &>/dev/null; then
             just log info "Secret applied" resource "$name"

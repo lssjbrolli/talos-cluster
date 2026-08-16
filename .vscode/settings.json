@@ -23,5 +23,7 @@
     "https://www.schemastore.org/kustomization.json": ["kubernetes/**/kustomization.yaml"],
     "Kubernetes": "./kubernetes/*.yaml",
     "https://raw.githubusercontent.com/budimanjojo/talhelper/master/pkg/config/schemas/talconfig.json": "file:///home/sega/code_projects/talos-cluster/talos/talconfig.yaml"
-  }
+  },
+  "mise.configureExtensionsAutomatically": true,
+  "sops.binPath": "/home/sega/.local/share/mise/shims/sops"
 }

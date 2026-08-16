@@ -5,7 +5,7 @@ metadata:
 spec:
   storageClassName: ""
   accessModes:
-  - ReadWriteOnce
+    - ReadWriteOnce
   capacity:
     storage: 24Ti # size of the volume
   claimRef:
@@ -16,10 +16,10 @@ spec:
   nodeAffinity:
     required:
       nodeSelectorTerms:
-      - matchExpressions:
-        - key: kubernetes.io/hostname
-          operator: In
-          values:
-          - talos-cluster # change the hostname where volume is present
+        - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: In
+              values:
+                - talos-controller # change the hostname where volume is present
   persistentVolumeReclaimPolicy: Retain
   volumeMode: Filesystem

@@ -8,7 +8,7 @@ spec:
     kind: OCIRepository
     name: robusta
   values:
-    clusterName: talos-cluster
+    clusterName: talos-controller
     globalConfig:
       signing_key: "{{ env.SIGNKEY }}"
       account_id: "{{ env.ACCOUNTID }}"

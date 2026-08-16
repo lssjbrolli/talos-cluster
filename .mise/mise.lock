@@ -231,41 +231,41 @@ url_api = "https://api.github.com/repos/cli/cli/releases/assets/464728577"
 provenance = "github-attestations"
 
 [[tools."github:postfinance/topf"]]
-version = "0.4.2"
+version = "0.5.0"
 backend = "github:postfinance/topf"
 
 [tools."github:postfinance/topf"."platforms.linux-arm64"]
-checksum = "sha256:d366d232d9f5f2d244945972f6c769c3b1e5e95120407459fedb9248fcbf2cb1"
-url = "https://github.com/postfinance/topf/releases/download/v0.4.2/topf_linux_arm64.tar.gz"
-url_api = "https://api.github.com/repos/postfinance/topf/releases/assets/455354097"
+checksum = "sha256:d8aa6515ae9de54588fc0bba3fad9fe37a93c08cf20adc931baed4a67912cef1"
+url = "https://github.com/postfinance/topf/releases/download/v0.5.0/topf_linux_arm64.tar.gz"
+url_api = "https://api.github.com/repos/postfinance/topf/releases/assets/508553235"
 
 [tools."github:postfinance/topf"."platforms.linux-arm64-musl"]
-checksum = "sha256:d366d232d9f5f2d244945972f6c769c3b1e5e95120407459fedb9248fcbf2cb1"
-url = "https://github.com/postfinance/topf/releases/download/v0.4.2/topf_linux_arm64.tar.gz"
-url_api = "https://api.github.com/repos/postfinance/topf/releases/assets/455354097"
+checksum = "sha256:d8aa6515ae9de54588fc0bba3fad9fe37a93c08cf20adc931baed4a67912cef1"
+url = "https://github.com/postfinance/topf/releases/download/v0.5.0/topf_linux_arm64.tar.gz"
+url_api = "https://api.github.com/repos/postfinance/topf/releases/assets/508553235"
 
 [tools."github:postfinance/topf"."platforms.linux-x64"]
-checksum = "sha256:2cc3b63210fe2a9165f5d47a5e07a84e446307243b54c352aaf0c5d937ea20b9"
-url = "https://github.com/postfinance/topf/releases/download/v0.4.2/topf_linux_amd64.tar.gz"
-url_api = "https://api.github.com/repos/postfinance/topf/releases/assets/455354094"
+checksum = "sha256:0a5ba8187887972acc7905cf12e804317b1869219bbf070d8dd2a9e29b70570c"
+url = "https://github.com/postfinance/topf/releases/download/v0.5.0/topf_linux_amd64.tar.gz"
+url_api = "https://api.github.com/repos/postfinance/topf/releases/assets/508553236"
 
 [tools."github:postfinance/topf"."platforms.linux-x64-musl"]
-checksum = "sha256:2cc3b63210fe2a9165f5d47a5e07a84e446307243b54c352aaf0c5d937ea20b9"
-url = "https://github.com/postfinance/topf/releases/download/v0.4.2/topf_linux_amd64.tar.gz"
-url_api = "https://api.github.com/repos/postfinance/topf/releases/assets/455354094"
+checksum = "sha256:0a5ba8187887972acc7905cf12e804317b1869219bbf070d8dd2a9e29b70570c"
+url = "https://github.com/postfinance/topf/releases/download/v0.5.0/topf_linux_amd64.tar.gz"
+url_api = "https://api.github.com/repos/postfinance/topf/releases/assets/508553236"
 
 [tools."github:postfinance/topf"."platforms.macos-arm64"]
-checksum = "sha256:8781cb1dc847156a80486b6fc324b10039d664e98d40440cc7fc29fead7637da"
-url = "https://github.com/postfinance/topf/releases/download/v0.4.2/topf_darwin_arm64.tar.gz"
-url_api = "https://api.github.com/repos/postfinance/topf/releases/assets/455354092"
+checksum = "sha256:e7de2cde889c1fba552a35c18e500f03ca120d79eb1a7643ee7503eb2572c166"
+url = "https://github.com/postfinance/topf/releases/download/v0.5.0/topf_darwin_arm64.tar.gz"
+url_api = "https://api.github.com/repos/postfinance/topf/releases/assets/508553237"
 
 [tools."github:postfinance/topf"."platforms.macos-x64"]
-checksum = "sha256:800bca769be4f786abd5785a159bd1cc6b7d17a5a16bfafe5e434b8e0a64e2b2"
-url = "https://github.com/postfinance/topf/releases/download/v0.4.2/topf_darwin_amd64.tar.gz"
-url_api = "https://api.github.com/repos/postfinance/topf/releases/assets/455354095"
+checksum = "sha256:5075cf8120e2512065b174f444c725171663b2155faeceab5f85d45bb6740ea1"
+url = "https://github.com/postfinance/topf/releases/download/v0.5.0/topf_darwin_amd64.tar.gz"
+url_api = "https://api.github.com/repos/postfinance/topf/releases/assets/508553239"
 
 [[tools."go:github.com/home-operations/flate/cmd/flate"]]
-version = "0.4.12"
+version = "0.5.0"
 backend = "go:github.com/home-operations/flate/cmd/flate"
 
 [[tools.gum]]
@@ -698,7 +698,7 @@ url_api = "https://api.github.com/repos/evilmartians/lefthook/releases/assets/47
 provenance = "github-attestations"
 
 [[tools.oxfmt]]
-version = "0.59.0"
+version = "0.63.0"
 backend = "npm:oxfmt"
 
 [[tools.sd]]
@@ -847,49 +847,49 @@ url_api = "https://api.github.com/repos/siderolabs/talos/releases/assets/4711150
 provenance = "cosign"
 
 [[tools.uv]]
-version = "0.11.30"
+version = "0.12.3"
 backend = "aqua:astral-sh/uv"
 
 [tools.uv."platforms.linux-arm64"]
-checksum = "sha256:7562a40e4e08b1bfd566bd6aeca55a16ee5ac45211554543e8cdb3c395b47416"
-url = "https://github.com/astral-sh/uv/releases/download/0.11.30/uv-aarch64-unknown-linux-musl.tar.gz"
-url_api = "https://api.github.com/repos/astral-sh/uv/releases/assets/483891898"
+checksum = "sha256:fa513fca1eb2913334c944fe9adbdd410274a1cbe8dd05d03699a9eb85311d4e"
+url = "https://github.com/astral-sh/uv/releases/download/0.12.3/uv-aarch64-unknown-linux-musl.tar.gz"
+url_api = "https://api.github.com/repos/astral-sh/uv/releases/assets/505387718"
 provenance = "github-attestations"
 
 [tools.uv."platforms.linux-arm64-musl"]
-checksum = "sha256:7562a40e4e08b1bfd566bd6aeca55a16ee5ac45211554543e8cdb3c395b47416"
-url = "https://github.com/astral-sh/uv/releases/download/0.11.30/uv-aarch64-unknown-linux-musl.tar.gz"
-url_api = "https://api.github.com/repos/astral-sh/uv/releases/assets/483891898"
+checksum = "sha256:fa513fca1eb2913334c944fe9adbdd410274a1cbe8dd05d03699a9eb85311d4e"
+url = "https://github.com/astral-sh/uv/releases/download/0.12.3/uv-aarch64-unknown-linux-musl.tar.gz"
+url_api = "https://api.github.com/repos/astral-sh/uv/releases/assets/505387718"
 provenance = "github-attestations"
 
 [tools.uv."platforms.linux-x64"]
-checksum = "sha256:023fdd3b59fccfb67b365c69fb34182aaaed1d685d367a57571e3c1468a4c70c"
-url = "https://github.com/astral-sh/uv/releases/download/0.11.30/uv-x86_64-unknown-linux-musl.tar.gz"
-url_api = "https://api.github.com/repos/astral-sh/uv/releases/assets/483891981"
+checksum = "sha256:0643b9fb8c9fb27458e709ce6ff939695013c41975ff7b02d3f3b138d8d4bdb3"
+url = "https://github.com/astral-sh/uv/releases/download/0.12.3/uv-x86_64-unknown-linux-musl.tar.gz"
+url_api = "https://api.github.com/repos/astral-sh/uv/releases/assets/505387821"
 provenance = "github-attestations"
 
 [tools.uv."platforms.linux-x64-musl"]
-checksum = "sha256:023fdd3b59fccfb67b365c69fb34182aaaed1d685d367a57571e3c1468a4c70c"
-url = "https://github.com/astral-sh/uv/releases/download/0.11.30/uv-x86_64-unknown-linux-musl.tar.gz"
-url_api = "https://api.github.com/repos/astral-sh/uv/releases/assets/483891981"
+checksum = "sha256:0643b9fb8c9fb27458e709ce6ff939695013c41975ff7b02d3f3b138d8d4bdb3"
+url = "https://github.com/astral-sh/uv/releases/download/0.12.3/uv-x86_64-unknown-linux-musl.tar.gz"
+url_api = "https://api.github.com/repos/astral-sh/uv/releases/assets/505387821"
 provenance = "github-attestations"
 
 [tools.uv."platforms.macos-arm64"]
-checksum = "sha256:9bed3567d496d8dab84ecf7a1247551ac94ef1baaebb7b65df008dd93e9dc357"
-url = "https://github.com/astral-sh/uv/releases/download/0.11.30/uv-aarch64-apple-darwin.tar.gz"
-url_api = "https://api.github.com/repos/astral-sh/uv/releases/assets/483891875"
+checksum = "sha256:546f7f8a6c70ff13a3a9d2bc958db3427298cebf3e0cb756f9177133b7068843"
+url = "https://github.com/astral-sh/uv/releases/download/0.12.3/uv-aarch64-apple-darwin.tar.gz"
+url_api = "https://api.github.com/repos/astral-sh/uv/releases/assets/505387707"
 provenance = "github-attestations"
 
 [tools.uv."platforms.macos-x64"]
-checksum = "sha256:ce285fbbfbe294b1e1bc6c87c8b59d9622b85383b88b2b132a2df5c73e83d7c1"
-url = "https://github.com/astral-sh/uv/releases/download/0.11.30/uv-x86_64-apple-darwin.tar.gz"
-url_api = "https://api.github.com/repos/astral-sh/uv/releases/assets/483891965"
+checksum = "sha256:4c9f52262a14da336e4a42ed24992d12d0c956acde87619e4611d321dffa602b"
+url = "https://github.com/astral-sh/uv/releases/download/0.12.3/uv-x86_64-apple-darwin.tar.gz"
+url_api = "https://api.github.com/repos/astral-sh/uv/releases/assets/505387807"
 provenance = "github-attestations"
 
 [tools.uv."platforms.windows-x64"]
-checksum = "sha256:be8d78c992312212e5cc05e9f9de3fa996db73b7c86a186dfb9231eb9f91d33e"
-url = "https://github.com/astral-sh/uv/releases/download/0.11.30/uv-x86_64-pc-windows-msvc.zip"
-url_api = "https://api.github.com/repos/astral-sh/uv/releases/assets/483891969"
+checksum = "sha256:b23350c79e8ad0192b8124af13a0f17e8d4e4549524785e1aef389ae5a06990e"
+url = "https://github.com/astral-sh/uv/releases/download/0.12.3/uv-x86_64-pc-windows-msvc.zip"
+url_api = "https://api.github.com/repos/astral-sh/uv/releases/assets/505387809"
 provenance = "github-attestations"
 
 [[tools.yq]]

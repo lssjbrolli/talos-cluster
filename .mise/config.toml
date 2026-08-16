@@ -1,6 +1,6 @@
 [env]
 KUBECONFIG = "{{config_root}}/kubeconfig"
-SOPS_CONFIG = "{{config_root}}/.sops.yaml"
+SOPS_CONFIG = "{{config_root}}/template.sops.yaml"
 SOPS_AGE_KEY_FILE = "{{config_root}}/age.key"
 TALOSCONFIG = "{{config_root}}/talos/talosconfig"
 JUST_UNSTABLE = "1"

@@ -21,4 +21,4 @@ nodes:
       macAddr: "ec:06:0f:41:12:24"
       mtu: 1500
       encryptDisk: false
-      kernelModules: []
+      kernelModules: [zfs]

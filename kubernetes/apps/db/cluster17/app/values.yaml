@@ -55,7 +55,7 @@ backups:
     accessKey: aws-access-key-id
     secretKey: aws-secret-access-key
   scheduledBackups:
-    - name: cnpg-backup
+    - name: cluster-db-backup
       schedule: "0 0 */6 * * *"
       backupOwnerReference: self
       method: plugin

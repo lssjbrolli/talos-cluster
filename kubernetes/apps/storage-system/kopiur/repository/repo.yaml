@@ -48,7 +48,7 @@ spec:
   server:
     namespace: storage-system
     auth:
-      secretRef: { name: kopia, usernameKey: UI_USER, passwordKey: UI_PASS }
+      secretRef: { name: repository-secrets, usernameKey: UI_USER, passwordKey: UI_PASS }
     service:
       type: ClusterIP
       port: 80

@@ -74,7 +74,7 @@ backups:
 recovery:
   clusterName: immich-db-cluster
   endpointURL: http://rustfs.storage-system.svc.cluster.local:9000
-  method: plugin
+  method: object_store
   provider: s3
   s3:
     region: "eu-east"

@@ -265,7 +265,7 @@ url = "https://github.com/postfinance/topf/releases/download/v0.5.0/topf_darwin_
 url_api = "https://api.github.com/repos/postfinance/topf/releases/assets/508553239"
 
 [[tools."go:github.com/home-operations/flate/cmd/flate"]]
-version = "0.5.0"
+version = "0.6.0"
 backend = "go:github.com/home-operations/flate/cmd/flate"
 
 [[tools.gum]]

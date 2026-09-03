@@ -1,6 +1,7 @@
-machine:
-  network:
-    nameservers:
-      - 1.1.1.1
-      - 1.0.0.1
-    disableSearchDomain: true
+apiVersion: v1alpha1
+kind: ResolverConfig
+nameservers:
+  - 1.1.1.1
+  - 1.0.0.1
+searchDomains:
+  disableDefault: true

@@ -5,16 +5,15 @@ set default-script
 set shell := ['bash', '-euo', 'pipefail', '-c']
 set script-interpreter := ['bash', '-euo', 'pipefail']
 
-[group: 'bootstrap']
+[group('bootstrap')]
 mod? bootstrap 'bootstrap'
 
-[group: 'kubernetes']
+[group('kubernetes')]
 mod? kube 'kubernetes'
 
-[group: 'talos']
+[group('talos')]
 mod? talos 'talos'
 
 [private]
 log lvl msg *args:
     gum log -t rfc3339 -s -l "{{ lvl }}" "{{ msg }}" {{ args }}
-

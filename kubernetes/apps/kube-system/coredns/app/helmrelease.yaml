@@ -40,6 +40,8 @@ spec:
           - name: autopath
             parameters: "@kubernetes"
           - name: forward
+            parameters: seganet.org 192.168.1.115
+          - name: forward
             parameters: . /etc/resolv.conf
           - name: cache
             configBlock: |-

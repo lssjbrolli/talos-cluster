@@ -29,6 +29,7 @@ spec:
               # Server
               TYPE: VANILLA
               EULA: "TRUE"
+              ONLINE_MODE: "FALSE"
               # RCON
               ENABLE_RCON: "true"
               RCON_PASSWORD:

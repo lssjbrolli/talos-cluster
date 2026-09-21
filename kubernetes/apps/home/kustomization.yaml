@@ -7,4 +7,5 @@ components:
 
 resources:
   - ./namespace.yaml
-  - ./minecraft/ks.yaml
+  - ./home-assistant/ks.yaml
+  - ./frigate/ks.yaml

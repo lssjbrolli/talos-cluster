@@ -59,10 +59,10 @@ spec:
                 enabled: false
             resources:
               requests:
-                memory: 256Mi
+                memory: 1Gi
                 cpu: 100m
               limits:
-                memory: 2Gi
+                memory: 3Gi
             securityContext:
               runAsNonRoot: false
               runAsUser: 568

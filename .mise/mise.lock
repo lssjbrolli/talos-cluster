@@ -47,82 +47,22 @@ url_api = "https://api.github.com/repos/FiloSottile/age/releases/assets/53554193
 provenance = "github-attestations"
 
 [[tools.cilium-cli]]
-version = "0.20.0"
+version = "0.20.1"
 backend = "aqua:cilium/cilium-cli"
 
-[tools.cilium-cli."platforms.linux-arm64"]
-checksum = "sha256:9a9281dc79bd10a61fa35078b8ab63eaf491ab2f47edc6b9a3541b2fe4ede3ff"
-url = "https://github.com/cilium/cilium-cli/releases/download/v0.20.0/cilium-linux-arm64.tar.gz"
-url_api = "https://api.github.com/repos/cilium/cilium-cli/releases/assets/530475789"
-
-[tools.cilium-cli."platforms.linux-arm64-musl"]
-checksum = "sha256:9a9281dc79bd10a61fa35078b8ab63eaf491ab2f47edc6b9a3541b2fe4ede3ff"
-url = "https://github.com/cilium/cilium-cli/releases/download/v0.20.0/cilium-linux-arm64.tar.gz"
-url_api = "https://api.github.com/repos/cilium/cilium-cli/releases/assets/530475789"
-
 [tools.cilium-cli."platforms.linux-x64"]
-checksum = "sha256:94adc5c3be44d8240df91cec520536686f8a1eb29e5bc70c4c1c80137f00d764"
-url = "https://github.com/cilium/cilium-cli/releases/download/v0.20.0/cilium-linux-amd64.tar.gz"
-url_api = "https://api.github.com/repos/cilium/cilium-cli/releases/assets/530475792"
-
-[tools.cilium-cli."platforms.linux-x64-musl"]
-checksum = "sha256:94adc5c3be44d8240df91cec520536686f8a1eb29e5bc70c4c1c80137f00d764"
-url = "https://github.com/cilium/cilium-cli/releases/download/v0.20.0/cilium-linux-amd64.tar.gz"
-url_api = "https://api.github.com/repos/cilium/cilium-cli/releases/assets/530475792"
-
-[tools.cilium-cli."platforms.macos-arm64"]
-checksum = "sha256:2850449e321c21e9556c312d0b6885838523d294b7e0b58955697507463a57cc"
-url = "https://github.com/cilium/cilium-cli/releases/download/v0.20.0/cilium-darwin-arm64.tar.gz"
-url_api = "https://api.github.com/repos/cilium/cilium-cli/releases/assets/530475790"
-
-[tools.cilium-cli."platforms.macos-x64"]
-checksum = "sha256:cc338e326235e76e3924f032d8a6eb41bf751d94bb04fce70d5f80014fc179d9"
-url = "https://github.com/cilium/cilium-cli/releases/download/v0.20.0/cilium-darwin-amd64.tar.gz"
-url_api = "https://api.github.com/repos/cilium/cilium-cli/releases/assets/530475794"
-
-[tools.cilium-cli."platforms.windows-x64"]
-checksum = "sha256:d96cf9811608cf945326196ccf4dd251ba91358ead3587f52023680e4460ba19"
-url = "https://github.com/cilium/cilium-cli/releases/download/v0.20.0/cilium-windows-amd64.zip"
-url_api = "https://api.github.com/repos/cilium/cilium-cli/releases/assets/530475785"
+checksum = "sha256:24e817dcfcc8a12e325ce7547617bcbcf171c5b0b335bb24d2bb1207ba047f61"
+url = "https://github.com/cilium/cilium-cli/releases/download/v0.20.1/cilium-linux-amd64.tar.gz"
+url_api = "https://api.github.com/repos/cilium/cilium-cli/releases/assets/585358772"
 
 [[tools.cloudflared]]
-version = "2026.9.1"
+version = "2026.9.3"
 backend = "aqua:cloudflare/cloudflared"
 
-[tools.cloudflared."platforms.linux-arm64"]
-checksum = "sha256:3d97437c71848bd8df68041e12436b484a661d95073ea1937f01a845ce88faa3"
-url = "https://github.com/cloudflare/cloudflared/releases/download/2026.9.1/cloudflared-linux-arm64"
-url_api = "https://api.github.com/repos/cloudflare/cloudflared/releases/assets/557330419"
-
-[tools.cloudflared."platforms.linux-arm64-musl"]
-checksum = "sha256:3d97437c71848bd8df68041e12436b484a661d95073ea1937f01a845ce88faa3"
-url = "https://github.com/cloudflare/cloudflared/releases/download/2026.9.1/cloudflared-linux-arm64"
-url_api = "https://api.github.com/repos/cloudflare/cloudflared/releases/assets/557330419"
-
 [tools.cloudflared."platforms.linux-x64"]
-checksum = "sha256:03f1f25d1cc93b9ad6c60569d44060bc4f17ed97075760ed8cfca4b12dcd68cc"
-url = "https://github.com/cloudflare/cloudflared/releases/download/2026.9.1/cloudflared-linux-amd64"
-url_api = "https://api.github.com/repos/cloudflare/cloudflared/releases/assets/557330171"
-
-[tools.cloudflared."platforms.linux-x64-musl"]
-checksum = "sha256:03f1f25d1cc93b9ad6c60569d44060bc4f17ed97075760ed8cfca4b12dcd68cc"
-url = "https://github.com/cloudflare/cloudflared/releases/download/2026.9.1/cloudflared-linux-amd64"
-url_api = "https://api.github.com/repos/cloudflare/cloudflared/releases/assets/557330171"
-
-[tools.cloudflared."platforms.macos-arm64"]
-checksum = "sha256:c27ab8fd0aa489449e3d201eb02f957ef460a13b613662928b1b23394bf1bcfe"
-url = "https://github.com/cloudflare/cloudflared/releases/download/2026.9.1/cloudflared-darwin-arm64.tgz"
-url_api = "https://api.github.com/repos/cloudflare/cloudflared/releases/assets/557329375"
-
-[tools.cloudflared."platforms.macos-x64"]
-checksum = "sha256:ff0d3b51d5ff70eceef89d6b32145fee985018a2174596a5dbe405e2766e2ac4"
-url = "https://github.com/cloudflare/cloudflared/releases/download/2026.9.1/cloudflared-darwin-amd64.tgz"
-url_api = "https://api.github.com/repos/cloudflare/cloudflared/releases/assets/557330132"
-
-[tools.cloudflared."platforms.windows-x64"]
-checksum = "sha256:2837888cc0f5d58f15b6dc478376de90b4d3ba5241c7947455d1e0a0df429712"
-url = "https://github.com/cloudflare/cloudflared/releases/download/2026.9.1/cloudflared-windows-amd64.exe"
-url_api = "https://api.github.com/repos/cloudflare/cloudflared/releases/assets/557330859"
+checksum = "sha256:77e26d8d900e0b8469f416239d14b5f296525fdf79fee6f511ef55609e3fbac2"
+url = "https://github.com/cloudflare/cloudflared/releases/download/2026.9.3/cloudflared-linux-amd64"
+url_api = "https://api.github.com/repos/cloudflare/cloudflared/releases/assets/586326564"
 
 [[tools.flux2]]
 version = "2.9.5"
@@ -269,49 +209,13 @@ version = "0.6.5"
 backend = "go:github.com/home-operations/flate/cmd/flate"
 
 [[tools.gum]]
-version = "2.0.1"
+version = "2.0.2"
 backend = "aqua:charmbracelet/gum"
 
-[tools.gum."platforms.linux-arm64"]
-checksum = "sha256:6998202a8fea27bb2007f69e44ec5dcb4cff5268c62d995de857eee0e2cd52cb"
-url = "https://github.com/charmbracelet/gum/releases/download/v2.0.1/gum_2.0.1_Linux_arm64.tar.gz"
-url_api = "https://api.github.com/repos/charmbracelet/gum/releases/assets/556562997"
-provenance = "cosign"
-
-[tools.gum."platforms.linux-arm64-musl"]
-checksum = "sha256:6998202a8fea27bb2007f69e44ec5dcb4cff5268c62d995de857eee0e2cd52cb"
-url = "https://github.com/charmbracelet/gum/releases/download/v2.0.1/gum_2.0.1_Linux_arm64.tar.gz"
-url_api = "https://api.github.com/repos/charmbracelet/gum/releases/assets/556562997"
-provenance = "cosign"
-
 [tools.gum."platforms.linux-x64"]
-checksum = "sha256:4dfe4547f960813864c803b3617aa64427fa32ca566707fde949e08975297c48"
-url = "https://github.com/charmbracelet/gum/releases/download/v2.0.1/gum_2.0.1_Linux_x86_64.tar.gz"
-url_api = "https://api.github.com/repos/charmbracelet/gum/releases/assets/556563001"
-provenance = "cosign"
-
-[tools.gum."platforms.linux-x64-musl"]
-checksum = "sha256:4dfe4547f960813864c803b3617aa64427fa32ca566707fde949e08975297c48"
-url = "https://github.com/charmbracelet/gum/releases/download/v2.0.1/gum_2.0.1_Linux_x86_64.tar.gz"
-url_api = "https://api.github.com/repos/charmbracelet/gum/releases/assets/556563001"
-provenance = "cosign"
-
-[tools.gum."platforms.macos-arm64"]
-checksum = "sha256:994662daab6fcfe9dcfc57d87ca42bcae2948d86fa864f9010a3848fa9bb7d6e"
-url = "https://github.com/charmbracelet/gum/releases/download/v2.0.1/gum_2.0.1_Darwin_arm64.tar.gz"
-url_api = "https://api.github.com/repos/charmbracelet/gum/releases/assets/556563007"
-provenance = "cosign"
-
-[tools.gum."platforms.macos-x64"]
-checksum = "sha256:4d125b60fbaa28ef1674bb16f3859ed4e813acb027a79d24603b598ea4a0b71f"
-url = "https://github.com/charmbracelet/gum/releases/download/v2.0.1/gum_2.0.1_Darwin_x86_64.tar.gz"
-url_api = "https://api.github.com/repos/charmbracelet/gum/releases/assets/556562991"
-provenance = "cosign"
-
-[tools.gum."platforms.windows-x64"]
-checksum = "sha256:1d5e49d02339c185849992f4d1c49af337ac84933360341e3588100d34664f38"
-url = "https://github.com/charmbracelet/gum/releases/download/v2.0.1/gum_2.0.1_Windows_x86_64.zip"
-url_api = "https://api.github.com/repos/charmbracelet/gum/releases/assets/556563050"
+checksum = "sha256:d842e06d93dbed90af48cb8dd10698db6f22e331fc40346bb37bbc753109edc2"
+url = "https://github.com/charmbracelet/gum/releases/download/v2.0.2/gum_2.0.2_Linux_x86_64.tar.gz"
+url_api = "https://api.github.com/repos/charmbracelet/gum/releases/assets/585508723"
 provenance = "cosign"
 
 [[tools.helm]]

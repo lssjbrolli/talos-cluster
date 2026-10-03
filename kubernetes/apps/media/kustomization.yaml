@@ -12,6 +12,7 @@ resources:
   - ./prowlarr/ks.yaml
   - ./radarr/ks.yaml
   - ./seerr/ks.yaml
+  - ./silo/ks.yaml
   - ./sonarr/ks.yaml
   - ./tautulli/ks.yaml
   - ./namespace.yaml

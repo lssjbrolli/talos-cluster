@@ -1,0 +1,36 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: &app silo
+  namespace: flux-system
+spec:
+  components:
+    - "../../../../components/local"
+    - "../../../../components/kopiur"
+  interval: 1h
+  path: ./kubernetes/apps/media/silo/app
+  prune: true
+  wait: true
+  dependsOn:
+    - name: kopiur-repository
+      namespace: storage-system
+    - name: immich-db
+      namespace: db
+  postBuild:
+    substituteFrom:
+      - name: cluster-secrets
+        kind: Secret
+      - name: cluster-config
+        kind: ConfigMap
+    substitute:
+      APP: *app
+      NS: media
+      KOPIUR_CAPACITY: 50Gi
+      KOPIUR_SCHED: "H */12 * * *"
+      KOPIUR_CACHE: 20Gi
+      VOLUME: media
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+    namespace: flux-system
+  targetNamespace: media

@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: silo
+  namespace: media
+stringData:
+  SECRET_KEY: ENC[AES256_GCM,data:EhpKXEp/Uace+TT1u8NBzE6DWWQEnRpXQ1CfVAFhwlQiN53O8ZFU34Zo+kahCwrLXVcosofUTRfN51fksLH0DA==,iv:LGqqMhb3s0NK+YNKiIY7+qmErRvQq2POOUqeWIKjxcg=,tag:Voa5kh3Yuer9UoX75YOn8Q==,type:str]
+  DATABASE_URL: ENC[AES256_GCM,data:J0H5fufrO54G1qPFErCGOxyVlYbW5bW1ymFiyfydKWU5MjGGPq4y1e1/f+zKyeudXdJU3cAZS8Z9bBh3XdjjJ1FJyc0KCDBn4or30k9nmfc=,iv:2hbQ0/4u7VgWlhSfH5SgDWYxyMstU/QLdA7N+gC4N58=,tag:puFi6ri/JRlRX5LpDrk8qA==,type:str]
+sops:
+  age:
+    - enc: |
+        -----BEGIN AGE ENCRYPTED FILE-----
+        YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBVeUF3UmZSWFQwcFRPajBq
+        RytEU3NPR0NrcHhnZnZTcTJpV3owV0Y0VENjCjNwN2RTZUpTTDk1a2ZET0txSnU5
+        NUxLczlOdFV2K2NMbDZSRXFzdXYvdWcKLS0tIGJaUEFFZzdMTkxocEkyc0ZTUEpI
+        UkFKMDZZb202SGtoTDdTRG1KWWxwRW8Kz7K2vq0EEyo/+035IzS5Buw8JEgjxT34
+        zT503wOGVYxbAFmNfoGs2v00+4csDdCtCGDcrIP/lsj0W2WaDu3vHA==
+        -----END AGE ENCRYPTED FILE-----
+      recipient: age1k5cr4cvs4atdm3gse77vq4glnv9q49gq5wl49p9806gfyfld7p3setz3tw
+  encrypted_regex: ^(data|stringData)$
+  lastmodified: "2026-10-03T15:03:16Z"
+  mac: ENC[AES256_GCM,data:/IJo3AQfIfOTRs3sUpC6gac6v3drKFtUG0oS1eRFlQCaOtADtrIs1/y+phWJEuvLoALx8GDuJuJo3MPGSBwudvW1nNcOA+VdmaFyoftWkigK04FjZikiXep/aE2c8KA7d+HG4IKn0mynxoWMd2O0ur374ce7+nFMcqyC+XBoRio=,iv:xMCnpPgTa83Jzn+an3OqfD8vwGmSuxutFYWA3UZX0Uw=,tag:J9Pr3zVQMCAODe0qopDsZA==,type:str]
+  version: 3.13.3

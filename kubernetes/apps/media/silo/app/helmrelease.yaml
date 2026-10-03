@@ -69,12 +69,13 @@ spec:
               - name: POSTGRES_TUNE
                 value: auto
 
-    main:
-      controller: main
-      type: ClusterIP
-      ports:
-        http:
-          port: *port
+    service:
+      main:
+        controller: main
+        type: ClusterIP
+        ports:
+          http:
+            port: *port
 
     route:
       app:

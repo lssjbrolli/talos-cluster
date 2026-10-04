@@ -64,8 +64,10 @@ spec:
                     key: DATABASE_URL
               - name: REDIS_URL
                 value: redis://dragonfly-operator.db.svc.cluster.local:6379
-              - name: SILO_PLUGIN_CACHE_DIR
-                value: /var/lib/silo/plugins
+              - name: MEDIA_CONTAINER_ROOT
+                value: /data
+              - name: SILO_DATA_ROOT
+                value: /config
               - name: POSTGRES_TUNE
                 value: auto
 
@@ -98,9 +100,9 @@ spec:
       #   type: persistentVolumeClaim
       #   accessMode: ReadWriteOnce
       #   suffix: cache
-      #   size: 10Gi
+      #   size: 1Gi
       #   globalMounts:
-      #     - path: /config/Library/Application Support/Plex Media Server/Cache
+      #     - path: /var/lib/silo
       # logs:
       #   type: emptyDir
       #   globalMounts:

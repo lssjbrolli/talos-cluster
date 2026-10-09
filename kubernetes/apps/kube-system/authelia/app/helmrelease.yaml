@@ -181,7 +181,7 @@ spec:
               public: false
               authorization_policy: one_factor
               redirect_uris:
-                - https://silo.${SECRET_DOMAIN}/oauth_callback
+                - https://silo.${SECRET_DOMAIN}/api/v2/auth/oauth/42/callback
               scopes:
                 - openid
                 - profile

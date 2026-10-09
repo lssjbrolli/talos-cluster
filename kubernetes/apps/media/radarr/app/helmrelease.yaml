@@ -68,8 +68,6 @@ spec:
               RADARR__LOG__LEVEL: info
               RADARR__LOG__DBENABLED: True
               RADARR__LOG__ANALYTICSENABLED: True
-              RADARR__AUTH__REQUIRED: DisabledForLocalAddresses
-              RADARR__AUTH__METHOD: Basic
               RADARR__SERVER__PORT: &port 80
               RADARR__SERVER__BINDADDRESS: "*"
               RADARR__SERVER__ENABLESSL: False

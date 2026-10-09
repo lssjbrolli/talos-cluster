@@ -220,6 +220,22 @@ spec:
             sectionName: https
     secret:
       existingSecret: authelia
+      additionalSecrets:
+        authelia:
+          items:
+            - key: "authentication.ldap.password.txt"
+            - key: "identity_providers.oidc.hmac.key"
+            - key: "identity_validation.reset_password.jwt.hmac.key"
+            - key: "notifier.smtp.password.txt"
+            - key: "oidc.client.immich.value"
+            - key: "oidc.client.nextcloud.value"
+            - key: "oidc.client.sftpgo.value"
+            - key: "oidc.client.silo.value"
+            - key: "oidc.jwk.RS256.pem"
+            - key: "session.encryption.key"
+            - key: "session.redis.password.txt"
+            - key: "storage.encryption.key"
+            - key: "storage.postgres.password.txt"
     persistence:
       enabled: true
       existingClaim: authelia-config

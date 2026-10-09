@@ -52,26 +52,6 @@ spec:
                 value: https://lldap.${SECRET_DOMAIN}
               - name: LLDAP_LDAP_PORT
                 value: &lldapPort 389
-              - name: LLDAP_JWT_SECRET
-                valueFrom:
-                  secretKeyRef:
-                    name: lldap-secrets
-                    key: LLDAP_JWT_SECRET
-              - name: LLDAP_KEY_SEED
-                valueFrom:
-                  secretKeyRef:
-                    name: lldap-secrets
-                    key: LLDAP_KEY_SEED
-              - name: LLDAP_LDAP_BASE_DN
-                valueFrom:
-                  secretKeyRef:
-                    name: lldap-secrets
-                    key: LLDAP_BASE_DN
-              - name: LLDAP_LDAP_USER_PASS
-                valueFrom:
-                  secretKeyRef:
-                    name: lldap-secrets
-                    key: LLDAP_LDAP_USER_PASS
               - name: LLDAP_KEY_FILE
                 value: ""
             envFrom: *envFrom

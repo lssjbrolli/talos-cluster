@@ -12,9 +12,11 @@ stringData:
   INIT_POSTGRES_SUPER_PASS: ENC[AES256_GCM,data:mSC5tQ==,iv:4udw5VQlXUnTPa7hsi4CMvSsv9Ye6ozwK8hf50diwa8=,tag:j56oMmIjoNWnfG9odT/biQ==,type:str]
   #ENC[AES256_GCM,data:6DIx,iv:X5ijwkW36eB8C0Y9rzOhReg99sT9ic14GgAgdQ8IpWg=,tag:MzVGdf6bVmVKrHIhKPKXMg==,type:comment]
   LLDAP_JWT_SECRET: ENC[AES256_GCM,data:pSF8P/xydiu5VVpo1lsCLcgt2jYDbj+2h+Iz8hjNc84=,iv:FxPp2AcrZ/AsjCHoP05kU9Un5i0LokR6yHNsNmOJMxI=,tag:nobWPiufQgFf044UihToCg==,type:str]
+  LLDAP_ADMIN_USERNAME: ENC[AES256_GCM,data:0xRv8OE=,iv:UyiydknzxAWk568dVl1E2TbO00BwhrPLgHg1SmGUbqg=,tag:rT3iEpUWmIbxtKAXu7tDOA==,type:str]
+  LLDAP_ADMIN_PASSWORD: ENC[AES256_GCM,data:hTHZQyw++VMsAe70omM0RQ==,iv:PfMkPGqto+P/dTLquOPvwdWFhGRKwiekoZfMb+51LPA=,tag:pVugABC9i5E3QzEgQNw2BQ==,type:str]
   LLDAP_LDAP_USER_PASS: ENC[AES256_GCM,data:soAXk8OvWuLZ7heNqtLbDQ==,iv:uTVbFAPIlTED+FF5W4k8VAE88sjashlJf6N8EjMXiOw=,tag:eqRIkbovP+dqQp3KL/vBSw==,type:str]
-  LLDAP_BASE_DN: ENC[AES256_GCM,data:9xufjzmLOnzcY2roFBcc/d7aXVzHhnh+OYq+fu3iYzNkqzR4,iv:eR/IYVcxjlvEJzLjoObeEGT4/OPQYgcRPR/1myrGbSQ=,tag:fhfd56fY+/ZjCjv37HraZg==,type:str]
-  LDAP_USER_EMAIL: ENC[AES256_GCM,data:Kfp9TwXRga+VeSpaGSYgz0Nm+KA=,iv:66XBTlwK1Snekyzy+82ilv/87mIdnv8mFexMyt0hrQg=,tag:62sA3Pe9ewfuThD27HB1+A==,type:str]
+  LLDAP_LDAP_BASE_DN: ENC[AES256_GCM,data:BFizp+cwTB7d8S9/AlE/zij0G9L6KyhIe3uEjp48Xc7r1IKg,iv:1irJiIJhnLnCuD0XD3yRWDV9siGqQKB/2XjEDwt1hxE=,tag:cEdMWVVoGFGMsckj2K3ELg==,type:str]
+  LLDAP_LDAP_USER_EMAIL: ENC[AES256_GCM,data:V0o9zMqiGjZW1VZMaUdcfRZ77TY=,iv:B/eMHCX0VTw/ilbvX6YH8pZunfZp78Sga5kGZYF+GLI=,tag:B3BxWYgHL1lj/ZhBQ2AGtw==,type:str]
   LLDAP_KEY_SEED: ENC[AES256_GCM,data:3skrSThCUYRqY63p5aJ+vR58ABJgK5kuVrr2sp4IAtU=,iv:HNu9FMUirCF8yBqgDGbHOAiyLj3TP0IOWsMRSwnyxCM=,tag:fvY4Pl8U2Hm2nYQJVswF9w==,type:str]
   LLDAP_DATABASE_URL: ENC[AES256_GCM,data:vj3nSKFOQr1Jb0PFuOV1oePsILDHu0WOF0N396ZP9wLvh1osqC+bPe0FmvHi+iP7W7V2uJTKQsGxfVwL,iv:jY5e+PDfrAwapJrPiKWTsJOc5StjNNY1xSsupuoEckI=,tag:N2pnkaFvzC+Btct2/j/Ihg==,type:str]
 sops:
@@ -29,6 +31,6 @@ sops:
         -----END AGE ENCRYPTED FILE-----
       recipient: age1k5cr4cvs4atdm3gse77vq4glnv9q49gq5wl49p9806gfyfld7p3setz3tw
   encrypted_regex: ^(data|stringData)$
-  lastmodified: "2026-10-09T15:22:57Z"
-  mac: ENC[AES256_GCM,data:zTDb9p/zRrRbgJ4AZB8XjWPtr746+9Mt4UkPO9J/KaMwy3n8AVDkSlsCU5GkWeZY67Sry8GOSfzahwuhg1qPm/ZqffAJPub84zEzYnA6D8eBN9MwT5zWANiSYvrXaivlOkkoWYrOOoXn0A05AKR7Tzt9YL+ojsN4BtXRX+E3TtU=,iv:E5sUg0r3NvrrFQ70I1anftAaF27KuUIDNrPnfbsMRk4=,tag:TDJg12hRh0uTIAfL2lUFBw==,type:str]
+  lastmodified: "2026-10-09T15:57:11Z"
+  mac: ENC[AES256_GCM,data:aN6cNX+3lgNvomdNrc6jHQhv0js6ah6E2cp0nZARNNQ1l4D8DZov6p7rFyJcrT6u1hFU/QBOd+xyuZ3ZDD4WApNOXAaz9VpulE2iOQVTfCmc+IWvQoYdzhx+M2W5H1TO1KeeIPccuCbsnO6Y3iHje06ppUjPSKEaZK19rFmPh5M=,iv:uzsXleKwpiFJBrWdkg+d52iEt9JNH3xmJAX1y5mbNZQ=,tag:M/mYjfKYf1UbEaOeiPM+Fw==,type:str]
   version: 3.13.3

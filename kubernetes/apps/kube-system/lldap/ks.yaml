@@ -1,14 +1,18 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: lldap
+  name: &app lldap
   namespace: flux-system
 spec:
+  components:
+    - "../../../../components/kopiur"
   interval: 30m
   path: ./kubernetes/apps/kube-system/lldap/app
   prune: true
   wait: true
   dependsOn:
+    - name: kopiur-repository
+      namespace: storage-system
     - name: cluster17
       namespace: db
   postBuild:
@@ -17,6 +21,10 @@ spec:
         kind: Secret
       - name: cluster-config
         kind: ConfigMap
+    substitute:
+      APP: *app
+      NS: kube-system
+      KOPIUR_SCHED: "H */3 * * *"
   sourceRef:
     kind: GitRepository
     name: flux-system

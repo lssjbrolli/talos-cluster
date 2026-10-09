@@ -32,11 +32,22 @@ spec:
             image:
               repository: ghcr.io/lldap/lldap
               tag: v0.6.3
+            securityContext:
+              runAsNonRoot: true
+              runAsUser: 568
+              runAsGroup: 568
+              allowPrivilegeEscalation: false
+              readOnlyRootFilesystem: true
+              seccompProfile:
+                type: RuntimeDefault
+              capabilities:
+                drop:
+                  - "ALL"
             env:
               TZ: ${TIMEZONE}
               LLDAP_HTTP_PORT: &port 80
-              LLDAP_HTTP_URL: https://ldap.${SECRET_DOMAIN}
-              LLDAP_LDAP_PORT: &ldapPort 389
+              LLDAP_HTTP_URL: https://lldap.${SECRET_DOMAIN}
+              LLDAP_LDAP_PORT: &lldapPort 389
               LLDAP_LDAP_BASE_DN: dc=seganet,dc=org
               LLDAP_KEY_FILE: ""
             envFrom: *envFrom
@@ -59,12 +70,12 @@ spec:
             port: *port
             primary: true
           ldap:
-            port: *ldapPort
+            port: *lldapPort
 
     route:
       app:
         hostnames:
-          - "ldap.${SECRET_DOMAIN}"
+          - "lldap.${SECRET_DOMAIN}"
         parentRefs:
           - name: internal
             namespace: network
@@ -72,4 +83,5 @@ spec:
 
     persistence:
       data:
-        type: emptyDir
+        type: persistentVolumeClaim
+        existingClaim: lldap-config

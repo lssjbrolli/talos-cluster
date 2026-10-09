@@ -44,12 +44,34 @@ spec:
                 drop:
                   - "ALL"
             env:
-              TZ: ${TIMEZONE}
-              LLDAP_HTTP_PORT: &port 80
-              LLDAP_HTTP_URL: https://lldap.${SECRET_DOMAIN}
-              LLDAP_LDAP_PORT: &lldapPort 389
-              LLDAP_LDAP_BASE_DN: dc=seganet,dc=org
-              LLDAP_KEY_FILE: ""
+              - name: TZ
+                value: ${TIMEZONE}
+              - name: LLDAP_HTTP_PORT
+                value: &port 80
+              - name: LLDAP_HTTP_URL
+                value: https://lldap.${SECRET_DOMAIN}
+              - name: LLDAP_LDAP_PORT
+                value: &lldapPort 389
+              - name: LLDAP_JWT_SECRET
+                valueFrom:
+                  secretKeyRef:
+                    name: lldap-secrets
+                    key: LLDAP_JWT_SECRET
+              - name: LLDAP_KEY_SEED
+                valueFrom:
+                  secretKeyRef:
+                    name: lldap-secrets
+                    key: LLDAP_KEY_SEED
+              - name: LLDAP_LDAP_BASE_DN
+                valueFrom:
+                  secretKeyRef:
+                    name: lldap-secrets
+                    key: LLDAP_BASE_DN
+              - name: LLDAP_LDAP_USER_PASS
+                valueFrom:
+                  secretKeyRef:
+                    name: lldap-secrets
+                    key: LLDAP_LDAP_USER_PASS
             envFrom: *envFrom
             probes:
               liveness:

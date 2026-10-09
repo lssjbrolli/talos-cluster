@@ -9,4 +9,4 @@ spec:
     operation: copy
   ref:
     tag: 0.11.22
-  url: oci://ghcr.io/authelia/chartrepo/authelia:0.11
+  url: oci://ghcr.io/authelia/chartrepo/authelia

@@ -89,13 +89,17 @@ spec:
           password:
             secret_name: authelia
       notifier:
-        disable_startup_check: true
         filesystem:
           enabled: true
-        # smtp:
-        #   address: submission://smtp.gmail.com:587
-        #   username: budimanjojo@gmail.com
-        #   sender: Authelia Admin <admin@budimanjojo.com>
+        smtp:
+          enabled: true
+          address: submission://smtp.lettermint.co:587
+          username: lettermint
+          password:
+            secret_name: authelia
+            path: "notifier.smtp.password.txt"
+          identifier: "Authelia"
+          sender: Authelia <auth@seganet.org>
       definitions:
         user_attributes:
           sftpgo_role:
@@ -216,11 +220,6 @@ spec:
           - name: external
             namespace: network
             sectionName: https
-      # rulesOverride:
-      #   - backendRefs:
-      #     - name: authelia
-      #       namespace: kube-system
-      #       port: 80
     secret:
       existingSecret: authelia
       additionalSecrets:
@@ -229,8 +228,9 @@ spec:
             - key: "authentication.ldap.password.txt"
             - key: "identity_providers.oidc.hmac.key"
             - key: "identity_validation.reset_password.jwt.hmac.key"
+            - key: "notifier.smtp.password.txt"
             - key: "oidc.client.immich.value"
-            - key: "oidc.client.minio.value"
+            - key: "oidc.client.silo.value"
             - key: "oidc.client.nextcloud.value"
             - key: "oidc.client.sftpgo.value"
             - key: "oidc.jwk.RS256.pem"

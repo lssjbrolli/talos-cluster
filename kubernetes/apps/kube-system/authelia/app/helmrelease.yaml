@@ -172,20 +172,18 @@ spec:
               access_token_signed_response_alg: "none"
               userinfo_signed_response_alg: "none"
               token_endpoint_auth_method: "client_secret_basic"
-            # currently minio has bad oidc implementation so this client is not used
-            - client_name: Minio
-              client_id: "3d~kj20my5Nj1lziB4MoGkVy5Tx~2h.kL0LYNaA5K0kDlLznRH-OeMGWhv2hADEK6DSsOjgQ"
+            - client_name: Silo
+              client_id: "D5zujCBqnROqaZjHhgo0b6OjxaPgH0aLrWV4e-RbNaM~iQ1FGhG_uOy7ICCm~Cy8v~p1lVjT"
               client_secret:
-                path: "/secrets/authelia/oidc.client.minio.value"
+                path: "/secrets/authelia/oidc.client.silo.value"
               public: false
               authorization_policy: one_factor
               redirect_uris:
-                - https://minio.${SECRET_DOMAIN}/oauth_callback
+                - https://silo.${SECRET_DOMAIN}/oauth_callback
               scopes:
                 - openid
                 - profile
                 - email
-                - groups
               userinfo_signed_response_alg: none
             - client_name: Nextcloud
               client_id: "dlZVU05Xm5Vz0eOANbfSkRwxYINdynJhpE8j0rcasZLLyg9bgHpJKodoCiK9oSrywq1Q1cGh"

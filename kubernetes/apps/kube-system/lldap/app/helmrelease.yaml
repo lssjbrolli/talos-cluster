@@ -72,6 +72,8 @@ spec:
                   secretKeyRef:
                     name: lldap-secrets
                     key: LLDAP_LDAP_USER_PASS
+              - name: LLDAP_KEY_FILE
+                value: ""
             envFrom: *envFrom
             probes:
               liveness:

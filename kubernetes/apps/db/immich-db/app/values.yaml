@@ -15,7 +15,7 @@ cluster:
       cpu: 150m
       memory: 512Mi
     limits:
-      memory: 1Gi
+      memory: 2Gi
   storage:
     size: 10Gi
     storageClass: zfs-apps

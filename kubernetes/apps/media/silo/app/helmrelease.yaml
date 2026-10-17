@@ -72,12 +72,18 @@ spec:
                 value: auto
 
     service:
-      main:
+      web:
         controller: main
         type: ClusterIP
         ports:
           http:
             port: *port
+      jf:
+        controller: main
+        type: ClusterIP
+        ports:
+          http:
+            port: 8096
 
     route:
       app:
@@ -88,7 +94,7 @@ spec:
             sectionName: https
         rules:
           - backendRefs:
-              - identifier: main
+              - identifier: web
                 port: *port
 
     persistence:

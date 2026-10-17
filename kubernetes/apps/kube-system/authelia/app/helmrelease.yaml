@@ -252,6 +252,7 @@ spec:
             - key: "identity_providers.oidc.hmac.key"
             - key: "identity_validation.reset_password.jwt.hmac.key"
             - key: "notifier.smtp.password.txt"
+            - key: "oidc.client.abs.value"
             - key: "oidc.client.immich.value"
             - key: "oidc.client.nextcloud.value"
             - key: "oidc.client.sftpgo.value"

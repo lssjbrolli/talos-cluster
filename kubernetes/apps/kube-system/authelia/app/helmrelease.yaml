@@ -135,6 +135,7 @@ spec:
               # docker run authelia/authelia:latest authelia crypto hash generate pbkdf2 --variant sha512 --random
               client_secret:
                 path: "/secrets/authelia/oidc.client.abs.value"
+              public: false
               authorization_policy: "one_factor"
               require_pkce: true
               pkce_challenge_method: "S256"

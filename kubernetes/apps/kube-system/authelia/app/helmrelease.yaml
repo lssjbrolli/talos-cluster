@@ -129,6 +129,31 @@ spec:
               claims:
                 - "sftpgo_role"
           clients:
+            - client_name: "ABS"
+              # docker run authelia/authelia:latest authelia crypto rand --length 72 --charset rfc3986
+              client_id: "bTmA3gA_UMkyeupCLfsyVEEBJOVj7ReU1.zD3_VL0GohyqctnGyyP4vF_RISx90fmH6VhbKj"
+              # docker run authelia/authelia:latest authelia crypto hash generate pbkdf2 --variant sha512 --random
+              client_secret:
+                path: "/secrets/authelia/oidc.client.abs.value"
+              authorization_policy: "one_factor"
+              require_pkce: true
+              pkce_challenge_method: "S256"
+              redirect_uris:
+                - "https://abs.seganet.org/auth/openid/callback"
+                - "https://abs.seganet.org/auth/openid/mobile-redirect"
+                - "abs://oauth"
+              scopes:
+                - "openid"
+                - "profile"
+                - "groups"
+                - "email"
+              response_types:
+                - "code"
+              grant_types:
+                - "authorization_code"
+              access_token_signed_response_alg: "none"
+              userinfo_signed_response_alg: "none"
+              token_endpoint_auth_method: "client_secret_basic"
             - client_name: "Immich"
               # docker run authelia/authelia:latest authelia crypto rand --length 72 --charset rfc3986
               client_id: "BDP8p_LA.rou-Wkl_BcZr1eB1NO0INtFfsPrFMm~.jw0HZo-3VfoeCXo74kO1LYsy_6txYAK"

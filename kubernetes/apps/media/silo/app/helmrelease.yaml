@@ -51,7 +51,7 @@ spec:
               - name: PORT
                 value: &port 8080
               - name: JF_PORT
-                value: 8096
+                value: &jf_port 8096
               - name: SECRET_KEY
                 valueFrom:
                   secretKeyRef:
@@ -83,10 +83,10 @@ spec:
         type: ClusterIP
         ports:
           http:
-            port: 8096
+            port: *jf_port
 
     route:
-      app:
+      silo:
         hostnames: ["{{ .Release.Name }}.${SECRET_DOMAIN}"]
         parentRefs:
           - name: external
@@ -96,7 +96,16 @@ spec:
           - backendRefs:
               - identifier: web
                 port: *port
-
+      jf:
+        hostnames: ["jf.${SECRET_DOMAIN}"]
+        parentRefs:
+          - name: external
+            namespace: network
+            sectionName: https
+        rules:
+          - backendRefs:
+              - identifier: jf
+                port: *jf_port
     persistence:
       config:
         type: persistentVolumeClaim

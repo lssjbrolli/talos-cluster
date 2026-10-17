@@ -23,7 +23,7 @@ spec:
           main:
             image:
               repository: ghcr.io/silo-server/silo-server
-              tag: build-1233@sha256:78c3911f083d2bd46353150f6017c8900478b33d512fb8d7462182c63a00718a
+              tag: build-1502@sha256:983d6bf3ee570277091ad38fcf99b044f41e87658a57c4327de4e13bfbfaca2b
             securityContext:
               runAsNonRoot: true
               runAsUser: 568

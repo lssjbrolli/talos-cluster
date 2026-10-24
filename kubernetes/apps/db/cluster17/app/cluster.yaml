@@ -9,7 +9,7 @@ spec:
   releaseName: cluster17
   chartRef:
     kind: OCIRepository
-    name: cluster
+    name: cluster17
   interval: 30m
   valuesFrom:
     - kind: ConfigMap

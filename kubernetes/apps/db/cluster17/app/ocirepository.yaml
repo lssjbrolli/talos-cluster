@@ -1,7 +1,7 @@
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: OCIRepository
 metadata:
-  name: cluster
+  name: cluster17
   namespace: db
 spec:
   interval: 15m

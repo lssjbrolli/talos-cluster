@@ -7,7 +7,7 @@ spec:
   releaseName: immich-db
   chartRef:
     kind: OCIRepository
-    name: cluster
+    name: immich
   interval: 30m
   valuesFrom:
     - kind: ConfigMap

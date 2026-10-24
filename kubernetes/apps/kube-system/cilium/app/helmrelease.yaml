@@ -29,8 +29,6 @@ spec:
       enabled: true
     envoy:
       enabled: false
-    gatewayAPI:
-      enabled: false
     hubble:
       enabled: false
     ipam:

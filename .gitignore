@@ -5,8 +5,6 @@
 template.sops.yaml
 /age.key
 /cloudflare-tunnel.json
-/deploy.key
-/deploy.key.pub
 /flux-webhook-token.txt
 # Template config files
 /cluster.toml

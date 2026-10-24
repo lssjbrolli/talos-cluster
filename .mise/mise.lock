@@ -60,14 +60,14 @@ url = "https://github.com/cilium/cilium-cli/releases/download/v0.20.1/cilium-lin
 url_api = "https://api.github.com/repos/cilium/cilium-cli/releases/assets/585358772"
 
 [[tools.cloudflared]]
-version = "2026.10.2"
+version = "2026.10.3"
 backend = "aqua:cloudflare/cloudflared"
-specifiers = ["2026.10.2"]
+specifiers = ["2026.10.3"]
 
 [tools.cloudflared."platforms.linux-x64"]
-checksum = "sha256:35fbdd2beb378436c7da377d7358cea8e33f9c94a6705d1d8036bf9b0d6d8005"
-url = "https://github.com/cloudflare/cloudflared/releases/download/2026.10.2/cloudflared-linux-amd64"
-url_api = "https://api.github.com/repos/cloudflare/cloudflared/releases/assets/658836528"
+checksum = "sha256:053b80b0a23031a038fdbf3c073f59f82b8f1f152aa67971d7383ffafc0dbab0"
+url = "https://github.com/cloudflare/cloudflared/releases/download/2026.10.3/cloudflared-linux-amd64"
+url_api = "https://api.github.com/repos/cloudflare/cloudflared/releases/assets/662570969"
 
 [[tools.flux2]]
 version = "2.9.6"
@@ -80,25 +80,25 @@ url = "https://github.com/fluxcd/flux2/releases/download/v2.9.6/flux_2.9.6_linux
 url_api = "https://api.github.com/repos/fluxcd/flux2/releases/assets/602941244"
 
 [[tools.gh]]
-version = "2.102.1"
+version = "2.103.2"
 backend = "aqua:cli/cli"
-specifiers = ["2.102.1"]
+specifiers = ["2.103.2"]
 
 [tools.gh."platforms.linux-x64"]
-checksum = "sha256:77b9e297e94c50336823d0f84de7ef1be60cba704601fa0d98f129f47a94987b"
-url = "https://github.com/cli/cli/releases/download/v2.102.1/gh_2.102.1_linux_amd64.tar.gz"
-url_api = "https://api.github.com/repos/cli/cli/releases/assets/660284822"
+checksum = "sha256:62ccf747115ddc61237efffdde66a3c8f70ba249433dc64f70801089b59c59c8"
+url = "https://github.com/cli/cli/releases/download/v2.103.2/gh_2.103.2_linux_amd64.tar.gz"
+url_api = "https://api.github.com/repos/cli/cli/releases/assets/670305062"
 provenance = "github-attestations"
 
 [[tools."github:postfinance/topf"]]
-version = "0.6.1"
+version = "0.6.2"
 backend = "github:postfinance/topf"
-specifiers = ["v0.6.1"]
+specifiers = ["v0.6.2"]
 
 [tools."github:postfinance/topf"."platforms.linux-x64"]
-checksum = "sha256:6f399e527cb8588b02d7d28eae9a61c49680f4cd5e82d98be7a5c5001c80d341"
-url = "https://github.com/postfinance/topf/releases/download/v0.6.1/topf_linux_amd64.tar.gz"
-url_api = "https://api.github.com/repos/postfinance/topf/releases/assets/597558300"
+checksum = "sha256:793dc87c97a6545fd73db82c3558306644d9e6914010f2636d1470cf55272405"
+url = "https://github.com/postfinance/topf/releases/download/v0.6.2/topf_linux_amd64.tar.gz"
+url_api = "https://api.github.com/repos/postfinance/topf/releases/assets/668624308"
 
 [[tools."go:github.com/home-operations/flate/cmd/flate"]]
 version = "0.6.5"

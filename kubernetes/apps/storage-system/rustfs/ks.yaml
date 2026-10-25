@@ -23,7 +23,7 @@ spec:
       APP: *app
       NS: storage-system
       KOPIUR_SCHED: "H */3 * * *"
-      VOLUME: minio
+      VOLUME: s3
   sourceRef:
     kind: GitRepository
     name: flux-system

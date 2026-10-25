@@ -1,9 +1,9 @@
 apiVersion: v1alpha1
 kind: ExternalVolumeConfig
-name: minio
+name: s3
 filesystemType: virtiofs
 mount:
   readOnly: false
   disableAccessTime: true
   virtiofs:
-    tag: minio
+    tag: s3

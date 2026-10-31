@@ -35,6 +35,8 @@ spec:
               capabilities:
                 drop:
                   - "ALL"
+                add:
+                  - "NET_ADMIN"
             resources:
               requests:
                 cpu: 1

@@ -46,6 +46,10 @@ spec:
                 value: ${TIMEZONE}
               - name: S6_YES_I_WANT_A_WORLD_WRITABLE_RUN_BECAUSE_KUBERNETES
                 value: "1"
+              - name: PUID
+                value: "568"
+              - name: PGID
+                value: "568"
               - name: MODE
                 value: integrated
               # Keep the container listeners fixed. PORT and JF_PORT in .env are

@@ -44,6 +44,8 @@ spec:
             env:
               - name: TZ
                 value: ${TIMEZONE}
+              - name: S6_YES_I_WANT_A_WORLD_WRITABLE_RUN_BECAUSE_KUBERNETES
+                value: "1"
               - name: MODE
                 value: integrated
               # Keep the container listeners fixed. PORT and JF_PORT in .env are
@@ -118,8 +120,8 @@ spec:
       #   size: 1Gi
       #   globalMounts:
       #     - path: /var/lib/silo
-      run:
-        type: emptyDir
+      # run:
+      #   type: emptyDir
       #   globalMounts:
       #     - path: /config/Library/Application Support/Plex Media Server/Logs
       transcode:

@@ -6,6 +6,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 30m
+  patches: []
   path: ./kubernetes/apps/db/immich-db/app
   prune: true
   dependsOn:

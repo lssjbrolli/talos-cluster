@@ -5,6 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 30m
+  patches: []
   path: ./kubernetes/apps/db/dragonfly/app
   prune: false # never should be deleted
   dependsOn:

@@ -7,9 +7,9 @@ spec:
   components:
     - "../../../../components/kopiur"
   interval: 1h
+  patches: []
   path: ./kubernetes/apps/kube-apps/immich/app
   prune: true
-  wait: false
   dependsOn:
     - name: kopiur-repository
       namespace: storage-system

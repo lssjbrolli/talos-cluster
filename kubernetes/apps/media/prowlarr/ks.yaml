@@ -7,9 +7,9 @@ spec:
   components:
     - "../../../../components/kopiur"
   interval: 30m
+  patches: []
   path: ./kubernetes/apps/media/prowlarr/app
   prune: true
-  wait: false
   dependsOn:
     - name: kopiur-repository
       namespace: storage-system

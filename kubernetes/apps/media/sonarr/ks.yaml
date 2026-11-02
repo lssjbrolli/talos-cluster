@@ -8,6 +8,7 @@ spec:
     - "../../../../components/local"
     - "../../../../components/kopiur"
   interval: 30m
+  patches: []
   path: ./kubernetes/apps/media/sonarr/app
   prune: true
   wait: true

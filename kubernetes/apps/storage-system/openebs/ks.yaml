@@ -5,6 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1h
+  patches: []
   path: ./kubernetes/apps/storage-system/openebs/app
   prune: true
   wait: true

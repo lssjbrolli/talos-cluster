@@ -8,6 +8,7 @@ spec:
     - "../../../../components/kopiur"
     - "../../../../components/local"
   interval: 30m
+  patches: []
   path: ./kubernetes/apps/kube-apps/filebrowser/app
   prune: true
   wait: true

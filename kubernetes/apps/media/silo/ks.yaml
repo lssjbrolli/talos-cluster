@@ -8,6 +8,7 @@ spec:
     - "../../../../components/local"
     - "../../../../components/kopiur"
   interval: 1h
+  patches: []
   path: ./kubernetes/apps/media/silo/app
   prune: true
   wait: true

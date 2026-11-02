@@ -4,7 +4,8 @@ metadata:
   name: robusta
   namespace: flux-system
 spec:
-  interval: 30m
+  interval: 1h
+  patches: []
   path: ./kubernetes/apps/observability/robusta/app
   prune: true
   postBuild:

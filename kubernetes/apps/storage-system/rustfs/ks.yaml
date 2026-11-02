@@ -7,6 +7,7 @@ spec:
   components:
     - "../../../../components/local"
   interval: 30m
+  patches: []
   path: ./kubernetes/apps/storage-system/rustfs/app
   prune: true
   wait: true

@@ -7,6 +7,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 30m
+  patches: []
   path: ./kubernetes/apps/db/cnpg/app
   prune: false # never should be deleted
   wait: true

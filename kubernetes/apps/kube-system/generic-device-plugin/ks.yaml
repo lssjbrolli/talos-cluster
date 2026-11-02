@@ -6,6 +6,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 30m
+  patches: []
   path: ./kubernetes/apps/kube-system/generic-device-plugin/app
   prune: true
   sourceRef:

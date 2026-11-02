@@ -6,6 +6,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1h
+  patches: []
   path: ./kubernetes/apps/db/plugin-barman-cloud/app
   prune: true
   wait: true

@@ -6,6 +6,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1h
+  patches: []
   path: ./kubernetes/apps/storage-system/kopiur/app
   dependsOn:
     - name: rustfs
@@ -16,7 +17,6 @@ spec:
     name: flux-system
     namespace: flux-system
   targetNamespace: storage-system
-  wait: false
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
@@ -25,6 +25,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1h
+  patches: []
   path: ./kubernetes/apps/storage-system/kopiur/repository
   dependsOn:
     - name: kopiur
@@ -41,7 +42,6 @@ spec:
     name: flux-system
     namespace: flux-system
   targetNamespace: storage-system
-  wait: false
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
@@ -50,6 +50,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1h
+  patches: []
   path: ./kubernetes/apps/storage-system/kopiur/replication
   dependsOn:
     - name: kopiur-repository
@@ -66,4 +67,3 @@ spec:
     name: flux-system
     namespace: flux-system
   targetNamespace: storage-system
-  wait: false

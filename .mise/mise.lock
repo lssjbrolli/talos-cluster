@@ -14,25 +14,26 @@ url_api = "https://api.github.com/repos/FiloSottile/age/releases/assets/53554190
 provenance = "github-attestations"
 
 [[tools.cilium-cli]]
-version = "0.20.1"
+version = "0.20.2"
 backend = "aqua:cilium/cilium-cli"
-specifiers = ["0.20.1"]
+specifiers = ["0.20.2"]
 
 [tools.cilium-cli."platforms.linux-x64"]
-checksum = "sha256:24e817dcfcc8a12e325ce7547617bcbcf171c5b0b335bb24d2bb1207ba047f61"
-url = "https://github.com/cilium/cilium-cli/releases/download/v0.20.1/cilium-linux-amd64.tar.gz"
-url_api = "https://api.github.com/repos/cilium/cilium-cli/releases/assets/585358772"
+checksum = "sha256:b7224a62bfed0e84f1a84567d274fefc5017df76a936e067c42012bb7fc30856"
+checksum_source = "mise-versions"
+url = "https://github.com/cilium/cilium-cli/releases/download/v0.20.2/cilium-linux-amd64.tar.gz"
+url_api = "https://api.github.com/repos/cilium/cilium-cli/releases/assets/687888470"
 
 [[tools.cloudflared]]
-version = "2026.10.5"
+version = "2026.10.7"
 backend = "aqua:cloudflare/cloudflared"
-specifiers = ["2026.10.5"]
+specifiers = ["2026.10.7"]
 
 [tools.cloudflared."platforms.linux-x64"]
-checksum = "sha256:e1bc0cf084fd9e590554fe769a86b1db46701c3f847a43d902f7b974a4e16298"
+checksum = "sha256:1f99fb518b83dec2ba8d870a7cc991d82a77e6196295a3d2754ba17ab9f91872"
 checksum_source = "mise-versions"
-url = "https://github.com/cloudflare/cloudflared/releases/download/2026.10.5/cloudflared-linux-amd64"
-url_api = "https://api.github.com/repos/cloudflare/cloudflared/releases/assets/681690401"
+url = "https://github.com/cloudflare/cloudflared/releases/download/2026.10.7/cloudflared-linux-amd64"
+url_api = "https://api.github.com/repos/cloudflare/cloudflared/releases/assets/692817008"
 
 [[tools.flux2]]
 version = "2.10.0"
@@ -223,12 +224,12 @@ url_api = "https://api.github.com/repos/mikefarah/yq/releases/assets/597222595"
 provenance = "cosign"
 
 [[tools.zizmor]]
-version = "1.31.1"
+version = "1.32.0"
 backend = "aqua:zizmorcore/zizmor"
-specifiers = ["1.31.1"]
+specifiers = ["1.32.0"]
 
 [tools.zizmor."platforms.linux-x64"]
-checksum = "sha256:d185f726bdaf92df78273217dfdd24ebcd6b0ef48cf3ce776ff5762b6e138c99"
-url = "https://github.com/zizmorcore/zizmor/releases/download/v1.31.1/zizmor-x86_64-unknown-linux-gnu.tar.gz"
-url_api = "https://api.github.com/repos/zizmorcore/zizmor/releases/assets/645467284"
+checksum = "sha256:bb110cc765eca9cd7efb2e284a956be5974c60027b0970f16397d86208a9957b"
+url = "https://github.com/zizmorcore/zizmor/releases/download/v1.32.0/zizmor-x86_64-unknown-linux-gnu.tar.gz"
+url_api = "https://api.github.com/repos/zizmorcore/zizmor/releases/assets/703541932"
 provenance = "github-attestations"

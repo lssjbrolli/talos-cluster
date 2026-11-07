@@ -23,7 +23,7 @@ spec:
           main:
             image:
               repository: ghcr.io/vavallee/bindery
-              tag: v1.46.1@sha256:19f1edab36df9f9b81cb51f0d1bed32aff19c262491e7c3cc763b68b9f6b733d
+              tag: v1.48.0@sha256:3d434e4be0bf561847e20b9259e25ac903a3e28cdad5e72fe5ca5b71b3136fbd
             securityContext:
               runAsNonRoot: true
               runAsUser: 568

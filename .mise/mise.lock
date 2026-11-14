@@ -13,6 +13,17 @@ url = "https://github.com/FiloSottile/age/releases/download/v1.3.2/age-v1.3.2-li
 url_api = "https://api.github.com/repos/FiloSottile/age/releases/assets/535541903"
 provenance = "github-attestations"
 
+[[tools."aqua:home-operations/flate"]]
+version = "0.8.0"
+backend = "aqua:home-operations/flate"
+specifiers = ["0.8.0"]
+
+[tools."aqua:home-operations/flate"."platforms.linux-x64"]
+checksum = "sha256:76940fb6ff060e09a40e1a835fc9c5cd24e18fdd29e4e79382852821e0ac01c2"
+url = "https://github.com/home-operations/flate/releases/download/v0.8.0/flate_0.8.0_linux_amd64.tar.gz"
+url_api = "https://api.github.com/repos/home-operations/flate/releases/assets/768879874"
+provenance = "cosign"
+
 [[tools.cilium-cli]]
 version = "0.20.3"
 backend = "aqua:cilium/cilium-cli"
@@ -55,11 +66,6 @@ specifiers = ["v0.6.2"]
 checksum = "sha256:793dc87c97a6545fd73db82c3558306644d9e6914010f2636d1470cf55272405"
 url = "https://github.com/postfinance/topf/releases/download/v0.6.2/topf_linux_amd64.tar.gz"
 url_api = "https://api.github.com/repos/postfinance/topf/releases/assets/668624308"
-
-[[tools."go:github.com/home-operations/flate/cmd/flate"]]
-version = "0.8.0"
-backend = "go:github.com/home-operations/flate/cmd/flate"
-specifiers = ["v0.8.0"]
 
 [[tools.gum]]
 version = "2.0.2"

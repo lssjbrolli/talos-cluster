@@ -57,9 +57,9 @@ url = "https://github.com/postfinance/topf/releases/download/v0.6.2/topf_linux_a
 url_api = "https://api.github.com/repos/postfinance/topf/releases/assets/668624308"
 
 [[tools."go:github.com/home-operations/flate/cmd/flate"]]
-version = "0.6.5"
+version = "0.7.3"
 backend = "go:github.com/home-operations/flate/cmd/flate"
-specifiers = ["v0.6.5"]
+specifiers = ["v0.7.3"]
 
 [[tools.gum]]
 version = "2.0.2"

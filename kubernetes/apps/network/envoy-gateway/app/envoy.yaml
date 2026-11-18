@@ -8,6 +8,7 @@ spec:
   logging:
     level:
       default: info
+  mergeType: StrategicMerge
   provider:
     type: Kubernetes
     kubernetes:
@@ -23,6 +24,7 @@ spec:
       envoyService:
         # Cilium serves the LoadBalancer IP itself; NodePorts would only open
         # the gateways on every node address.
+        loadBalancerClass: io.cilium/node
         allocateLoadBalancerNodePorts: false
         externalTrafficPolicy: Cluster
   shutdown:
@@ -32,6 +34,7 @@ spec:
       prometheus:
         compression:
           type: Zstd
+
 ---
 # yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/gateway.networking.k8s.io/gatewayclass_v1.json
 apiVersion: gateway.networking.k8s.io/v1
@@ -91,7 +94,7 @@ kind: Gateway
 metadata:
   name: internal
   annotations:
-    external-dns.kubernetes.io/target: internal.${SECRET_DOMAIN}
+    external-dns.kubernetes.io/target: #{ name }#.${SECRET_DOMAIN}
 spec:
   gatewayClassName: envoy
   infrastructure:
@@ -99,6 +102,10 @@ spec:
       external-dns.kubernetes.io/hostname: internal.${SECRET_DOMAIN}
       #cluster_gateway_addr - internal
       lbipam.cilium.io/ips: "192.168.1.105"
+    parametersRef:
+      group: gateway.envoyproxy.io
+      kind: EnvoyProxy
+      name: envoy
   listeners:
     - name: http
       protocol: HTTP

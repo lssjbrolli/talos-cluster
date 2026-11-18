@@ -1,0 +1,348 @@
+#:schema ./cluster.schema.json
+# =============================================================================
+#    Physical LAN that your Talos nodes live on. Defines the address space
+#    used for node IPs, the gateway/DNS/NTP servers nodes will use, and an
+#    optional VLAN tag for switch ports that aren't natively tagged.
+# =============================================================================
+[network]
+
+# The CIDR block your nodes' IPs come from. Every node's `address` and the
+# Kube API address must sit inside this range, and so must the gateway
+# addresses (internal/dns/external) when cilium.announce is "l2" (the
+# default without BGP).
+# REQUIRED. Example: "192.168.1.0/24"
+node_cidr = ""
+
+# Upstream DNS servers Talos nodes use for name resolution. Defaults to
+# Cloudflare (1.1.1.1 / 1.0.0.1). Override if you run an internal resolver
+# (Pi-hole, Unbound, AdGuard) or want a different public provider.
+# OPTIONAL. Default: ["1.1.1.1", "1.0.0.1"]. If set, list at least one.
+
+# dns_servers = ["1.1.1.1", "1.0.0.1"]
+
+# Upstream NTP servers. Defaults to Cloudflare's anycast NTP. Most homelabs
+# don't need to change this.
+# OPTIONAL. Default: ["162.159.200.1", "162.159.200.123"]. If set, list at least one.
+
+# ntp_servers = ["162.159.200.1", "162.159.200.123"]
+
+# Default gateway IP that nodes use to reach the rest of your LAN/WAN.
+# Defaults to the first usable host in node_cidr (e.g. 192.168.1.1 for
+# 192.168.1.0/24), which is correct for most home routers. Override if your
+# router lives at a non-standard address inside the subnet.
+# OPTIONAL. Default: first IP in node_cidr (also used when left as "")
+
+# default_gateway = ""
+
+# 802.1Q VLAN tag to apply to the Talos node interface. Only set this if
+# your switch ports are configured as trunks (passing tagged traffic to the
+# nodes); access ports already untag VLAN traffic. Must be 1-4094, given as
+# a number (100) or a string ("100").
+# REF: https://www.talos.dev/latest/advanced/advanced-networking/#vlans
+# OPTIONAL. Leave empty ("") for no VLAN.
+
+# vlan_tag = ""
+
+
+# =============================================================================
+#    Cluster-internal control plane and overlay networks. The pod and service
+#    CIDRs are in-cluster only — they don't have to be routable on your LAN
+#    and never appear on the wire outside the nodes.
+# =============================================================================
+[kubernetes]
+
+# CIDR Cilium hands out to pods. /16 gives ~64K pod IPs, which is well beyond
+# what a homelab needs but matches the upstream default. Must NOT overlap
+# with node_cidr or svc_cidr.
+# OPTIONAL. Default: "10.42.0.0/16"
+
+# pod_cidr = "10.42.0.0/16"
+
+# CIDR for ClusterIP services (the virtual IPs `kubectl get svc` shows).
+# Same /16 reasoning as pod_cidr. Must NOT overlap with node_cidr or
+# pod_cidr.
+# OPTIONAL. Default: "10.43.0.0/16"
+
+# svc_cidr = "10.43.0.0/16"
+
+# ClusterIP for the CoreDNS Service. Must be inside svc_cidr. Any other
+# address than the default is also set as kubelet's clusterDNS, and Talos
+# appends rather than replaces it when your own patch sets clusterDNS too.
+# Changing it on a running cluster requires recreating the kube-dns Service
+# (its ClusterIP is immutable) and existing pods (resolv.conf is set at
+# creation).
+# OPTIONAL. Default: the 10th IP in svc_cidr (also used when left as "")
+
+# coredns_addr = ""
+
+[kubernetes.api]
+
+# Virtual IP for the Kubernetes API server. kubectl, flux, and every other
+# client connect here on port 6443. Must be an unused IP inside
+# network.node_cidr — Talos floats it across controller nodes as a Layer 2
+# VIP. With `vip = false`, set it to the sole controller's own address.
+# REQUIRED.
+addr = ""
+
+# Announce `addr` as a Layer 2 VIP. Set to false only on a cluster with
+# exactly one controller that has no spare IP for a VIP (e.g. a VPS with a
+# single IP); `addr` must then be that controller's address.
+# OPTIONAL. Default: true
+
+# vip = true
+
+# Additional Subject Alternative Names to put on the Kube API cert. Useful
+# if you want to call the API by hostname (e.g. via a CNAME or local
+# /etc/hosts entry) or by another IP (e.g. a Tailscale address) instead of
+# kubernetes.api.addr.
+# OPTIONAL. Example: ["mycluster.example.com", "100.64.0.10"]
+
+# tls_sans = ["mycluster.example.com"]
+
+
+# =============================================================================
+#    LoadBalancer IPs that Cilium hands out to the cluster's edge gateways.
+#    Each must be an unused address inside network.node_cidr (unless
+#    cilium.announce is "bgp" or "none") and outside pod_cidr and
+#    svc_cidr, distinct from each other, from every node's address, and
+#    from kubernetes.api.addr.
+#
+#    Instead of an IP, a gateway can name the loadBalancerClass of another
+#    LoadBalancer implementation, which then assigns its address:
+#      external = { load_balancer_class = "io.cilium/node" }  # the nodes' own IPs
+#      internal = { load_balancer_class = "tailscale" }       # Tailscale operator
+#    The plain IP form is shorthand for { address = "<ip>" }. Classes other
+#    than io.cilium/node need their controller installed separately, and
+#    only one of internal and external can use io.cilium/node (both would
+#    listen on ports 80 and 443 of the same node IPs).
+#
+#    A Service's loadBalancerClass cannot be changed once it exists: to
+#    switch a running gateway between an address and a class (or between
+#    classes), delete its Service after the change and let it be recreated
+#    (envoy-<name> in the network namespace, or k8s-gateway for dns).
+# =============================================================================
+[gateways]
+
+# IP for the `envoy-internal` gateway — used by HTTPRoutes intended for
+# private/in-network access only. Most apps use this gateway by default.
+# REQUIRED.
+internal = ""
+
+# IP for `k8s_gateway`, which serves DNS for cluster-managed hostnames.
+# Point your home DNS server's conditional forwarder for domain.name
+# at this IP to enable split-DNS resolution from your LAN.
+# REQUIRED.
+dns = ""
+
+# IP for the `envoy-external` gateway — sits behind the ingress path (e.g.
+# the cloudflared tunnel) and handles traffic exposed to the public
+# internet. HTTPRoutes that reference this gateway become reachable via
+# your public domain.
+# REQUIRED unless ingress.mode is "none" (internal-only cluster).
+external = ""
+
+
+# =============================================================================
+#    The Git repo Flux will sync from. This is the single source of truth
+#    for everything in your cluster — once bootstrapped, changes are made by
+#    pushing to this repo. Any Git host works: GitHub, GitLab, Gitea,
+#    Forgejo, Codeberg or self-hosted.
+# =============================================================================
+[repository]
+
+# Full clone URL of the repository this cluster will pull from.
+# Must be the repo you cloned this template into.
+# Use `https://` if the repo is publicly readable (or `http://` for a
+# LAN-local git server). Use `ssh://git@` if it is
+# private: the template then wires up a deploy key (`deploy.key.pub`) so
+# Flux can clone over SSH; see the README for the extra setup step.
+# REQUIRED. Examples:
+#   "https://github.com/onedr0p/home-ops.git"
+#   "ssh://git@gitlab.com/onedr0p/home-ops.git"
+#   "ssh://git@git.example.com/k8s/home-ops.git"
+url = ""
+
+# Branch Flux watches. Changes pushed to this branch get reconciled into the
+# cluster.
+# OPTIONAL. Default: "main"
+
+# branch = "main"
+
+# Webhook payload format the Flux webhook Receiver verifies, so pushes are
+# reconciled instantly. Gitea and Forgejo emulate GitHub webhooks, so use
+# "github" for them. Use "generic-hmac" for anything else that signs with
+# HMAC; see https://fluxcd.io/flux/components/notification/receivers/
+# Use "none" to skip the webhook entirely (e.g. your Git host cannot reach
+# the cluster); Flux then only polls on an interval.
+# With ingress.mode = "none" the webhook is only reachable on your LAN, so
+# the default flips to "none"; set it explicitly for a Git host on your LAN,
+# which must resolve flux-webhook.<domain> through split DNS (see
+# gateways.dns) and, with dns.provider = "none", trust the internal CA.
+# OPTIONAL. Default: "github", or "none" when ingress.mode is "none".
+# Allowed: "github" | "gitlab" | "generic-hmac" | "none"
+
+# webhook_provider = "github"
+
+# SSH host keys for your Git host (`ssh-keyscan -t ed25519,ecdsa,rsa <host>`
+# output). Only used with `ssh://` URLs. Keys for github.com, gitlab.com and
+# codeberg.org are bundled; REQUIRED for any other host.
+# OPTIONAL. Example:
+#   known_hosts = """
+#   git.example.com ssh-ed25519 AAAA...
+#   """
+
+# known_hosts = ""
+
+
+# =============================================================================
+#    The domain your cluster's hostnames live under. Used for every rendered
+#    hostname (echo, flux-webhook, internal split DNS) and the wildcard
+#    certificate, regardless of DNS provider.
+# =============================================================================
+[domain]
+
+# At most 230 characters, leaving room for derived names such as "flux-webhook.".
+# REQUIRED. Example: "example.com"
+name = ""
+
+
+# =============================================================================
+#    Public DNS authority and certificate issuance. With "cloudflare",
+#    external-dns publishes records automatically and cert-manager issues a
+#    Let's Encrypt wildcard via ACME DNS-01. With "none", nothing is
+#    published and the wildcard certificate is issued by an in-cluster
+#    self-signed CA instead (internal-only cluster).
+# =============================================================================
+[dns]
+
+# OPTIONAL. Default: "cloudflare". Allowed: "cloudflare" | "none"
+
+# provider = "cloudflare"
+
+# Cloudflare API token (NOT the global API key) with `Zone - DNS - Edit` and
+# `Account - Cloudflare Tunnel - Read` permissions, scoped to the zone
+# above. See the README for token creation steps.
+# REQUIRED when provider is "cloudflare"; must be empty otherwise.
+token = ""
+
+
+# =============================================================================
+#    How the public internet reaches the cluster's external gateway. With
+#    "cloudflare-tunnel", cloudflared connects outbound so no ports are
+#    forwarded (requires dns.provider = "cloudflare" and
+#    cloudflare-tunnel.json). With "direct", you forward TCP 443 (and
+#    optionally 80) on your router to the external gateway's address (its
+#    IP, or a node IP with load_balancer_class "io.cilium/node"; with
+#    cilium.announce "bgp" or "none" the router must route to it) and point an
+#    `external.<domain>` DNS record at your WAN address (A record or DDNS
+#    CNAME) yourself; per-app records are still published automatically.
+#    With "none", nothing is exposed and apps are only reachable on your
+#    LAN via the internal gateway.
+# =============================================================================
+[ingress]
+
+# OPTIONAL. Default: "cloudflare-tunnel" when dns.provider is "cloudflare",
+# otherwise "none". Allowed: "cloudflare-tunnel" | "direct" | "none"
+
+# mode = "cloudflare-tunnel"
+
+
+# =============================================================================
+#    CNI configuration. Defaults are sane for most homelab setups; touch
+#    this section only if you need BGP peering or a different LB mode.
+# =============================================================================
+[cilium]
+
+# How Cilium's load balancer handles return traffic. `dsr` (Direct Server
+# Return) preserves the client IP and is faster, but requires a switch
+# fabric that won't drop asymmetric flows. `snat` masquerades the client
+# and is the safe choice for unknown topologies.
+# REF: https://docs.cilium.io/en/stable/network/kubernetes/kubeproxy-free/
+# OPTIONAL. Default: "dsr". Allowed: "dsr" | "snat"
+
+# loadbalancer_mode = "dsr"
+
+# How gateway addresses (see [gateways]) become reachable. "l2" answers ARP
+# for them on network.node_cidr. "bgp" also advertises them to the router
+# in [cilium.bgp]. "none" announces nothing: use it when your network or
+# provider already routes the addresses to the nodes (e.g. additional IPs
+# on a VPS), or when every gateway uses a load_balancer_class. Don't use
+# "l2" on a subnet shared with other tenants: it would claim their IPs.
+# Note that this only covers the gateways: Talos still announces the
+# Kubernetes API VIP (kubernetes.api.addr) over L2 on node_cidr unless
+# kubernetes.api.vip = false (single-controller clusters only).
+# OPTIONAL. Default: "bgp" when [cilium.bgp] is set, otherwise "l2".
+# Allowed: "l2" | "bgp" | "none"
+
+# announce = "l2"
+
+# Cilium BGP peering — advertises Service IPs to your upstream router so
+# LoadBalancer addresses become reachable from anywhere on your LAN
+# (rather than only via L2 ARP). Set ALL THREE fields below to enable;
+# leaving any blank disables BGP entirely.
+# REF: https://docs.cilium.io/en/latest/network/bgp-control-plane/bgp-control-plane/
+[cilium.bgp]
+
+# IP of your BGP-speaking router. The cluster peers with it from each node.
+# OPTIONAL. Example: "192.168.1.1"
+
+# router_addr = ""
+
+# ASN your router uses for BGP. Anything in the private range (64512-65534)
+# is fine if you're not peering with the public internet. A number (64513)
+# or a string ("64513") both work.
+# OPTIONAL. Example: 64513
+
+# router_asn = ""
+
+# ASN the cluster's nodes use for BGP. Pick a different value than
+# router_asn so peering is eBGP rather than iBGP. A number or a string.
+# OPTIONAL. Example: 64514
+
+# node_asn = ""
+
+
+# =============================================================================
+#    Talos Image Factory settings shared by all nodes.
+# =============================================================================
+[talos]
+
+# Default schematic for every node that doesn't set its own schematic_id.
+# The 64-character hex string from your build at https://factory.talos.dev/
+# OPTIONAL if every node sets schematic_id itself.
+schematic_id = ""
+
+
+# =============================================================================
+#    One [[nodes]] table per physical machine or VM in the cluster. At least
+#    one controller (controller=true) is required; worker nodes are optional.
+#    For HA, use 3 controllers.
+#
+#    Discover hardware details from a node already booted into Talos
+#    maintenance mode:
+#      talosctl get disks -n <node-ip> --insecure
+#      talosctl get links -n <node-ip> --insecure
+#    Schematic ID is the 64-character hex string from your build at:
+#      https://factory.talos.dev/
+#
+#    The block below is a template — copy it once per node, uncomment, and
+#    fill in the values.
+# =============================================================================
+
+# [[nodes]]
+# name         = "k8s-0"        # Hostname; must match [a-z0-9-]+ (not "global"/"controller"/"worker").
+# address      = "192.168.1.10" # Static IP; must be inside network.node_cidr.
+# controller   = true           # true = control-plane (etcd + API server), false = worker.
+# disk         = "/dev/nvme0n1" # Install disk: a /dev/... block device, a /dev/disk/by-id/... symlink,
+#                               # or a disk serial (no leading "/", e.g. "S64DNX0R123456"; see the
+#                               # SERIAL column of `talosctl get disks`). Bare names like "nvme0n1" are rejected.
+# mac_addr     = "aa:bb:cc:dd:ee:ff"  # Primary NIC MAC.
+#
+# # Optional when [talos] sets a cluster-wide default:
+# schematic_id = "376567988ad370138ad8b2698212367b8edcb69b5fd68c80be1f2ec7d603b4ba"  # 64-hex from factory.talos.dev.
+#
+# # Optional advanced fields (each independently uncommentable):
+# mtu            = 1500                       # Set only for jumbo frames / non-1500 MTUs (1450-9000).
+# secureboot     = false                      # UEFI SecureBoot — requires a SecureBoot-enabled schematic.
+# encrypt_disk   = false                      # TPM-bound full-disk encryption.
+# kernel_modules = ["nvidia", "nvidia_uvm"]   # Only for schematics shipping matching extensions.

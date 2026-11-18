@@ -12,5 +12,5 @@ spec:
   rules:
     - backendRefs:
         - name: kubernetes-dashboard-web
-          namespace: observability
+          namespace: o11y
           port: 8000

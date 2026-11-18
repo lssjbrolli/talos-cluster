@@ -1,19 +1,19 @@
+---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: robusta
-  namespace: flux-system
+  name: prometheus-operator-crds
 spec:
   interval: 1h
   patches: []
-  path: ./kubernetes/apps/observability/robusta/app
-  prune: true
+  path: ./kubernetes/apps/o11y/prometheus-operator-crds/app
   postBuild:
     substituteFrom:
       - name: cluster-secrets
         kind: Secret
+  prune: true
   sourceRef:
     kind: GitRepository
     name: flux-system
     namespace: flux-system
-  targetNamespace: observability
+  targetNamespace: o11y

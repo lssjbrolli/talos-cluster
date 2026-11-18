@@ -94,6 +94,7 @@ for app in ../kubernetes/apps/*/; do
 done
 '''
 
+#| Every listed secret must exist; see Repository.uses_deploy_key. #|
 [tasks.apps-secrets]
 hide = true
 run = '''
@@ -103,7 +104,7 @@ if [[ -e deploy-key.sops.yaml ]]; then
 fi
 for secret in \
     sops-age.sops.yaml \
-    ../kubernetes/components/sops/cluster-secrets.sops.yaml
+    ../kubernetes/components/common/secrets/cluster-secrets.sops.yaml
 do
     name="$(basename "$secret" .sops.yaml)"
     if sops decrypt "$secret" \

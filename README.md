@@ -240,7 +240,7 @@ _... Nothing working? That is expected, this is DNS after all!_
 
 By default Flux will periodically check your git repository for changes. In-order to have Flux reconcile on `git push` you must configure your Git provider to send `push` events to Flux.
 
-📍 _Don't want a webhook, or your Git provider can't reach the cluster? Set `webhook_provider = "none"` in `cluster.toml` and skip this section; Flux will keep polling on an interval. It already defaults to `"none"` when `ingress.mode` is `"none"` or the wildcard certificate comes from the in-cluster CA._
+📍 _Don't want a webhook, or your Git provider can't reach the cluster? Set `webhook_provider = "none"` in `cluster.toml` and skip this section; Flux will keep polling on an interval. Internal-only clusters (`ingress.mode = "none"`) default to `"none"`._
 
 📍 _For a Git host on your LAN with an internal-only cluster, set `webhook_provider` explicitly. `flux-webhook` is then served on `envoy-internal`: the Git host must resolve it through [Home DNS](#-home-dns), and with `dns.provider = "none"` it must trust the cluster's internal CA. Self-hosted Gitea/Forgejo also need `flux-webhook.<domain>` added to `[webhook] ALLOWED_HOST_LIST`, since private addresses are blocked by default._
 

@@ -54,28 +54,6 @@ if [[ "${usage_force:-false}" == "true" ]]; then graceful=false; fi
 topf reset --nodes-filter "^${usage_node}$" --graceful="$graceful" --full=false --confirm=false
 '''
 
-# Both sign a fresh admin cert offline from secrets.sops.yaml, so they also
-# work when the old one has expired.
-[tasks.talosconfig]
-description = "Regenerate talos/talosconfig (its admin cert expires after a year)"
-depends = [":require-secrets"]
-run = [{ task = "//bootstrap:talos-talosconfig" }]
-
-[tasks.kubeconfig]
-description = "Regenerate kubeconfig (its admin cert expires after a year)"
-depends = [":require-secrets"]
-run = [{ task = "//bootstrap:talos-kubeconfig" }]
-
-# Without the bundle, topf offers to generate a new one, whose certs the
-# cluster rejects.
-[tasks.require-secrets]
-hide = true
-run = '''
-if [[ ! -f secrets.sops.yaml ]]; then
-    mise run //:log fatal "talos/secrets.sops.yaml not found; restore it from Git"
-fi
-'''
-
 # Defaults to the gitignored .private/; a relative path is taken from where
 # mise was run.
 [tasks.etcd-snapshot]

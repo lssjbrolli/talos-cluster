@@ -39,6 +39,8 @@ mise run //:log info "Applying talos config and bootstrapping" stage "$MISE_TASK
 topf apply --auto-bootstrap --allow-not-ready --skip-post-apply-checks --confirm=false
 '''
 
+# Both configs are admin credentials: mktemp creates them owner-only, and the
+# mv keeps a working file in place when topf fails.
 [tasks.talos-talosconfig]
 hide = true
 dir = "{{ config_root }}/../talos"

@@ -10,7 +10,9 @@ template.sops.yaml
 /cluster.toml
 # Kubernetes
 kubeconfig
+kubeconfig.*
 talosconfig
+talosconfig.*
 # Python
 __pycache__/
 *.py[cod]

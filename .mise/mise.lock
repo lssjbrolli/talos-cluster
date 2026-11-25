@@ -217,27 +217,6 @@ url = "https://github.com/siderolabs/talos/releases/download/v1.14.1/talosctl-li
 url_api = "https://api.github.com/repos/siderolabs/talos/releases/assets/566050764"
 provenance = "cosign"
 
-[[tools.taplo]]
-version = "0.10.0"
-backend = "aqua:tamasfe/taplo"
-specifiers = ["0.10.0"]
-
-[tools.taplo."platforms.linux-x64"]
-checksum = "sha256:8fe196b894ccf9072f98d4e1013a180306e17d244830b03986ee5e8eabeb6156"
-url = "https://github.com/tamasfe/taplo/releases/download/0.10.0/taplo-linux-x86_64.gz"
-url_api = "https://api.github.com/repos/tamasfe/taplo/releases/assets/257322600"
-
-[[tools.uv]]
-version = "0.13.9"
-backend = "aqua:astral-sh/uv"
-specifiers = ["0.13.9"]
-
-[tools.uv."platforms.linux-x64"]
-checksum = "sha256:a7fbaff2b9a271d85c1bdb540941090fd1ce011797b4abeb48e4dcd39c2471d5"
-url = "https://github.com/astral-sh/uv/releases/download/0.13.9/uv-x86_64-unknown-linux-gnu.tar.gz"
-url_api = "https://api.github.com/repos/astral-sh/uv/releases/assets/758513954"
-provenance = "github-attestations"
-
 [[tools.yq]]
 version = "4.54.3"
 backend = "aqua:mikefarah/yq"

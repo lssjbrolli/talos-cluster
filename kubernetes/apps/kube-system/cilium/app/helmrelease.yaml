@@ -45,12 +45,6 @@ spec:
       mode: "dsr"
     localRedirectPolicies:
       enabled: true
-    #% if cilium_node_ipam_enabled %#
-    # Serves LoadBalancer Services with loadBalancerClass io.cilium/node on
-    # the nodes' own IPs.
-    nodeIPAM:
-      enabled: true
-    #% endif %#
     operator:
       dashboards:
         enabled: true

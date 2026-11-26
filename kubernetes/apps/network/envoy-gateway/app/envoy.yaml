@@ -90,7 +90,7 @@ kind: Gateway
 metadata:
   name: internal
   annotations:
-    external-dns.kubernetes.io/target: #{ name }#.${SECRET_DOMAIN}
+    external-dns.kubernetes.io/target: internal.${SECRET_DOMAIN}
 spec:
   gatewayClassName: envoy
   infrastructure:
@@ -98,10 +98,6 @@ spec:
       external-dns.kubernetes.io/hostname: internal.${SECRET_DOMAIN}
       #cluster_gateway_addr - internal
       lbipam.cilium.io/ips: "192.168.1.105"
-    parametersRef:
-      group: gateway.envoyproxy.io
-      kind: EnvoyProxy
-      name: envoy
   listeners:
     - name: http
       protocol: HTTP
@@ -177,7 +173,9 @@ spec:
     numRetries: 2
     retryOn:
       triggers:
-        - reset
+        - connect-failure
+        - refused-stream
+        - reset-before-request
   targetSelectors:
     - group: gateway.networking.k8s.io
       kind: Gateway

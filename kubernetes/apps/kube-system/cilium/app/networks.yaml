@@ -17,7 +17,7 @@ spec:
       - { key: io.kubernetes.service.namespace, operator: In, values: ["network", "db"] }
       - key: io.kubernetes.service.name
         operator: In
-        values: ["external", "internal", "k8s-gateway", "cluster17-db-lb"]
+        values: ["external", "internal", "k8s-gateway", "cluster17-db-lb", "immich-db-lb"]
   blocks:
     - cidr: "192.168.1.0/24"
 ---

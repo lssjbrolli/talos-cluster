@@ -14,7 +14,7 @@ spec:
   # existing ones lose their node_cidr address until it covers them.
   serviceSelector:
     matchExpressions:
-      - { key: io.kubernetes.service.namespace, operator: In, values: ["network"] }
+      - { key: io.kubernetes.service.namespace, operator: In, values: ["network", "db"] }
       - key: io.kubernetes.service.name
         operator: In
         values: ["external", "internal", "k8s-gateway"]

@@ -8,7 +8,6 @@ spec:
   logging:
     level:
       default: info
-  mergeType: StrategicMerge
   provider:
     type: Kubernetes
     kubernetes:
@@ -22,9 +21,6 @@ spec:
             limits:
               memory: 1Gi
       envoyService:
-        # Cilium serves the LoadBalancer IP itself; NodePorts would only open
-        # the gateways on every node address.
-        loadBalancerClass: io.cilium/node
         allocateLoadBalancerNodePorts: false
         externalTrafficPolicy: Cluster
   shutdown:

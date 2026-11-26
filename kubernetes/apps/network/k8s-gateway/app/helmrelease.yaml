@@ -21,9 +21,6 @@ spec:
               - op: add
                 path: /spec/allocateLoadBalancerNodePorts
                 value: false
-              - op: add
-                path: /spec/loadBalancerClass
-                value: "io.cilium/node"
   values:
     fullnameOverride: k8s-gateway
     serviceType: LoadBalancer

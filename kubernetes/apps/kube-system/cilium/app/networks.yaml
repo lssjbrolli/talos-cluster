@@ -6,18 +6,6 @@ metadata:
   name: pool
 spec:
   allowFirstLastIPs: "No"
-  # Only the gateway VIPs, and only for the gateway Services: handing out
-  # node_cidr addresses would let a new LoadBalancer Service claim (and
-  # announce) the router, a node or a DHCP client's IP, and an open pool
-  # would let it take a gateway VIP first. For your own LoadBalancer
-  # Services, add a second pool with a free range and no serviceSelector;
-  # existing ones lose their node_cidr address until it covers them.
-  serviceSelector:
-    matchExpressions:
-      - { key: io.kubernetes.service.namespace, operator: In, values: ["network", "db"] }
-      - key: io.kubernetes.service.name
-        operator: In
-        values: ["external", "internal", "k8s-gateway", "cluster17-db-lb", "immich-db-lb"]
   blocks:
     - cidr: "192.168.1.0/24"
 ---

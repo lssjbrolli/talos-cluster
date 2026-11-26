@@ -10,9 +10,9 @@ spec:
   values:
     replicaCount: 1
     config:
-      kubernetes: true
+      commandsEnabled: false
       trustedProxies:
-        - 172.16.0.0/16
+        - "172.16.0.0/16"
     httpRoute:
       enabled: true
       hostnames:

@@ -24,17 +24,6 @@ url = "https://github.com/home-operations/flate/releases/download/v0.8.0/flate_0
 url_api = "https://api.github.com/repos/home-operations/flate/releases/assets/768879874"
 provenance = "cosign"
 
-[[tools.cilium-cli]]
-version = "0.20.3"
-backend = "aqua:cilium/cilium-cli"
-specifiers = ["0.20.3"]
-
-[tools.cilium-cli."platforms.linux-x64"]
-checksum = "sha256:b987ad0d195310d3fc96553aa7bcd41d1e97b64713ecdfee3eb48dd27e1ec7d7"
-checksum_source = "mise-versions"
-url = "https://github.com/cilium/cilium-cli/releases/download/v0.20.3/cilium-linux-amd64.tar.gz"
-url_api = "https://api.github.com/repos/cilium/cilium-cli/releases/assets/739456158"
-
 [[tools.cloudflared]]
 version = "2026.11.1"
 backend = "aqua:cloudflare/cloudflared"
@@ -184,14 +173,16 @@ url = "https://github.com/evilmartians/lefthook/releases/download/v2.2.2/lefthoo
 url_api = "https://api.github.com/repos/evilmartians/lefthook/releases/assets/636518865"
 provenance = "github-attestations"
 
-[[tools.node]]
-version = "26.13.1"
-backend = "core:node"
-specifiers = ["26.13.1"]
+[[tools.shellcheck]]
+version = "0.11.0"
+backend = "aqua:koalaman/shellcheck"
+specifiers = ["0.11.0"]
 
-[tools.node."platforms.linux-x64"]
-checksum = "sha256:518674de2b621728a5e4486f5fb3b7d2900bb3cc4aa97969edaa463db99f9778"
-url = "https://nodejs.org/dist/v26.13.1/node-v26.13.1-linux-x64.tar.gz"
+[tools.shellcheck."platforms.linux-x64"]
+checksum = "sha256:8c3be12b05d5c177a04c29e3c78ce89ac86f1595681cab149b65b97c4e227198"
+checksum_source = "mise-versions"
+url = "https://github.com/koalaman/shellcheck/releases/download/v0.11.0/shellcheck-v0.11.0.linux.x86_64.tar.xz"
+url_api = "https://api.github.com/repos/koalaman/shellcheck/releases/assets/279056942"
 
 [[tools.sops]]
 version = "3.13.3"
@@ -207,14 +198,14 @@ url_api = "https://api.github.com/repos/getsops/sops/releases/assets/486808201"
 url = "https://github.com/getsops/sops/releases/download/v3.13.3/sops-v3.13.3.intoto.jsonl"
 
 [[tools.talosctl]]
-version = "1.14.1"
+version = "1.14.6"
 backend = "aqua:siderolabs/talos"
-specifiers = ["1.14.1"]
+specifiers = ["1.14.6"]
 
 [tools.talosctl."platforms.linux-x64"]
-checksum = "sha256:7233ece94c94296a033a6ddb5efe0baf508a94c71de7e6c7b286500705924208"
-url = "https://github.com/siderolabs/talos/releases/download/v1.14.1/talosctl-linux-amd64"
-url_api = "https://api.github.com/repos/siderolabs/talos/releases/assets/566050764"
+checksum = "sha256:11acde7f7578ffe9cbe6fb8349b34595065f597de0842615982e350b365de987"
+url = "https://github.com/siderolabs/talos/releases/download/v1.14.6/talosctl-linux-amd64"
+url_api = "https://api.github.com/repos/siderolabs/talos/releases/assets/736672969"
 provenance = "cosign"
 
 [[tools.yq]]

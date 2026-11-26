@@ -1,13 +1,15 @@
+cluster:
+  etcd:
+    extraArgs:
+      listen-metrics-urls: http://0.0.0.0:2381
+    advertisedSubnets:
+      - 192.168.1.0/24
 ---
 # Allow scheduling on control-plane nodes
 apiVersion: v1alpha1
 kind: KubeNodeConfig
 taints:
   node-role.kubernetes.io/control-plane:
-    $patch: delete
-# Cilium node IPAM skips nodes with this label, which Talos sets on controllers
-labels:
-  node.kubernetes.io/exclude-from-external-load-balancers:
     $patch: delete
 ---
 apiVersion: v1alpha1
@@ -18,8 +20,8 @@ $patch: delete
 apiVersion: v1alpha1
 kind: KubeAPIServerConfig
 certExtraSANs:
-  - 127.0.0.1
-  - 192.168.1.101
+  - "127.0.0.1"
+  - "192.168.1.101"
 extraArgs:
   # https://kubernetes.io/docs/tasks/extend-kubernetes/configure-aggregation-layer/
   enable-aggregator-routing: "true"

@@ -22,6 +22,12 @@ spec:
             envFrom:
               - secretRef:
                   name: frigate-secrets
+            resources:
+              requests:
+                cpu: 100m
+                memory: 256Mi
+              limits:
+                memory: 1Gi
             probes:
               liveness: &probes
                 enabled: true

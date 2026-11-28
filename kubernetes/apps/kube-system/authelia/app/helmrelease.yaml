@@ -266,3 +266,10 @@ spec:
     persistence:
       enabled: true
       existingClaim: authelia-config
+    pod:
+      resources:
+        requests:
+          cpu: 50m
+          memory: 64Mi
+        limits:
+          memory: 256Mi

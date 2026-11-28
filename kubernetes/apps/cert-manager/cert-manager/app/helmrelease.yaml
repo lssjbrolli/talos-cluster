@@ -17,3 +17,9 @@ spec:
     prometheus:
       servicemonitor:
         enabled: true
+    resources:
+      requests:
+        cpu: 10m
+        memory: 40Mi
+      limits:
+        memory: 128Mi

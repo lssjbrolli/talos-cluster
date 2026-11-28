@@ -67,6 +67,8 @@ server:
             requests:
               cpu: 500m
               memory: 2048M
+            limits:
+              memory: 4Gi
   route:
     app:
       hostnames:

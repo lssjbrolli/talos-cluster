@@ -29,6 +29,12 @@ spec:
               ENCRYPTED_ONLY: "1"
               RELAY: "rustdesk-rd-relay.kube-apps.svc.cluster.local:21117"
             command: ["hbbs", "-r rustdesk-rd-relay.kube-apps.svc.cluster.local:21117"]
+            resources:
+              requests:
+                cpu: 10m
+                memory: 32Mi
+              limits:
+                memory: 128Mi
             ports:
               - containerPort: 21115
                 name: rd-nat
@@ -46,6 +52,12 @@ spec:
             env:
               TZ: ${TIMEZONE}
             command: ["hbbr"]
+            resources:
+              requests:
+                cpu: 10m
+                memory: 32Mi
+              limits:
+                memory: 128Mi
             ports:
               - containerPort: 21117
                 name: rd-relay

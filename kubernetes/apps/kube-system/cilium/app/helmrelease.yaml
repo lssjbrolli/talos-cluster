@@ -55,6 +55,12 @@ spec:
           enabled: true
       replicas: 1
       rollOutPods: true
+      resources:
+        requests:
+          cpu: 100m
+          memory: 128Mi
+        limits:
+          memory: 256Mi
     prometheus:
       enabled: true
       serviceMonitor:
@@ -84,3 +90,15 @@ spec:
           - SYS_RESOURCE
     socketLB:
       enabled: true
+    resources:
+      requests:
+        cpu: 100m
+        memory: 256Mi
+      limits:
+        memory: 512Mi
+    initResources:
+      requests:
+        cpu: 50m
+        memory: 64Mi
+      limits:
+        memory: 128Mi

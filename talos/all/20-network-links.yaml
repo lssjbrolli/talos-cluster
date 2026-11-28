@@ -3,7 +3,7 @@ apiVersion: v1alpha1
 kind: LinkAliasConfig
 name: ethSel0
 selector:
-  match: 'glob("{{ .Node.Data.macAddr }}", mac(size(link.permanent_addr) > 0 ? link.permanent_addr : link.hardware_addr))'
+  match: 'glob("ec:06:0f:41:12:24", mac(size(link.permanent_addr) > 0 ? link.permanent_addr : link.hardware_addr))'
 ---
 apiVersion: v1alpha1
 kind: BondConfig
@@ -13,7 +13,7 @@ links:
 bondMode: active-backup
 mtu: 1500
 addresses:
-  - address: "192.168.1.100/32"
+  - address: "192.168.1.100/24"
 routes:
   - gateway: "192.168.1.1"
 ---

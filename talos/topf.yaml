@@ -13,7 +13,7 @@ nodes:
   - host: "talos-controller"
     ip: "192.168.1.100"
     role: control-plane
-    schematicId: "0774f5d6a58eff2ae8dac7e18239a7076aba371e23dd7689653b9026a5ce9a4a"
+    schematicId: "0b3e1212f333c62122ed8f9a97ca7257a77708a7076fdbaded500b7babf3540e"
     secureboot: false
     data:
       installDisk: "/dev/sda"

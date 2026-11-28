@@ -27,3 +27,72 @@ spec:
       # Hubble relay isn't deployed yet (cilium hubble.enabled: false) - no traffic
       # map source to read. Flip to true once Hubble is enabled cluster-wide.
       traffic: false
+    podSecurityContext:
+      runAsNonRoot: true
+      runAsUser: 568
+      runAsGroup: 568
+      fsGroup: 568
+      seccompProfile:
+        type: RuntimeDefault
+
+    securityContext:
+      allowPrivilegeEscalation: false
+      readOnlyRootFilesystem: true
+      runAsNonRoot: true
+      runAsUser: 568
+      capabilities:
+        drop:
+          - ALL
+
+    httpRoute:
+      enabled: true
+      apiVersion: gateway.networking.k8s.io/v1
+      annotations: {}
+      labels: {}
+      parentRefs:
+        - name: internal
+          namespace: network
+          sectionName: https
+      hostnames: ["radar.${SECRET_DOMAIN}"]
+      # Optional request timeout for chart-generated default rule. Empty means
+      # Gateway deployment default applies. Set 0s to explicitly disable timeout.
+      defaultTimeout: ""
+      # When empty, chart emits a default / Prefix rule to Radar Service.
+      # Non-empty rules replace default and pass through unchanged.
+      rules:
+        - backendRefs:
+            - name: radar
+              port: 9280
+
+    timeline:
+      # Storage backend: "memory", "sqlite", or "postgres"
+      storage: postgres
+      # Retention: how long to keep events. Go duration (e.g. 168h, 720h).
+      # "0" disables cleanup (events table grows unbounded — not recommended for
+      # in-cluster deployments). Cleanup runs hourly + once at startup.
+      # Applies to sqlite and postgres.
+      retention: 168h
+      # PostgreSQL configuration (only used when storage is "postgres")
+      postgres:
+        # Name of an existing, same-namespace Secret containing the PostgreSQL DSN.
+        # Required when storage is "postgres". The chart creates no PostgreSQL
+        # resources, so the Secret may come from any operator or secret manager.
+        existingSecret: "radar-secrets"
+        # Key within existingSecret that holds the DSN value. Set this to match the
+        # producer's key, for example "uri" for an operator-managed Secret.
+        secretKey: dsn
+
+    mcp:
+      # Opt in to exec_pod; requires pods/exec permission (rbac.podExec for Radar
+      # ServiceAccount access).
+      execTools: true
+      # Independent Service HTTP opt-in. Requires services/proxy; does not enable exec.
+      httpTools: true
+      # Set to false to disable the MCP server.
+      enabled: true
+      oauth:
+        # Browser-based MCP authorization for standalone OIDC deployments.
+        # Requires auth.mode=oidc, an HTTPS auth.oidc.redirectURL, and replicaCount=1.
+        # Uses Recreate rollouts: client registrations and tokens are held in memory,
+        # so clients must re-register and authorize again after a pod restart.
+        enabled: false

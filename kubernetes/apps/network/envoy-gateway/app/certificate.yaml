@@ -10,7 +10,7 @@ spec:
     - "*.${SECRET_DOMAIN}"
   duration: 1080h
   issuerRef:
-    name: letsencrypt-production
+    name: "letsencrypt-production"
     kind: ClusterIssuer
   privateKey:
     algorithm: ECDSA

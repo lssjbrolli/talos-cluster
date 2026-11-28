@@ -4,6 +4,11 @@ metadata:
   name: radar-secrets
   namespace: o11y
 stringData:
+  INIT_POSTGRES_DBNAME: ENC[AES256_GCM,data:FU0yqAM=,iv:jXgJvu5U4Kg/LQn0xj0Rl0JiWXL5v73g2voX/1eqYHg=,tag:ctCWS8za3x1nOehJqhAZUg==,type:str]
+  INIT_POSTGRES_HOST: ENC[AES256_GCM,data:oiMubdYiIBxd0vERGwJ3h/dHUK/snmIOHKCcRjDpNgTw,iv:Oi42cNlBIiwjKgcVwjHx6/iDW1amixvRRvqcOyrtfR8=,tag:xlnRDljQGqmH6OiW8kOpQQ==,type:str]
+  INIT_POSTGRES_USER: ENC[AES256_GCM,data:Uec2aw==,iv:ltuyJod2MQEh9N1yshrQ+MwzBfA30/iMk7NBy6ZcQME=,tag:OOTe029PlVsHshBNV01XOg==,type:str]
+  INIT_POSTGRES_PASS: ENC[AES256_GCM,data:TpYfhw==,iv:mecZS5LIErro5OzaFwfD0dpuYy2HiJjkFMjOe36+sDI=,tag:6xVTFhd9ccaEcs5qF0BrIw==,type:str]
+  INIT_POSTGRES_SUPER_PASS: ENC[AES256_GCM,data:+XCrfw==,iv:BSA6YN5Q4eT0ky8hewafKPuUtYJEyL/vac3HkGtAQBw=,tag:dj+DvrR/X5hh4d+RuS23Ag==,type:str]
   dsn: ENC[AES256_GCM,data:FEY6HUgXH7J2EwQhMyObNka4PMkjHYYafRduQcm7HfUAHv1iwU8VoYnuy052IfdxPagMWjeZk1HR7I6u3ojRZZU=,iv:BqFy+4/u8jMXcpekPgD09xj757ujhduLimgXEnP8oaM=,tag:8IcF/tjDdcOPJ8L3Ux2GVg==,type:str]
   token: ENC[AES256_GCM,data:fv2xIe3kkglIipES6WyhGfli76FIUh1mQ/a7ofFEcWdE9T7UWU1Op1yh+CzQhcQ=,iv:1HPIlX6NQM7QJ1R3qce+LjrWJCsNO4Yd2ESnZi6fcyU=,tag:nlcGsK6l714q428kQbxPYQ==,type:str]
 sops:
@@ -18,7 +23,7 @@ sops:
         -----END AGE ENCRYPTED FILE-----
       recipient: age1k5cr4cvs4atdm3gse77vq4glnv9q49gq5wl49p9806gfyfld7p3setz3tw
   encrypted_regex: ^(data|stringData)$
-  lastmodified: "2026-11-28T19:30:45Z"
-  mac: ENC[AES256_GCM,data:w3d2FsVCmf7aJIaR71y8BX2JBDQlRFwZCsmZXFQl2tvzGuWGj/876yyxr1lbn6JNt+t1iK20S4r0c8ZI+hEPa4XdNXJAKO9mwvbTP2SDbJOif7QjJAGukAzv45/oqwvRlikLH53o/l8AV6P3u/kkxaD5G77C4YtdH6d2usTzVak=,iv:kICo1arOmRdtExh4tY6TQcU0dhAAkAWFu71poq6xy00=,tag:AYZS4m8Aor1iR1UV8gNrdw==,type:str]
+  lastmodified: "2026-11-28T20:16:02Z"
+  mac: ENC[AES256_GCM,data:1tL6HgaoIVgNgD+g3glnSIMVmkIKFmMT53yI2mZtH5l4rqWFCQtAwrDezOXcgUcm8UQgRkJJNp4rwDRvBQTOWd2H6WMHaEJaRoAFN05sVeofnuQx7vyDZ6xsvSg8RIddxqw6+ILs3f9mvQsb4IyJYNzrQxYkAcug5mX6KRyfJns=,iv:9SRhyox4cRSJi6gdf7lPIwOttnOH5DiM59pELL7oHCk=,tag:Rru0+KfYhT55djWo9o8s4w==,type:str]
   mac_only_encrypted: true
   version: 3.13.3

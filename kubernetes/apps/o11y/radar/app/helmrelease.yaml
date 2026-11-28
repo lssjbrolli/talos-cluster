@@ -108,3 +108,23 @@ spec:
       # The Secret must contain a key matching existingSecretKey.
       existingSecret: "radar-secrets"
       existingSecretKey: "token"
+
+    initContainers:
+      - name: init-db
+        image:
+          repository: ghcr.io/home-operations/postgres-init
+          tag: 18.7.0@sha256:6d4cfa4b8d343eb6fa0de8dd9ec416a2007f346bb631fc8e246e1f39eee6c4aa
+        securityContext:
+          runAsNonRoot: true
+          runAsUser: 568
+          runAsGroup: 568
+          allowPrivilegeEscalation: false
+          seccompProfile:
+            type: RuntimeDefault
+          readOnlyRootFilesystem: true
+          capabilities:
+            drop:
+              - "ALL"
+        envFrom:
+          - secretRef:
+              name: radar-secrets

@@ -54,21 +54,6 @@ if [[ "${usage_force:-false}" == "true" ]]; then graceful=false; fi
 topf reset --nodes-filter "^${usage_node}$" --graceful="$graceful" --full=false --confirm=false
 '''
 
-# Defaults to the gitignored .private/; a relative path is taken from where
-# mise was run.
-[tasks.etcd-snapshot]
-description = "Save an etcd snapshot from a control-plane node"
-usage = '''
-arg "[path]" help="Snapshot file (default: .private/etcd/<timestamp>.snapshot)" default=""
-'''
-run = '''
-node="$(yq '[.nodes[] | select(.role == "control-plane")][0].ip' topf.yaml)"
-path="${usage_path:-$MISE_MONOREPO_ROOT/.private/etcd/$(date +%Y%m%d-%H%M%S).snapshot}"
-cd "$MISE_ORIGINAL_CWD"
-mkdir -p "$(dirname "$path")"
-talosctl --nodes "$node" etcd snapshot "$path"
-'''
-
 # Both sign a fresh admin cert offline from secrets.sops.yaml, so they also
 # work when the old one has expired.
 [tasks.talosconfig]

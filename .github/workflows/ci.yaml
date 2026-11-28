@@ -50,7 +50,7 @@ jobs:
       - name: Run Flate
         env:
           FLATE_BASE: ${{ github.event.repository.default_branch }}
-        run: flate test -p ./kubernetes/apps
+        run: flate test -p ./kubernetes/apps --supply ./offline-inputs.yaml
 
   zizmor:
     name: Zizmor

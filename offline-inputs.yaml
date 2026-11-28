@@ -1,0 +1,104 @@
+---
+# Offline inputs for flate (see: flate --supply).
+#
+# cluster-secrets is SOPS/age encrypted, and flate renders offline, so it
+# treats those keys as missing. Supply a plaintext stand-in so each app's
+# postBuild.substituteFrom can resolve ${SECRET_DOMAIN} instead of empty.
+# substituteFrom resolves the referenced object per app's targetNamespace,
+# so one entry per targetNamespace is included. cluster-config is a plain
+# ConfigMap and is read directly (no supply needed).
+apiVersion: v1
+kind: Secret
+metadata:
+  name: cluster-secrets
+  namespace: cert-manager
+data:
+  SECRET_DOMAIN: c2VnYW5ldC5vcmc=
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: cluster-secrets
+  namespace: db
+data:
+  SECRET_DOMAIN: c2VnYW5ldC5vcmc=
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: cluster-secrets
+  namespace: default
+data:
+  SECRET_DOMAIN: c2VnYW5ldC5vcmc=
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: cluster-secrets
+  namespace: flux-system
+data:
+  SECRET_DOMAIN: c2VnYW5ldC5vcmc=
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: cluster-secrets
+  namespace: games
+data:
+  SECRET_DOMAIN: c2VnYW5ldC5vcmc=
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: cluster-secrets
+  namespace: home
+data:
+  SECRET_DOMAIN: c2VnYW5ldC5vcmc=
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: cluster-secrets
+  namespace: kube-apps
+data:
+  SECRET_DOMAIN: c2VnYW5ldC5vcmc=
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: cluster-secrets
+  namespace: kube-system
+data:
+  SECRET_DOMAIN: c2VnYW5ldC5vcmc=
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: cluster-secrets
+  namespace: media
+data:
+  SECRET_DOMAIN: c2VnYW5ldC5vcmc=
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: cluster-secrets
+  namespace: network
+data:
+  SECRET_DOMAIN: c2VnYW5ldC5vcmc=
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: cluster-secrets
+  namespace: o11y
+data:
+  SECRET_DOMAIN: c2VnYW5ldC5vcmc=
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: cluster-secrets
+  namespace: storage-system
+data:
+  SECRET_DOMAIN: c2VnYW5ldC5vcmc=

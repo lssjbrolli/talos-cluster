@@ -3,7 +3,7 @@
 crds:
   create: true
 image:
-  tag: 1.27.1@sha256:cfa380de51377fa61122d43c1214d43d3268c3c17da57612ee8fea1d46b61856
+  tag: 1.30.2@sha256:f96f6be3d81ec93819b443c665c575c609342fca840df90d4d87dae314a5b913
 monitoring:
   podMonitorEnabled: true
 resources:

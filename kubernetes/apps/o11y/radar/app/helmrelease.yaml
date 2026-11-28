@@ -96,3 +96,15 @@ spec:
         # Uses Recreate rollouts: client registrations and tokens are held in memory,
         # so clients must re-register and authorize again after a pod restart.
         enabled: false
+
+    cloud:
+      enabled: true
+      # Cloud WebSocket URL. Must start with ws:// or wss://. Example:
+      # wss://api.radarhq.io/agent
+      url: "wss://api.radarhq.io/agent"
+      # Human-readable cluster identifier from the Cloud install wizard.
+      clusterName: "kubernetes"
+      # Source the token from an existing Secret instead of inlining it above.
+      # The Secret must contain a key matching existingSecretKey.
+      existingSecret: "radar-secrets"
+      existingSecretKey: "token"

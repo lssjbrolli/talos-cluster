@@ -30,8 +30,7 @@ spec:
             patch: |-
               - op: add
                 path: /spec/components
-                value:
-                  provider: "../../../../components/common"
+                value: "../../../../components/common"
               - op: add
                 path: /spec/decryption
                 value:
@@ -43,6 +42,9 @@ spec:
                 path: /spec/patches
                 value:
                   - patch: |-
+                      - op: add
+                        path: /spec/components
+                        value: "../../../../components/common"
                       - op: add
                         path: /spec/decryption
                         value:

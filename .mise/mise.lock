@@ -92,13 +92,13 @@ checksum = "sha256:d1c0278d46beab79582d7e50f5b3dc206944ba8e577cde618513fd07daa53
 url = "https://get.helm.sh/helm-v4.3.2-linux-amd64.tar.gz"
 
 [[tools.helmfile]]
-version = "1.8.4"
+version = "1.8.5"
 backend = "packslip:github.com/helmfile/helmfile"
-specifiers = ["1.8.4"]
+specifiers = ["1.8.5"]
 
 [tools.helmfile."platforms.linux-x64"]
-checksum = "sha256:1f19ced8adb0cdf2350e94ca598cf64e390d8c21d0d9b4bdc1c9f246d4591c9d"
-url = "https://github.com/helmfile/helmfile/releases/download/v1.8.4/helmfile_1.8.4_linux_amd64.tar.gz"
+checksum = "sha256:e10344a4e6121689265c8fbe8ce96977b4722a9f953db862014a08b99938c333"
+url = "https://github.com/helmfile/helmfile/releases/download/v1.8.5/helmfile_1.8.5_linux_amd64.tar.gz"
 signer = "sigstore-oidc:https://github.com/helmfile/helmfile/.github/workflows/releaser.yaml"
 repository_ids = { repository = "474521466" }
 
@@ -163,14 +163,14 @@ url = "https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize/
 url_api = "https://api.github.com/repos/kubernetes-sigs/kustomize/releases/assets/621661332"
 
 [[tools.lefthook]]
-version = "2.2.2"
+version = "2.2.3"
 backend = "aqua:evilmartians/lefthook"
-specifiers = ["2.2.2"]
+specifiers = ["2.2.3"]
 
 [tools.lefthook."platforms.linux-x64"]
-checksum = "sha256:2b8d7fd52771f26d7a50260ef10cd6fe704d66f60102e566362b84da09884ab7"
-url = "https://github.com/evilmartians/lefthook/releases/download/v2.2.2/lefthook_2.2.2_Linux_x86_64.gz"
-url_api = "https://api.github.com/repos/evilmartians/lefthook/releases/assets/636518865"
+checksum = "sha256:f25a53b1991c2727aa2819fdd7a4b9798fc0c210d1e1a92f035be8f346cec9fb"
+url = "https://github.com/evilmartians/lefthook/releases/download/v2.2.3/lefthook_2.2.3_Linux_x86_64.gz"
+url_api = "https://api.github.com/repos/evilmartians/lefthook/releases/assets/786728948"
 provenance = "github-attestations"
 
 [[tools.shellcheck]]
@@ -220,12 +220,12 @@ url_api = "https://api.github.com/repos/mikefarah/yq/releases/assets/726219936"
 provenance = "cosign"
 
 [[tools.zizmor]]
-version = "1.32.0"
+version = "1.33.1"
 backend = "aqua:zizmorcore/zizmor"
-specifiers = ["1.32.0"]
+specifiers = ["1.33.1"]
 
 [tools.zizmor."platforms.linux-x64"]
-checksum = "sha256:bb110cc765eca9cd7efb2e284a956be5974c60027b0970f16397d86208a9957b"
-url = "https://github.com/zizmorcore/zizmor/releases/download/v1.32.0/zizmor-x86_64-unknown-linux-gnu.tar.gz"
-url_api = "https://api.github.com/repos/zizmorcore/zizmor/releases/assets/703541932"
+checksum = "sha256:3e6a301c7a820a2501915f5a9de8c0486da82bdec7965f068477538a98743d43"
+url = "https://github.com/zizmorcore/zizmor/releases/download/v1.33.1/zizmor-x86_64-unknown-linux-gnu.tar.gz"
+url_api = "https://api.github.com/repos/zizmorcore/zizmor/releases/assets/780655958"
 provenance = "github-attestations"

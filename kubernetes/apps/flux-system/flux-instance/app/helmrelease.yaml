@@ -29,9 +29,6 @@ spec:
           - # Decrypt SOPS secrets and add defaults for all child Kustomizations
             patch: |-
               - op: add
-                path: /spec/components
-                value: "../../../../components/common"
-              - op: add
                 path: /spec/decryption
                 value:
                   provider: sops
@@ -42,9 +39,6 @@ spec:
                 path: /spec/patches
                 value:
                   - patch: |-
-                      - op: add
-                        path: /spec/components
-                        value: "../../../../components/common"
                       - op: add
                         path: /spec/decryption
                         value:
